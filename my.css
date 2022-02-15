@@ -1,0 +1,35 @@
+<style>
+
+body {
+  background: black;
+}
+
+.title {
+  font-size: 1.25em;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.row {
+  display: table-row;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.info {
+}
+
+/*
+.row .info:nth-of-type(1), .row .info:nth-of-type(2) {
+    width: calc(100% / 3);
+}
+*/
+
+</style>
