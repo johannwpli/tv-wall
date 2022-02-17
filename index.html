@@ -1,59 +1,54 @@
 <html>
-
   <head>
     <title>TV Wall</title>
-    <link href="my.css" rel="stylesheet">
+    <link href="c.css" rel="stylesheet">
   </head>
-
   <body>
-
-  <form name="wall" onsubmit="return false">
-    <div>
-      <div class="table title" id="">
-        <div class="row">
-          <div class="cell left">
-            <label>TV Wall</label>
+    <form name="wall" onsubmit="return false">
+      <div>
+        <div class="table title" id="">
+          <div class="row">
+            <div class="cell left">
+              <label>TV Wall</label>
+            </div>
+            <div class="cell right">
+              <label>menu<span style="color: red">*</span></label>
+              <label><input type="radio" name="list" value="world" required checked />World</label>
+              <label><input type="radio" name="list" value="taiwan" />Taiwan</label>
+              <label><input type="radio" name="list" value="hsin" />Hsin</label>
+            </div>
           </div>
-          <div class="cell right">
-            <label>menu<span style="color: red">*</span></label>
-            <label><input type="radio" name="list" value="world" required checked />World</label>
-            <label><input type="radio" name="list" value="taiwan" />Taiwan</label>
-            <label><input type="radio" name="list" value="empty" />Empty</label>
+          <div class="row">
+            <div class="cell">
+              <hr>
+            </div>
+            <div class="cell">
+              <hr>
+            </div>
           </div>
         </div>
-        <div class="row">
-          <div class="cell">
-            <hr>
+        <!-- begin of tv -->
+        <div class="table" id="">
+          <div class="row">
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
           </div>
-          <div class="cell">
-            <hr>
+          <div class="row">
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
+          </div>
+          <div class="row">
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
+            <div class="cell tv"></div>
           </div>
         </div>
+        <!-- end of table -->
       </div>
-      <!-- begin of tv -->
-      <div class="table" id="">
-        <div class="row">
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-        </div>
-        <div class="row">
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-        </div>
-        <div class="row">
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-          <div class="cell tv"></div>
-        </div>
-      </div>
-      <!-- end of table -->
-    </div>
-  </form>
-
-    <script src="my.js"></script>
-
+    </form>
+  
+    <script src="j.js"></script>
   </body>
-
 </html>
