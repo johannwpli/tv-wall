@@ -1,6 +1,7 @@
-/* check radio before play */
+let
+    /* get radio */
 
-let radio = document.wall.list,
+    radio = document.wall.list,
     prev = null,
     
     checkRadio = function() {
@@ -15,6 +16,8 @@ let radio = document.wall.list,
         i.addEventListener('change', checkRadio)
       }
     },
+
+    /* set tv */
 
     widthDiff = 9,
     heightDiff = 69,
@@ -53,33 +56,19 @@ let radio = document.wall.list,
 
     tvSrc = 'https://www.youtube-nocookie.com/embed/',
 
-    tvSrc0 = tvSrc + '-upyPouRrB8',
-    tvSrc1 = tvSrc + 'w_Ma8oQLmSM',
-    tvSrc2 = tvSrc + 'XWq5kBlakcQ',
+    /* set wall */
 
-    tvSrc3 = tvSrc + 'V9KZGs1MtP4',
-    tvSrc4 = tvSrc + 'sPgqEHsONK8',
-    tvSrc5 = tvSrc + 'jNhh-OLzWlE',
-
-    tvSrc6 = tvSrc + 'V0I5eglJMRI',
-    tvSrc7 = tvSrc + '9Auq9mYxFEE',
-    tvSrc8 = tvSrc + 'CV5Fooi8YJA',
+    tvSrc0 = tvSrc + '-upyPouRrB8', tvSrc1 = tvSrc + 'w_Ma8oQLmSM', tvSrc2 = tvSrc + 'XWq5kBlakcQ', 
+    tvSrc3 = tvSrc + 'V9KZGs1MtP4', tvSrc4 = tvSrc + 'sPgqEHsONK8', tvSrc5 = tvSrc + 'jNhh-OLzWlE', 
+    tvSrc6 = tvSrc + 'V0I5eglJMRI', tvSrc7 = tvSrc + '9Auq9mYxFEE', tvSrc8 = tvSrc + 'CV5Fooi8YJA',
 
     tvSrcArr0 = [tvSrc0,tvSrc1,tvSrc2,
                  tvSrc3,tvSrc4,tvSrc5,
                  tvSrc6,tvSrc7,tvSrc8],
 
-    tvSrcA = tvSrc + 'wM0g8EoUZ_E',
-    tvSrcB = tvSrc + 'TCnaIE_SAtM',
-    tvSrcC = tvSrc + 'R2iMq5LKXco',
-
-    tvSrcD = tvSrc + 'XGEmg3vhrzU',
-    tvSrcE = tvSrc + 'JAzRXylm3M0',
-    tvSrcF = tvSrc + 'FoBfXvlOR6I',
-
-    tvSrcG = tvSrc + 'CKjSm5ZeehE',
-    tvSrcH = tvSrc + 'xL0ch83RAK8',
-    tvSrcI = tvSrc + '2mCSYvcfhtc',
+    tvSrcA = tvSrc + 'wM0g8EoUZ_E', tvSrcB = tvSrc + 'TCnaIE_SAtM', tvSrcC = tvSrc + 'R2iMq5LKXco', 
+    tvSrcD = tvSrc + 'XGEmg3vhrzU', tvSrcE = tvSrc + 'JAzRXylm3M0', tvSrcF = tvSrc + 'FoBfXvlOR6I', 
+    tvSrcG = tvSrc + 'CKjSm5ZeehE', tvSrcH = tvSrc + 'xL0ch83RAK8', tvSrcI = tvSrc + '2mCSYvcfhtc',
 
     tvSrcArr1 = [tvSrcA,tvSrcB,tvSrcC,
                  tvSrcD,tvSrcE,tvSrcF,
@@ -113,6 +102,8 @@ let radio = document.wall.list,
         }
       )
     },
+
+    /* set tv size*/
 
     windowResize = () => {
       window.addEventListener('resize',
