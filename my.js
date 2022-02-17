@@ -1,98 +1,134 @@
-let widthDiff = 8,
-    heightDiff = 68,
+/* check radio before play */
+
+let radio = document.wall.list,
+    prev = null,
+    
+    checkRadio = function() {
+      prev ? console.log(prev.value) : null
+      this !== prev ? prev = this : null
+      console.log(this.value)
+      setWall()
+    },
+
+    changeRadio = () => {
+      for (let i of radio) {
+        i.addEventListener('change', checkRadio)
+      }
+    },
+
+    widthDiff = 9,
+    heightDiff = 69,
     width,
     height,
-    frameWidth,
-    frameHeight,
+    tvWidth,
+    tvHeight,
 
-    frameSize = () => {
+    tvSize = () => {
       width = window.innerWidth - widthDiff,
       height = window.innerHeight - heightDiff,
 
-      frameWidth = width / 3,
-      frameHeight = height / 3
+      tvWidth = width / 3,
+      tvHeight = height / 3
 
       /*
-      if (frameWidth < 320 || frameHeight < 240) {
-        frameWidth = 320
-        frameHeight = 240
+      if (tvWidth < 320 || tvHeight < 240) {
+        tvWidth = 320
+        tvHeight = 240
       }
 
-      else if (frameWidth < 480 || frameHeight < 360) {
-        frameWidth = 480
-        frameHeight = 360
+      else if (tvWidth < 480 || tvHeight < 360) {
+        tvWidth = 480
+        tvHeight = 360
       }
       */
 
-      //console.log(frameWidth, frameHeight)
+      //console.log(tvWidth, tvHeight)
     },
 
-    frameTitle = 'YouTube video player',
-    frameBorder = '0',
-    frameAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
-    frameAllowfullscreen = '',
+    tvTitle = 'YouTube video player',
+    tvBorder = '0',
+    tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
+    tvAllowfullscreen = '',
+    tvSrcArr,
 
-    frameSrc = 'https://www.youtube-nocookie.com/embed/',
+    tvSrc = 'https://www.youtube-nocookie.com/embed/',
 
-    frameSrc0 = frameSrc + '-upyPouRrB8',
-    frameSrc1 = frameSrc + 'w_Ma8oQLmSM',
-    frameSrc2 = frameSrc + 'XWq5kBlakcQ',
+    tvSrc0 = tvSrc + '-upyPouRrB8',
+    tvSrc1 = tvSrc + 'w_Ma8oQLmSM',
+    tvSrc2 = tvSrc + 'XWq5kBlakcQ',
 
-    frameSrc3 = frameSrc + 'V9KZGs1MtP4',
-    frameSrc4 = frameSrc + 'sPgqEHsONK8',
-    frameSrc5 = frameSrc + 'jNhh-OLzWlE',
+    tvSrc3 = tvSrc + 'V9KZGs1MtP4',
+    tvSrc4 = tvSrc + 'sPgqEHsONK8',
+    tvSrc5 = tvSrc + 'jNhh-OLzWlE',
 
-    frameSrc6 = frameSrc + 'V0I5eglJMRI',
-    frameSrc7 = frameSrc + '9Auq9mYxFEE',
-    frameSrc8 = frameSrc + 'CV5Fooi8YJA',
+    tvSrc6 = tvSrc + 'V0I5eglJMRI',
+    tvSrc7 = tvSrc + '9Auq9mYxFEE',
+    tvSrc8 = tvSrc + 'CV5Fooi8YJA',
 
-    frameSrcArr = [frameSrc0,frameSrc1,frameSrc2,
-                   frameSrc3,frameSrc4,frameSrc5,
-                   frameSrc6,frameSrc7,frameSrc8],
+    tvSrcArr0 = [tvSrc0,tvSrc1,tvSrc2,
+                 tvSrc3,tvSrc4,tvSrc5,
+                 tvSrc6,tvSrc7,tvSrc8],
 
-    setIframe = () => {
-      frameSize()
+    tvSrcA = tvSrc + 'wM0g8EoUZ_E',
+    tvSrcB = tvSrc + 'TCnaIE_SAtM',
+    tvSrcC = tvSrc + 'R2iMq5LKXco',
 
-      document.querySelectorAll('.cell').forEach(
+    tvSrcD = tvSrc + 'XGEmg3vhrzU',
+    tvSrcE = tvSrc + 'JAzRXylm3M0',
+    tvSrcF = tvSrc + 'FoBfXvlOR6I',
+
+    tvSrcG = tvSrc + 'CKjSm5ZeehE',
+    tvSrcH = tvSrc + 'xL0ch83RAK8',
+    tvSrcI = tvSrc + '2mCSYvcfhtc',
+
+    tvSrcArr1 = [tvSrcA,tvSrcB,tvSrcC,
+                 tvSrcD,tvSrcE,tvSrcF,
+                 tvSrcG,tvSrcH,tvSrcI],
+
+    tvSrcArr2 = [,,,
+                 tvSrcD,,tvSrc5,
+                 ,,],
+
+    setWall = () => {
+      tvSize()
+
+      document.querySelectorAll('.tv').forEach(
         (e,i) => {
+          e.innerHTML = ''
+
+          tvSrcArr =
+            !prev || prev.value === 'world' ? tvSrcArr0
+            : prev.value === 'taiwan' ? tvSrcArr1
+            : tvSrcArr2
+
           e.insertAdjacentHTML('beforeEnd', `<iframe
-            width='${frameWidth}'
-            height='${frameHeight}'
-            title='${frameTitle}'
-            frameborder='${frameBorder}'
-            allow='${frameAllow}'
-            allowfullscreen='${frameAllowfullscreen}'
-            src='${frameSrcArr[i]}'
+            width='${tvWidth}'
+            height='${tvHeight}'
+            title='${tvTitle}'
+            frameborder='${tvBorder}'
+            allow='${tvAllow}'
+            allowfullscreen='${tvAllowfullscreen}'
+            src='${tvSrcArr[i]}'
           ></iframe>`)
         }
       )
+    },
 
-      /*
-      document.querySelectorAll('iframe').forEach(
-        (e,i) => {
-          e.setAttribute('width', frameWidth)
-          e.setAttribute('height', frameHeight)
-          e.setAttribute('title', frameTitle)
-          e.setAttribute('frameborder', frameBorder)
-          e.setAttribute('allow', frameAllow)
-          e.setAttribute('allowfullscreen', frameAllowfullscreen)
-          e.setAttribute('src', frameSrcArr[i])
+    windowResize = () => {
+      window.addEventListener('resize',
+        () => {
+          tvSize()
+
+          document.querySelectorAll('iframe').forEach(
+            (e) => {
+              e.setAttribute('width', tvWidth)
+              e.setAttribute('height', tvHeight)
+            }
+          )
         }
       )
-      */
     }
-    
-window.addEventListener('resize',
-  () => {
-    frameSize()
 
-    document.querySelectorAll('iframe').forEach(
-      (e) => {
-        e.setAttribute('width', frameWidth)
-        e.setAttribute('height', frameHeight)
-      }
-    )
-  }
-)
-
-setIframe()
+changeRadio()
+setWall()
+windowResize()
