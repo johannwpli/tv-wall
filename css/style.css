@@ -9,10 +9,6 @@ body {
   width: 100%;
 }
 
-.title {
-  font-size: 1.25em;
-}
-
 .row {
   display: table-row;
 }
@@ -23,11 +19,12 @@ body {
   text-align: center;
 }
 
-.cell.left {
+.title {
+  font-size: 1.25em;
   text-align: left;
 }
 
-.cell.right {
+.menu {
   width: 75%;
   text-align: right;
 }

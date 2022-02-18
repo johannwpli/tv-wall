@@ -1,17 +1,25 @@
 <html>
   <head>
-    <title>TV Wall</title>
-    <link href="c.css" rel="stylesheet">
+    <meta name="description" content="Johann's web app shows 9 YouTube videos at a time to pick your fave and save time wasted on switching pages.">
+
+    <title>TV Wall - a great solution to pick your fave YouTube video</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
   </head>
+
   <body>
     <form name="wall" onsubmit="return false">
       <div>
-        <div class="table title" id="">
+        <div class="table">
           <div class="row">
-            <div class="cell left">
+            <div class="cell title">
               <label>TV Wall</label>
             </div>
-            <div class="cell right">
+            <div class="cell menu">
               <label>menu<span style="color: red">*</span></label>
               <label><input type="radio" name="list" value="world" required checked />World</label>
               <label><input type="radio" name="list" value="taiwan" />Taiwan</label>
@@ -27,8 +35,8 @@
             </div>
           </div>
         </div>
-        <!-- begin of tv -->
-        <div class="table" id="">
+        <!-- begin of tv wall -->
+        <div class="table">
           <div class="row">
             <div class="cell tv"></div>
             <div class="cell tv"></div>
@@ -45,10 +53,10 @@
             <div class="cell tv"></div>
           </div>
         </div>
-        <!-- end of table -->
+        <!-- end of tv wall -->
       </div>
     </form>
   
-    <script src="j.js"></script>
+    <script src="js/tv-wall.js"></script>
   </body>
 </html>
