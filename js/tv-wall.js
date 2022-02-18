@@ -1,7 +1,8 @@
 /*
-Author  Johann Li
-Source  https://github.com/johannwpli/
-Website https://johann.li/
+Author   Johann Li
+LinkedIn https://www.linkedin.com/in/johannwpli/
+GitHub   https://github.com/johannwpli/
+Website  https://johann.li/
 */
 
 let
