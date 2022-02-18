@@ -83,13 +83,26 @@ let
     tvSrca = 'fHo4cmOembI', tvSrcb = '9zIbGCdWIh4', tvSrcc = 'B1fUWSGvlsU',
     tvSrcd = 's2RQuTTn7os', tvSrce = 'n-BMA_a8nM4', tvSrcf = 'ZJ6ZUj8R5uQ', 
     tvSrcg = 'FHL-o1CJOnY', tvSrch = 'FCOtL6RFN4Y', tvSrci = '2bCDBwyEhkc',
+    tvSrcj = '50sSQrHMeWM', tvSrck = 'zs98k8eCrGU',
 
     tvSrcArr2 = [tvSrca,tvSrcb,tvSrcc,
                  tvSrcd,tvSrce,tvSrcf,
-                 tvSrcg,tvSrch,tvSrci],
+                 tvSrcg,tvSrch,tvSrci,
+                 tvSrcj,tvSrck],
+
+    /* shuffle array with Fisher-Yates algo */
+
+    shuffle = (arr) => {
+      for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+    }
 
     setWall = () => {
       tvSize()
+
+      shuffle(tvSrcArr2)
 
       document.querySelectorAll('.tv').forEach(
         (e,i) => {
