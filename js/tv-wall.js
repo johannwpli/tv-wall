@@ -11,9 +11,9 @@ let
     prev = null,
     
     checkRadio = function() {
-      prev ? console.log(prev.value) : null
+      //prev ? console.log(prev.value) : null
       this !== prev ? prev = this : null
-      console.log(this.value)
+      //console.log(this.value)
       setWall()
     },
 
@@ -104,14 +104,14 @@ let
 
       shuffle(tvSrcArr2)
 
+      tvSrcArr =
+        !prev || prev.value === 'world' ? tvSrcArr0
+        : prev.value === 'taiwan' ? tvSrcArr1
+        : tvSrcArr2
+
       document.querySelectorAll('.tv').forEach(
         (e,i) => {
           e.innerHTML = ''
-
-          tvSrcArr =
-            !prev || prev.value === 'world' ? tvSrcArr0
-            : prev.value === 'taiwan' ? tvSrcArr1
-            : tvSrcArr2
 
           e.insertAdjacentHTML('beforeEnd', `<iframe
             width='${tvWidth}'
