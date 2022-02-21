@@ -3,7 +3,21 @@
    GitHub   https://github.com/johannwpli/            
    Website  https://johann.li/                      */
 
-let tvTitle = 'YouTube video player',
+let /* set tv */
+
+    widthDiff = 16,
+    heightDiff = 66,
+    width,
+    height,
+
+    tvAllNumber,
+    tvRowNumber,
+    tvColNumber,
+
+    tvWidth,
+    tvHeight,
+
+    tvTitle = 'YouTube video player',
     tvBorder = '0',
     tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
     tvAllowfullscreen = '',

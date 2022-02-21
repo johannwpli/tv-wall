@@ -3,8 +3,7 @@
    GitHub   https://github.com/johannwpli/            
    Website  https://johann.li/                      */
 
-let
-    /* get layoutRadio */
+let /* get layoutRadio */
 
     layoutRadio = document.wall.layout,
     layoutPrev = null,
@@ -41,24 +40,18 @@ let
       }
     },
 
-    /* set tv */
-
-    widthDiff = 16,
-    heightDiff = 66,
-    width,
-    height,
-
-    tvAllNumber = 9,
-    tvRowNumber,
-    tvColNumber,
-
-    tvWidth,
-    tvHeight,
-
     tvLayout = () => {
-      tvAllNumber = document.wall.layout.value,
-      tvRowNumber = Math.sqrt(tvAllNumber),
-      tvColNumber = Math.sqrt(tvAllNumber)
+      tvAllNumber = document.wall.layout.value || 9,
+
+      tvRowNumber =
+        parseInt(tvAllNumber) === 6 ? 2
+        : Math.sqrt(tvAllNumber)
+
+      tvColNumber = tvAllNumber / tvRowNumber
+
+      //console.log('tvAllNumber: ', tvAllNumber)
+      //console.log('tvRowNumber: ', tvRowNumber)
+      //console.log('tvColNumber: ', tvColNumber)
     },
 
     tvSize = () => {
