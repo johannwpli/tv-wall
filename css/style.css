@@ -17,23 +17,21 @@ body {
 
 .cell {
   display: table-cell;
+  max-width: calc(100% / 3);
   vertical-align: middle;
   text-align: center;
 }
 
 .title {
-  width: calc(100% / 3);
   font-weight: 700;
   text-align: left;
 }
 
 .layout {
-  width: calc(100% / 3);
   text-align: center;
 }
 
 .menu {
-  width: calc(100% / 3);
   text-align: right;
 }
 
