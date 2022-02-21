@@ -1,7 +1,9 @@
 <style>
 
 body {
-  background: black;
+  margin: 0;
+  padding: 0;
+  background: white;
 }
 
 .table {
@@ -20,13 +22,20 @@ body {
 }
 
 .title {
+  /*
   font-size: 1.25em;
+  */
+  font-weight: 700;
   text-align: left;
 }
 
 .menu {
   width: 75%;
   text-align: right;
+}
+
+.tv {
+  background: black;
 }
 
 </style>

@@ -26,8 +26,8 @@ let
 
     /* set tv */
 
-    widthDiff = 9,
-    heightDiff = 69,
+    widthDiff = 16,
+    heightDiff = 66,
     width,
     height,
     tvWidth,
