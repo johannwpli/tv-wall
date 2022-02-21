@@ -24,11 +24,19 @@
             <div class="cell title">
               <label>TV Wall</label>
             </div>
+            <div class="cell layout">
+              <label>layout<span style="color: red">*</span></label>
+              <label><input type="radio" name="layout" value="4" />4</label>
+              <!--
+              <label><input type="radio" name="layout" value="6" />6</label>
+              //-->
+              <label><input type="radio" name="layout" value="9" required checked />9</label>
+            </div>
             <div class="cell menu">
               <label>menu<span style="color: red">*</span></label>
-              <label><input type="radio" name="list" value="world" required checked />World</label>
-              <label><input type="radio" name="list" value="taiwan" />Taiwan</label>
-              <label><input type="radio" name="list" value="hsin" />Hsin's</label>
+              <label><input type="radio" name="menu" value="world" required checked />World</label>
+              <label><input type="radio" name="menu" value="taiwan" />Taiwan</label>
+              <label><input type="radio" name="menu" value="hsin" />Hsin's</label>
             </div>
           </div>
           <div class="row">
@@ -41,27 +49,13 @@
           </div>
         </div>
         <!-- begin of tv wall -->
-        <div class="table">
-          <div class="row">
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-          </div>
-          <div class="row">
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-          </div>
-          <div class="row">
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-            <div class="cell tv"></div>
-          </div>
+        <div id="wall" class="table">
         </div>
         <!-- end of tv wall -->
       </div>
     </form>
   
+    <script src="js/tv-config.js"></script>
     <script src="js/tv-wall.js"></script>
   </body>
 </html>

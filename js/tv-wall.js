@@ -1,26 +1,43 @@
-/*
-Author   Johann Li
-LinkedIn https://www.linkedin.com/in/johannwpli/
-GitHub   https://github.com/johannwpli/
-Website  https://johann.li/
-*/
+/* Author   Johann Li                                 
+   LinkedIn https://www.linkedin.com/in/johannwpli/   
+   GitHub   https://github.com/johannwpli/            
+   Website  https://johann.li/                      */
 
 let
-    /* get radio */
+    /* get layoutRadio */
 
-    radio = document.wall.list,
-    prev = null,
+    layoutRadio = document.wall.layout,
+    layoutPrev = null,
     
-    checkRadio = function() {
-      //prev ? console.log(prev.value) : null
-      this !== prev ? prev = this : null
+    changeLayoutRadio = function() {
+      //layoutPrev ? console.log(layoutPrev.value) : null
+      this !== layoutPrev ? layoutPrev = this : null
       //console.log(this.value)
       setWall()
+      setTv()
     },
 
-    changeRadio = () => {
-      for (let i of radio) {
-        i.addEventListener('change', checkRadio)
+    listenLayoutRadio = () => {
+      for (let i of layoutRadio) {
+        i.addEventListener('change', changeLayoutRadio)
+      }
+    },
+
+    /* get menuRadio */
+
+    menuRadio = document.wall.menu,
+    menuPrev = null,
+    
+    changeMenuRadio = function() {
+      //menuPrev ? console.log(menuPrev.value) : null
+      this !== menuPrev ? menuPrev = this : null
+      //console.log(this.value)
+      setTv()
+    },
+
+    listenMenuRadio = () => {
+      for (let i of menuRadio) {
+        i.addEventListener('change', changeMenuRadio)
       }
     },
 
@@ -30,87 +47,73 @@ let
     heightDiff = 66,
     width,
     height,
+
+    tvAllNumber = 9,
+    tvRowNumber,
+    tvColNumber,
+
     tvWidth,
     tvHeight,
+
+    tvLayout = () => {
+      tvAllNumber = document.wall.layout.value,
+      tvRowNumber = Math.sqrt(tvAllNumber),
+      tvColNumber = Math.sqrt(tvAllNumber)
+    },
 
     tvSize = () => {
       width = window.innerWidth - widthDiff,
       height = window.innerHeight - heightDiff,
 
-      tvWidth = width / 3,
-      tvHeight = height / 3
-
-      /*
-      if (tvWidth < 320 || tvHeight < 240) {
-        tvWidth = 320
-        tvHeight = 240
-      }
-
-      else if (tvWidth < 480 || tvHeight < 360) {
-        tvWidth = 480
-        tvHeight = 360
-      }
-      */
+      tvWidth = width / tvColNumber,
+      tvHeight = height / tvRowNumber
 
       //console.log(tvWidth, tvHeight)
     },
 
-    tvTitle = 'YouTube video player',
-    tvBorder = '0',
-    tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
-    tvAllowfullscreen = '',
-    tvSrcArr,
-
-    tvSrc = 'https://www.youtube-nocookie.com/embed/',
-
-    /* set wall with YouTube Video ID */
-
-    tvSrc0 = '-upyPouRrB8', tvSrc1 = 'w_Ma8oQLmSM', tvSrc2 = 'XWq5kBlakcQ', 
-    tvSrc3 = 'V9KZGs1MtP4', tvSrc4 = 'sPgqEHsONK8', tvSrc5 = 'jNhh-OLzWlE', 
-    tvSrc6 = 'V0I5eglJMRI', tvSrc7 = '9Auq9mYxFEE', tvSrc8 = 'CV5Fooi8YJA',
-
-    tvSrcArr0 = [tvSrc0,tvSrc1,tvSrc2,
-                 tvSrc3,tvSrc4,tvSrc5,
-                 tvSrc6,tvSrc7,tvSrc8],
-
-    tvSrcA = 'wM0g8EoUZ_E', tvSrcB = 'TCnaIE_SAtM', tvSrcC = 'R2iMq5LKXco', 
-    tvSrcD = 'XGEmg3vhrzU', tvSrcE = 'JAzRXylm3M0', tvSrcF = 'FoBfXvlOR6I', 
-    tvSrcG = 'CKjSm5ZeehE', tvSrcH = 'xL0ch83RAK8', tvSrcI = '2mCSYvcfhtc',
-
-    tvSrcArr1 = [tvSrcA,tvSrcB,tvSrcC,
-                 tvSrcD,tvSrcE,tvSrcF,
-                 tvSrcG,tvSrcH,tvSrcI],
-
-    tvSrca = 'fHo4cmOembI', tvSrcb = '9zIbGCdWIh4', tvSrcc = 'B1fUWSGvlsU',
-    tvSrcd = 's2RQuTTn7os', tvSrce = 'n-BMA_a8nM4', tvSrcf = 'ZJ6ZUj8R5uQ', 
-    tvSrcg = 'FHL-o1CJOnY', tvSrch = 'FCOtL6RFN4Y', tvSrci = '2bCDBwyEhkc',
-    tvSrcj = '50sSQrHMeWM', tvSrck = 'zs98k8eCrGU',
-
-    tvSrcArr2 = [tvSrca,tvSrcb,tvSrcc,
-                 tvSrcd,tvSrce,tvSrcf,
-                 tvSrcg,tvSrch,tvSrci,
-                 tvSrcj,tvSrck],
-
-    /* shuffle array with Fisher-Yates algo */
+    /* shuffle array with Fisher-Yates algo          
+       https://shubo.io/javascript-random-shuffle/ */
 
     shuffle = (arr) => {
       for (let i = arr.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+        [arr[i], arr[j]] = [arr[j], arr[i]]
       }
-    }
+    },
 
     setWall = () => {
+      tvLayout()
+
+      document.querySelector('#wall').innerHTML = ''
+
+      for (let i = 0; i < tvRowNumber; i++) {
+        document.querySelector('#wall')
+          .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+      }
+
+      document.querySelectorAll('#wall .row').forEach(
+        (e,i) => {
+          for (let i = 0; i < tvColNumber; i++) {
+            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
+          }
+        }
+      )
+    },
+
+    setTv = () => {
       tvSize()
 
-      shuffle(tvSrcArr2)
-
       tvSrcArr =
-        !prev || prev.value === 'world' ? tvSrcArr0
-        : prev.value === 'taiwan' ? tvSrcArr1
+        !menuPrev || menuPrev.value === 'world' ? tvSrcArr0
+        : menuPrev.value === 'taiwan' ? tvSrcArr1
         : tvSrcArr2
 
-      document.querySelectorAll('.tv').forEach(
+      if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
+
+      //console.log('TV Array Length: ', tvSrcArr.length)
+      //console.log('TV All Number: ', tvAllNumber)
+
+      document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
           e.innerHTML = ''
 
@@ -129,7 +132,7 @@ let
 
     /* set tv size*/
 
-    windowResize = () => {
+    listenWindowResize = () => {
       window.addEventListener('resize',
         () => {
           tvSize()
@@ -144,6 +147,8 @@ let
       )
     }
 
-changeRadio()
+listenLayoutRadio()
+listenMenuRadio()
+listenWindowResize()
 setWall()
-windowResize()
+setTv()
