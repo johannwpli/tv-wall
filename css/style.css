@@ -40,7 +40,7 @@ body {
 
 input[type=radio] {
   border: 2px solid white;
-  box-shadow: 0 0 0 1px #329;
+  box-shadow: 0 0 0 1px #000;
   appearance: none;
   border-radius: 50%;
   width: 12px;
@@ -50,7 +50,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-  background-color: #329;
+  background-color: #000;
 }
 
 </style>

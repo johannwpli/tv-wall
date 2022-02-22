@@ -41,18 +41,22 @@ let /* get layoutRadio */
     },
 
     tvLayout = () => {
+      console.log('width: ', width)
+      console.log('height: ', height)
+
       tvAllNumber = layoutRadio.value,
 
       tvRowNumber =
-        !layoutPrev || tvAllNumber === '6' ? 2
+        !layoutPrev || tvAllNumber === '6' && width >= height ? 2
+        : !layoutPrev || tvAllNumber === '6' && width < height ? 3
         : tvAllNumber === '12' ? 3
         : Math.sqrt(tvAllNumber)
 
       tvColNumber = tvAllNumber / tvRowNumber
 
-      //console.log('tvAllNumber: ', tvAllNumber)
-      //console.log('tvRowNumber: ', tvRowNumber)
-      //console.log('tvColNumber: ', tvColNumber)
+      console.log('tvAllNumber: ', tvAllNumber)
+      console.log('tvRowNumber: ', tvRowNumber)
+      console.log('tvColNumber: ', tvColNumber)
     },
 
     tvSize = () => {
@@ -141,8 +145,19 @@ let /* get layoutRadio */
       )
     }
 
+    listenOrientationChange = () => {
+      window.addEventListener('orientationchange',
+        () => {
+          console.log('Change')
+          //setWall()
+          //setTv()
+        }
+      )
+    }
+
 listenLayoutRadio()
 listenMenuRadio()
 listenWindowResize()
+listenOrientationChange()
 setWall()
 setTv()
