@@ -41,10 +41,11 @@ let /* get layoutRadio */
     },
 
     tvLayout = () => {
-      tvAllNumber = document.wall.layout.value || 9,
+      tvAllNumber = layoutRadio.value,
 
       tvRowNumber =
-        parseInt(tvAllNumber) === 6 ? 2
+        !layoutPrev || tvAllNumber === '6' ? 2
+        : tvAllNumber === '12' ? 3
         : Math.sqrt(tvAllNumber)
 
       tvColNumber = tvAllNumber / tvRowNumber
