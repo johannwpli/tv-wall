@@ -8,7 +8,7 @@ let /* get layoutRadio */
     layoutRadio = document.wall.layout,
     layoutPrev = null,
     
-    changeLayoutRadio = function() {
+    changeLayoutRadio = () => {
       //layoutPrev ? console.log(layoutPrev.value) : null
       this !== layoutPrev ? layoutPrev = this : null
       //console.log(this.value)
@@ -44,7 +44,7 @@ let /* get layoutRadio */
       console.log('width: ', width)
       console.log('height: ', height)
 
-      tvAllNumber = layoutRadio.value,
+      tvAllNumber = layoutRadio.value
 
       tvRowNumber =
         !layoutPrev || tvAllNumber === '6' && width >= height ? 2
@@ -54,16 +54,17 @@ let /* get layoutRadio */
 
       tvColNumber = tvAllNumber / tvRowNumber
 
+      console.log('layoutPrev: ', layoutPrev)
       console.log('tvAllNumber: ', tvAllNumber)
       console.log('tvRowNumber: ', tvRowNumber)
       console.log('tvColNumber: ', tvColNumber)
     },
 
     tvSize = () => {
-      width = window.innerWidth - widthDiff,
-      height = window.innerHeight - heightDiff,
+      width = window.innerWidth - widthDiff
+      height = window.innerHeight - heightDiff
 
-      tvWidth = width / tvColNumber,
+      tvWidth = width / tvColNumber
       tvHeight = height / tvRowNumber
 
       //console.log(tvWidth, tvHeight)
@@ -145,19 +146,21 @@ let /* get layoutRadio */
       )
     }
 
+    /*
     listenOrientationChange = () => {
       window.addEventListener('orientationchange',
         () => {
           console.log('Change')
-          //setWall()
-          //setTv()
+          setWall()
+          setTv()
         }
       )
     }
+    */
 
 listenLayoutRadio()
 listenMenuRadio()
 listenWindowResize()
-listenOrientationChange()
+//listenOrientationChange()
 setWall()
 setTv()

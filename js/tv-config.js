@@ -7,8 +7,6 @@ let /* set tv */
 
     widthDiff = 16,
     heightDiff = 66,
-    width,
-    height,
 
     tvAllNumber,
     tvRowNumber,
