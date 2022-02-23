@@ -8,6 +8,9 @@ let /* set tv */
     widthDiff = 16,
     heightDiff = 66,
 
+    width = window.innerWidth - widthDiff,
+    height = window.innerHeight - heightDiff,
+
     tvAllNumber,
     tvRowNumber,
     tvColNumber,
