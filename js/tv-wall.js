@@ -46,18 +46,24 @@ let /* get layoutRadio */
 
       tvAllNumber = layoutRadio.value
 
+      /*
       tvRowNumber =
         !layoutPrev || tvAllNumber === '6' && width >= height ? 2
         : !layoutPrev || tvAllNumber === '6' && width < height ? 3
         : tvAllNumber === '12' ? 3
         : Math.sqrt(tvAllNumber)
+      */
+
+      tvRowNumber = width >= height
+        ? Math.floor(Math.sqrt(tvAllNumber)) // 9:3, 6:2, 4:2
+        : Math.ceil(Math.sqrt(tvAllNumber)) // 9:3, 6:3, 4:2
 
       tvColNumber = tvAllNumber / tvRowNumber
 
       //console.log('layoutPrev: ', layoutPrev)
-      //console.log('tvAllNumber: ', tvAllNumber)
-      //console.log('tvRowNumber: ', tvRowNumber)
-      //console.log('tvColNumber: ', tvColNumber)
+      console.log('tvAllNumber: ', tvAllNumber)
+      console.log('tvRowNumber: ', tvRowNumber)
+      console.log('tvColNumber: ', tvColNumber)
     },
 
     tvSize = () => {
