@@ -7,6 +7,26 @@ body {
   overflow: hidden;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+input[type=radio] {
+  border: 2px solid white;
+  box-shadow: 0 0 0 1px #000;
+  appearance: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  transition: all .2s ease-in-out;
+}
+
+input[type=radio]:checked {
+  background-color: #000;
+}
+
 .table {
   display: table;
   width: 100%;
@@ -39,19 +59,10 @@ body {
   background: black;
 }
 
-input[type=radio] {
-  border: 2px solid white;
-  box-shadow: 0 0 0 1px #000;
-  appearance: none;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  transition: all .2s ease-in-out;
-}
-
-input[type=radio]:checked {
-  background-color: #000;
+@media (max-width: 480px) {
+  .more {
+    display: none;
+  }
 }
 
 </style>
