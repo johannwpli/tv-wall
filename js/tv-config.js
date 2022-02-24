@@ -12,6 +12,7 @@ let /* set tv */
     height = window.innerHeight - heightDiff,
 
     tvAllNumber,
+    tvShortNumber,
     tvRowNumber,
     tvColNumber,
 

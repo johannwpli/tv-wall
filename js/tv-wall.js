@@ -54,11 +54,18 @@ let /* get layoutRadio */
         : Math.sqrt(tvAllNumber)
       */
 
+      /*
       tvRowNumber = width >= height
-        ? Math.floor(Math.sqrt(tvAllNumber)) // 9:3, 6:2, 4:2
-        : Math.ceil(Math.sqrt(tvAllNumber)) // 9:3, 6:3, 4:2
+        ? Math.floor(Math.sqrt(tvAllNumber)) // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
+        : Math.ceil(Math.sqrt(tvAllNumber))  // 12:4, 9:3, 8:3, 6:3, 4:2, 2:2
+      */
 
-      tvColNumber = tvAllNumber / tvRowNumber
+      tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
+      // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
+
+      width >= height 
+        ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
+        : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
       //console.log('layoutPrev: ', layoutPrev)
       console.log('tvAllNumber: ', tvAllNumber)
