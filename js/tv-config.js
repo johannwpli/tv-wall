@@ -32,7 +32,7 @@ let /* set tv */
     tvSrcKey,
 
     tvSrcObj = {
-      world: [
+      World: [
         '-upyPouRrB8', //Al Jazeera English
         'w_Ma8oQLmSM', //ABC News
         'XWq5kBlakcQ', //CNA
@@ -44,7 +44,7 @@ let /* set tv */
         'CV5Fooi8YJA'  //TRT World
       ],
 
-      taiwan: [
+      Taiwan: [
         'Qg9U06O2R-s', //CCTV
         'lu_BJKxqGnk', //CTI
         'wM0g8EoUZ_E', //CTS
@@ -58,7 +58,7 @@ let /* set tv */
         '2mCSYvcfhtc'  //TVBS
       ],
 
-      hsin: [
+      Hsin: [
         'fHo4cmOembI',
         '9zIbGCdWIh4',
         'B1fUWSGvlsU',
@@ -71,4 +71,23 @@ let /* set tv */
         '50sSQrHMeWM',
         'zs98k8eCrGU' 
       ]
+    },
+
+    radioMenu = '',
+    radioMenuDefault = 'World'
+
+    for (let i in tvSrcObj) {
+      radioMenu +=
+        `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
     }
+
+    //console.log(radioMenu)
+
+    document.querySelector('.cell.menu')
+      .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
+
+    document.querySelector(`input[value='${radioMenuDefault}']`)
+      .setAttribute('required','required')
+
+    document.querySelector(`input[value='${radioMenuDefault}']`)
+      .setAttribute('checked','checked')

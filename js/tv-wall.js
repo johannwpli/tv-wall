@@ -101,8 +101,8 @@ let /* get layoutRadio */
     setTv = () => {
       tvSize()
 
-      tvSrcKey = !menuChckd || menuChckd.value === 'world'
-        ? 'world' //default to 'world'
+      tvSrcKey = !menuChckd || menuChckd.value === radioMenuDefault
+        ? radioMenuDefault
         : menuChckd.value
 
       tvSrcArr = tvSrcObj[tvSrcKey]
