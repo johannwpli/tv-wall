@@ -29,6 +29,47 @@ let /* set tv */
 
     /* set wall with YouTube Video ID */
 
+    tvSrcKey,
+    tvSrcObj = {
+      world: [
+        '-upyPouRrB8', //Al Jazeera English
+        'w_Ma8oQLmSM', //ABC News
+        'XWq5kBlakcQ', //CNA
+        'V9KZGs1MtP4', //DW News
+        'sPgqEHsONK8', //euronews
+        'jNhh-OLzWlE', //FRANCE 24 English
+        'V0I5eglJMRI', //RT
+        '9Auq9mYxFEE', //Sky News
+        'CV5Fooi8YJA'  //TRT World
+      ],
+      taiwan: [
+        'Qg9U06O2R-s', //CCTV
+        'lu_BJKxqGnk', //CTI
+        'wM0g8EoUZ_E', //CTS
+        'TCnaIE_SAtM', //CTV
+        'R2iMq5LKXco', //EBC
+        'XGEmg3vhrzU', //FTV
+        'JAzRXylm3M0', //PTS
+        'FoBfXvlOR6I', //SET
+        'CKjSm5ZeehE', //SET iNEWS
+        'xL0ch83RAK8', //TTV
+        '2mCSYvcfhtc'  //TVBS
+      ],
+      hsin: [
+        'fHo4cmOembI',
+        '9zIbGCdWIh4',
+        'B1fUWSGvlsU',
+        's2RQuTTn7os',
+        'n-BMA_a8nM4',
+        'ZJ6ZUj8R5uQ',
+        'FHL-o1CJOnY',
+        'FCOtL6RFN4Y',
+        '2bCDBwyEhkc',
+        '50sSQrHMeWM',
+        'zs98k8eCrGU' 
+      ]
+    },
+
     /* world live news */
 
     tvSrc0 = '-upyPouRrB8', //Al Jazeera English
@@ -47,26 +88,36 @@ let /* set tv */
 
     /* taiwan live news */
 
-    tvSrcA = 'wM0g8EoUZ_E', //CTS
-    tvSrcB = 'TCnaIE_SAtM', //CTV
-    tvSrcC = 'R2iMq5LKXco', //EBC
-    tvSrcD = 'XGEmg3vhrzU', //FTV
-    tvSrcE = 'JAzRXylm3M0', //PTS
-    tvSrcF = 'FoBfXvlOR6I', //SET
-    tvSrcG = 'CKjSm5ZeehE', //SET iNEWS
-    tvSrcH = 'xL0ch83RAK8', //TTV
-    tvSrcI = '2mCSYvcfhtc', //TVBS
+    tvSrcA = 'Qg9U06O2R-s', //CCTV
+    tvSrcB = 'lu_BJKxqGnk', //CTI
+    tvSrcC = 'wM0g8EoUZ_E', //CTS
+    tvSrcD = 'TCnaIE_SAtM', //CTV
+    tvSrcE = 'R2iMq5LKXco', //EBC
+    tvSrcF = 'XGEmg3vhrzU', //FTV
+    tvSrcG = 'JAzRXylm3M0', //PTS
+    tvSrcH = 'FoBfXvlOR6I', //SET
+    tvSrcI = 'CKjSm5ZeehE', //SET iNEWS
+    tvSrcJ = 'xL0ch83RAK8', //TTV
+    tvSrcK = '2mCSYvcfhtc', //TVBS
 
     tvSrcArr1 = [tvSrcA,tvSrcB,tvSrcC,
                  tvSrcD,tvSrcE,tvSrcF,
-                 tvSrcG,tvSrcH,tvSrcI],
+                 tvSrcG,tvSrcH,tvSrcI,
+                 tvSrcJ,tvSrcK],
 
     /* hsin studio videos */
 
-    tvSrca = 'fHo4cmOembI', tvSrcb = '9zIbGCdWIh4', tvSrcc = 'B1fUWSGvlsU',
-    tvSrcd = 's2RQuTTn7os', tvSrce = 'n-BMA_a8nM4', tvSrcf = 'ZJ6ZUj8R5uQ',
-    tvSrcg = 'FHL-o1CJOnY', tvSrch = 'FCOtL6RFN4Y', tvSrci = '2bCDBwyEhkc',
-    tvSrcj = '50sSQrHMeWM', tvSrck = 'zs98k8eCrGU',
+    tvSrca = 'fHo4cmOembI',
+    tvSrcb = '9zIbGCdWIh4',
+    tvSrcc = 'B1fUWSGvlsU',
+    tvSrcd = 's2RQuTTn7os',
+    tvSrce = 'n-BMA_a8nM4',
+    tvSrcf = 'ZJ6ZUj8R5uQ',
+    tvSrcg = 'FHL-o1CJOnY',
+    tvSrch = 'FCOtL6RFN4Y',
+    tvSrci = '2bCDBwyEhkc',
+    tvSrcj = '50sSQrHMeWM',
+    tvSrck = 'zs98k8eCrGU',
 
     tvSrcArr2 = [tvSrca,tvSrcb,tvSrcc,
                  tvSrcd,tvSrce,tvSrcf,

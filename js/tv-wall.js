@@ -115,11 +115,20 @@ let /* get layoutRadio */
     setTv = () => {
       tvSize()
 
+      /*
       tvSrcArr =
         !menuPrev || menuPrev.value === 'world' ? tvSrcArr0
         : menuPrev.value === 'taiwan' ? tvSrcArr1
         : tvSrcArr2
+      */
 
+      tvSrcKey =
+        !menuPrev || menuPrev.value === 'world' ? 'world' //default to 'world'
+        : menuPrev.value
+
+      tvSrcArr = tvSrcObj[tvSrcKey]
+
+      //if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
       //console.log('TV Array Length: ', tvSrcArr.length)
@@ -136,6 +145,7 @@ let /* get layoutRadio */
             frameborder='${tvBorder}'
             allow='${tvAllow}'
             allowfullscreen='${tvAllowfullscreen}'
+            //src='${tvSrc}${tvSrcArr[i]}'
             src='${tvSrc}${tvSrcArr[i]}'
           ></iframe>`)
         }
