@@ -6,11 +6,11 @@
 let /* get layoutRadio */
 
     layoutRadio = document.wall.layout,
-    layoutPrev = null,
+    layoutChckd = null,
     
     changeLayoutRadio = () => {
-      //layoutPrev ? console.log(layoutPrev.value) : null
-      this !== layoutPrev ? layoutPrev = this : null
+      //layoutChckd ? console.log(layoutChckd.value) : null
+      this !== layoutChckd ? layoutChckd = this : null
       //console.log(this.value)
       setWall()
       setTv()
@@ -25,11 +25,11 @@ let /* get layoutRadio */
     /* get menuRadio */
 
     menuRadio = document.wall.menu,
-    menuPrev = null,
+    menuChckd = null,
     
     changeMenuRadio = function() {
-      //menuPrev ? console.log(menuPrev.value) : null
-      this !== menuPrev ? menuPrev = this : null
+      //menuChckd ? console.log(menuChckd.value) : null
+      this !== menuChckd ? menuChckd = this : null
       //console.log(this.value)
       setTv()
     },
@@ -46,20 +46,6 @@ let /* get layoutRadio */
 
       tvAllNumber = layoutRadio.value
 
-      /*
-      tvRowNumber =
-        !layoutPrev || tvAllNumber === '6' && width >= height ? 2
-        : !layoutPrev || tvAllNumber === '6' && width < height ? 3
-        : tvAllNumber === '12' ? 3
-        : Math.sqrt(tvAllNumber)
-      */
-
-      /*
-      tvRowNumber = width >= height
-        ? Math.floor(Math.sqrt(tvAllNumber)) // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
-        : Math.ceil(Math.sqrt(tvAllNumber))  // 12:4, 9:3, 8:3, 6:3, 4:2, 2:2
-      */
-
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
 
@@ -67,10 +53,10 @@ let /* get layoutRadio */
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
-      //console.log('layoutPrev: ', layoutPrev)
-      console.log('tvAllNumber: ', tvAllNumber)
-      console.log('tvRowNumber: ', tvRowNumber)
-      console.log('tvColNumber: ', tvColNumber)
+      //console.log('layoutChckd: ', layoutChckd)
+      //console.log('tvAllNumber: ', tvAllNumber)
+      //console.log('tvRowNumber: ', tvRowNumber)
+      //console.log('tvColNumber: ', tvColNumber)
     },
 
     tvSize = () => {
@@ -115,20 +101,12 @@ let /* get layoutRadio */
     setTv = () => {
       tvSize()
 
-      /*
-      tvSrcArr =
-        !menuPrev || menuPrev.value === 'world' ? tvSrcArr0
-        : menuPrev.value === 'taiwan' ? tvSrcArr1
-        : tvSrcArr2
-      */
-
-      tvSrcKey =
-        !menuPrev || menuPrev.value === 'world' ? 'world' //default to 'world'
-        : menuPrev.value
+      tvSrcKey = !menuChckd || menuChckd.value === 'world'
+        ? 'world' //default to 'world'
+        : menuChckd.value
 
       tvSrcArr = tvSrcObj[tvSrcKey]
 
-      //if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
       //console.log('TV Array Length: ', tvSrcArr.length)
@@ -145,7 +123,6 @@ let /* get layoutRadio */
             frameborder='${tvBorder}'
             allow='${tvAllow}'
             allowfullscreen='${tvAllowfullscreen}'
-            //src='${tvSrc}${tvSrcArr[i]}'
             src='${tvSrc}${tvSrcArr[i]}'
           ></iframe>`)
         }
