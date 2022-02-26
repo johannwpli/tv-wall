@@ -59,6 +59,10 @@ input[type=radio]:checked {
   background: black;
 }
 
+.required {
+  color: #f00;
+}
+
 @media (max-width: 480px) {
   .more {
     display: none;
