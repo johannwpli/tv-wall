@@ -73,6 +73,8 @@ let /* set tv */
       ]
     },
 
+    cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
+
     radioMenu = '',
     radioMenuDefault = 'World'
 
@@ -82,6 +84,9 @@ let /* set tv */
     }
 
     //console.log(radioMenu)
+
+    document.querySelector('.cell.title')
+      .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
 
     document.querySelector('.cell.menu')
       .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
