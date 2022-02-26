@@ -45,7 +45,6 @@ let /* get layoutRadio */
       //console.log('height: ', height)
 
       tvAllNumber = layoutRadio.value
-
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
 
@@ -53,7 +52,6 @@ let /* get layoutRadio */
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
-      //console.log('layoutChckd: ', layoutChckd)
       //console.log('tvAllNumber: ', tvAllNumber)
       //console.log('tvRowNumber: ', tvRowNumber)
       //console.log('tvColNumber: ', tvColNumber)
@@ -66,7 +64,10 @@ let /* get layoutRadio */
       tvWidth = width / tvColNumber
       tvHeight = height / tvRowNumber
 
-      //console.log(tvWidth, tvHeight)
+      //console.log('tvWidth: ', tvWidth)
+      //console.log('tvHeight: ', tvHeight)
+      //console.log('tvWidth*tvColNumber: ', tvWidth * tvColNumber)
+      //console.log('tvHeight*tvRowNumber: ', tvHeight * tvRowNumber)
     },
 
     /* shuffle array with Fisher-Yates algo          
