@@ -11,18 +11,20 @@ let /* set tv */
     width = window.innerWidth - widthDiff,
     height = window.innerHeight - heightDiff,
 
-    cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
+    urlSearchParams = new URLSearchParams(location.search),
+    urlMenuParams = urlSearchParams.get('menu'),
+    urlLayoutParams = urlSearchParams.get('layout'),
+
+    cellTitle = '<label><a href="https://johannwpli.github.io/TV-Wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
 
     radioLayout = '',
-    radioLayoutDefault = 3,
+    radioLayoutDefault = urlLayoutParams || 3,
     radioLayoutThreshold = 3,
 
     layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
 
-    searchParams = new URLSearchParams(location.search).get('menu'),
-
     radioMenu = '',
-    radioMenuDefault = searchParams || 'World',
+    radioMenuDefault = urlMenuParams || 'World',
     radioMenuHide = 'Hsin',
 
     tvAllNumber,
@@ -117,7 +119,8 @@ let /* set tv */
 
     setRadioMenu = () => {
       //console.log(tvSrcObj)
-      //console.log(searchParams)
+      //console.log(urlLayoutParams)
+      //console.log(urlMenuParams)
       //console.log(radioMenuHide)
 
       for (let i in tvSrcObj) {
@@ -126,7 +129,7 @@ let /* set tv */
             `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (searchParams === radioMenuHide) {
+      if (urlMenuParams === radioMenuHide) {
           radioMenu +=
             `<label><input type="radio" name="menu" value="${radioMenuHide}" />${radioMenuHide}</label>`
       }
