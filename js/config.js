@@ -75,20 +75,48 @@ let /* set tv */
 
     cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
 
+    setCellTitle = () => {
+      document.querySelector('.cell.title')
+        .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
+    }
+
+    radioLayout = '',
+    radioLayoutDefault = 3,
+    radioLayoutThreshold = 3,
+
+    layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
+
+    setRadioLayout = () => {
+      for (let i of layoutArr) {
+        let j =
+          i <= radioLayoutThreshold ? 'less' : 'more'
+
+        radioLayout += `
+          <label class="${j}">
+             <input type="radio" name="layout" value="${i}" />${i}
+          </label>`
+      }
+      //console.log(radioLayout)
+
+      document.querySelector('.cell.layout')
+        .insertAdjacentHTML('beforeEnd', `${radioLayout}`)
+
+      document.querySelector(`input[value='${radioLayoutDefault}']`)
+        .setAttribute('required','required')
+
+      document.querySelector(`input[value='${radioLayoutDefault}']`)
+        .setAttribute('checked','checked')
+    },
+
     radioMenu = '',
     radioMenuDefault = 'World',
 
     setRadioMenu = () => {
-
       for (let i in tvSrcObj) {
         radioMenu +=
           `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
-
       //console.log(radioMenu)
-
-      document.querySelector('.cell.title')
-        .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
 
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
@@ -98,7 +126,8 @@ let /* set tv */
 
       document.querySelector(`input[value='${radioMenuDefault}']`)
         .setAttribute('checked','checked')
-
     }
 
+setCellTitle()
+setRadioLayout()
 setRadioMenu()
