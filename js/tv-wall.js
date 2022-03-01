@@ -118,7 +118,7 @@ let /* get layoutRadio */
       document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
-          console.log(tvTitle)
+          tvTitle ? console.log(tvTitle) : null
 
           e.innerHTML = ''
 

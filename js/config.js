@@ -60,17 +60,17 @@ let /* set tv */
       },
 
       Taiwan: {
-        'Qg9U06O2R-s': 'CCTV',
-        'lu_BJKxqGnk': 'CTI',
-        'wM0g8EoUZ_E': 'CTS',
-        'TCnaIE_SAtM': 'CTV',
-        'R2iMq5LKXco': 'EBC',
-        'XGEmg3vhrzU': 'FTV',
-        'JAzRXylm3M0': 'PTS',
-        'FoBfXvlOR6I': 'SET',
-        'CKjSm5ZeehE': 'SET iNEWS',
-        'xL0ch83RAK8': 'TTV',
-        '2mCSYvcfhtc': 'TVBS'
+        'Qg9U06O2R-s': 'CCTV 央視 - China',
+        'lu_BJKxqGnk': 'CTI 中天 - China?',
+        'wM0g8EoUZ_E': 'CTS 華視 - Taiwan',
+        'TCnaIE_SAtM': 'CTV 中視 - Taiwan',
+        'R2iMq5LKXco': 'EBC 東森 - Taiwan',
+        'XGEmg3vhrzU': 'FTV 民視 - Taiwan',
+        'CKjSm5ZeehE': 'iNEWS 三立 - Taiwan',
+        'JAzRXylm3M0': 'PTS 公視 - Taiwan',
+        'FoBfXvlOR6I': 'SET 三立 - Taiwan',
+        'xL0ch83RAK8': 'TTV 台視 - Taiwan',
+        '2mCSYvcfhtc': 'TVBS - Taiwan'
       },
 
       Hsin: {
