@@ -19,10 +19,10 @@ let /* set tv */
 
     layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
 
-    radioMenu = '',
-    radioMenuDefault = 'World',
-
     searchParams = new URLSearchParams(location.search).get('menu'),
+
+    radioMenu = '',
+    radioMenuDefault = searchParams || 'World',
     radioMenuHide = 'Hsin',
 
     tvAllNumber,
@@ -129,8 +129,6 @@ let /* set tv */
       if (searchParams === radioMenuHide) {
           radioMenu +=
             `<label><input type="radio" name="menu" value="${radioMenuHide}" />${radioMenuHide}</label>`
-
-          radioMenuDefault = radioMenuHide
       }
 
       //console.log(radioMenu)
