@@ -108,7 +108,7 @@ let /* get layoutRadio */
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)
-      console.log('Now Playing:\n(Channel - Country)\n')
+      console.log('[Now Playing]\n')
 
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
