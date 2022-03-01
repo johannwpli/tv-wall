@@ -106,7 +106,8 @@ let /* get layoutRadio */
         ? radioMenuDefault
         : menuChckd.value
 
-      tvSrcArr = tvSrcObj[tvSrcKey]
+      tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+      //console.log(tvSrcArr)
 
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
@@ -115,6 +116,9 @@ let /* get layoutRadio */
 
       document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
+          tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
+          console.log(tvTitle)
+
           e.innerHTML = ''
 
           e.insertAdjacentHTML('beforeEnd', `<iframe

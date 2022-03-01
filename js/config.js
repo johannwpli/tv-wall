@@ -24,6 +24,7 @@ let /* set tv */
     tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
     tvAllowfullscreen = '',
     tvSrcArr,
+    tvTitleArr,
 
     tvSrc = 'https://www.youtube-nocookie.com/embed/',
 
@@ -32,45 +33,45 @@ let /* set tv */
     tvSrcKey,
 
     tvSrcObj = {
-      World: [
-        '-upyPouRrB8', //Al Jazeera English
-        'w_Ma8oQLmSM', //ABC News
-        'XWq5kBlakcQ', //CNA
-        'V9KZGs1MtP4', //DW News
-        'sPgqEHsONK8', //euronews
-        'jNhh-OLzWlE', //FRANCE 24 English
-        'V0I5eglJMRI', //RT
-        '9Auq9mYxFEE', //Sky News
-        'CV5Fooi8YJA'  //TRT World
-      ],
+      World: {
+        '-upyPouRrB8': 'Al Jazeera - Qatar',
+        'w_Ma8oQLmSM': 'ABC News - United States',
+        'XWq5kBlakcQ': 'CNA - Singapore',
+        'V9KZGs1MtP4': 'DW News - Germany',
+        'sPgqEHsONK8': 'euronews - Portugal',
+        'jNhh-OLzWlE': 'FRANCE 24 - France',
+        'V0I5eglJMRI': 'RT - Russia',
+        '9Auq9mYxFEE': 'Sky News - United Kingdom',
+        'CV5Fooi8YJA': 'TRT World - Turkey'
+      },
 
-      Taiwan: [
-        'Qg9U06O2R-s', //CCTV
-        'lu_BJKxqGnk', //CTI
-        'wM0g8EoUZ_E', //CTS
-        'TCnaIE_SAtM', //CTV
-        'R2iMq5LKXco', //EBC
-        'XGEmg3vhrzU', //FTV
-        'JAzRXylm3M0', //PTS
-        'FoBfXvlOR6I', //SET
-        'CKjSm5ZeehE', //SET iNEWS
-        'xL0ch83RAK8', //TTV
-        '2mCSYvcfhtc'  //TVBS
-      ],
+      Taiwan: {
+        'Qg9U06O2R-s': 'CCTV',
+        'lu_BJKxqGnk': 'CTI',
+        'wM0g8EoUZ_E': 'CTS',
+        'TCnaIE_SAtM': 'CTV',
+        'R2iMq5LKXco': 'EBC',
+        'XGEmg3vhrzU': 'FTV',
+        'JAzRXylm3M0': 'PTS',
+        'FoBfXvlOR6I': 'SET',
+        'CKjSm5ZeehE': 'SET iNEWS',
+        'xL0ch83RAK8': 'TTV',
+        '2mCSYvcfhtc': 'TVBS'
+      },
 
-      Hsin: [
-        'fHo4cmOembI',
-        '9zIbGCdWIh4',
-        'B1fUWSGvlsU',
-        's2RQuTTn7os',
-        'n-BMA_a8nM4',
-        'ZJ6ZUj8R5uQ',
-        'FHL-o1CJOnY',
-        'FCOtL6RFN4Y',
-        '2bCDBwyEhkc',
-        '50sSQrHMeWM',
-        'zs98k8eCrGU' 
-      ]
+      Hsin: {
+        'fHo4cmOembI': '',
+        '9zIbGCdWIh4': '',
+        'B1fUWSGvlsU': '',
+        's2RQuTTn7os': '',
+        'n-BMA_a8nM4': '',
+        'ZJ6ZUj8R5uQ': '',
+        'FHL-o1CJOnY': '',
+        'FCOtL6RFN4Y': '',
+        '2bCDBwyEhkc': '',
+        '50sSQrHMeWM': '',
+        'zs98k8eCrGU': ''
+      }
     },
 
     cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
@@ -112,6 +113,8 @@ let /* set tv */
     radioMenuDefault = 'World',
 
     setRadioMenu = () => {
+      //console.log(tvSrcObj)
+
       for (let i in tvSrcObj) {
         radioMenu +=
           `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
