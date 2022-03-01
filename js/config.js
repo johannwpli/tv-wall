@@ -25,7 +25,7 @@ let /* set tv */
 
     radioMenu = '',
     radioMenuDefault = urlMenuParams || 'World',
-    radioMenuHide = 'Hsin',
+    radioMenuHide = ['IU', 'Hsin'],
 
     tvAllNumber,
     tvShortNumber,
@@ -73,6 +73,20 @@ let /* set tv */
         'FoBfXvlOR6I': 'SET 三立 - Taiwan',
         'xL0ch83RAK8': 'TTV 台視 - Taiwan',
         '2mCSYvcfhtc': 'TVBS - Taiwan'
+      },
+
+      IU: {
+        'aERrdOMxXmQ': 'Last Fantasy',
+        'XdPX3f58UwE': 'My old story',
+        'QMLHUVL4boE': 'You and I',
+        'cwsZWrYDY9A': 'Twenty-three 二十三',
+        'cJcF5V1_Kck': 'FRIDAY Feat. 張利貞 Of History',
+        '_BR8-Qp4j5M': 'Through the Night 夜信',
+        'yUKP0Rht2o4': 'Good Day 好日子',
+        'v3-zV6wrbDU': 'Palette feat. G-DRAGON',
+        'emJoiIMqB58': '只有我不知道的事',
+        'lPffVN5lR6U': 'Every End of The Day 一天的盡頭',
+        'NPXVXh4HIQE': 'Ending Scene 這樣的Ending'
       },
 
       Hsin: {
@@ -124,14 +138,14 @@ let /* set tv */
       //console.log(radioMenuHide)
 
       for (let i in tvSrcObj) {
-        if (i !== radioMenuHide)
+        if (!radioMenuHide.includes(i))
           radioMenu +=
             `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlMenuParams === radioMenuHide) {
+      if (radioMenuHide.includes(urlMenuParams)) {
           radioMenu +=
-            `<label><input type="radio" name="menu" value="${radioMenuHide}" />${radioMenuHide}</label>`
+            `<label><input type="radio" name="menu" value="${urlMenuParams}" />${urlMenuParams}</label>`
       }
 
       //console.log(radioMenu)
