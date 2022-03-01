@@ -22,6 +22,9 @@ let /* set tv */
     radioMenu = '',
     radioMenuDefault = 'World',
 
+    searchParams = new URLSearchParams(location.search).get('menu'),
+    radioMenuHide = 'Hsin',
+
     tvAllNumber,
     tvShortNumber,
     tvRowNumber,
@@ -114,11 +117,22 @@ let /* set tv */
 
     setRadioMenu = () => {
       //console.log(tvSrcObj)
+      //console.log(searchParams)
+      //console.log(radioMenuHide)
 
       for (let i in tvSrcObj) {
-        radioMenu +=
-          `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
+        if (i !== radioMenuHide)
+          radioMenu +=
+            `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
+
+      if (searchParams === radioMenuHide) {
+          radioMenu +=
+            `<label><input type="radio" name="menu" value="${radioMenuHide}" />${radioMenuHide}</label>`
+
+          radioMenuDefault = radioMenuHide
+      }
+
       //console.log(radioMenu)
 
       document.querySelector('.cell.menu')
