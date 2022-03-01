@@ -5,7 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="Johann's web app shows 9 YouTube videos at a time to pick your fave and save time wasted on switching pages.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; frame-src https://www.youtube-nocookie.com">
+    <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      script-src 'self' https://www.googletagmanager.com;
+      style-src 'self';
+      connect-src https://www.google-analytics.com;
+      frame-src https://www.youtube-nocookie.com">
 
     <title>TV Wall - an elegant means to pick fave YouTube video</title>
 
@@ -69,7 +74,7 @@
       </div>
     </form>
   
-    <script src="js/tv-config.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/tv-wall.js"></script>
   </body>
 </html>

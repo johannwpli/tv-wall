@@ -76,23 +76,29 @@ let /* set tv */
     cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
 
     radioMenu = '',
-    radioMenuDefault = 'World'
+    radioMenuDefault = 'World',
 
-    for (let i in tvSrcObj) {
-      radioMenu +=
-        `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
+    setRadioMenu = () => {
+
+      for (let i in tvSrcObj) {
+        radioMenu +=
+          `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
+      }
+
+      //console.log(radioMenu)
+
+      document.querySelector('.cell.title')
+        .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
+
+      document.querySelector('.cell.menu')
+        .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
+
+      document.querySelector(`input[value='${radioMenuDefault}']`)
+        .setAttribute('required','required')
+
+      document.querySelector(`input[value='${radioMenuDefault}']`)
+        .setAttribute('checked','checked')
+
     }
 
-    //console.log(radioMenu)
-
-    document.querySelector('.cell.title')
-      .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
-
-    document.querySelector('.cell.menu')
-      .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
-
-    document.querySelector(`input[value='${radioMenuDefault}']`)
-      .setAttribute('required','required')
-
-    document.querySelector(`input[value='${radioMenuDefault}']`)
-      .setAttribute('checked','checked')
+setRadioMenu()
