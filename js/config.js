@@ -11,6 +11,17 @@ let /* set tv */
     width = window.innerWidth - widthDiff,
     height = window.innerHeight - heightDiff,
 
+    cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
+
+    radioLayout = '',
+    radioLayoutDefault = 3,
+    radioLayoutThreshold = 3,
+
+    layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
+
+    radioMenu = '',
+    radioMenuDefault = 'World',
+
     tvAllNumber,
     tvShortNumber,
     tvRowNumber,
@@ -74,18 +85,10 @@ let /* set tv */
       }
     },
 
-    cellTitle = '<label>TV Wall<sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
-
     setCellTitle = () => {
       document.querySelector('.cell.title')
         .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
     }
-
-    radioLayout = '',
-    radioLayoutDefault = 3,
-    radioLayoutThreshold = 3,
-
-    layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
 
     setRadioLayout = () => {
       for (let i of layoutArr) {
@@ -108,9 +111,6 @@ let /* set tv */
       document.querySelector(`input[value='${radioLayoutDefault}']`)
         .setAttribute('checked','checked')
     },
-
-    radioMenu = '',
-    radioMenuDefault = 'World',
 
     setRadioMenu = () => {
       //console.log(tvSrcObj)
