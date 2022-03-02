@@ -4,11 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="Johann's web app shows 9 YouTube videos at a time to pick your fave and save time wasted on switching pages.">
+    <meta name="description" content="Johann's web app shows multiple YouTube videos simultaneously to pick faves and save time switching pages.">
     <meta http-equiv="Content-Security-Policy" content="
       default-src 'self';
       script-src 'self' https://www.googletagmanager.com;
       style-src 'self';
+      img-src 'self' https://i.ytimg.com;
       connect-src https://www.google-analytics.com;
       frame-src https://www.youtube-nocookie.com">
 
@@ -23,7 +24,6 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-12TFN7DW9G"></script>
     <script src="js/google-analytics.js"></script>
-
   </head>
 
   <body>
@@ -34,14 +34,8 @@
             <div class="cell title">
             </div>
             <div class="cell layout">
-              <label class="more">
-                layout<span class="required">*</span>
-              </label>
             </div>
             <div class="cell menu">
-              <label class="more">
-                menu<span class="required">*</span>
-              </label>
             </div>
           </div>
         </div>

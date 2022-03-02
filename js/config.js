@@ -110,6 +110,12 @@ let /* set tv */
     }
 
     setRadioLayout = () => {
+      document.querySelector('.cell.layout')
+        .insertAdjacentHTML('afterBegin', `
+          <label class="more">
+            layout<span class="required">*</span>
+          </label>`)
+
       for (let i of layoutArr) {
         let j =
           i <= radioLayoutThreshold ? 'less' : 'more'
@@ -132,6 +138,12 @@ let /* set tv */
     },
 
     setRadioMenu = () => {
+      document.querySelector('.cell.menu')
+        .insertAdjacentHTML('afterBegin', `
+          <label class="more">
+            menu<span class="required">*</span>
+          </label>`)
+
       //console.log(tvSrcObj)
       //console.log(urlLayoutParams)
       //console.log(urlMenuParams)
@@ -139,13 +151,13 @@ let /* set tv */
 
       for (let i in tvSrcObj) {
         if (!radioMenuHide.includes(i))
-          radioMenu +=
-            `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
+          radioMenu += `
+            <label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
       if (radioMenuHide.includes(urlMenuParams)) {
-          radioMenu +=
-            `<label><input type="radio" name="menu" value="${urlMenuParams}" />${urlMenuParams}</label>`
+          radioMenu += `
+            <label><input type="radio" name="menu" value="${urlMenuParams}" />${urlMenuParams}</label>`
       }
 
       //console.log(radioMenu)
