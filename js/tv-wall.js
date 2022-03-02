@@ -108,7 +108,7 @@ let /* get layoutRadio */
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)
-      console.log('[Now Playing]\n')
+      console.group('Now Playing')
 
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
@@ -118,7 +118,7 @@ let /* get layoutRadio */
       document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
-          tvTitle ? console.log(tvTitle) : null
+          tvTitle ? console.log(++i + '. '+ tvTitle) : null
 
           e.innerHTML = ''
 
@@ -133,6 +133,8 @@ let /* get layoutRadio */
           ></iframe>`)
         }
       )
+
+      console.groupEnd()
     },
 
     /* adjust tv size by window size */
