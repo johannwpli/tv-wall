@@ -13,15 +13,15 @@ let /* set tv */
 
     urlSearchParams = new URLSearchParams(location.search),
     urlMenuParams = urlSearchParams.get('menu'),
-    urlLayoutParams = urlSearchParams.get('layout'),
+    urlGridParams = urlSearchParams.get('grid'),
 
     cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall/">&copy;</a></sup></label>',
 
-    radioLayout = '',
-    radioLayoutDefault = urlLayoutParams || 3,
-    radioLayoutThreshold = 3,
+    radioGrid = '',
+    radioGridDefault = urlGridParams || 3,
+    radioGridThreshold = 3,
 
-    layoutArr = [1, 2, 3, 4, 6, 8, 9, 12],
+    gridArr = [1, 2, 3, 4, 6, 8, 9, 12],
 
     radioMenu = '',
     radioMenuDefault = urlMenuParams || 'World',
@@ -109,31 +109,31 @@ let /* set tv */
         .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
     }
 
-    setRadioLayout = () => {
-      document.querySelector('.cell.layout')
+    setRadioGrid = () => {
+      document.querySelector('.cell.grid')
         .insertAdjacentHTML('afterBegin', `
           <label class="more">
-            layout<span class="required">*</span>
+            grid<span class="required">*</span>
           </label>`)
 
-      for (let i of layoutArr) {
+      for (let i of gridArr) {
         let j =
-          i <= radioLayoutThreshold ? 'less' : 'more'
+          i <= radioGridThreshold ? 'less' : 'more'
 
-        radioLayout += `
+        radioGrid += `
           <label class="${j}">
-             <input type="radio" name="layout" value="${i}" />${i}
+             <input type="radio" name="grid" value="${i}" />${i}
           </label>`
       }
-      //console.log(radioLayout)
+      //console.log(radioGrid)
 
-      document.querySelector('.cell.layout')
-        .insertAdjacentHTML('beforeEnd', `${radioLayout}`)
+      document.querySelector('.cell.grid')
+        .insertAdjacentHTML('beforeEnd', `${radioGrid}`)
 
-      document.querySelector(`input[value='${radioLayoutDefault}']`)
+      document.querySelector(`input[value='${radioGridDefault}']`)
         .setAttribute('required','required')
 
-      document.querySelector(`input[value='${radioLayoutDefault}']`)
+      document.querySelector(`input[value='${radioGridDefault}']`)
         .setAttribute('checked','checked')
     },
 
@@ -145,7 +145,7 @@ let /* set tv */
           </label>`)
 
       //console.log(tvSrcObj)
-      //console.log(urlLayoutParams)
+      //console.log(urlGridParams)
       //console.log(urlMenuParams)
       //console.log(radioMenuHide)
 
@@ -173,5 +173,5 @@ let /* set tv */
     }
 
 setCellTitle()
-setRadioLayout()
+setRadioGrid()
 setRadioMenu()

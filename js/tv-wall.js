@@ -3,22 +3,22 @@
    GitHub   https://github.com/johannwpli/            
    Website  https://johann.li/                      */
 
-let /* get layoutRadio */
+let /* get gridRadio */
 
-    layoutRadio = document.wall.layout,
-    layoutChckd = null,
+    gridRadio = document.wall.grid,
+    gridChckd = null,
     
-    changeLayoutRadio = () => {
-      //layoutChckd ? console.log(layoutChckd.value) : null
-      this !== layoutChckd ? layoutChckd = this : null
+    changeGridRadio = () => {
+      //gridChckd ? console.log(gridChckd.value) : null
+      this !== gridChckd ? gridChckd = this : null
       //console.log(this.value)
       setWall()
       setTv()
     },
 
-    listenLayoutRadio = () => {
-      for (let i of layoutRadio) {
-        i.addEventListener('change', changeLayoutRadio)
+    listenGridRadio = () => {
+      for (let i of gridRadio) {
+        i.addEventListener('change', changeGridRadio)
       }
     },
 
@@ -40,11 +40,11 @@ let /* get layoutRadio */
       }
     },
 
-    tvLayout = () => {
+    tvGrid = () => {
       //console.log('width: ', width)
       //console.log('height: ', height)
 
-      tvAllNumber = layoutRadio.value
+      tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
 
@@ -81,7 +81,7 @@ let /* get layoutRadio */
     },
 
     setWall = () => {
-      tvLayout()
+      tvGrid()
 
       document.querySelector('#wall').innerHTML = ''
 
@@ -154,7 +154,7 @@ let /* get layoutRadio */
       )
     }
 
-listenLayoutRadio()
+listenGridRadio()
 listenMenuRadio()
 listenWindowResize()
 setWall()
