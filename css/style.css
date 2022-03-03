@@ -63,7 +63,13 @@ input[type=radio]:checked {
 }
 
 @media (max-width: 480px) {
-  .more {
+  .tablet, .desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop {
     display: none;
   }
 }

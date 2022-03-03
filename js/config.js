@@ -19,9 +19,10 @@ let /* set tv */
 
     radioGrid = '',
     radioGridDefault = urlGridParams || 3,
-    radioGridThreshold = 3,
+    radioGridTablet = 3,
+    radioGridDesktop = 8,
 
-    gridArr = [1, 2, 3, 4, 6, 8, 9, 12],
+    gridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
 
     radioMenu = '',
     radioMenuDefault = urlMenuParams || 'World',
@@ -144,13 +145,17 @@ let /* set tv */
     setRadioGrid = () => {
       document.querySelector('.cell.grid')
         .insertAdjacentHTML('afterBegin', `
-          <label class="more">
+          <label class="tablet">
             grid<span class="required">*</span>
           </label>`)
 
       for (let i of gridArr) {
         let j =
-          i <= radioGridThreshold ? 'less' : 'more'
+          i > radioGridDesktop
+            ? 'desktop'
+            :  i > radioGridTablet
+              ? 'tablet'
+              : 'mobile'
 
         radioGrid += `
           <label class="${j}">
@@ -172,7 +177,7 @@ let /* set tv */
     setRadioMenu = () => {
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('afterBegin', `
-          <label class="more">
+          <label class="tablet">
             menu<span class="required">*</span>
           </label>`)
 
