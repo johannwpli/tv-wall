@@ -76,6 +76,17 @@ let /* set tv */
         '2mCSYvcfhtc': 'TVBS - Taiwan'
       },
 
+      exotic: {
+        'Rq8_WqE67SE': '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese',
+        'sUW4dDWiz-A': '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese',
+        'SmDXanmSsUQ': 'Pieces - L\'Arc～en～Ciel - Japanese',
+        'NJR8Inf77Ac': '너랑 나 - 아이유(IU) - Korean',
+        'f_iQRO5BdCM': '너랑 나 - 아이유(IU) - Korean',
+        'jeqdYqsrsA0': '좋은 날 - 아이유(IU) - Korean',
+        'GQt03lkFQE4': '좋은 날 - 아이유(IU) - Korean',
+        '3ql6lSe1E-M': 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian'
+      },
+
       IU: {
         'aERrdOMxXmQ': 'Last Fantasy',
         'XdPX3f58UwE': 'My old story',
