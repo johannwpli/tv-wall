@@ -12,8 +12,8 @@ let /* set tv */
     height = window.innerHeight - heightDiff,
 
     urlSearchParams = new URLSearchParams(location.search),
-    urlMenuParams = urlSearchParams.get('menu'),
-    urlGridParams = urlSearchParams.get('grid'),
+    urlMenuParams = urlSearchParams.get('m'),
+    urlGridParams = urlSearchParams.get('g'),
 
     cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall/">&copy;</a></sup></label>',
 
@@ -78,6 +78,7 @@ let /* set tv */
 
       exotic: {
         'Rq8_WqE67SE': '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese',
+        'rbfHY8mkhT8': '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese',
         'sUW4dDWiz-A': '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese',
         'SmDXanmSsUQ': 'Pieces - L\'Arc～en～Ciel - Japanese',
         'NJR8Inf77Ac': '너랑 나 - 아이유(IU) - Korean',
