@@ -15,7 +15,7 @@ let /* set tv */
     urlMenuParams = urlSearchParams.get('menu'),
     urlLayoutParams = urlSearchParams.get('layout'),
 
-    cellTitle = '<label><a href="https://johannwpli.github.io/TV-Wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/TV-Wall">&copy;</a></sup></label>',
+    cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall/">&copy;</a></sup></label>',
 
     radioLayout = '',
     radioLayoutDefault = urlLayoutParams || 3,

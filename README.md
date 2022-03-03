@@ -7,7 +7,7 @@
 
 `WEBSITE` https://johann.li/
 
-`DEMO` https://johannwpli.github.io/TV-Wall/
+`DEMO` https://johannwpli.github.io/tv-wall/
 
 `ORIGIN` TV-Wall inspires by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/nce-live/) [project](https://github.com/ncehk2019/ncehk2019.github.io), which broadcast live streams of what's happening in Hong Kong in 2019.
 However, wars never end, and they are always nearby.
