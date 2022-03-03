@@ -25,7 +25,7 @@ let /* set tv */
 
     radioMenu = '',
     radioMenuDefault = urlMenuParams || 'World',
-    radioMenuHide = ['IU', 'Hsin'],
+    radioMenuShow = ['World', 'Taiwan'],
 
     tvAllNumber,
     tvShortNumber,
@@ -89,6 +89,38 @@ let /* set tv */
         'NPXVXh4HIQE': 'Ending Scene 這樣的Ending'
       },
 
+      Taiwanese: {
+        '9gnqI0ygqWw': '青石願 - 黃鳳儀',
+        'KEBoeE0PdJM': '青石願 - 黃鳳儀',
+        'av-oi_OMM0g': '甘願的路 - 張涵雅',
+        'ttFL9UvmuFc': '相思聲聲 - 黃妃',
+        'O4vpXDfW9G8': '相思聲聲 - 黃妃',
+        '36sZ1ubzZAk': '虞美人 - 黃妃',
+        'YIk9XpSlxJ8': '虞美人 - 黃妃',
+        '--Ux4aJaVg8': '我愛妳，再會 - 荒山亮',
+        'ZDxyVedqjiQ': '我愛妳，再會 - 荒山亮',
+        'JrTl0k8YPpE': '大千懺 - 蓮歌子',
+        '0QpGmmGUxos': '愛你的是我 - 荒山亮 & 麗莎',
+        'jLBn_S-f_iM': '愛你的是我 - 荒山亮 & 麗莎',
+        'gpwztOjPcmg': '愛你的是我 - 愛妳的是我 & 蔡佳瑩',
+        'dOjt0L5KI8U': '愛你的代價 - 方瑞娥 & 高向鵬'
+      },
+
+      Mandarin: {
+        'WUJBg0JizrQ': '你那好冷的小手 - 銀霞',
+        's2CE5n5W9D4': '偶然 - 銀霞',
+        'UuWI37iWVio': 'RAIN - 范曉萱',
+        '2B7U5WkhOiE': '雪人 - 范曉萱',
+        'rAXmU300DRc': '心動 - 林曉培',
+        'Ygr1OOh8hvI': '愛情 - 莫文蔚',
+        '4QmDKohzQdc': '夢田農夫 - 熊天平',
+        'UehlbisT5Gs': '如果不是因為你 - 林志炫',
+        'EqBAV4i7d20': '傳奇 - 李健',
+        'NA4otP-v6iI': '無與倫比的美麗 - 蘇打綠',
+        'n-k-_jzcp7c': '美麗的神話 - 孫楠 & 韓紅',
+        '22b1WnBg5LA': '堅強的理由 - 莫文蔚 & 伍佰'
+      },
+
       Hsin: {
         'fHo4cmOembI': '',
         '9zIbGCdWIh4': '',
@@ -147,15 +179,15 @@ let /* set tv */
       //console.log(tvSrcObj)
       //console.log(urlGridParams)
       //console.log(urlMenuParams)
-      //console.log(radioMenuHide)
+      //console.log(radioMenuShow)
 
       for (let i in tvSrcObj) {
-        if (!radioMenuHide.includes(i))
+        if (radioMenuShow.includes(i))
           radioMenu += `
             <label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (radioMenuHide.includes(urlMenuParams)) {
+      if (urlMenuParams && !radioMenuShow.includes(urlMenuParams)) {
           radioMenu += `
             <label><input type="radio" name="menu" value="${urlMenuParams}" />${urlMenuParams}</label>`
       }
