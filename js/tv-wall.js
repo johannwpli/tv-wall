@@ -118,7 +118,7 @@ let /* get gridRadio */
       document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
-          tvTitle ? console.log(++i + '. '+ tvTitle) : null
+          tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
 
           e.innerHTML = ''
 

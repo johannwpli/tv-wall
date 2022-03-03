@@ -68,7 +68,7 @@ let /* set tv */
         'wM0g8EoUZ_E': 'CTS 華視 - Taiwan',
         'TCnaIE_SAtM': 'CTV 中視 - Taiwan',
         'R2iMq5LKXco': 'EBC 東森 - Taiwan',
-        'XGEmg3vhrzU': 'FTV 民視 - Taiwan',
+        'yguQ1SzPM5U': 'FTV 民視 - Taiwan',
         'CKjSm5ZeehE': 'iNEWS 三立 - Taiwan',
         'JAzRXylm3M0': 'PTS 公視 - Taiwan',
         'FoBfXvlOR6I': 'SET 三立 - Taiwan',
