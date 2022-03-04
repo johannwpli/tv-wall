@@ -4,6 +4,9 @@
 
 body {
   overflow: hidden;
+  margin: 0;
+  color: #202124;
+  background: #000;
 }
 
 a {
@@ -26,9 +29,14 @@ input[type=radio]:checked {
   background-color: #000;
 }
 
+#header {
+  border: 8px solid #fff;
+}
+
 .table {
   display: table;
-  width: 100%;
+  width: calc(100% - 16px);
+  background: #fff;
 }
 
 .row {
@@ -60,6 +68,19 @@ input[type=radio]:checked {
 
 .required {
   color: #f00;
+  display: none;
+}
+
+.grid label:first-of-type, .menu label:first-of-type {
+}
+
+.grid label:not(:first-of-type), .menu label:not(:first-of-type) {
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+
+.grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
+  background: #e2e2e2;
 }
 
 @media (max-width: 480px) {
