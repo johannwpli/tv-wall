@@ -108,7 +108,13 @@ let /* get gridRadio */
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)
-      console.group('Now Playing')
+
+      tvRatio =
+        tvAllNumber < tvSrcArr.length
+          ? tvAllNumber + '/'+ tvSrcArr.length
+          : tvSrcArr.length + '/' + tvSrcArr.length
+
+      console.group('Now Playing (' + tvRatio + ')')
 
       if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 

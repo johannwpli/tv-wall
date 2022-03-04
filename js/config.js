@@ -15,7 +15,7 @@ let /* set tv */
     urlMenuParams = urlSearchParams.get('m'),
     urlGridParams = urlSearchParams.get('g'),
 
-    cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall/">&copy;</a></sup></label>',
+    cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall">&copy;</a></sup></label>',
 
     radioGrid = '',
     radioGridDefault = urlGridParams || 3,
@@ -42,6 +42,8 @@ let /* set tv */
     tvAllowfullscreen = '',
     tvSrcArr,
     tvTitleArr,
+
+    tvRatio,
 
     tvSrc = 'https://www.youtube-nocookie.com/embed/',
 
@@ -76,7 +78,7 @@ let /* set tv */
         '2mCSYvcfhtc': 'TVBS - Taiwan'
       },
 
-      exotic: {
+      Exotic: {
         'Rq8_WqE67SE': '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese',
         'rbfHY8mkhT8': '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese',
         'sUW4dDWiz-A': '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese',
