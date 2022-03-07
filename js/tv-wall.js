@@ -123,20 +123,25 @@ let /* get gridRadio */
 
       document.querySelectorAll('#wall .tv').forEach(
         (e,i) => {
+
+          //console.log(i+1, tvSrcArr[i])
+
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
           tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
 
           e.innerHTML = ''
 
-          e.insertAdjacentHTML('beforeEnd', `<iframe
-            width='${tvWidth}'
-            height='${tvHeight}'
-            title='${tvTitle}'
-            frameborder='${tvBorder}'
-            allow='${tvAllow}'
-            allowfullscreen='${tvAllowfullscreen}'
-            src='${tvSrc}${tvSrcArr[i]}'
-          ></iframe>`)
+          if (tvSrcArr[i]) {
+            e.insertAdjacentHTML('beforeEnd', `<iframe
+              width='${tvWidth}'
+              height='${tvHeight}'
+              title='${tvTitle}'
+              frameborder='${tvBorder}'
+              allow='${tvAllow}'
+              allowfullscreen='${tvAllowfullscreen}'
+              src='${tvSrc}${tvSrcArr[i]}'
+            ></iframe>`)
+          }
         }
       )
 
