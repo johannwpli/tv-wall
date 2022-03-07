@@ -13,20 +13,20 @@ let /* set tv */
     height = window.innerHeight - heightDiff,
 
     urlSearchParams = new URLSearchParams(location.search),
-    urlMenuParams = urlSearchParams.get('m'),
-    urlGridParams = urlSearchParams.get('g'),
+    urlMenuParam = urlSearchParams.get('m'),
+    urlGridParam = urlSearchParams.get('g'),
 
     cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall">&copy;</a></sup></label>',
 
     radioGrid = '',
-    radioGridDefault = urlGridParams || 3,
+    radioGridDefault = urlGridParam || 3,
     radioGridTablet = 3,
-    radioGridDesktop = 8,
+    radioGridDesktop = 9,
 
     gridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
 
     radioMenu = '',
-    radioMenuDefault = urlMenuParams || 'World',
+    radioMenuDefault = urlMenuParam || 'World',
     radioMenuShow = ['World', 'Taiwan'],
 
     tvAllNumber,
@@ -197,8 +197,8 @@ let /* set tv */
           </label>`)
 
       //console.log(tvSrcObj)
-      //console.log(urlGridParams)
-      //console.log(urlMenuParams)
+      //console.log(urlGridParam)
+      //console.log(urlMenuParam)
       //console.log(radioMenuShow)
 
       for (let i in tvSrcObj) {
@@ -207,9 +207,9 @@ let /* set tv */
             <label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlMenuParams && !radioMenuShow.includes(urlMenuParams)) {
+      if (urlMenuParam && !radioMenuShow.includes(urlMenuParam)) {
           radioMenu += `
-            <label><input type="radio" name="menu" value="${urlMenuParams}" />${urlMenuParams}</label>`
+            <label><input type="radio" name="menu" value="${urlMenuParam}" />${urlMenuParam}</label>`
       }
 
       //console.log(radioMenu)
