@@ -103,9 +103,10 @@ let /* get gridRadio */
     setTv = () => {
       tvSize()
 
-      tvSrcKey = !menuChckd || menuChckd.value === radioMenuDefault
-        ? radioMenuDefault
-        : menuChckd.value
+      tvSrcKey =
+        !menuChckd || menuChckd.value === radioMenuDefault
+          ? radioMenuDefault
+          : menuChckd.value
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)

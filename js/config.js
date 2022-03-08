@@ -13,20 +13,20 @@ let /* set tv */
     height = window.innerHeight - heightDiff,
 
     urlSearchParams = new URLSearchParams(location.search),
+    urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
-    urlGridParam = urlSearchParams.get('g'),
 
     cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall">&copy;</a></sup></label>',
 
     radioGrid = '',
-    radioGridDefault = urlGridParam || 3,
+    radioGridDefault = 3,
     radioGridTablet = 3,
     radioGridDesktop = 9,
 
     gridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
 
     radioMenu = '',
-    radioMenuDefault = urlMenuParam || 'World',
+    radioMenuDefault = 'World',
     radioMenuShow = ['World', 'Taiwan'],
 
     tvAllNumber,
@@ -152,6 +152,11 @@ let /* set tv */
       }
     },
 
+    /* Get the closest number out of an array
+       https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
+
+    getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
+
     setCellTitle = () => {
       document.querySelector('.cell.title')
         .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
@@ -177,6 +182,20 @@ let /* set tv */
              <input type="radio" name="grid" value="${i}" />${i}
           </label>`
       }
+
+      console.log(urlGridParam)
+      console.log(gridArr)
+      console.log(gridArr.includes(urlGridParam))
+
+      if (urlGridParam) {
+        radioGridDefault =
+          gridArr.includes(urlGridParam)
+            ? urlGridParam
+            : gridArr.reduce(getClosestGrid(urlGridParam))
+
+        console.log(radioGridDefault)
+      }
+
       //console.log(radioGrid)
 
       document.querySelector('.cell.grid')
@@ -207,9 +226,10 @@ let /* set tv */
             <label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlMenuParam && !radioMenuShow.includes(urlMenuParam)) {
-          radioMenu += `
-            <label><input type="radio" name="menu" value="${urlMenuParam}" />${urlMenuParam}</label>`
+      if (urlMenuParam && urlMenuParam in tvSrcObj && !radioMenuShow.includes(urlMenuParam)) {
+        radioMenuDefault = urlMenuParam
+        radioMenu += `
+          <label><input type="radio" name="menu" value="${radioMenuDefault}" />${urlMenuParam}</label>`
       }
 
       //console.log(radioMenu)
