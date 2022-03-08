@@ -9,8 +9,8 @@ let /* set tv */
     widthDiff = 0,
     heightDiff = 54,
 
-    width = window.innerWidth - widthDiff,
-    height = window.innerHeight - heightDiff,
+    docWidth = window.innerWidth - widthDiff,
+    docHeight = window.innerHeight - heightDiff,
 
     urlSearchParams = new URLSearchParams(location.search),
     urlGridParam = parseInt(urlSearchParams.get('g')),
@@ -183,9 +183,9 @@ let /* set tv */
           </label>`
       }
 
-      console.log(urlGridParam)
-      console.log(gridArr)
-      console.log(gridArr.includes(urlGridParam))
+      //console.log(urlGridParam)
+      //console.log(gridArr)
+      //console.log(gridArr.includes(urlGridParam))
 
       if (urlGridParam) {
         radioGridDefault =
@@ -193,7 +193,7 @@ let /* set tv */
             ? urlGridParam
             : gridArr.reduce(getClosestGrid(urlGridParam))
 
-        console.log(radioGridDefault)
+        //console.log(radioGridDefault)
       }
 
       //console.log(radioGrid)

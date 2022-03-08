@@ -42,14 +42,14 @@ let /* get gridRadio */
     },
 
     tvGrid = () => {
-      //console.log('width: ', width)
-      //console.log('height: ', height)
+      //console.log('docWidth: ', docWidth)
+      //console.log('docHeight: ', docHeight)
 
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
 
-      width >= height 
+      docWidth >= docHeight 
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
@@ -59,11 +59,11 @@ let /* get gridRadio */
     },
 
     tvSize = () => {
-      width = window.innerWidth - widthDiff
-      height = window.innerHeight - heightDiff
+      docWidth = window.innerWidth - widthDiff
+      docHeight = window.innerHeight - heightDiff
 
-      tvWidth = width / tvColNumber
-      tvHeight = height / tvRowNumber
+      tvWidth = docWidth / tvColNumber
+      tvHeight = docHeight / tvRowNumber
 
       //console.log('tvWidth: ', tvWidth)
       //console.log('tvHeight: ', tvHeight)
@@ -113,8 +113,8 @@ let /* get gridRadio */
 
       tvRatio =
         tvAllNumber < tvSrcArr.length
-          ? tvAllNumber + '/'+ tvSrcArr.length
-          : tvSrcArr.length + '/' + tvSrcArr.length
+          ? tvAllNumber + ' of '+ tvSrcArr.length
+          : tvSrcArr.length + ' of ' + tvSrcArr.length
 
       console.group('Now Playing (' + tvRatio + ')')
 
