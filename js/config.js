@@ -66,6 +66,7 @@ let /* set tv */
         'V9KZGs1MtP4': 'DW News - Germany',
         'sPgqEHsONK8': 'euronews - Portugal',
         'jNhh-OLzWlE': 'FRANCE 24 - France',
+        'WL4MT1MM1V4': 'NHK - Japan',
         'V0I5eglJMRI': 'RT - Russia',
         '9Auq9mYxFEE': 'Sky News - United Kingdom',
         'CV5Fooi8YJA': 'TRT World - Turkey'
