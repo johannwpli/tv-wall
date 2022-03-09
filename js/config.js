@@ -157,12 +157,37 @@ let /* set tv */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
-    setCellTitle = () => {
+    setTvWall = () => {
+      document.querySelector('#tvWall')
+        .insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
+
+      document.querySelector('#tvWall form')
+        .insertAdjacentHTML('beforeEnd', `<div id="head" class="table"></div>`)
+
+      document.querySelector('#tvWall form')
+        .insertAdjacentHTML('beforeEnd', `<div id="body" class="table"></div>`)
+    }
+
+    setHead = () => {
+      document.querySelector('#head')
+        .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+
+      document.querySelector('#head .row')
+        .insertAdjacentHTML('beforeEnd', `<div class="cell title"></div>`)
+
+      document.querySelector('#head .row')
+        .insertAdjacentHTML('beforeEnd', `<div class="cell grid"></div>`)
+
+      document.querySelector('#head .row')
+        .insertAdjacentHTML('beforeEnd', `<div class="cell menu"></div>`)
+    },
+
+    setTitle = () => {
       document.querySelector('.cell.title')
         .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
     }
 
-    setRadioGrid = () => {
+    setGrid = () => {
       document.querySelector('.cell.grid')
         .insertAdjacentHTML('afterBegin', `
           <label class="tablet">
@@ -208,7 +233,7 @@ let /* set tv */
         .setAttribute('checked','checked')
     },
 
-    setRadioMenu = () => {
+    setMenu = () => {
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('afterBegin', `
           <label class="tablet">
@@ -244,6 +269,8 @@ let /* set tv */
         .setAttribute('checked','checked')
     }
 
-setCellTitle()
-setRadioGrid()
-setRadioMenu()
+setTvWall()
+setHead()
+setTitle()
+setGrid()
+setMenu()

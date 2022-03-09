@@ -6,14 +6,14 @@
 
 let /* get gridRadio */
 
-    gridRadio = document.wall.grid,
+    gridRadio = document.tvWall.grid,
     gridChckd = null,
     
     changeGridRadio = () => {
       //gridChckd ? console.log(gridChckd.value) : null
       this !== gridChckd ? gridChckd = this : null
       //console.log(this.value)
-      setWall()
+      setBody()
       setTv()
     },
 
@@ -25,7 +25,7 @@ let /* get gridRadio */
 
     /* get menuRadio */
 
-    menuRadio = document.wall.menu,
+    menuRadio = document.tvWall.menu,
     menuChckd = null,
     
     changeMenuRadio = function() {
@@ -81,17 +81,17 @@ let /* get gridRadio */
       }
     },
 
-    setWall = () => {
+    setBody = () => {
       tvGrid()
 
-      document.querySelector('#wall').innerHTML = ''
+      document.querySelector('#body').innerHTML = ''
 
       for (let i = 0; i < tvRowNumber; i++) {
-        document.querySelector('#wall')
+        document.querySelector('#body')
           .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
       }
 
-      document.querySelectorAll('#wall .row').forEach(
+      document.querySelectorAll('#body .row').forEach(
         (e,i) => {
           for (let i = 0; i < tvColNumber; i++) {
             e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
@@ -123,7 +123,7 @@ let /* get gridRadio */
       //console.log('TV Array Length: ', tvSrcArr.length)
       //console.log('TV All Number: ', tvAllNumber)
 
-      document.querySelectorAll('#wall .tv').forEach(
+      document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
 
           //console.log(i+1, tvSrcArr[i])
@@ -170,5 +170,5 @@ let /* get gridRadio */
 listenGridRadio()
 listenMenuRadio()
 listenWindowResize()
-setWall()
+setBody()
 setTv()
