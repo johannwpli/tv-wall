@@ -13,10 +13,10 @@ let /* set tv */
     docHeight = window.innerHeight - heightDiff,
 
     websiteUrl = 'https://johannwpli.github.io/tv-wall/',
-    websitePreview = websiteUrl + 'preview.png',
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
-    meta,
+    //meta,
+    //websitePreview = websiteUrl + 'preview.png',
 
     urlSearchParams = new URLSearchParams(location.search),
     urlGridParam = parseInt(urlSearchParams.get('g')),
@@ -163,6 +163,7 @@ let /* set tv */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
+    /* not working
     //[name, value, content]
     metaArr = [
       ['property', 'og:type', 'video.other'],
@@ -182,6 +183,7 @@ let /* set tv */
         document.getElementsByTagName('head')[0].appendChild(meta)
       }
     }
+    */
 
     setTvWall = () => {
       document.querySelector('#tvWall')
@@ -295,7 +297,7 @@ let /* set tv */
         .setAttribute('checked','checked')
     }
 
-setMeta()
+//setMeta()
 setTvWall()
 setHead()
 setTitle()
