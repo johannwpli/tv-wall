@@ -12,6 +12,8 @@ let /* set tv */
     docWidth = window.innerWidth - widthDiff,
     docHeight = window.innerHeight - heightDiff,
 
+    meta,
+
     urlSearchParams = new URLSearchParams(location.search),
     urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
@@ -157,6 +159,25 @@ let /* set tv */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
+    metaArr = [
+      ['property', 'og:type', 'video.other'],
+      ['property', 'og:title', 'TV Wall - an elegant means to pick fave YouTube video'],
+      ['property', 'og:description', 'J.L.\'s web app shows multiple YouTube videos simultaneously to pick faves and save time switching pages.'],
+      ['property', 'og:url', 'https://johannwpli.github.io/tv-wall/'],
+      ['property', 'og:image', 'https://johannwpli.github.io/tv-wall/preview.png'],
+      ['property', 'og:image:width', '1200'],
+      ['property', 'og:image:height', '627']
+    ],
+
+    setMeta = () => {
+      for (let i of metaArr) {
+        meta = document.createElement('meta'),
+        meta.setAttribute(i[0], i[1])
+        meta.content = i[2]
+        document.getElementsByTagName('head')[0].appendChild(meta)
+      }
+    }
+
     setTvWall = () => {
       document.querySelector('#tvWall')
         .insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
@@ -269,6 +290,7 @@ let /* set tv */
         .setAttribute('checked','checked')
     }
 
+setMeta()
 setTvWall()
 setHead()
 setTitle()
