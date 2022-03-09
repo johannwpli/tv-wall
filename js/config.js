@@ -12,13 +12,17 @@ let /* set tv */
     docWidth = window.innerWidth - widthDiff,
     docHeight = window.innerHeight - heightDiff,
 
+    websiteUrl = 'https://johannwpli.github.io/tv-wall/',
+    websitePreview = websiteUrl + 'preview.png',
+    githubUrl = 'https://github.com/johannwpli/tv-wall',
+
     meta,
 
     urlSearchParams = new URLSearchParams(location.search),
     urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
 
-    cellTitle = '<label><a href="https://johannwpli.github.io/tv-wall/">TV Wall</a><sup><a href="https://github.com/johannwpli/tv-wall">&copy;</a></sup></label>',
+    cellTitle = '<label><a href="' + websiteUrl +'">TV Wall</a><sup><a href="' + githubUrl + '">&copy;</a></sup></label>',
 
     radioGrid = '',
     radioGridDefault = 3,
@@ -159,12 +163,13 @@ let /* set tv */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
+    //[name, value, content]
     metaArr = [
       ['property', 'og:type', 'video.other'],
       ['property', 'og:title', 'TV Wall - an elegant means to pick fave YouTube video'],
       ['property', 'og:description', 'J.L.\'s web app shows multiple YouTube videos simultaneously to pick faves and save time switching pages.'],
-      ['property', 'og:url', 'https://johannwpli.github.io/tv-wall/'],
-      ['property', 'og:image', 'https://johannwpli.github.io/tv-wall/preview.png'],
+      ['property', 'og:url', websiteUrl],
+      ['property', 'og:image', websitePreview],
       ['property', 'og:image:width', '1200'],
       ['property', 'og:image:height', '627']
     ],
