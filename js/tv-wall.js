@@ -7,11 +7,11 @@
 let /* get gridRadio */
 
     gridRadio = document.tvWall.grid,
-    gridChckd = null,
+    gridChecked = null,
     
-    changeGridRadio = () => {
-      //gridChckd ? console.log(gridChckd.value) : null
-      this !== gridChckd ? gridChckd = this : null
+    changeGridRadio = function() {
+      //gridChecked ? console.log(gridChecked.value) : null
+      this !== gridChecked ? gridChecked = this : null
       //console.log(this.value)
       setBody()
       setTv()
@@ -26,11 +26,11 @@ let /* get gridRadio */
     /* get menuRadio */
 
     menuRadio = document.tvWall.menu,
-    menuChckd = null,
+    menuChecked = null,
     
     changeMenuRadio = function() {
-      //menuChckd ? console.log(menuChckd.value) : null
-      this !== menuChckd ? menuChckd = this : null
+      //menuChecked ? console.log(menuChecked.value) : null
+      this !== menuChecked ? menuChecked = this : null
       //console.log(this.value)
       setTv()
     },
@@ -109,9 +109,9 @@ let /* get gridRadio */
       tvSize()
 
       tvSrcKey =
-        !menuChckd || menuChckd.value === radioMenuDefault
+        !menuChecked || menuChecked.value === radioMenuDefault
           ? radioMenuDefault
-          : menuChckd.value
+          : menuChecked.value
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)
