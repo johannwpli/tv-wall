@@ -84,7 +84,12 @@ let /* get gridRadio */
     setBody = () => {
       tvGrid()
 
-      document.querySelector('#body').innerHTML = ''
+      /* innerHTML vs removeChild vs remove
+         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
+      let e = document.querySelector('#body')
+      //console.log(e)
+      while (e.firstChild) e.firstChild.remove()
 
       for (let i = 0; i < tvRowNumber; i++) {
         document.querySelector('#body')
@@ -133,7 +138,7 @@ let /* get gridRadio */
 
           e.removeAttribute('alt')
           e.removeAttribute('title')
-          e.innerHTML = ''
+          while (e.firstChild) e.firstChild.remove()
 
           if (tvSrcArr[i]) {
             tvHtml = `<iframe width='${tvWidth}'
