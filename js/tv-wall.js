@@ -125,27 +125,26 @@ let /* get gridRadio */
 
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
-
           //console.log(i+1, tvSrcArr[i])
-
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
           tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
-          tvSrc = tvSrcBegin + tvSrcArr[i]
+          tvSrc = tvSrcPrefix + tvSrcArr[i]
           //tvSrc ? console.log(tvSrc) : null
 
           e.innerHTML = ''
 
           if (tvSrcArr[i]) {
-            e.insertAdjacentHTML('beforeEnd', `<iframe
-              width='${tvWidth}'
-              height='${tvHeight}'
-              title='${tvTitle}'
-              frameborder='${tvBorder}'
-              allow='${tvAllow}'
-              allowfullscreen='${tvAllowfullscreen}'
-              src='${tvSrc}'
-            ></iframe>`)
+            tvHtml = `<iframe width='${tvWidth}'
+                              height='${tvHeight}'
+                              title='${tvTitle}'
+                              frameborder='${tvBorder}'
+                              allow='${tvAllow}'
+                              allowfullscreen='${tvAllowfullscreen}'
+                              src='${tvSrc}'></iframe>`
+
+            e.insertAdjacentHTML('beforeEnd', tvHtml)
           }
+
         }
       )
 

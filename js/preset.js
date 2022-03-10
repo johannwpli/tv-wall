@@ -45,6 +45,7 @@ let /* set tv */
     tvWidth,
     tvHeight,
 
+    tvHtml,
     tvTitle = 'YouTube video player',
     tvBorder = '0',
     tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
@@ -52,7 +53,7 @@ let /* set tv */
 
     tvSrcArr,
     tvRatio,
-    tvSrcBegin = 'https://www.youtube-nocookie.com/embed/',
+    tvSrcPrefix = 'https://www.youtube-nocookie.com/embed/',
     tvSrcKey,
     tvSrc,
 
