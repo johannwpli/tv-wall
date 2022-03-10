@@ -47,7 +47,7 @@ let /* get gridRadio */
 
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
-      // 12:3, 9:3, 8:2, 6:2, 4:2, 2:1
+      // 1~3:1, 4~8:2, 9~15:3, 16:4
 
       docWidth >= docHeight 
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
@@ -131,6 +131,8 @@ let /* get gridRadio */
           tvSrc = tvSrcPrefix + tvSrcArr[i]
           //tvSrc ? console.log(tvSrc) : null
 
+          e.removeAttribute('alt')
+          e.removeAttribute('title')
           e.innerHTML = ''
 
           if (tvSrcArr[i]) {
@@ -142,6 +144,8 @@ let /* get gridRadio */
                               allowfullscreen='${tvAllowfullscreen}'
                               src='${tvSrc}'></iframe>`
 
+            e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
+            e.setAttribute('title', tvTitle)
             e.insertAdjacentHTML('beforeEnd', tvHtml)
           }
 

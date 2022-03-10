@@ -15,9 +15,6 @@ let /* set tv */
     websiteUrl = 'https://johannwpli.github.io/tv-wall/',
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
-    //meta,
-    //websitePreview = websiteUrl + 'preview.png',
-
     urlSearchParams = new URLSearchParams(location.search),
     urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
@@ -165,28 +162,6 @@ let /* set tv */
        https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
-
-    /* not working
-    //[name, value, content]
-    metaArr = [
-      ['property', 'og:type', 'video.other'],
-      ['property', 'og:title', 'TV Wall - an elegant means to pick fave YouTube video'],
-      ['property', 'og:description', 'J.L.\'s web app shows multiple YouTube videos simultaneously to pick faves and save time switching pages.'],
-      ['property', 'og:url', websiteUrl],
-      ['property', 'og:image', websitePreview],
-      ['property', 'og:image:width', '1200'],
-      ['property', 'og:image:height', '627']
-    ],
-
-    setMeta = () => {
-      for (let i of metaArr) {
-        meta = document.createElement('meta'),
-        meta.setAttribute(i[0], i[1])
-        meta.content = i[2]
-        document.getElementsByTagName('head')[0].appendChild(meta)
-      }
-    }
-    */
 
     setTvWall = () => {
       document.querySelector('#tvWall')
