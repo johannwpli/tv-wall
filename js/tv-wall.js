@@ -118,7 +118,7 @@ let /* get gridRadio */
 
       console.group('Now Playing (' + tvRatio + ')')
 
-      if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
+      tvSrcArr.length > tvAllNumber ? shuffle(tvSrcArr) : null
 
       //console.log('TV Array Length: ', tvSrcArr.length)
       //console.log('TV All Number: ', tvAllNumber)
@@ -130,6 +130,8 @@ let /* get gridRadio */
 
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
           tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
+          tvSrc = tvSrcBegin + tvSrcArr[i]
+          //tvSrc ? console.log(tvSrc) : null
 
           e.innerHTML = ''
 
@@ -141,7 +143,7 @@ let /* get gridRadio */
               frameborder='${tvBorder}'
               allow='${tvAllow}'
               allowfullscreen='${tvAllowfullscreen}'
-              src='${tvSrc}${tvSrcArr[i]}'
+              src='${tvSrc}'
             ></iframe>`)
           }
         }

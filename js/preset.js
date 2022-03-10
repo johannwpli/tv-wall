@@ -22,14 +22,17 @@ let /* set tv */
     urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
 
-    cellTitle = '<label><a href="' + websiteUrl +'">TV Wall</a><sup><a href="' + githubUrl + '">&copy;</a></sup></label>',
+    htmlPartArr = ['head', 'body'],
+    headPartArr = ['title', 'grid', 'menu'],
+
+    cellTitle = '<label><a href="' + websiteUrl +'">TV Wall</a>' +
+      '<sup><a href="' + githubUrl + '">&copy;</a></sup></label>',
 
     radioGrid = '',
+    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
     radioGridDefault = 3,
-    radioGridTablet = 3,
-    radioGridDesktop = 9,
-
-    gridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
+    radioGridTablet = 4,
+    radioGridDesktop = 12,
 
     radioMenu = '',
     radioMenuDefault = 'World',
@@ -39,7 +42,6 @@ let /* set tv */
     tvShortNumber,
     tvRowNumber,
     tvColNumber,
-
     tvWidth,
     tvHeight,
 
@@ -47,16 +49,15 @@ let /* set tv */
     tvBorder = '0',
     tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
     tvAllowfullscreen = '',
+
     tvSrcArr,
-    tvTitleArr,
-
     tvRatio,
-
-    tvSrc = 'https://www.youtube-nocookie.com/embed/',
-
-    /* set wall with YouTube Video ID */
-
+    tvSrcBegin = 'https://www.youtube-nocookie.com/embed/',
     tvSrcKey,
+    tvSrc,
+
+    /* menu    : { YouTube Video ID: title }
+       tvSrcKey: { tvSrc:            tvtitle } */
 
     tvSrcObj = {
       World: {
@@ -66,7 +67,7 @@ let /* set tv */
         'V9KZGs1MtP4': 'DW News - Germany',
         'sPgqEHsONK8': 'euronews - Portugal',
         'jNhh-OLzWlE': 'FRANCE 24 - France',
-        'WL4MT1MM1V4': 'NHK - Japan',
+        'f0lYkdA-Gtw': 'NHK - Japan',
         'V0I5eglJMRI': 'RT - Russia',
         '9Auq9mYxFEE': 'Sky News - United Kingdom',
         'CV5Fooi8YJA': 'TRT World - Turkey'
@@ -190,25 +191,20 @@ let /* set tv */
       document.querySelector('#tvWall')
         .insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
 
-      document.querySelector('#tvWall form')
-        .insertAdjacentHTML('beforeEnd', `<div id="head" class="table"></div>`)
-
-      document.querySelector('#tvWall form')
-        .insertAdjacentHTML('beforeEnd', `<div id="body" class="table"></div>`)
+      for(let i of htmlPartArr) {
+        document.querySelector('#tvWall form')
+          .insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
+      }
     }
 
     setHead = () => {
       document.querySelector('#head')
         .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
 
+      for(let i of headPartArr) {
       document.querySelector('#head .row')
-        .insertAdjacentHTML('beforeEnd', `<div class="cell title"></div>`)
-
-      document.querySelector('#head .row')
-        .insertAdjacentHTML('beforeEnd', `<div class="cell grid"></div>`)
-
-      document.querySelector('#head .row')
-        .insertAdjacentHTML('beforeEnd', `<div class="cell menu"></div>`)
+        .insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
+      }
     },
 
     setTitle = () => {
@@ -223,11 +219,11 @@ let /* set tv */
             grid<span class="required">*</span>
           </label>`)
 
-      for (let i of gridArr) {
+      for (let i of radioGridArr) {
         let j =
-          i > radioGridDesktop
+          i >= radioGridDesktop
             ? 'desktop'
-            :  i > radioGridTablet
+            :  i >= radioGridTablet
               ? 'tablet'
               : 'mobile'
 
@@ -238,14 +234,14 @@ let /* set tv */
       }
 
       //console.log(urlGridParam)
-      //console.log(gridArr)
-      //console.log(gridArr.includes(urlGridParam))
+      //console.log(radioGridArr)
+      //console.log(radioGridArr.includes(urlGridParam))
 
       if (urlGridParam) {
         radioGridDefault =
-          gridArr.includes(urlGridParam)
+          radioGridArr.includes(urlGridParam)
             ? urlGridParam
-            : gridArr.reduce(getClosestGrid(urlGridParam))
+            : radioGridArr.reduce(getClosestGrid(urlGridParam))
 
         //console.log(radioGridDefault)
       }
