@@ -5,14 +5,14 @@
    Demo     https://johannwpli.github.io/tv-wall/   */
 
 let gridRadio = document.tvWall.grid,
-    gridChecked = document.querySelector('input[name=\'grid\']:checked'),
+    gridChecked = document.querySelector('input[name="grid"]:checked'),
 
     menuRadio = document.tvWall.menu,
-    menuChecked = document.querySelector('input[name=\'menu\']:checked'),
+    menuChecked = document.querySelector('input[name="menu"]:checked'),
 
     setUrl = () => {
       newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
-      console.log(newUrl)
+      //console.log(newUrl)
       window.history.pushState(newState, oldTitle, newUrl)
     },
 

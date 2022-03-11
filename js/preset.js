@@ -13,6 +13,7 @@ let /* set tv */
     docHeight = window.innerHeight - heightDiff,
 
     websiteUrl = 'https://johannwpli.github.io/tv-wall/',
+    websiteTitle = document.title,
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
     urlSearchParams = new URLSearchParams(location.search),
@@ -20,7 +21,7 @@ let /* set tv */
     urlMenuParam = urlSearchParams.get('m'),
 
     oldUrl = location.pathname,
-    oldTitle = document.title || document.getElementsByTagName("title")[0].innerHTML,
+    oldTitle = websiteTitle,
     newUrl,
     newTitle,
     newState = { additionalInformation: 'Updated the URL with JS' },
