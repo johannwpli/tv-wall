@@ -268,11 +268,14 @@ let /* set tv */
 
       document.querySelector(`input[value='${radioMenuDefault}']`)
         .setAttribute('checked','checked')
+    },
+
+    preset = () => {
+      setTvWall()
+      setHead()
+      setTitle()
+      setGrid()
+      setMenu()
     }
 
-//setMeta()
-setTvWall()
-setHead()
-setTitle()
-setGrid()
-setMenu()
+preset()

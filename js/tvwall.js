@@ -41,6 +41,23 @@ let /* get gridRadio */
       }
     },
 
+    /* adjust tv size by window size */
+
+    listenWindowResize = () => {
+      window.addEventListener('resize',
+        () => {
+          tvSize()
+
+          document.querySelectorAll('iframe').forEach(
+            (e) => {
+              e.setAttribute('width', tvWidth)
+              e.setAttribute('height', tvHeight)
+            }
+          )
+        }
+      )
+    },
+
     tvGrid = () => {
       //console.log('docWidth: ', docWidth)
       //console.log('docHeight: ', docHeight)
@@ -160,25 +177,12 @@ let /* get gridRadio */
       console.groupEnd()
     },
 
-    /* adjust tv size by window size */
-
-    listenWindowResize = () => {
-      window.addEventListener('resize',
-        () => {
-          tvSize()
-
-          document.querySelectorAll('iframe').forEach(
-            (e) => {
-              e.setAttribute('width', tvWidth)
-              e.setAttribute('height', tvHeight)
-            }
-          )
-        }
-      )
+    tvwall = () => {
+      listenGridRadio()
+      listenMenuRadio()
+      listenWindowResize()
+      setBody()
+      setTv()
     }
 
-listenGridRadio()
-listenMenuRadio()
-listenWindowResize()
-setBody()
-setTv()
+tvwall()
