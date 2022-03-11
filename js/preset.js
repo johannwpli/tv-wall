@@ -19,6 +19,12 @@ let /* set tv */
     urlGridParam = parseInt(urlSearchParams.get('g')),
     urlMenuParam = urlSearchParams.get('m'),
 
+    oldUrl = location.pathname,
+    oldTitle = document.title || document.getElementsByTagName("title")[0].innerHTML,
+    newUrl,
+    newTitle,
+    newState = { additionalInformation: 'Updated the URL with JS' },
+
     htmlPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu'],
 
@@ -171,7 +177,7 @@ let /* set tv */
         document.querySelector('#tvWall form')
           .insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
       }
-    }
+    },
 
     setHead = () => {
       document.querySelector('#head')
@@ -186,7 +192,7 @@ let /* set tv */
     setTitle = () => {
       document.querySelector('.cell.title')
         .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
-    }
+    },
 
     setGrid = () => {
       document.querySelector('.cell.grid')
@@ -252,10 +258,13 @@ let /* set tv */
             <label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlMenuParam && urlMenuParam in tvSrcObj && !radioMenuShow.includes(urlMenuParam)) {
+      if (urlMenuParam && urlMenuParam in tvSrcObj) {
         radioMenuDefault = urlMenuParam
-        radioMenu += `
-          <label><input type="radio" name="menu" value="${radioMenuDefault}" />${urlMenuParam}</label>`
+
+        if (!radioMenuShow.includes(urlMenuParam)) {
+          radioMenu += `
+            <label><input type="radio" name="menu" value="${radioMenuDefault}" />${urlMenuParam}</label>`
+        }
       }
 
       //console.log(radioMenu)

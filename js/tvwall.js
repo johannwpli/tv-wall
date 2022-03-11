@@ -4,15 +4,26 @@
    Website  https://johann.li/                        
    Demo     https://johannwpli.github.io/tv-wall/   */
 
-let /* get gridRadio */
+let gridRadio = document.tvWall.grid,
+    gridChecked = document.querySelector('input[name=\'grid\']:checked'),
 
-    gridRadio = document.tvWall.grid,
-    gridChecked = null,
-    
+    menuRadio = document.tvWall.menu,
+    menuChecked = document.querySelector('input[name=\'menu\']:checked'),
+
+    setUrl = () => {
+      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
+      console.log(newUrl)
+      window.history.pushState(newState, oldTitle, newUrl)
+    },
+
+    /* set by gridRadio */
+
     changeGridRadio = function() {
       //gridChecked ? console.log(gridChecked.value) : null
       this !== gridChecked ? gridChecked = this : null
       //console.log(this.value)
+
+      setUrl()
       setBody()
       setTv()
     },
@@ -23,15 +34,14 @@ let /* get gridRadio */
       }
     },
 
-    /* get menuRadio */
+    /* set by menuRadio */
 
-    menuRadio = document.tvWall.menu,
-    menuChecked = null,
-    
     changeMenuRadio = function() {
       //menuChecked ? console.log(menuChecked.value) : null
       this !== menuChecked ? menuChecked = this : null
       //console.log(this.value)
+
+      setUrl()
       setTv()
     },
 
@@ -129,6 +139,9 @@ let /* get gridRadio */
         !menuChecked || menuChecked.value === radioMenuDefault
           ? radioMenuDefault
           : menuChecked.value
+      //console.log(radioMenuDefault)
+      //console.log(menuChecked.value)
+      //console.log(tvSrcKey)
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
       //console.log(tvSrcArr)
