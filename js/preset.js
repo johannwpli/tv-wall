@@ -7,13 +7,13 @@
 let /* set tv */
 
     widthDiff = 0,
-    heightDiff = 54,
+    heightDiff = 48,
 
     docWidth = window.innerWidth - widthDiff,
     docHeight = window.innerHeight - heightDiff,
 
-    websiteUrl = 'https://johannwpli.github.io/tv-wall/',
-    websiteTitle = document.title,
+    siteUrl = 'https://johannwpli.github.io/tv-wall/',
+    siteTitle = document.title,
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
     urlSearchParams = new URLSearchParams(location.search),
@@ -21,7 +21,7 @@ let /* set tv */
     urlMenuParam = urlSearchParams.get('m'),
 
     oldUrl = location.pathname,
-    oldTitle = websiteTitle,
+    oldTitle = siteTitle,
     newUrl,
     newTitle,
     newState = { additionalInformation: 'Updated the URL with JS' },
@@ -29,8 +29,8 @@ let /* set tv */
     htmlPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu'],
 
-    cellTitle = '<label><a href="' + websiteUrl +'">TV Wall</a>' +
-      '<sup><a href="' + githubUrl + '">&copy;</a></sup></label>',
+    cellTitle = '<label><a href="' + siteUrl +'">TV Wall</a>' +
+      ' <a href="' + githubUrl + '">&copy;</a></label>',
 
     radioGrid = '',
     radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
@@ -198,9 +198,7 @@ let /* set tv */
     setGrid = () => {
       document.querySelector('.cell.grid')
         .insertAdjacentHTML('afterBegin', `
-          <label class="tablet">
-            grid<span class="required">*</span>
-          </label>`)
+          <label class="tablet">grid</label>`)
 
       for (let i of radioGridArr) {
         let j =
@@ -244,9 +242,7 @@ let /* set tv */
     setMenu = () => {
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('afterBegin', `
-          <label class="tablet">
-            menu<span class="required">*</span>
-          </label>`)
+          <label class="tablet">menu</label>`)
 
       //console.log(tvSrcObj)
       //console.log(urlGridParam)

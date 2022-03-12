@@ -3,7 +3,9 @@
 #fakeElementToFixCssBug { }
 
 body {
+  /*
   overflow: hidden;
+  */
   margin: 0;
   color: #202124;
   background: #000;
@@ -16,13 +18,19 @@ a {
 
 input[type=radio] {
   width: 12px;
+  /*
+  appearance: none;
+  */
+}
+
+input[type=radio]:checked {
+  background: #e2e2e2;
 }
 
 /*
 input[type=radio] {
   border: 2px solid #fff;
   box-shadow: 0 0 0 1px #000;
-  appearance: none;
   border-radius: 50%;
   width: 12px;
   height: 12px;
@@ -73,11 +81,6 @@ input[type=radio]:checked {
   color: #fff;
 }
 
-.required {
-  color: #f00;
-  display: none;
-}
-
 .grid label:first-of-type, .menu label:first-of-type {
 }
 
@@ -85,6 +88,7 @@ input[type=radio]:checked {
   border: 1px solid transparent;
   border-radius: 10px;
   transition: all .2s ease-in-out;
+  font-size: 15px;
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
