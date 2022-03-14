@@ -26,7 +26,8 @@ let /* set tv */
     newTitle,
     newState = { additionalInformation: 'Updated the URL with JS' },
 
-    htmlPartArr = ['head', 'body'],
+    htmlBody,
+    wallPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu'],
 
     cellTitle = '<label><a href="' + siteUrl +'">TV Wall</a>' +
@@ -174,7 +175,7 @@ let /* set tv */
       document.querySelector('#tvWall')
         .insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
 
-      for(let i of htmlPartArr) {
+      for(let i of wallPartArr) {
         document.querySelector('#tvWall form')
           .insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
       }
@@ -185,8 +186,8 @@ let /* set tv */
         .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
 
       for(let i of headPartArr) {
-      document.querySelector('#head .row')
-        .insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
+        document.querySelector('#head .row')
+          .insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
       }
     },
 
@@ -237,6 +238,9 @@ let /* set tv */
 
       document.querySelector(`input[value='${radioGridDefault}']`)
         .setAttribute('checked','checked')
+
+      gridRadio = document.tvWall.grid 
+      gridChecked = document.querySelector('input[name="grid"]:checked') 
     },
 
     setMenu = () => {
@@ -274,6 +278,15 @@ let /* set tv */
 
       document.querySelector(`input[value='${radioMenuDefault}']`)
         .setAttribute('checked','checked')
+
+      menuRadio = document.tvWall.menu 
+      menuChecked = document.querySelector('input[name="menu"]:checked') 
+    },
+
+    setUrl = () => {
+      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
+      //console.log(newUrl)
+      window.history.pushState(newState, oldTitle, newUrl)
     },
 
     preset = () => {
@@ -282,6 +295,7 @@ let /* set tv */
       setTitle()
       setGrid()
       setMenu()
+      setUrl()
     }
 
 preset()

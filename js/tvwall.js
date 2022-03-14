@@ -4,19 +4,7 @@
    Website  https://johann.li/                        
    Demo     https://johannwpli.github.io/tv-wall/   */
 
-let gridRadio = document.tvWall.grid,
-    gridChecked = document.querySelector('input[name="grid"]:checked'),
-
-    menuRadio = document.tvWall.menu,
-    menuChecked = document.querySelector('input[name="menu"]:checked'),
-
-    setUrl = () => {
-      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
-      //console.log(newUrl)
-      window.history.pushState(newState, oldTitle, newUrl)
-    },
-
-    /* set by gridRadio */
+let /* set grid value by grid radio */
 
     changeGridRadio = function() {
       //gridChecked ? console.log(gridChecked.value) : null
@@ -34,7 +22,7 @@ let gridRadio = document.tvWall.grid,
       }
     },
 
-    /* set by menuRadio */
+    /* set menu value by menu radio */
 
     changeMenuRadio = function() {
       //menuChecked ? console.log(menuChecked.value) : null
@@ -68,6 +56,8 @@ let gridRadio = document.tvWall.grid,
       )
     },
 
+    /* set grid layout by grid value */
+
     tvGrid = () => {
       //console.log('docWidth: ', docWidth)
       //console.log('docHeight: ', docHeight)
@@ -84,6 +74,8 @@ let gridRadio = document.tvWall.grid,
       //console.log('tvRowNumber: ', tvRowNumber)
       //console.log('tvColNumber: ', tvColNumber)
     },
+
+    /* set tv size by window size */
 
     tvSize = () => {
       docWidth = window.innerWidth - widthDiff
@@ -114,9 +106,9 @@ let gridRadio = document.tvWall.grid,
       /* innerHTML vs removeChild vs remove
          https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
-      let e = document.querySelector('#body')
-      //console.log(e)
-      while (e.firstChild) e.firstChild.remove()
+      htmlBody = document.querySelector('#body')
+      //console.log(htmlBody)
+      while (htmlBody.firstChild) htmlBody.firstChild.remove()
 
       for (let i = 0; i < tvRowNumber; i++) {
         document.querySelector('#body')
