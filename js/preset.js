@@ -96,7 +96,7 @@ let /* set tv */
       Ukraine: {
         '8JkaIcTNgQ0': '',
         'e2gC37ILQmk': '',
-        'gxVtAj2sKho': '',
+        //'gxVtAj2sKho': '',
         'czRVZeyBHv8': '',
         'HIPNVm6lNfM': '',
       },
