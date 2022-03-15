@@ -127,12 +127,7 @@ let /* set grid value by grid radio */
     setTv = () => {
       tvSize()
 
-      tvSrcKey =
-        !menuChecked || menuChecked.value === radioMenuDefault
-          ? radioMenuDefault
-          : menuChecked.value
-      //console.log(radioMenuDefault)
-      //console.log(menuChecked.value)
+      tvSrcKey = menuChecked.value
       //console.log(tvSrcKey)
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])

@@ -17,7 +17,7 @@ let /* set tv */
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
     urlSearchParams = new URLSearchParams(location.search),
-    urlGridParam = parseInt(urlSearchParams.get('g')),
+    urlGridParam = urlSearchParams.get('g'),
     urlMenuParam = urlSearchParams.get('m'),
 
     oldUrl = location.pathname,
@@ -101,9 +101,10 @@ let /* set tv */
         'KtkKsEU4EhM': 'Zabby x 6',
         'rcc_1CZdZjQ': 'Lucas Mieli x 6',
         'OXHuF7XlqjM': 'DD Cyprus1Click x 5',
-        //'HIPNVm6lNfM': 'Politischios.gr x 4',
+        'wz1Se_9rBEU': 'Politischios.gr x 4',
         'YzhvQfQuebg': 'Audionix x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
+        'K65YvxfDzEY': 'VBMedia x 4',
       },
 
       Exotic: {
@@ -233,10 +234,33 @@ let /* set tv */
       //console.log(radioGridArr.includes(urlGridParam))
 
       if (urlGridParam) {
-        radioGridDefault =
-          radioGridArr.includes(urlGridParam)
-            ? urlGridParam
-            : radioGridArr.reduce(getClosestGrid(urlGridParam))
+        if (parseInt(urlGridParam)) {
+          radioGridDefault =
+            radioGridArr.includes(urlGridParam)
+              ? urlGridParam
+              : radioGridArr.reduce(getClosestGrid(urlGridParam))
+        }
+
+        if (urlGridParam === 'all') {
+          //console.log(tvSrcArr.length)
+          //console.log(radioGridArr)
+          //console.log(radioGridArr[radioGridArr.length - 1])
+
+          if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 1]) {
+            radioGridDefault = radioGridArr[radioGridArr.length - 1]
+          }
+          else {
+            while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
+            radioGridDefault = tvSrcArr.length
+          }
+
+          /*
+          radioGridDefault =
+            radioGridArr.includes(tvSrcArr.length)
+              ? tvSrcArr.length
+              : radioGridArr.reduce(getClosestGrid(tvSrcArr.length))
+          */
+        }
 
         //console.log(radioGridDefault)
       }
@@ -275,6 +299,10 @@ let /* set tv */
       if (urlMenuParam && urlMenuParam in tvSrcObj) {
         radioMenuDefault = urlMenuParam
 
+        tvSrcKey = radioMenuDefault
+        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+        //console.log(tvSrcArr)
+
         if (!radioMenuShow.includes(urlMenuParam)) {
           radioMenu += `
             <label><input type="radio" name="menu" value="${radioMenuDefault}" />${urlMenuParam}</label>`
@@ -306,8 +334,8 @@ let /* set tv */
       setTvWall()
       setHead()
       setTitle()
-      setGrid()
       setMenu()
+      setGrid()
       setUrl()
     }
 
