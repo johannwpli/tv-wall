@@ -76,7 +76,7 @@ let /* set tv */
         'f0lYkdA-Gtw': 'NHK - Japan',
         'V0I5eglJMRI': 'RT - Russia',
         '9Auq9mYxFEE': 'Sky News - United Kingdom',
-        'CV5Fooi8YJA': 'TRT World - Turkey'
+        'CV5Fooi8YJA': 'TRT World - Turkey',
       },
 
       Taiwan: {
@@ -90,18 +90,20 @@ let /* set tv */
         'JAzRXylm3M0': 'PTS 公視 - Taiwan',
         'FoBfXvlOR6I': 'SET 三立 - Taiwan',
         'xL0ch83RAK8': 'TTV 台視 - Taiwan',
-        '2mCSYvcfhtc': 'TVBS - Taiwan'
+        '2mCSYvcfhtc': 'TVBS - Taiwan',
       },
 
       Ukraine: {
         '8JkaIcTNgQ0': 'SBK SHOW x 21',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'exLMJef5pJk': 'Lucas Mieli x 14',
+        'Bv9EYr6aU_Y': 'Sloth On Meth x 13',
         'tlhxljmLHJ8': 'Inquizex x 8',
-        'czRVZeyBHv8': 'Zabby x 7',
-        'tsfUZubo86o': 'DD Cyprus1Click x 7',
-        'HIPNVm6lNfM': 'Politischios.gr x 4',
-        'xZPtfhZAMTc': 'Audionix x 4',
+        'KtkKsEU4EhM': 'Zabby x 6',
+        'rcc_1CZdZjQ': 'Lucas Mieli x 6',
+        'OXHuF7XlqjM': 'DD Cyprus1Click x 5',
+        //'HIPNVm6lNfM': 'Politischios.gr x 4',
+        'YzhvQfQuebg': 'Audionix x 4',
+        'iZebYm-nenY': 'Livestream Events x 4',
       },
 
       Exotic: {
@@ -113,7 +115,7 @@ let /* set tv */
         'f_iQRO5BdCM': '너랑 나 - 아이유(IU) - Korean',
         'GQt03lkFQE4': '좋은 날 - 아이유(IU) - Korean',
         'jeqdYqsrsA0': '좋은 날 - 아이유(IU) - Korean',
-        '3ql6lSe1E-M': 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian'
+        '3ql6lSe1E-M': 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian',
       },
 
       IU: {
@@ -127,7 +129,7 @@ let /* set tv */
         'v3-zV6wrbDU': 'Palette feat. G-DRAGON',
         'emJoiIMqB58': '只有我不知道的事',
         'lPffVN5lR6U': 'Every End of The Day 一天的盡頭',
-        'NPXVXh4HIQE': 'Ending Scene 這樣的Ending'
+        'NPXVXh4HIQE': 'Ending Scene 這樣的Ending',
       },
 
       Taiwanese: {
@@ -144,7 +146,7 @@ let /* set tv */
         '0QpGmmGUxos': '愛你的是我 - 荒山亮 & 麗莎',
         'jLBn_S-f_iM': '愛你的是我 - 荒山亮 & 麗莎',
         'gpwztOjPcmg': '愛你的是我 - 愛妳的是我 & 蔡佳瑩',
-        'dOjt0L5KI8U': '愛你的代價 - 方瑞娥 & 高向鵬'
+        'dOjt0L5KI8U': '愛你的代價 - 方瑞娥 & 高向鵬',
       },
 
       Mandarin: {
@@ -159,7 +161,7 @@ let /* set tv */
         'EqBAV4i7d20': '傳奇 - 李健',
         'NA4otP-v6iI': '無與倫比的美麗 - 蘇打綠',
         'n-k-_jzcp7c': '美麗的神話 - 孫楠 & 韓紅',
-        '22b1WnBg5LA': '堅強的理由 - 莫文蔚 & 伍佰'
+        '22b1WnBg5LA': '堅強的理由 - 莫文蔚 & 伍佰',
       },
 
       Hsin: {
@@ -173,7 +175,7 @@ let /* set tv */
         'FCOtL6RFN4Y': '',
         '2bCDBwyEhkc': '',
         '50sSQrHMeWM': '',
-        'zs98k8eCrGU': ''
+        'zs98k8eCrGU': '',
       }
     },
 
