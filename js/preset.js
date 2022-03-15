@@ -94,17 +94,17 @@ let /* set tv */
       },
 
       Ukraine: {
-        '8JkaIcTNgQ0': 'SBK SHOW x 21',
+        '2xxXEldrEQo': 'SBK SHOW x 21',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
         'Bv9EYr6aU_Y': 'Sloth On Meth x 13',
         'tlhxljmLHJ8': 'Inquizex x 8',
         'KtkKsEU4EhM': 'Zabby x 6',
         'rcc_1CZdZjQ': 'Lucas Mieli x 6',
-        'OXHuF7XlqjM': 'DD Cyprus1Click x 5',
+        //'OXHuF7XlqjM': 'DD Cyprus1Click x 5',
         'wz1Se_9rBEU': 'Politischios.gr x 4',
-        'YzhvQfQuebg': 'Audionix x 4',
+        //'YzhvQfQuebg': 'Audionix x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
-        'K65YvxfDzEY': 'VBMedia x 4',
+        //'K65YvxfDzEY': 'VBMedia x 4',
       },
 
       Exotic: {
