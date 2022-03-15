@@ -4,8 +4,8 @@
 
 body {
   /*
-  */
   overflow: hidden;
+  */
   margin: 0;
   color: #202124;
   background: #000;
@@ -17,6 +17,7 @@ a {
 }
 
 input[type=radio] {
+  margin: 1.5px;
   width: 12px;
   /*
   appearance: none;
