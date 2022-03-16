@@ -9,6 +9,7 @@ body {
   margin: 0;
   color: #202124;
   background: #000;
+  font-size: 15px;
 }
 
 a {
@@ -17,10 +18,10 @@ a {
 }
 
 input[type=radio] {
-  margin: 1.5px;
-  width: 12px;
-  /*
+  margin: 0.5px;
   appearance: none;
+  /*
+  width: 12px;
   */
 }
 
@@ -89,7 +90,6 @@ input[type=radio]:checked {
   border: 1px solid transparent;
   border-radius: 10px;
   transition: all .2s ease-in-out;
-  font-size: 15px;
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
