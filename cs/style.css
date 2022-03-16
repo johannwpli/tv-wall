@@ -19,10 +19,6 @@ a {
 
 input[type=radio] {
   margin: 0.5px;
-  appearance: none;
-  /*
-  width: 12px;
-  */
 }
 
 input[type=radio]:checked {
@@ -89,7 +85,9 @@ input[type=radio]:checked {
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 10px;
+  /*
   transition: all .2s ease-in-out;
+  */
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
@@ -97,6 +95,10 @@ input[type=radio]:checked {
 }
 
 @media (max-width: 480px) {
+  input[type=radio] {
+    appearance: none;
+  }
+
   .tablet, .desktop {
     display: none;
   }
