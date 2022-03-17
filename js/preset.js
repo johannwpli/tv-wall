@@ -6,8 +6,8 @@
 
 let /* set tv */
 
-    widthDiff = 0,
-    heightDiff = 50,
+    widthDiff = 26,
+    heightDiff = 72,
 
     docWidth = window.innerWidth - widthDiff,
     docHeight = window.innerHeight - heightDiff,

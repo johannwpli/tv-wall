@@ -18,7 +18,7 @@ a {
 }
 
 input[type=radio] {
-  margin: 0.5px;
+  margin: 1px;
 }
 
 input[type=radio]:checked {
@@ -43,6 +43,10 @@ input[type=radio]:checked {
 
 #head {
   border: 8px solid #fff;
+}
+
+#body {
+  border: 8px solid #000;
 }
 
 .table {
@@ -79,15 +83,21 @@ input[type=radio]:checked {
   color: #fff;
 }
 
+.tv iframe {
+  border: 1px solid transparent;
+  transition: all .2s ease-in-out;
+}
+
+.tv iframe:hover {
+  border: 1px solid #0f0;
+}
+
 .grid label:first-of-type, .menu label:first-of-type {
 }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 10px;
-  /*
-  transition: all .2s ease-in-out;
-  */
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
@@ -107,9 +117,9 @@ input[type=radio]:checked {
     content: "🇺🇦";
   }
 
-  input[value="World"] + span + span,
-  input[value="Taiwan"] + span + span,
-  input[value="Ukraine"] + span + span {
+  input[value="World"] ~ span:nth-of-type(2),
+  input[value="Taiwan"] ~ span:nth-of-type(2),
+  input[value="Ukraine"] ~ span:nth-of-type(2) {
     display: none;
   }
   
