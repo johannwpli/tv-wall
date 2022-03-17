@@ -6,7 +6,7 @@
 
 let /* set grid value by grid radio */
 
-    changeGridRadio = function() {
+    clickGridRadio = function() {
       //gridChecked ? console.log(gridChecked.value) : null
       this !== gridChecked ? gridChecked = this : null
       //console.log(this.value)
@@ -18,7 +18,7 @@ let /* set grid value by grid radio */
 
     listenGridRadio = () => {
       for (let i of gridRadio) {
-        i.addEventListener('change', changeGridRadio)
+        i.addEventListener('click', clickGridRadio)
       }
     },
 

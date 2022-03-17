@@ -67,30 +67,30 @@ let /* set tv */
 
     tvSrcObj = {
       World: {
-        '-upyPouRrB8': 'Al Jazeera - Qatar',
-        'w_Ma8oQLmSM': 'ABC News - United States',
-        'XWq5kBlakcQ': 'CNA - Singapore',
-        'V9KZGs1MtP4': 'DW News - Germany',
-        'sPgqEHsONK8': 'euronews - Portugal',
-        'jNhh-OLzWlE': 'FRANCE 24 - France',
-        'f0lYkdA-Gtw': 'NHK - Japan',
-        'V0I5eglJMRI': 'RT - Russia',
-        '9Auq9mYxFEE': 'Sky News - United Kingdom',
-        'CV5Fooi8YJA': 'TRT World - Turkey',
+        '-upyPouRrB8': 'Al Jazeera 🇶🇦 Qatar',
+        'w_Ma8oQLmSM': 'ABC News 🇺🇸 United States',
+        'XWq5kBlakcQ': 'CNA 🇸🇬 Singapore',
+        'V9KZGs1MtP4': 'DW News 🇩🇪 Germany',
+        'sPgqEHsONK8': 'euronews 🇵🇹 Portugal',
+        'jNhh-OLzWlE': 'FRANCE 24 🇫🇷 France',
+        'f0lYkdA-Gtw': 'NHK 🇯🇵 Japan',
+        'V0I5eglJMRI': 'RT 🇷🇺 Russia',
+        '9Auq9mYxFEE': 'Sky News 🇬🇧 United Kingdom',
+        'CV5Fooi8YJA': 'TRT World 🇹🇷 Turkey',
       },
 
       Taiwan: {
-        'Qg9U06O2R-s': 'CCTV 央視 - China',
-        'lu_BJKxqGnk': 'CTI 中天 - China?',
-        'wM0g8EoUZ_E': 'CTS 華視 - Taiwan',
-        'TCnaIE_SAtM': 'CTV 中視 - Taiwan',
-        'R2iMq5LKXco': 'EBC 東森 - Taiwan',
-        'yguQ1SzPM5U': 'FTV 民視 - Taiwan',
-        'CKjSm5ZeehE': 'iNEWS 三立 - Taiwan',
-        'JAzRXylm3M0': 'PTS 公視 - Taiwan',
-        'FoBfXvlOR6I': 'SET 三立 - Taiwan',
-        'xL0ch83RAK8': 'TTV 台視 - Taiwan',
-        '2mCSYvcfhtc': 'TVBS - Taiwan',
+        'Qg9U06O2R-s': 'CCTV 央視 🇨🇳 China',
+        'lu_BJKxqGnk': 'CTI 中天 🇨🇳 China?',
+        'wM0g8EoUZ_E': 'CTS 華視 🇹🇼 Taiwan',
+        'TCnaIE_SAtM': 'CTV 中視 🇹🇼 Taiwan',
+        'R2iMq5LKXco': 'EBC 東森 🇹🇼 Taiwan',
+        'yguQ1SzPM5U': 'FTV 民視 🇹🇼 Taiwan',
+        'CKjSm5ZeehE': 'iNEWS 三立 🇹🇼 Taiwan',
+        '4Uc00FPs27M': 'PTS 公視 🇹🇼 Taiwan',
+        'FoBfXvlOR6I': 'SET 三立 🇹🇼 Taiwan',
+        'xL0ch83RAK8': 'TTV 台視 🇹🇼 Taiwan',
+        '2mCSYvcfhtc': 'TVBS 🇹🇼 Taiwan',
       },
 
       Ukraine: {
@@ -207,7 +207,7 @@ let /* set tv */
 
     setTitle = () => {
       document.querySelector('.cell.title')
-        .insertAdjacentHTML('beforeEnd', `${cellTitle}`)
+        .insertAdjacentHTML('beforeEnd', cellTitle)
     },
 
     setGrid = () => {
@@ -225,7 +225,7 @@ let /* set tv */
         radioGrid +=
           `<label class="${j}">` +
              `<input type="radio" name="grid" value="${i}" />` +
-             `${i}` +
+             i +
           `</label>`
       }
 
@@ -269,7 +269,7 @@ let /* set tv */
       //console.log(radioGrid)
 
       document.querySelector('.cell.grid')
-        .insertAdjacentHTML('beforeEnd', `${radioGrid}`)
+        .insertAdjacentHTML('beforeEnd', radioGrid)
 
       document.querySelector(`input[value='${radioGridDefault}']`)
         .setAttribute('required','required')
@@ -311,7 +311,7 @@ let /* set tv */
           radioMenu +=
             `<label>` +
               `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
-              `${urlMenuParam}` + 
+              urlMenuParam + 
             `</label>`
         }
       }
@@ -319,7 +319,7 @@ let /* set tv */
       //console.log(radioMenu)
 
       document.querySelector('.cell.menu')
-        .insertAdjacentHTML('beforeEnd', `${radioMenu}`)
+        .insertAdjacentHTML('beforeEnd', radioMenu)
 
       document.querySelector(`input[value='${radioMenuDefault}']`)
         .setAttribute('required','required')
