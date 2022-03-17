@@ -94,17 +94,17 @@ let /* set tv */
       },
 
       Ukraine: {
-        'vvheTGM-scY': 'SBK SHOW x 21',
+        'DCTdMNRAtiM': 'SBK SHOW x 21',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'cqEMIUt98Vc': 'Sloth On Meth x 13',
+        'BuUj6uBm8S8': 'Sloth On Meth x 13',
         'd6K5aVcIx0o': 'VBMedia x 10',
         'tlhxljmLHJ8': 'Inquizex x 8',
-        'GITekSFgH5I': 'Zabby x 6',
-        'P0ZiPzqY2e0': 'Lucas Mieli x 6',
-        'NlSOWfRyKsQ': 'DD Cyprus1Click x 5',
+        'em36NhVZfQY': 'Zabby x 6',
+        'F_SKmKfQjm0': 'Lucas Mieli x 6',
+        'M--MS0cKKSI': 'DD Cyprus1Click x 5',
         'wz1Se_9rBEU': 'Politischios.gr x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
-        //'YzhvQfQuebg': 'Audionix x 4',
+        'PdHIS38syCI': 'Audionix x 4',
       },
 
       Exotic: {
@@ -212,8 +212,7 @@ let /* set tv */
 
     setGrid = () => {
       document.querySelector('.cell.grid')
-        .insertAdjacentHTML('afterBegin', `
-          <label class="tablet">grid</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
 
       for (let i of radioGridArr) {
         let j =
@@ -223,10 +222,11 @@ let /* set tv */
               ? 'tablet'
               : 'mobile'
 
-        radioGrid += `
-          <label class="${j}">
-             <input type="radio" name="grid" value="${i}" />${i}
-          </label>`
+        radioGrid +=
+          `<label class="${j}">` +
+             `<input type="radio" name="grid" value="${i}" />` +
+             `${i}` +
+          `</label>`
       }
 
       //console.log(urlGridParam)
@@ -283,8 +283,7 @@ let /* set tv */
 
     setMenu = () => {
       document.querySelector('.cell.menu')
-        .insertAdjacentHTML('afterBegin', `
-          <label class="tablet">menu</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
 
       //console.log(tvSrcObj)
       //console.log(urlGridParam)
@@ -293,8 +292,12 @@ let /* set tv */
 
       for (let i in tvSrcObj) {
         if (radioMenuShow.includes(i))
-          radioMenu += `
-            <label><input type="radio" name="menu" value="${i}" />${i}</label>`
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${i}" />` +
+              `<span></span>` +
+              `<span>${i}</span>` +
+            `</label>`
       }
 
       if (urlMenuParam && urlMenuParam in tvSrcObj) {
@@ -305,8 +308,11 @@ let /* set tv */
         //console.log(tvSrcArr)
 
         if (!radioMenuShow.includes(urlMenuParam)) {
-          radioMenu += `
-            <label><input type="radio" name="menu" value="${radioMenuDefault}" />${urlMenuParam}</label>`
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
+              `${urlMenuParam}` + 
+            `</label>`
         }
       }
 

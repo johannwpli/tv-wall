@@ -158,13 +158,15 @@ let /* set grid value by grid radio */
           while (e.firstChild) e.firstChild.remove()
 
           if (tvSrcArr[i]) {
-            tvHtml = `<iframe width='${tvWidth}'
-                              height='${tvHeight}'
-                              title='${tvTitle}'
-                              frameborder='${tvBorder}'
-                              allow='${tvAllow}'
-                              allowfullscreen='${tvAllowfullscreen}'
-                              src='${tvSrc}'></iframe>`
+            tvHtml = `<iframe` +
+                     ` width='${tvWidth}'` +
+                     ` height='${tvHeight}'` +
+                     ` title='${tvTitle}'` +
+                     ` frameborder='${tvBorder}'` +
+                     ` allow='${tvAllow}'` +
+                     ` allowfullscreen='${tvAllowfullscreen}'` +
+                     ` src='${tvSrc}'>` +
+                     `</iframe>`
 
             e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
             e.setAttribute('title', tvTitle)
