@@ -6,8 +6,8 @@
 
 let /* set tv */
 
-    widthDiff = 26,
-    heightDiff = 72,
+    widthDiff = 28,
+    heightDiff = 76,
 
     docWidth = window.innerWidth - widthDiff,
     docHeight = window.innerHeight - heightDiff,
@@ -94,17 +94,17 @@ let /* set tv */
       },
 
       Ukraine: {
-        'DCTdMNRAtiM': 'SBK SHOW x 21',
+        'RHP4hZLhhos': 'SBK SHOW x 21',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'BuUj6uBm8S8': 'Sloth On Meth x 13',
+        'Pe_hhYt53jA': 'Sloth On Meth x 13',
         'd6K5aVcIx0o': 'VBMedia x 10',
         'tlhxljmLHJ8': 'Inquizex x 8',
-        'em36NhVZfQY': 'Zabby x 6',
-        'F_SKmKfQjm0': 'Lucas Mieli x 6',
-        'M--MS0cKKSI': 'DD Cyprus1Click x 5',
+        '0C8iZulB27U': 'Zabby x 6',
+        'HI2t0j_5aDU': 'Lucas Mieli x 6',
+        'vW06unc-IXY': 'DD Cyprus1Click x 5',
         'wz1Se_9rBEU': 'Politischios.gr x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
-        'PdHIS38syCI': 'Audionix x 4',
+        'jQ_TK_QuxGg': 'Audionix x 4',
       },
 
       Exotic: {
