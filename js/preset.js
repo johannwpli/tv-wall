@@ -229,8 +229,8 @@ let /* set tv */
           `</label>`
       }
 
-      //console.log(urlGridParam)
-      //console.log(radioGridArr)
+      //console.log({urlGridParam})
+      //console.log({radioGridArr})
       //console.log(radioGridArr.includes(urlGridParam))
 
       if (urlGridParam) {
@@ -244,7 +244,7 @@ let /* set tv */
 
         if (urlGridParam === 'all') {
           //console.log(tvSrcArr.length)
-          //console.log(radioGridArr)
+          //console.log({radioGridArr})
           //console.log(radioGridArr[radioGridArr.length - 1])
 
           if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 1]) {
@@ -263,10 +263,10 @@ let /* set tv */
           */
         }
 
-        //console.log(radioGridDefault)
+        //console.log({radioGridDefault})
       }
 
-      //console.log(radioGrid)
+      //console.log({radioGrid})
 
       document.querySelector('.cell.grid')
         .insertAdjacentHTML('beforeEnd', radioGrid)
@@ -285,10 +285,10 @@ let /* set tv */
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
 
-      //console.log(tvSrcObj)
-      //console.log(urlGridParam)
-      //console.log(urlMenuParam)
-      //console.log(radioMenuShow)
+      //console.log({tvSrcObj})
+      //console.log({urlGridParam})
+      //console.log({urlMenuParam})
+      //console.log({radioMenuShow})
 
       for (let i in tvSrcObj) {
         if (radioMenuShow.includes(i))
@@ -305,7 +305,7 @@ let /* set tv */
 
         tvSrcKey = radioMenuDefault
         tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-        //console.log(tvSrcArr)
+        //console.log({tvSrcArr})
 
         if (!radioMenuShow.includes(urlMenuParam)) {
           radioMenu +=
@@ -316,7 +316,7 @@ let /* set tv */
         }
       }
 
-      //console.log(radioMenu)
+      //console.log({radioMenu})
 
       document.querySelector('.cell.menu')
         .insertAdjacentHTML('beforeEnd', radioMenu)
@@ -333,7 +333,7 @@ let /* set tv */
 
     setUrl = () => {
       newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
-      //console.log(newUrl)
+      //console.log({newUrl})
       window.history.pushState(newState, oldTitle, newUrl)
     },
 

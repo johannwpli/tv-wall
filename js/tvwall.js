@@ -59,8 +59,8 @@ let /* set grid value by grid radio */
     /* set grid layout by grid value */
 
     tvGrid = () => {
-      //console.log('docWidth: ', docWidth)
-      //console.log('docHeight: ', docHeight)
+      //console.log({docWidth})
+      //console.log({docHeight})
 
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
@@ -70,9 +70,9 @@ let /* set grid value by grid radio */
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
-      //console.log('tvAllNumber: ', tvAllNumber)
-      //console.log('tvRowNumber: ', tvRowNumber)
-      //console.log('tvColNumber: ', tvColNumber)
+      //console.log({tvAllNumber})
+      //console.log({tvRowNumber})
+      //console.log({tvColNumber})
     },
 
     /* set tv size by window size */
@@ -84,8 +84,8 @@ let /* set grid value by grid radio */
       tvWidth = docWidth / tvColNumber
       tvHeight = docHeight / tvRowNumber
 
-      //console.log('tvWidth: ', tvWidth)
-      //console.log('tvHeight: ', tvHeight)
+      //console.log({tvWidth})
+      //console.log({tvHeight})
       //console.log('tvWidth*tvColNumber: ', tvWidth * tvColNumber)
       //console.log('tvHeight*tvRowNumber: ', tvHeight * tvRowNumber)
     },
@@ -107,7 +107,7 @@ let /* set grid value by grid radio */
          https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
       htmlBody = document.querySelector('#body')
-      //console.log(htmlBody)
+      //console.log({htmlBody})
       while (htmlBody.firstChild) htmlBody.firstChild.remove()
 
       for (let i = 0; i < tvRowNumber; i++) {
@@ -128,10 +128,10 @@ let /* set grid value by grid radio */
       tvSize()
 
       tvSrcKey = menuChecked.value
-      //console.log(tvSrcKey)
+      //console.log({tvSrcKey})
 
       tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-      //console.log(tvSrcArr)
+      //console.log({tvSrcArr})
 
       tvRatio =
         tvAllNumber < tvSrcArr.length
@@ -143,7 +143,7 @@ let /* set grid value by grid radio */
       tvSrcArr.length > tvAllNumber ? shuffle(tvSrcArr) : null
 
       //console.log('TV Array Length: ', tvSrcArr.length)
-      //console.log('TV All Number: ', tvAllNumber)
+      //console.log({tvAllNumber})
 
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
@@ -151,7 +151,7 @@ let /* set grid value by grid radio */
           tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
           tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
           tvSrc = tvSrcPrefix + tvSrcArr[i]
-          //tvSrc ? console.log(tvSrc) : null
+          //tvSrc ? console.log({tvSrc}) : null
 
           e.removeAttribute('alt')
           e.removeAttribute('title')
