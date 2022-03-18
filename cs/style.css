@@ -79,16 +79,13 @@ input[type=radio]:checked {
 }
 
 .tv {
+  border: 1px solid transparent;
+  transition: all .2s ease-in-out;
   background: #000;
   color: #fff;
 }
 
-.tv iframe {
-  border: 1px solid transparent;
-  transition: all .2s ease-in-out;
-}
-
-.tv iframe:hover {
+.tv:hover {
   border: 1px solid #0f0;
 }
 

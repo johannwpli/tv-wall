@@ -6,11 +6,10 @@
 
 let /* set tv */
 
-    widthDiff = 28,
-    heightDiff = 76,
-
-    docWidth = window.innerWidth - widthDiff,
-    docHeight = window.innerHeight - heightDiff,
+    widthDiff,
+    heightDiff,
+    docWidth,
+    docHeight,
 
     siteUrl = 'https://johannwpli.github.io/tv-wall/',
     siteTitle = document.title,
@@ -26,7 +25,6 @@ let /* set tv */
     newTitle,
     newState = { additionalInformation: 'Updated the URL with JS' },
 
-    htmlBody,
     wallPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu'],
 
@@ -234,8 +232,8 @@ let /* set tv */
       //console.log(radioGridArr.includes(urlGridParam))
 
       if (urlGridParam) {
-        if (parseInt(urlGridParam)) {
-          //console.log(parseInt(urlGridParam))
+        if (!isNaN(urlGridParam)) {
+          //console.log(!isNaN(urlGridParam))
           radioGridDefault =
             radioGridArr.includes(urlGridParam)
               ? urlGridParam

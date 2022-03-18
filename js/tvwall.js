@@ -59,14 +59,11 @@ let /* set grid value by grid radio */
     /* set grid layout by grid value */
 
     tvGrid = () => {
-      //console.log({docWidth})
-      //console.log({docHeight})
-
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 1~3:1, 4~8:2, 9~15:3, 16:4
 
-      docWidth >= docHeight 
+      window.innerWidth >= window.innerHeight
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
@@ -78,8 +75,42 @@ let /* set grid value by grid radio */
     /* set tv size by window size */
 
     tvSize = () => {
+      //console.log({head})
+      //console.log({body})
+
+      let tv = document.querySelector('.tv')
+
+      bbw = getComputedStyle(body)
+              .getPropertyValue('border-width').replace('px',''),
+      tbw = getComputedStyle(tv)
+              .getPropertyValue('border-width').replace('px',''),
+      hbw = getComputedStyle(head)
+              .getPropertyValue('border-width').replace('px',''),
+      hht = getComputedStyle(head)
+              .getPropertyValue('height').replace('px',''),
+
+      widthDiff =  bbw * 2 + tbw * 2 * tvColNumber
+      // body border width * 2 sides
+      // + tv border width * 2 sides * max cols
+
+      heightDiff =  bbw * 2 + (tbw * 2 + 4) * tvRowNumber + hbw * 2 + hht * 1
+      // body border height * 2 sides
+      // + (tv border height * 2 sides + iframe height gap) * max rows
+      // + header border height * 2 sides
+      // + header height
+
+      //console.log({bbw})
+      //console.log({tbw})
+      //console.log({hbw})
+      //console.log({hht})
+      //console.log({widthDiff})
+      //console.log({heightDiff})
+
       docWidth = window.innerWidth - widthDiff
       docHeight = window.innerHeight - heightDiff
+
+      //console.log({docWidth})
+      //console.log({docHeight})
 
       tvWidth = docWidth / tvColNumber
       tvHeight = docHeight / tvRowNumber
@@ -106,9 +137,7 @@ let /* set grid value by grid radio */
       /* innerHTML vs removeChild vs remove
          https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
-      htmlBody = document.querySelector('#body')
-      //console.log({htmlBody})
-      while (htmlBody.firstChild) htmlBody.firstChild.remove()
+      while (body.firstChild) body.firstChild.remove()
 
       for (let i = 0; i < tvRowNumber; i++) {
         document.querySelector('#body')
