@@ -84,18 +84,20 @@ let /* set grid value by grid radio */
               .getPropertyValue('border-width').replace('px',''),
       tbw = getComputedStyle(tv)
               .getPropertyValue('border-width').replace('px',''),
+      igw = 1,
+      igh = 7,
       hbw = getComputedStyle(head)
               .getPropertyValue('border-width').replace('px',''),
       hht = getComputedStyle(head)
               .getPropertyValue('height').replace('px',''),
 
-      widthDiff =  bbw * 2 + tbw * 2 * tvColNumber
+      widthDiff =  bbw * 2 + (tbw + igw) * 2 * tvColNumber
       // body border width * 2 sides
-      // + tv border width * 2 sides * max cols
+      // + (tv border width * 2 sides + ifrmae gap width) * max cols
 
-      heightDiff =  bbw * 2 + (tbw * 2 + 4) * tvRowNumber + hbw * 2 + hht * 1
+      heightDiff =  bbw * 2 + (tbw * 2 + igh) * tvRowNumber + hbw * 2 + hht * 1
       // body border height * 2 sides
-      // + (tv border height * 2 sides + iframe height gap) * max rows
+      // + (tv border height * 2 sides + iframe gap height) * max rows
       // + header border height * 2 sides
       // + header height
 

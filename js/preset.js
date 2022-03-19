@@ -92,17 +92,17 @@ let /* set tv */
       },
 
       Ukraine: {
-        'RHP4hZLhhos': 'SBK SHOW x 21',
+        'rRknKL8NaVs': 'SBK SHOW x 21',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'Pe_hhYt53jA': 'Sloth On Meth x 13',
-        'd6K5aVcIx0o': 'VBMedia x 10',
-        'tlhxljmLHJ8': 'Inquizex x 8',
-        '0C8iZulB27U': 'Zabby x 6',
-        'HI2t0j_5aDU': 'Lucas Mieli x 6',
-        'vW06unc-IXY': 'DD Cyprus1Click x 5',
+        'BAu4lY73u80': 'Sloth On Meth x 13',
+        'Yx-1gcrqMG8': 'VBMedia x 10',
+        'HHEpOjC1pJ4': 'Inquizex x 8',
+        'jT5LTWCvNJA': 'Zabby x 6',
+        'uWkNRod5duE': 'Lucas Mieli x 6',
+        'jCmyHiIJpz8': 'DD Cyprus1Click x 5',
         'wz1Se_9rBEU': 'Politischios.gr x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
-        'jQ_TK_QuxGg': 'Audionix x 4',
+        '9dUgMoI3cRw': 'Audionix x 4',
       },
 
       Exotic: {
