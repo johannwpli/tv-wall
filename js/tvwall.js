@@ -78,30 +78,28 @@ let /* set grid value by grid radio */
       //console.log({head})
       //console.log({body})
 
-      tv = document.querySelector('.tv')
-
       getCssPx = (e,p) => 
         getComputedStyle(e).getPropertyValue(p).replace('px','') * 1
 
       bbw = getCssPx(body,'border-width')
-      tbw = getCssPx(tv,'border-width')
+      ibw = 1
       hbw = getCssPx(head,'border-width')
       hht = getCssPx(head,'height')
       igw = 1
-      igh = 7
+      igh = 3.5
 
-      widthDiff = bbw * 2 + (tbw + igw) * 2 * tvColNumber
+      widthDiff = bbw * 2 + (ibw + igw) * tvColNumber * 2
       // body border width * 2 sides
-      // + (tv border width * 2 sides + ifrmae gap width) * cols
+      // + (iframe border width + ifrmae gap width) * cols * 2 sides 
 
-      heightDiff = bbw * 2 + (tbw * 2 + igh) * tvRowNumber + hbw * 2 + hht
+      heightDiff = bbw * 2 + (ibw + igh) * tvRowNumber * 2 + hbw * 2 + hht
       // body border height * 2 sides
-      // + (tv border height * 2 sides + iframe gap height) * rows
+      // + (iframe border height + iframe gap height) * rows * 2 sides 
       // + header border height * 2 sides
       // + header height
 
       //console.log({bbw})
-      //console.log({tbw})
+      //console.log({ibw})
       //console.log({hbw})
       //console.log({hht})
       //console.log({widthDiff})
