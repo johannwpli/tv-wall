@@ -76,7 +76,7 @@ let /* set tv */
         'V0I5eglJMRI': 'RT 🇷🇺 Russia',
         '9Auq9mYxFEE': 'Sky News 🇬🇧 United Kingdom',
         'CV5Fooi8YJA': 'TRT World 🇹🇷 Turkey',
-        'DyCpI9tKY0g': 'World is One News 🇮🇳 India',
+        'DyCpI9tKY0g': 'The World is One News (WION) 🇮🇳 India',
       },
 
       Taiwan: {
@@ -94,15 +94,15 @@ let /* set tv */
       },
 
       Ukraine: {
-        'iPUS_vPz1gU': 'SBK SHOW x 16',
+        'xSKs3Y89Is4': 'SBK SHOW x 16',
         'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'ly9P_ViH6t0': 'Sloth On Meth x 13',
-        '9RwAyGTjOT8': 'Lucas Mieli x 11',
+        '23XjpU7rO20': 'Sloth On Meth x 13',
+        'AXK7-s7KHV0': 'Lucas Mieli x 11',
         'Yx-1gcrqMG8': 'VBMedia x 10',
+        '82SInE8UwuA': 'Zabby x 9',
         'HHEpOjC1pJ4': 'Inquizex x 8',
-        'dPCi_1DOcEg': 'Audionix x 7',
-        'w9u3DqUD5Fw': 'Zabby x 6',
-        'iDL2mSZ867s': 'DD Cyprus1Click x 5',
+        'Q3d4tvw1nwk': 'Audionix x 7',
+        'pU7VAUZZkn4': 'DD Cyprus1Click x 5',
         '0Zy-EJuWr8M': 'Politischios.gr x 4',
         'iZebYm-nenY': 'Livestream Events x 4',
       },
