@@ -78,26 +78,25 @@ let /* set grid value by grid radio */
       //console.log({head})
       //console.log({body})
 
-      let tv = document.querySelector('.tv')
+      tv = document.querySelector('.tv')
 
-      bbw = getComputedStyle(body)
-              .getPropertyValue('border-width').replace('px',''),
-      tbw = getComputedStyle(tv)
-              .getPropertyValue('border-width').replace('px',''),
-      igw = 1,
-      igh = 7,
-      hbw = getComputedStyle(head)
-              .getPropertyValue('border-width').replace('px',''),
-      hht = getComputedStyle(head)
-              .getPropertyValue('height').replace('px',''),
+      getCssPx = (e,p) => 
+        getComputedStyle(e).getPropertyValue(p).replace('px','') * 1
 
-      widthDiff =  bbw * 2 + (tbw + igw) * 2 * tvColNumber
+      bbw = getCssPx(body,'border-width')
+      tbw = getCssPx(tv,'border-width')
+      hbw = getCssPx(head,'border-width')
+      hht = getCssPx(head,'height')
+      igw = 1
+      igh = 7
+
+      widthDiff = bbw * 2 + (tbw + igw) * 2 * tvColNumber
       // body border width * 2 sides
-      // + (tv border width * 2 sides + ifrmae gap width) * max cols
+      // + (tv border width * 2 sides + ifrmae gap width) * cols
 
-      heightDiff =  bbw * 2 + (tbw * 2 + igh) * tvRowNumber + hbw * 2 + hht * 1
+      heightDiff = bbw * 2 + (tbw * 2 + igh) * tvRowNumber + hbw * 2 + hht
       // body border height * 2 sides
-      // + (tv border height * 2 sides + iframe gap height) * max rows
+      // + (tv border height * 2 sides + iframe gap height) * rows
       // + header border height * 2 sides
       // + header height
 

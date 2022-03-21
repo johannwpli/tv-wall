@@ -42,17 +42,17 @@ input[type=radio]:checked {
 */
 
 #head {
-  border: 8px solid #fff;
+  border: 8px solid transparent;
+  background: #fff;
 }
 
 #body {
-  border: 8px solid #000;
+  border: 8px solid transparent;
 }
 
 .table {
   display: table;
   width: calc(100% - 16px);
-  background: #fff;
 }
 
 .row {
@@ -76,11 +76,6 @@ input[type=radio]:checked {
 
 .menu {
   text-align: right;
-}
-
-.tv {
-  background: #000;
-  color: #fff;
 }
 
 .tv iframe {

@@ -41,6 +41,7 @@ let /* set tv */
     radioMenuDefault = 'World',
     radioMenuShow = ['World', 'Taiwan', 'Ukraine'],
 
+    tv,
     tvAllNumber,
     tvShortNumber,
     tvRowNumber,
