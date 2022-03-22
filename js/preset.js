@@ -94,18 +94,18 @@ let /* set tv */
       },
 
       Ukraine: {
-        'GhEjttMC_ls': 'Audionix',
-        'fthTxdAUJ2E': 'DD Cyprus1Click',
+        'Q3d4tvw1nwk': 'Audionix',
+        'eitagbvyLMs': 'DD Cyprus1Click',
         'v3v3_pESvrc': 'Inquizex',
         'iZebYm-nenY': 'Livestream Events',
         'fVeY6fQ_14Q': 'Lucas Mieli',
         '0Zy-EJuWr8M': 'Politischios.gr',
-        '-c8GF8W59M0': 'RICIERG',
-        'p40zMEYWn9U': 'SBK SHOW',
+        'fE5g339f-Lc': 'RICIERG',
+        'z24IMcJVup8': 'SBK SHOW',
         'S8utklsSbaU': 'Sloth On Meth',
         'e2gC37ILQmk': 'TVL Trzcianka',
         'Yx-1gcrqMG8': 'VBMedia',
-        'Z__toj8IHGM': 'Zabby',
+        'gVsOLEPPu6c': 'Zabby',
       },
 
       Exotic: {
@@ -213,7 +213,7 @@ let /* set tv */
 
     setGrid = () => {
       document.querySelector('.cell.grid')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">[grid]</label>`)
 
       for (let i of radioGridArr) {
         let j =
@@ -277,7 +277,7 @@ let /* set tv */
 
     setMenu = () => {
       document.querySelector('.cell.menu')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">[menu]</label>`)
 
       //console.log({tvSrcObj})
       //console.log({urlGridParam})
