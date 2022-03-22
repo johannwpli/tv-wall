@@ -88,6 +88,9 @@ input[type=radio]:checked {
 }
 
 .grid label:first-of-type, .menu label:first-of-type {
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  padding: 1px;
 }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
