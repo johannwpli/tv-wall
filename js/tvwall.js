@@ -42,18 +42,7 @@ let /* set grid value by grid radio */
     /* adjust tv size by window size */
 
     listenWindowResize = () => {
-      window.addEventListener('resize',
-        () => {
-          tvSize()
-
-          document.querySelectorAll('iframe').forEach(
-            (e) => {
-              e.setAttribute('width', tvWidth)
-              e.setAttribute('height', tvHeight)
-            }
-          )
-        }
-      )
+      window.addEventListener('resize', tvSize)
     },
 
     /* set grid layout by grid value */
@@ -78,30 +67,39 @@ let /* set grid value by grid radio */
       //console.log({head})
       //console.log({body})
 
+      tv = document.querySelector('.tv')
+      iframe = document.querySelector('iframe')
+
       getCssPx = (e,p) => 
         getComputedStyle(e).getPropertyValue(p).replace('px','') * 1
 
       bbw = getCssPx(body,'border-width')
-      ibw = 1
       hbw = getCssPx(head,'border-width')
       hht = getCssPx(head,'height')
-      igw = 1
-      igh = 3.5
 
-      widthDiff = bbw * 2 + (ibw + igw) * tvColNumber * 2
+      //console.log(getCssPx(tv,'width'))
+      //console.log(getCssPx(tv,'height'))
+      //console.log(getCssPx(iframe,'width'))
+      //console.log(getCssPx(iframe,'height'))
+
+      //igw = getCssPx(tv,'width') - getCssPx(iframe,'width')
+      igh = getCssPx(tv,'height') - getCssPx(iframe,'height')
+
+      widthDiff = bbw * 2
       // body border width * 2 sides
-      // + (iframe border width + ifrmae gap width) * cols * 2 sides 
 
-      heightDiff = bbw * 2 + (ibw + igh) * tvRowNumber * 2 + hbw * 2 + hht
+      heightDiff = bbw * 2 + hbw * 2 + hht
       // body border height * 2 sides
-      // + (iframe border height + iframe gap height) * rows * 2 sides 
       // + header border height * 2 sides
       // + header height
 
       //console.log({bbw})
-      //console.log({ibw})
       //console.log({hbw})
       //console.log({hht})
+
+      //console.log({igw})
+      //console.log({igh})
+
       //console.log({widthDiff})
       //console.log({heightDiff})
 
@@ -112,12 +110,21 @@ let /* set grid value by grid radio */
       //console.log({docHeight})
 
       tvWidth = docWidth / tvColNumber
-      tvHeight = docHeight / tvRowNumber
+      tvHeight = docHeight / tvRowNumber - igh
 
       //console.log({tvWidth})
       //console.log({tvHeight})
-      //console.log('tvWidth*tvColNumber: ', tvWidth * tvColNumber)
-      //console.log('tvHeight*tvRowNumber: ', tvHeight * tvRowNumber)
+      //console.log('tvWidth * tvColNumber: ', tvWidth * tvColNumber)
+      //console.log('tvHeight * tvRowNumber: ', tvHeight * tvRowNumber)
+
+      document.querySelectorAll('iframe').forEach(
+        (e) => {
+          /*
+          */
+          e.setAttribute('width', tvWidth)
+          e.setAttribute('height', tvHeight)
+        }
+      )
     },
 
     /* shuffle array with Fisher-Yates algo          
@@ -153,7 +160,7 @@ let /* set grid value by grid radio */
     },
 
     setTv = () => {
-      tvSize()
+      //tvSize()
 
       tvSrcKey = menuChecked.value
       //console.log({tvSrcKey})
@@ -187,8 +194,8 @@ let /* set grid value by grid radio */
 
           if (tvSrcArr[i]) {
             tvHtml = `<iframe` +
-                     ` width='${tvWidth}'` +
-                     ` height='${tvHeight}'` +
+                     //` width='${tvWidth}'` +
+                     //` height='${tvHeight}'` +
                      ` title='${tvTitle}'` +
                      ` frameborder='${tvBorder}'` +
                      ` allow='${tvAllow}'` +
@@ -205,6 +212,8 @@ let /* set grid value by grid radio */
       )
 
       console.groupEnd()
+
+      tvSize()
     },
 
     tvwall = () => {
