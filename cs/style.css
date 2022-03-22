@@ -4,8 +4,8 @@
 
 body {
   /*
-  overflow: hidden;
   */
+  overflow: hidden;
   margin: 0;
   color: #202124;
   background: #000;
@@ -78,19 +78,13 @@ input[type=radio]:checked {
   text-align: right;
 }
 
-.tv {
-  /*
-  padding: 1px;
-  */
-}
-
 .tv iframe {
-  border: 0px solid transparent;
+  border: 1px solid transparent;
   transition: all .2s ease-in-out;
 }
 
 .tv iframe:hover {
-  border: 0px solid #0f0;
+  border: 1px solid #0f0;
 }
 
 .grid label:first-of-type, .menu label:first-of-type {

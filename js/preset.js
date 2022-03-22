@@ -255,13 +255,6 @@ let /* set tv */
             while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
             radioGridDefault = tvSrcArr.length
           }
-
-          /*
-          radioGridDefault =
-            radioGridArr.includes(tvSrcArr.length)
-              ? tvSrcArr.length
-              : radioGridArr.reduce(getClosestGrid(tvSrcArr.length))
-          */
         }
 
         //console.log({radioGridDefault})
