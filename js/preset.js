@@ -66,17 +66,17 @@ let /* set tv */
     tvSrcObj = {
       World: {
         '-upyPouRrB8': 'Al Jazeera 🇶🇦 Qatar',
-        'w_Ma8oQLmSM': 'ABC News 🇺🇸 United States',
+        'w_Ma8oQLmSM': 'ABC 🇺🇸 United States',
         'XWq5kBlakcQ': 'CNA 🇸🇬 Singapore',
-        'V9KZGs1MtP4': 'DW News 🇩🇪 Germany',
+        'V9KZGs1MtP4': 'DW 🇩🇪 Germany',
         'sPgqEHsONK8': 'euronews 🇵🇹 Portugal',
         'h3MuIUNCCzI': 'FRANCE 24 🇫🇷 France',
-        '7fIU2aMImMQ': 'GBNews 🇬🇧 United Kingdom',
+        '7fIU2aMImMQ': 'GB News 🇬🇧 United Kingdom',
         'f0lYkdA-Gtw': 'NHK 🇯🇵 Japan',
         'V0I5eglJMRI': 'RT 🇷🇺 Russia',
         '9Auq9mYxFEE': 'Sky News 🇬🇧 United Kingdom',
-        'CV5Fooi8YJA': 'TRT World 🇹🇷 Turkey',
-        'DyCpI9tKY0g': 'The World is One News (WION) 🇮🇳 India',
+        'CV5Fooi8YJA': 'TRT 🇹🇷 Turkey',
+        'DyCpI9tKY0g': 'WION 🇮🇳 India',
       },
 
       Taiwan: {
@@ -94,18 +94,18 @@ let /* set tv */
       },
 
       Ukraine: {
-        'iTuplew6x-s': 'SBK SHOW x 16',
-        'e2gC37ILQmk': 'TVL Trzcianka x 16',
-        'jYEmks5uLsk': 'Sloth On Meth x 13',
-        'AXK7-s7KHV0': 'Lucas Mieli x 11',
-        'Yx-1gcrqMG8': 'VBMedia x 10',
-        'T6xRLEtDh14': 'Zabby x 9',
-        'Xc8Exsyfvy4': 'Inquizex x 8',
-        '4E9XaweoS1Q': 'Audionix x 7',
-        '33Lnupaswgk': 'DD Cyprus1Click x 5',
-        'HpsLQaro3Nc': 'RICIERG x 5',
-        '0Zy-EJuWr8M': 'Politischios.gr x 4',
-        'iZebYm-nenY': 'Livestream Events x 4',
+        'GhEjttMC_ls': 'Audionix',
+        'fthTxdAUJ2E': 'DD Cyprus1Click',
+        'v3v3_pESvrc': 'Inquizex',
+        'iZebYm-nenY': 'Livestream Events',
+        'fVeY6fQ_14Q': 'Lucas Mieli',
+        '0Zy-EJuWr8M': 'Politischios.gr',
+        '-c8GF8W59M0': 'RICIERG',
+        'p40zMEYWn9U': 'SBK SHOW',
+        'S8utklsSbaU': 'Sloth On Meth',
+        'e2gC37ILQmk': 'TVL Trzcianka',
+        'Yx-1gcrqMG8': 'VBMedia',
+        'Z__toj8IHGM': 'Zabby',
       },
 
       Exotic: {
