@@ -13,6 +13,7 @@ let /* set tv */
 
     siteUrl = 'https://johannwpli.github.io/tv-wall/',
     siteTitle = document.title,
+    siteName = 'TV Wall',
     githubUrl = 'https://github.com/johannwpli/tv-wall',
 
     urlSearchParams = new URLSearchParams(location.search),
@@ -28,8 +29,7 @@ let /* set tv */
     wallPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu'],
 
-    cellTitle = '<label><a href="' + siteUrl +'">TV Wall</a>' +
-      ' <a href="' + githubUrl + '">&copy;</a></label>',
+    cellTitle = '<label><a href="' + siteUrl +'" title="' + siteTitle + '" alt="' + siteName+ '">' + siteName + '</a>&nbsp;<a href="' + githubUrl + '">&copy;</a></label>',
 
     radioGrid = '',
     radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20],
