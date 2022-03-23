@@ -79,15 +79,20 @@ input[type=radio]:checked {
 }
 
 .tv iframe {
-  border: 1px solid transparent;
+  border: 0px solid transparent;
   transition: all .2s ease-in-out;
 }
 
 .tv iframe:hover {
-  border: 1px solid #0f0;
+  border: 0px solid #0f0;
 }
 
 .grid label:first-of-type, .menu label:first-of-type {
+    border: 1px solid silver;
+    border-radius: 8px;
+    padding: 0px 4px;
+    background: #e2e2e2;
+    font-size: 12px;
 }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {

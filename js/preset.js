@@ -32,7 +32,7 @@ let /* set tv */
       ' <a href="' + githubUrl + '">&copy;</a></label>',
 
     radioGrid = '',
-    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16],
+    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20],
     radioGridDefault = 3,
     radioGridTablet = 4,
     radioGridDesktop = 12,
@@ -94,18 +94,23 @@ let /* set tv */
       },
 
       Ukraine: {
-        'Q3d4tvw1nwk': 'Audionix',
+        'LywKFQHcdRQ': 'Audionix',
+        'Ovo6wi1eKlI': 'Chiosphotos.gr',
         'eitagbvyLMs': 'DD Cyprus1Click',
+        'uhh6a-XxGaA': 'e.hocamm web',
         'v3v3_pESvrc': 'Inquizex',
         'iZebYm-nenY': 'Livestream Events',
-        'fVeY6fQ_14Q': 'Lucas Mieli',
+        'y8Tzqymldck': 'Lucas Mieli',
         '0Zy-EJuWr8M': 'Politischios.gr',
-        'fE5g339f-Lc': 'RICIERG',
-        'z24IMcJVup8': 'SBK SHOW',
-        'S8utklsSbaU': 'Sloth On Meth',
+        'HKJviJaxduk': 'Pony Swedman TV',
+        'MVixUzIlmRU': 'RICIERG',
+        '605ApEWNmFk': 'SBK SHOW',
+        'wul_xvuJ5Ck': 'Sloth On Meth',
         'e2gC37ILQmk': 'TVL Trzcianka',
-        'Yx-1gcrqMG8': 'VBMedia',
-        'gVsOLEPPu6c': 'Zabby',
+        'uT6RDbXEBj4': 'VBMedia',
+        '1Ff8UTC8yWg': 'Zabby',
+        'rLL-eY-sO1o': 'Webcam Live Stream',
+        '8HKu47RY--w': 'WorldCam',
       },
 
       Exotic: {
@@ -213,7 +218,7 @@ let /* set tv */
 
     setGrid = () => {
       document.querySelector('.cell.grid')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">[grid]</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
 
       for (let i of radioGridArr) {
         let j =
@@ -277,7 +282,7 @@ let /* set tv */
 
     setMenu = () => {
       document.querySelector('.cell.menu')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">[menu]</label>`)
+        .insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
 
       //console.log({tvSrcObj})
       //console.log({urlGridParam})
