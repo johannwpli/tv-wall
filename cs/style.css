@@ -18,7 +18,9 @@ a {
 }
 
 input[type=radio] {
-  margin: 1px;
+  margin: 2px;
+  width: 11px;
+  height: 11px;
 }
 
 input[type=radio]:checked {
@@ -61,7 +63,9 @@ input[type=radio]:checked {
 
 .cell {
   display: table-cell;
+  /*
   vertical-align: middle;
+  */
   text-align: center;
 }
 
@@ -97,7 +101,7 @@ input[type=radio]:checked {
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: 9px;
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
