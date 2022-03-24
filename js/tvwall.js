@@ -49,21 +49,18 @@ let /* set grid value by grid radio */
       iframe = document.querySelector('iframe')
 
       getCssPx = (e,p) => 
-        getComputedStyle(e).getPropertyValue(p).replace('px','') * 1
+        getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 //toNumber
 
-      bbw = getCssPx(body,'border-width')
-      hbw = getCssPx(head,'border-width')
-      hht = getCssPx(head,'height')
+      bodyBorderWidth = getCssPx(body,'border-width') * 2
+      headBorderWidth = getCssPx(head,'border-width') * 2
+      headHeight = getCssPx(head,'height')
 
-      //console.log({bbw})
-      //console.log({hbw})
-      //console.log({hht})
+      //console.log({bodyBorderWidth})
+      //console.log({headBorderWidth})
+      //console.log({headHeight})
 
-      widthDiff = bbw * 2
-      // body border width * 2 sides
-
-      heightDiff = (bbw + hbw) * 2 + hht
-      // (body border height + header border height) * 2 sides + header height
+      widthDiff = bodyBorderWidth
+      heightDiff = bodyBorderWidth + headBorderWidth + headHeight
 
       //console.log({widthDiff})
       //console.log({heightDiff})
@@ -73,13 +70,13 @@ let /* set grid value by grid radio */
       //console.log(getCssPx(iframe,'width'))
       //console.log(getCssPx(iframe,'height'))
 
-      ibw = getCssPx(iframe,'border-width')
-      //igw = getCssPx(tv,'width') - getCssPx(iframe,'width')
-      igh = getCssPx(tv,'height') - getCssPx(iframe,'height')
+      iframeBorderWidth = getCssPx(iframe,'border-width') * 2
+      //iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
+      iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
 
-      //console.log({ibw})
-      //console.log({igw})
-      //console.log({igh})
+      //console.log({iframeBorderWidth})
+      //console.log({iframeGapWidth})
+      //console.log({iframeGapHeight})
 
       docWidth = window.innerWidth - widthDiff
       docHeight = window.innerHeight - heightDiff
@@ -87,8 +84,8 @@ let /* set grid value by grid radio */
       //console.log({docWidth})
       //console.log({docHeight})
 
-      tvWidth = docWidth / tvColNumber - ibw * 2
-      tvHeight = docHeight / tvRowNumber - igh - ibw * 2
+      tvWidth = docWidth / tvColNumber - iframeBorderWidth
+      tvHeight = docHeight / tvRowNumber - iframeGapHeight - iframeBorderWidth
 
       //console.log({tvWidth})
       //console.log({tvHeight})
@@ -115,7 +112,7 @@ let /* set grid value by grid radio */
     tvGrid = () => {
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
-      // 1~3:1, 4~8:2, 9~15:3, 16:4
+      // 1~3:1, 4~8:2, 9~15:3, 16~24:4
 
       window.innerWidth >= window.innerHeight
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
