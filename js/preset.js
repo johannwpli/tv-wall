@@ -68,10 +68,10 @@ let /* set tv */
         '-upyPouRrB8': 'Al Jazeera 🇶🇦 Qatar',
         'w_Ma8oQLmSM': 'ABC 🇺🇸 United States',
         'XWq5kBlakcQ': 'CNA 🇸🇬 Singapore',
-        'V9KZGs1MtP4': 'DW 🇩🇪 Germany',
+        'qQIw1gh_FmU': 'DW 🇩🇪 Germany',
         'sPgqEHsONK8': 'euronews 🇵🇹 Portugal',
         'h3MuIUNCCzI': 'FRANCE 24 🇫🇷 France',
-        '55zQjMcBQFE': 'FOX 🇺🇸 United States',
+        'k0gIHuc94PY': 'FOX 🇺🇸 United States',
         '7fIU2aMImMQ': 'GB News 🇬🇧 United Kingdom',
         'f0lYkdA-Gtw': 'NHK 🇯🇵 Japan',
         'V0I5eglJMRI': 'RT 🇷🇺 Russia',
@@ -82,7 +82,7 @@ let /* set tv */
 
       Taiwan: {
         'Qg9U06O2R-s': 'CCTV 央視 🇨🇳 China',
-        'lu_BJKxqGnk': 'CTI 中天 🇨🇳 China?',
+        '_QbRXRnHMVY': 'CTI 中天 🇨🇳 China?',
         'wM0g8EoUZ_E': 'CTS 華視 🇹🇼 Taiwan',
         'TCnaIE_SAtM': 'CTV 中視 🇹🇼 Taiwan',
         'R2iMq5LKXco': 'EBC 東森 🇹🇼 Taiwan',
