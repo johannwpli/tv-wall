@@ -39,7 +39,8 @@ let /* set tv */
 
     radioMenu = '',
     radioMenuDefault = 'World',
-    radioMenuShow = ['World', 'Taiwan', 'Ukraine'],
+    //radioMenuShow = ['World', 'Taiwan', 'Ukraine'],
+    radioMenuShow = ['World', 'Taiwan'],
 
     tvAllNumber,
     tvShortNumber,
@@ -68,7 +69,7 @@ let /* set tv */
         'F-POY4Q0QSI': 'Al Jazeera 🇶🇦 Qatar',
         'w_Ma8oQLmSM': 'ABC 🇺🇸 United States',
         'XWq5kBlakcQ': 'CNA 🇸🇬 Singapore',
-        'm01az_TdpQI': 'DW 🇩🇪 Germany',
+        'GE_SfNVNyqk': 'DW 🇩🇪 Germany',
         'sPgqEHsONK8': 'euronews 🇵🇹 Portugal',
         'h3MuIUNCCzI': 'FRANCE 24 🇫🇷 France',
         '7fIU2aMImMQ': 'GB News 🇬🇧 United Kingdom',
@@ -84,13 +85,13 @@ let /* set tv */
         '_QbRXRnHMVY': 'CTI 中天 🇨🇳 China?',
         'wM0g8EoUZ_E': 'CTS 華視 🇹🇼 Taiwan',
         'TCnaIE_SAtM': 'CTV 中視 🇹🇼 Taiwan',
-        'R2iMq5LKXco': 'EBC 東森 🇹🇼 Taiwan',
+        //'R2iMq5LKXco': 'EBC 東森 🇹🇼 Taiwan',
         'yguQ1SzPM5U': 'FTV 民視 🇹🇼 Taiwan',
         'B7Zp3d6xXWw': 'Global News 寰宇 🇹🇼 Taiwan',
         'CKjSm5ZeehE': 'iNEWS 三立 🇹🇼 Taiwan',
         '4Uc00FPs27M': 'PTS 公視 🇹🇼 Taiwan',
         'xL0ch83RAK8': 'TTV 台視 🇹🇼 Taiwan',
-        '2mCSYvcfhtc': 'TVBS 🇹🇼 Taiwan',
+        //'2mCSYvcfhtc': 'TVBS 🇹🇼 Taiwan',
       },
 
       Ukraine: {
