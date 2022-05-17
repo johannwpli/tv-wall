@@ -91,6 +91,10 @@ input[type=radio]:checked {
   border: 0px solid #0f0;
 }
 
+.grid label, .menu label{
+    margin: 0 .5px;
+}
+
 .grid label:first-of-type, .menu label:first-of-type {
     border: 1px solid silver;
     border-radius: 8px;

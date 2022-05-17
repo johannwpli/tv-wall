@@ -105,6 +105,7 @@ let /* set grid value by grid radio */
 
     listenWindowResize = () => {
       window.addEventListener('resize', tvSize)
+      setInterval(tvSize, 1000) //to fix fullscreen bug
     },
 
     /* set grid layout by grid value */
