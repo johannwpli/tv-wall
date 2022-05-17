@@ -87,14 +87,14 @@ let /* set tv */
         'wM0g8EoUZ_E': 'CTS 華視, Taiwan',
         'TCnaIE_SAtM': 'CTV 中視, Taiwan',
         'SBtGwNMfuf0': 'EBC 東森, Taiwan',
-        'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan',
+        //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan',
         'yguQ1SzPM5U': 'FTV 民視, Taiwan',
         'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan',
         'CKjSm5ZeehE': 'iNEWS 三立, Taiwan',
         '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan',
         '4Uc00FPs27M': 'PTS 公視, Taiwan',
         'xL0ch83RAK8': 'TTV 台視, Taiwan',
-        '4cBjJEaY9jo': '民眾之聲 Vox Populi, Taiwan',
+        //'4cBjJEaY9jo': '民眾之聲 Vox Populi, Taiwan',
       },
 
       Ukraine: {
