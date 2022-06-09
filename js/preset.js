@@ -77,8 +77,8 @@ let /* set tv */
         'f0lYkdA-Gtw': 'NHK, Japan',
         //'V0I5eglJMRI': 'RT, Russia',
         //'9Auq9mYxFEE': 'Sky News, United Kingdom',
-        'CV5Fooi8YJA': 'TRT, Turkey',
-        'ScT12CwuPEc': 'WION, India',
+        'ypvV1XZqTss': 'TRT, Turkey',
+        'KyUT37gNm5w': 'WION, India',
       },
 
       Taiwan: {
