@@ -88,7 +88,7 @@ let /* set tv */
         'TCnaIE_SAtM': 'CTV 中視, Taiwan',
         'SBtGwNMfuf0': 'EBC 東森, Taiwan',
         //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan',
-        'yguQ1SzPM5U': 'FTV 民視, Taiwan',
+        'P8DRJChuQQQ': 'FTV 民視, Taiwan',
         'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan',
         'CKjSm5ZeehE': 'iNEWS 三立, Taiwan',
         '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan',
