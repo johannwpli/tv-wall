@@ -73,7 +73,7 @@ let /* set tv */
         'GE_SfNVNyqk': 'DW, Germany',
         'sPgqEHsONK8': 'euronews, Portugal',
         'h3MuIUNCCzI': 'FRANCE 24, France',
-        '7fIU2aMImMQ': 'GB News, United Kingdom',
+        '5SOmL-522CA': 'GB News, United Kingdom',
         'f0lYkdA-Gtw': 'NHK, Japan',
         //'V0I5eglJMRI': 'RT, Russia',
         //'9Auq9mYxFEE': 'Sky News, United Kingdom',
