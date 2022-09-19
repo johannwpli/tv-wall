@@ -24,7 +24,7 @@ let /* set grid value by grid radio */
 
     /* set menu value by menu radio */
 
-    changeMenuRadio = function() {
+    clickMenuRadio = function() {
       //menuChecked ? console.log(menuChecked.value) : null
       this !== menuChecked ? menuChecked = this : null
       //console.log(this.value)
@@ -35,7 +35,7 @@ let /* set grid value by grid radio */
 
     listenMenuRadio = () => {
       for (let i of menuRadio) {
-        i.addEventListener('change', changeMenuRadio)
+        i.addEventListener('click', clickMenuRadio)
       }
     },
 

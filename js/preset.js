@@ -62,39 +62,37 @@ let /* set tv */
     tvSrcKey,
     tvSrc,
 
-    /* menu    : { YouTube Video ID: title }
-       tvSrcKey: { tvSrc:            tvtitle } */
+    /* menu    : { YouTube Video ID: channel }
+       tvSrcKey: { tvSrc:            tvTitle } */
 
     tvSrcObj = {
       World: {
-        'F-POY4Q0QSI': 'Al Jazeera, Qatar',
-        'w_Ma8oQLmSM': 'ABC, United States',
-        'XWq5kBlakcQ': 'CNA, Singapore',
-        'GE_SfNVNyqk': 'DW, Germany',
-        'sPgqEHsONK8': 'euronews, Portugal',
-        'h3MuIUNCCzI': 'FRANCE 24, France',
-        '5SOmL-522CA': 'GB News, United Kingdom',
-        'f0lYkdA-Gtw': 'NHK, Japan',
-        //'V0I5eglJMRI': 'RT, Russia',
-        //'9Auq9mYxFEE': 'Sky News, United Kingdom',
-        '5mL-OkdM7Tc': 'TRT, Turkey',
-        'o3qZWSfkLXY': 'WION, India',
+        'F-POY4Q0QSI': 'Al Jazeera, Qatar\nhttps://www.youtube.com/c/aljazeeraenglish',
+        'w_Ma8oQLmSM': 'ABC, United States\nhttps://www.youtube.com/c/ABCNews',
+        'XWq5kBlakcQ': 'CNA, Singapore\nhttps://www.youtube.com/user/channelnewsasia',
+        'GE_SfNVNyqk': 'DW, Germany\nhttps://www.youtube.com/c/dwnews',
+        'sPgqEHsONK8': 'euronews, Portugal\nhttps://www.youtube.com/EuronewsUSA',
+        'h3MuIUNCCzI': 'FRANCE 24, France\nhttps://www.youtube.com/c/FRANCE24English',
+        '5SOmL-522CA': 'GB News, United Kingdom\nhttps://www.youtube.com/c/GBNewsOnline',
+        'f0lYkdA-Gtw': 'NHK, Japan\nhttps://www.youtube.com/c/NHKWORLDJAPAN',
+        //'V0I5eglJMRI': 'RT, Russia\n',
+        '9Auq9mYxFEE': 'Sky News, United Kingdom\nhttps://www.youtube.com/c/SkyNews',
+        '5mL-OkdM7Tc': 'TRT, Turkey\nhttps://www.youtube.com/c/trtworld',
+        'o3qZWSfkLXY': 'WION, India\nhttps://www.youtube.com/c/WION',
       },
 
       Taiwan: {
-        //'Qg9U06O2R-s': 'CCTV 央視, China',
-        '_QbRXRnHMVY': 'CTI 中天, China?',
-        'wM0g8EoUZ_E': 'CTS 華視, Taiwan',
-        'TCnaIE_SAtM': 'CTV 中視, Taiwan',
-        'SBtGwNMfuf0': 'EBC 東森, Taiwan',
-        //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan',
-        'P8DRJChuQQQ': 'FTV 民視, Taiwan',
-        'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan',
-        'CKjSm5ZeehE': 'iNEWS 三立, Taiwan',
-        '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan',
-        '4Uc00FPs27M': 'PTS 公視, Taiwan',
-        'xL0ch83RAK8': 'TTV 台視, Taiwan',
-        //'4cBjJEaY9jo': '民眾之聲 Vox Populi, Taiwan',
+        '_QbRXRnHMVY': 'CTI 中天, China?\nhttps://www.youtube.com/c/ctitv',
+        'wM0g8EoUZ_E': 'CTS 華視, Taiwan\nhttps://www.youtube.com/c/CtsTw',
+        'TCnaIE_SAtM': 'CTV 中視, Taiwan\nhttps://www.youtube.com/c/twctvnews',
+        //'SBtGwNMfuf0': 'EBC 東森, Taiwan\nhttps://www.youtube.com/c/newsebc',
+        //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan\n',
+        'P8DRJChuQQQ': 'FTV 民視, Taiwan\nhttps://www.youtube.com/c/FTVLIVE',
+        'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan\nhttps://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93',
+        'CKjSm5ZeehE': 'iNEWS 三立, Taiwan\nhttps://www.youtube.com/c/setmoney159',
+        '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
+        '4Uc00FPs27M': 'PTS 公視, Taiwan\nhttps://www.youtube.com/c/ptslivestream',
+        'xL0ch83RAK8': 'TTV 台視, Taiwan\nhttps://www.youtube.com/c/ttvnewsview',
       },
 
       Ukraine: {

@@ -113,6 +113,7 @@ input[type=radio]:checked {
 }
 
 @media (max-width: 480px) {
+  /*
   input[value="World"] + span::before {
     content: "🗺️";
   }
@@ -130,6 +131,7 @@ input[type=radio]:checked {
   input[value="Ukraine"] ~ span:nth-of-type(2) {
     display: none;
   }
+  */
   
   input[type=radio] {
     /*
