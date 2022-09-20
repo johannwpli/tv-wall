@@ -90,7 +90,7 @@ let
         'TCnaIE_SAtM': 'CTV 中視, Taiwan\nhttps://www.youtube.com/c/twctvnews',
         //'SBtGwNMfuf0': 'EBC 東森, Taiwan\nhttps://www.youtube.com/c/newsebc',
         //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan\n',
-        'P8DRJChuQQQ': 'FTV 民視, Taiwan\nhttps://www.youtube.com/c/FTVLIVE',
+        'ylYJSBUgaMA': 'FTV 民視, Taiwan\nhttps://www.youtube.com/c/FTVLIVE',
         'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan\nhttps://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93',
         'CKjSm5ZeehE': 'iNEWS 三立, Taiwan\nhttps://www.youtube.com/c/setmoney159',
         '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
