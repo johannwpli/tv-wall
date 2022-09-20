@@ -4,7 +4,10 @@
    Website  https://johann.li/                        
    Demo     https://johannwpli.github.io/tv-wall/   */
 
-let /* set tv */
+let
+    /* set tv */
+
+    tvWall = document.getElementById('tvWall'),
 
     widthDiff,
     heightDiff,
@@ -71,7 +74,7 @@ let /* set tv */
         'w_Ma8oQLmSM': 'ABC, United States\nhttps://www.youtube.com/c/ABCNews',
         'XWq5kBlakcQ': 'CNA, Singapore\nhttps://www.youtube.com/user/channelnewsasia',
         'GE_SfNVNyqk': 'DW, Germany\nhttps://www.youtube.com/c/dwnews',
-        'sPgqEHsONK8': 'euronews, Portugal\nhttps://www.youtube.com/EuronewsUSA',
+        'ntmPIzlkcJk': 'euronews, Portugal\nhttps://www.youtube.com/EuronewsUSA',
         'h3MuIUNCCzI': 'FRANCE 24, France\nhttps://www.youtube.com/c/FRANCE24English',
         '5SOmL-522CA': 'GB News, United Kingdom\nhttps://www.youtube.com/c/GBNewsOnline',
         'f0lYkdA-Gtw': 'NHK, Japan\nhttps://www.youtube.com/c/NHKWORLDJAPAN',
@@ -194,34 +197,74 @@ let /* set tv */
 
     getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
-    setTvWall = () => {
-      document.querySelector('#tvWall')
-        .insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
+    setHtml = () => {
+      /* set wall */
 
-      for(let i of wallPartArr) {
-        document.querySelector('#tvWall form')
-          .insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
-      }
+      tvWall.insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
+
+      for (let i of wallPartArr)
+        document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
+
+      /* set head */
+
+      document.querySelector('#head').insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+
+      for (let i of headPartArr)
+        document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
+
+      /*set title */
+
+      document.querySelector('.cell.title').insertAdjacentHTML('beforeEnd', cellTitle)
     },
 
-    setHead = () => {
-      document.querySelector('#head')
-        .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+    setMenu = () => {
+      document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
 
-      for(let i of headPartArr) {
-        document.querySelector('#head .row')
-          .insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
+      //console.log({tvSrcObj})
+      //console.log({urlGridParam})
+      //console.log({urlMenuParam})
+      //console.log({radioMenuShow})
+
+      for (let i in tvSrcObj) {
+        if (radioMenuShow.includes(i))
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${i}" />` +
+              `<span></span>` +
+              `<span>${i}</span>` +
+            `</label>`
       }
-    },
 
-    setTitle = () => {
-      document.querySelector('.cell.title')
-        .insertAdjacentHTML('beforeEnd', cellTitle)
+      if (urlMenuParam && urlMenuParam in tvSrcObj) {
+        radioMenuDefault = urlMenuParam
+
+        tvSrcKey = radioMenuDefault
+        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+        //console.log({tvSrcArr})
+
+        if (!radioMenuShow.includes(urlMenuParam)) {
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
+              urlMenuParam + 
+            `</label>`
+        }
+      }
+
+      //console.log({radioMenu})
+
+      document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
+
+      menuRadio = document.tvWall.menu 
+      menuChecked = document.querySelector('input[name="menu"]:checked') 
     },
 
     setGrid = () => {
-      document.querySelector('.cell.grid')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
+      document.querySelector('.cell.grid').insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
 
       for (let i of radioGridArr) {
         let j =
@@ -270,67 +313,14 @@ let /* set tv */
 
       //console.log({radioGrid})
 
-      document.querySelector('.cell.grid')
-        .insertAdjacentHTML('beforeEnd', radioGrid)
+      document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
 
-      document.querySelector(`input[value='${radioGridDefault}']`)
-        .setAttribute('required','required')
+      document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('required','required')
 
-      document.querySelector(`input[value='${radioGridDefault}']`)
-        .setAttribute('checked','checked')
+      document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
 
       gridRadio = document.tvWall.grid 
       gridChecked = document.querySelector('input[name="grid"]:checked') 
-    },
-
-    setMenu = () => {
-      document.querySelector('.cell.menu')
-        .insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
-
-      //console.log({tvSrcObj})
-      //console.log({urlGridParam})
-      //console.log({urlMenuParam})
-      //console.log({radioMenuShow})
-
-      for (let i in tvSrcObj) {
-        if (radioMenuShow.includes(i))
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${i}" />` +
-              `<span></span>` +
-              `<span>${i}</span>` +
-            `</label>`
-      }
-
-      if (urlMenuParam && urlMenuParam in tvSrcObj) {
-        radioMenuDefault = urlMenuParam
-
-        tvSrcKey = radioMenuDefault
-        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-        //console.log({tvSrcArr})
-
-        if (!radioMenuShow.includes(urlMenuParam)) {
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
-              urlMenuParam + 
-            `</label>`
-        }
-      }
-
-      //console.log({radioMenu})
-
-      document.querySelector('.cell.menu')
-        .insertAdjacentHTML('beforeEnd', radioMenu)
-
-      document.querySelector(`input[value='${radioMenuDefault}']`)
-        .setAttribute('required','required')
-
-      document.querySelector(`input[value='${radioMenuDefault}']`)
-        .setAttribute('checked','checked')
-
-      menuRadio = document.tvWall.menu 
-      menuChecked = document.querySelector('input[name="menu"]:checked') 
     },
 
     setUrl = () => {
@@ -340,9 +330,7 @@ let /* set tv */
     },
 
     preset = () => {
-      setTvWall()
-      setHead()
-      setTitle()
+      setHtml()
       setMenu()
       setGrid()
       setUrl()

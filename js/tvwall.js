@@ -4,7 +4,8 @@
    Website  https://johann.li/                        
    Demo     https://johannwpli.github.io/tv-wall/   */
 
-let /* set grid value by grid radio */
+let
+    /* set grid value by grid radio */
 
     clickGridRadio = function() {
       //gridChecked ? console.log(gridChecked.value) : null
@@ -13,13 +14,6 @@ let /* set grid value by grid radio */
 
       setUrl()
       setBody()
-      setTv()
-    },
-
-    listenGridRadio = () => {
-      for (let i of gridRadio) {
-        i.addEventListener('click', clickGridRadio)
-      }
     },
 
     /* set menu value by menu radio */
@@ -33,10 +27,12 @@ let /* set grid value by grid radio */
       setTv()
     },
 
-    listenMenuRadio = () => {
-      for (let i of menuRadio) {
-        i.addEventListener('click', clickMenuRadio)
-      }
+    listenGridMenuRadio = () => {
+      for (let i of gridRadio)
+        i.addEventListener('click', clickGridRadio)
+
+      for (let j of menuRadio)
+        j.addEventListener('click', clickMenuRadio)
     },
 
     /* set tv size by window size */
@@ -101,12 +97,6 @@ let /* set grid value by grid radio */
       )
     },
 
-    /* adjust tv size by window size */
-
-    listenWindowResize = () => {
-      window.addEventListener('resize', tvSize)
-    },
-
     /* set grid layout by grid value */
 
     tvGrid = () => {
@@ -131,28 +121,6 @@ let /* set grid value by grid radio */
         let j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]]
       }
-    },
-
-    setBody = () => {
-      tvGrid()
-
-      /* innerHTML vs removeChild vs remove
-         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
-
-      while (body.firstChild) body.firstChild.remove()
-
-      for (let i = 0; i < tvRowNumber; i++) {
-        document.querySelector('#body')
-          .insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
-      }
-
-      document.querySelectorAll('#body .row').forEach(
-        (e,i) => {
-          for (let i = 0; i < tvColNumber; i++) {
-            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
-          }
-        }
-      )
     },
 
     setTv = () => {
@@ -207,14 +175,37 @@ let /* set grid value by grid radio */
 
       //tvSize()
       setInterval(tvSize, 1000) //to fix fullscreen bug
+    },    
+
+    setBody = () => {
+      tvGrid()
+
+      /* innerHTML vs removeChild vs remove
+         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
+      while (body.firstChild) body.firstChild.remove()
+
+      for (let i = 0; i < tvRowNumber; i++)
+        body.insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+
+      document.querySelectorAll('#body .row').forEach(
+        (e,i) => {
+          for (let i = 0; i < tvColNumber; i++)
+            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
+        }
+      )
+
+      setTv()
     },
 
+    /* adjust tv size by window size */
+
+    listenWindowResize = () => window.addEventListener('resize', setBody),
+
     tvwall = () => {
-      listenGridRadio()
-      listenMenuRadio()
-      listenWindowResize()
+      listenGridMenuRadio()
       setBody()
-      setTv()
+      listenWindowResize()
     }
 
 tvwall()
