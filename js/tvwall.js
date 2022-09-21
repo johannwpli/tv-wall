@@ -4,7 +4,7 @@
    Website  https://johann.li/                        
    Demo     https://johannwpli.github.io/tv-wall/   */
 
-let
+const
     /* set grid value by grid radio */
 
     clickGridRadio = function() {
@@ -28,12 +28,33 @@ let
     },
 
     listenGridMenuRadio = () => {
-      for (let i of gridRadio)
+      for (const i of gridRadio)
         i.addEventListener('click', clickGridRadio)
 
-      for (let j of menuRadio)
+      for (const j of menuRadio)
         j.addEventListener('click', clickMenuRadio)
     },
+
+    gridMenuClasslistAdd = (value) => {
+      document.querySelector('.grid label:first-of-type').classList.add(value)
+      document.querySelector('.menu label:first-of-type').classList.add(value)
+    },
+
+    gridMenuClasslistRemove = (value) => {
+      document.querySelector('.grid label:first-of-type').classList.remove(value)
+      document.querySelector('.menu label:first-of-type').classList.remove(value)
+    },
+
+    clickLangSelect = (e) => {
+      gridMenuClasslistAdd(e.target.value)
+
+      const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
+      //console.log(toRemoveArr)
+
+      for (const i of toRemoveLangArr) gridMenuClasslistRemove(i)
+    },
+
+    listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener("change", clickLangSelect),
 
     /* set tv size by window size */
 
@@ -118,7 +139,7 @@ let
 
     shuffle = (arr) => {
       for (let i = arr.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
+        const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]]
       }
     },
@@ -204,6 +225,7 @@ let
 
     tvwall = () => {
       listenGridMenuRadio()
+      listenLangSelect()
       setBody()
       listenWindowResize()
     }

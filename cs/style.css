@@ -72,6 +72,7 @@ input[type=radio]:checked {
 .title {
   font-weight: 700;
   text-align: left;
+  width: 70px;
 }
 
 .grid {
@@ -80,6 +81,10 @@ input[type=radio]:checked {
 
 .menu {
   text-align: right;
+}
+
+.lang {
+  width: 80px;
 }
 
 .tv iframe {
@@ -102,6 +107,14 @@ input[type=radio]:checked {
     background: #e2e2e2;
     font-size: 12px;
 }
+
+.grid label:first-of-type.en::before {  content: 'grid' }
+.grid label:first-of-type.zh::before {  content: '網格' }
+.grid label:first-of-type.jp::before {  content: 'グリッド' }
+
+.menu label:first-of-type.en::before {  content: 'menu' }
+.menu label:first-of-type.zh::before {  content: '選單' }
+.menu label:first-of-type.jp::before {  content: 'メニュー' }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;
@@ -139,7 +152,7 @@ input[type=radio]:checked {
     */
   }
 
-  .tablet, .desktop {
+  .tablet, .desktop, .lang {
     display: none;
   }
 }

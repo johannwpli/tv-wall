@@ -30,13 +30,12 @@ let
     newState = { additionalInformation: 'Updated the URL with JS' },
 
     wallPartArr = ['head', 'body'],
-    headPartArr = ['title', 'grid', 'menu'],
+    headPartArr = ['title', 'grid', 'menu', 'lang'],
 
     cellTitle = '<label><a href="' + siteUrl +'" title="' + siteTitle + '" alt="' + siteName+ '">' + siteName + '</a>&nbsp;<a href="' + githubUrl + '">&copy;</a></label>',
 
     radioGrid = '',
-    //radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 24, 25],
-    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, ],
+    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, ], // 15, 16, 20, 24, 25,
     radioGridDefault = 3,
     radioGridTablet = 4,
     radioGridDesktop = 12,
@@ -45,6 +44,10 @@ let
     radioMenuDefault = 'World',
     //radioMenuShow = ['World', 'Taiwan', 'Ukraine'],
     radioMenuShow = ['World', 'Taiwan'],
+
+    selectLang = '',
+    selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語'},
+    selectLangDefault = 'en',
 
     tvAllNumber,
     tvShortNumber,
@@ -63,12 +66,12 @@ let
     tvRatio,
     tvSrcPrefix = 'https://www.youtube-nocookie.com/embed/',
     tvSrcKey,
-    tvSrc,
+    tvSrc
 
     /* menu    : { YouTube Video ID: channel }
        tvSrcKey: { tvSrc:            tvTitle } */
 
-    tvSrcObj = {
+const tvSrcObj = {
       World: {
         'F-POY4Q0QSI': 'Al Jazeera, Qatar\nhttps://www.youtube.com/c/aljazeeraenglish',
         'w_Ma8oQLmSM': 'ABC, United States\nhttps://www.youtube.com/c/ABCNews',
@@ -202,14 +205,14 @@ let
 
       tvWall.insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
 
-      for (let i of wallPartArr)
+      for (const i of wallPartArr)
         document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
 
       /* set head */
 
       document.querySelector('#head').insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
 
-      for (let i of headPartArr)
+      for (const i of headPartArr)
         document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
 
       /*set title */
@@ -217,57 +220,11 @@ let
       document.querySelector('.cell.title').insertAdjacentHTML('beforeEnd', cellTitle)
     },
 
-    setMenu = () => {
-      document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet">menu</label>`)
-
-      //console.log({tvSrcObj})
-      //console.log({urlGridParam})
-      //console.log({urlMenuParam})
-      //console.log({radioMenuShow})
-
-      for (let i in tvSrcObj) {
-        if (radioMenuShow.includes(i))
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${i}" />` +
-              `<span></span>` +
-              `<span>${i}</span>` +
-            `</label>`
-      }
-
-      if (urlMenuParam && urlMenuParam in tvSrcObj) {
-        radioMenuDefault = urlMenuParam
-
-        tvSrcKey = radioMenuDefault
-        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-        //console.log({tvSrcArr})
-
-        if (!radioMenuShow.includes(urlMenuParam)) {
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
-              urlMenuParam + 
-            `</label>`
-        }
-      }
-
-      //console.log({radioMenu})
-
-      document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
-
-      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
-
-      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
-
-      menuRadio = document.tvWall.menu 
-      menuChecked = document.querySelector('input[name="menu"]:checked') 
-    },
-
     setGrid = () => {
-      document.querySelector('.cell.grid').insertAdjacentHTML('afterBegin', `<label class="tablet">grid</label>`)
+      document.querySelector('.cell.grid').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
-      for (let i of radioGridArr) {
-        let j =
+      for (const i of radioGridArr) {
+        const j =
           i >= radioGridDesktop
             ? 'desktop'
             :  i >= radioGridTablet
@@ -323,6 +280,61 @@ let
       gridChecked = document.querySelector('input[name="grid"]:checked') 
     },
 
+    setMenu = () => {
+      document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+
+      //console.log({tvSrcObj})
+      //console.log({urlGridParam})
+      //console.log({urlMenuParam})
+      //console.log({radioMenuShow})
+
+      for (const i in tvSrcObj) {
+        if (radioMenuShow.includes(i))
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${i}" />` +
+              `<span></span>` +
+              `<span>${i}</span>` +
+            `</label>`
+      }
+
+      if (urlMenuParam && urlMenuParam in tvSrcObj) {
+        radioMenuDefault = urlMenuParam
+
+        tvSrcKey = radioMenuDefault
+        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+        //console.log({tvSrcArr})
+
+        if (!radioMenuShow.includes(urlMenuParam)) {
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
+              urlMenuParam + 
+            `</label>`
+        }
+      }
+
+      //console.log({radioMenu})
+
+      document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
+
+      menuRadio = document.tvWall.menu 
+      menuChecked = document.querySelector('input[name="menu"]:checked') 
+    },
+
+    setLang = () => {
+      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', `<select name="lang"></select>`)
+
+      for (const i in selectLangObj)
+        selectLang += `<option value="${i}">${selectLangObj[i]}</option>`
+
+      document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
+    },
+
     setUrl = () => {
       newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value
       //console.log({newUrl})
@@ -331,8 +343,9 @@ let
 
     preset = () => {
       setHtml()
-      setMenu()
       setGrid()
+      setMenu()
+      setLang()
       setUrl()
     }
 
