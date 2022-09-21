@@ -72,7 +72,6 @@ input[type=radio]:checked {
 .title {
   font-weight: 700;
   text-align: left;
-  width: 70px;
 }
 
 .grid {
