@@ -13,7 +13,7 @@ const
       //console.log(this.value)
 
       setUrl()
-      setBody()
+      setGridTV()
     },
 
     /* set menu value by menu radio */
@@ -24,7 +24,7 @@ const
       //console.log(this.value)
 
       setUrl()
-      setTv()
+      setTV()
     },
 
     listenGridMenuRadio = () => {
@@ -98,6 +98,8 @@ const
       docWidth = window.innerWidth - widthDiff
       docHeight = window.innerHeight - heightDiff
 
+      //console.log('window.innerWidth: ', window.innerWidth)
+      //console.log('window.innerHeight: ', window.innerHeight)
       //console.log({docWidth})
       //console.log({docHeight})
 
@@ -132,6 +134,21 @@ const
       //console.log({tvAllNumber})
       //console.log({tvRowNumber})
       //console.log({tvColNumber})
+
+      /* innerHTML vs removeChild vs remove
+         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
+      while (body.firstChild) body.firstChild.remove()
+
+      for (let i = 0; i < tvRowNumber; i++)
+        body.insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+
+      document.querySelectorAll('#body .row').forEach(
+        (e,i) => {
+          for (let i = 0; i < tvColNumber; i++)
+            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
+        }
+      )
     },
 
     /* shuffle array with Fisher-Yates algo          
@@ -144,7 +161,7 @@ const
       }
     },
 
-    setTv = () => {
+    setTV = () => {
       tvSrcKey = menuChecked.value
       //console.log({tvSrcKey})
 
@@ -198,35 +215,19 @@ const
       setInterval(tvSize, 1000) //to fix fullscreen bug
     },    
 
-    setBody = () => {
+    /* set grid and tv by window size */
+
+    setGridTV = () => {
       tvGrid()
-
-      /* innerHTML vs removeChild vs remove
-         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
-
-      while (body.firstChild) body.firstChild.remove()
-
-      for (let i = 0; i < tvRowNumber; i++)
-        body.insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
-
-      document.querySelectorAll('#body .row').forEach(
-        (e,i) => {
-          for (let i = 0; i < tvColNumber; i++)
-            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
-        }
-      )
-
-      setTv()
+      setTV()
     },
 
-    /* adjust tv size by window size */
-
-    listenWindowResize = () => window.addEventListener('resize', setBody),
+    listenWindowResize = () => window.addEventListener('resize', setGridTV),
 
     tvwall = () => {
       listenGridMenuRadio()
       listenLangSelect()
-      setBody()
+      setGridTV()
       listenWindowResize()
     }
 
