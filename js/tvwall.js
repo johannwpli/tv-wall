@@ -222,13 +222,16 @@ const
       setTV()
     },
 
-    listenWindowResize = () => window.addEventListener('resize', setGridTV),
+    listenWindowResize = () => window.addEventListener('resize', tvSize),
+
+    listenOrientationChange = () => window.addEventListener('orientationchange', setGridTV),
 
     tvwall = () => {
       listenGridMenuRadio()
       listenLangSelect()
       setGridTV()
       listenWindowResize()
+      listenOrientationChange() // for mobile only
     }
 
 tvwall()
