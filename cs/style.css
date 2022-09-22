@@ -72,17 +72,26 @@ input[type=radio]:checked {
 .title {
   font-weight: 700;
   text-align: left;
+  width: 0px;
+  white-space: nowrap;
 }
 
 .grid {
   text-align: center;
+  width: 0px;
+  white-space: nowrap;
 }
 
 .menu {
-  text-align: right;
+  text-align: center;
+  width: 0px;
+  white-space: nowrap;
 }
 
 .lang {
+  text-align: right;
+  width: 0px;
+  white-space: nowrap;
 }
 
 .tv iframe {
@@ -152,6 +161,10 @@ input[type=radio]:checked {
 
   .tablet, .desktop, .lang {
     display: none;
+  }
+
+  .menu {
+    text-align: right;
   }
 }
 

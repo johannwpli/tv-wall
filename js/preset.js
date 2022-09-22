@@ -14,6 +14,7 @@ let
     docWidth,
     docHeight,
 
+    siteAuthor = 'Johann Li',
     siteUrl = 'https://johannwpli.github.io/tv-wall/',
     siteTitle = document.title,
     siteName = 'TV Wall',
@@ -32,7 +33,7 @@ let
     wallPartArr = ['head', 'body'],
     headPartArr = ['title', 'grid', 'menu', 'lang'],
 
-    cellTitle = '<label><a href="' + siteUrl +'" title="' + siteTitle + '" alt="' + siteName+ '">' + siteName + '</a>&nbsp;<a href="' + githubUrl + '">&copy;</a></label>',
+    cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
     radioGrid = '',
     radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, ], // 15, 16, 20, 24, 25,
@@ -252,7 +253,7 @@ const tvSrcObj = {
         }
 
         if (urlGridParam === 'all') {
-          //console.log(tvSrcArr.length)
+          console.log(tvSrcArr.length)
           //console.log({radioGridArr})
           //console.log(radioGridArr[radioGridArr.length - 1])
 
@@ -343,8 +344,8 @@ const tvSrcObj = {
 
     preset = () => {
       setHtml()
-      setGrid()
       setMenu()
+      setGrid() // has to be after setMenu()
       setLang()
       setUrl()
     }
