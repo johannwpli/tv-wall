@@ -197,7 +197,7 @@ const
                      ` title='${tvTitle}'` +
                      ` frameborder='${tvBorder}'` +
                      ` allow='${tvAllow}'` +
-                     ` allowfullscreen='${tvAllowfullscreen}'` +
+                     ` ${tvAllowfullscreen}` +
                      ` src='${tvSrc}'>` +
                      `</iframe>`
 

@@ -221,6 +221,52 @@ const tvSrcObj = {
       document.querySelector('.cell.title').insertAdjacentHTML('beforeEnd', cellTitle)
     },
 
+    setMenu = () => {
+      document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+
+      //console.log({tvSrcObj})
+      //console.log({urlGridParam})
+      //console.log({urlMenuParam})
+      //console.log({radioMenuShow})
+
+      for (const i in tvSrcObj) {
+        if (radioMenuShow.includes(i))
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${i}" />` +
+              `<span></span>` +
+              `<span>${i}</span>` +
+            `</label>`
+      }
+
+      if (urlMenuParam && urlMenuParam in tvSrcObj) {
+        radioMenuDefault = urlMenuParam
+
+        tvSrcKey = radioMenuDefault
+        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+        //console.log({tvSrcArr})
+
+        if (!radioMenuShow.includes(urlMenuParam)) {
+          radioMenu +=
+            `<label>` +
+              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
+              urlMenuParam + 
+            `</label>`
+        }
+      }
+
+      //console.log({radioMenu})
+
+      document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
+
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
+
+      menuRadio = document.tvWall.menu 
+      menuChecked = document.querySelector('input[name="menu"]:checked') 
+    },
+
     setGrid = () => {
       document.querySelector('.cell.grid').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
@@ -279,52 +325,6 @@ const tvSrcObj = {
 
       gridRadio = document.tvWall.grid 
       gridChecked = document.querySelector('input[name="grid"]:checked') 
-    },
-
-    setMenu = () => {
-      document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
-
-      //console.log({tvSrcObj})
-      //console.log({urlGridParam})
-      //console.log({urlMenuParam})
-      //console.log({radioMenuShow})
-
-      for (const i in tvSrcObj) {
-        if (radioMenuShow.includes(i))
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${i}" />` +
-              `<span></span>` +
-              `<span>${i}</span>` +
-            `</label>`
-      }
-
-      if (urlMenuParam && urlMenuParam in tvSrcObj) {
-        radioMenuDefault = urlMenuParam
-
-        tvSrcKey = radioMenuDefault
-        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-        //console.log({tvSrcArr})
-
-        if (!radioMenuShow.includes(urlMenuParam)) {
-          radioMenu +=
-            `<label>` +
-              `<input type="radio" name="menu" value="${radioMenuDefault}" />` +
-              urlMenuParam + 
-            `</label>`
-        }
-      }
-
-      //console.log({radioMenu})
-
-      document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
-
-      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
-
-      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
-
-      menuRadio = document.tvWall.menu 
-      menuChecked = document.querySelector('input[name="menu"]:checked') 
     },
 
     setLang = () => {
