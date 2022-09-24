@@ -211,8 +211,8 @@ const
 
       console.groupEnd()
 
-      tvSize()
-      //setInterval(tvSize, 1000) //to fix fullscreen bug
+      //tvSize()
+      setInterval(tvSize, 1000) //to fix fullscreen bug
     },    
 
     /* set grid and tv by window size */
