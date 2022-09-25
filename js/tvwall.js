@@ -13,7 +13,8 @@ const
       //console.log(this.value)
 
       setUrl()
-      setGridTV()
+      tvGrid()
+      setTV()
     },
 
     /* set menu value by menu radio */
@@ -215,20 +216,14 @@ const
       setInterval(tvSize, 1000) //to fix fullscreen bug
     },    
 
-    /* set grid and tv by window size */
-
-    setGridTV = () => {
-      tvGrid()
-      setTV()
-    },
-
-    listenWindowResize = () => window.addEventListener('resize', setGridTV),
+    //listenWindowResize = () => window.addEventListener('resize', tvSize),
 
     tvwall = () => {
       listenGridMenuRadio()
       listenLangSelect()
-      setGridTV()
-      listenWindowResize()
+      //listenWindowResize()
+      tvGrid()
+      setTV()
     }
 
 tvwall()
