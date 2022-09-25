@@ -89,17 +89,17 @@ const tvSrcObj = {
       },
 
       Taiwan: {
-        '_QbRXRnHMVY': 'CTI 中天, China?\nhttps://www.youtube.com/c/ctitv',
-        'wM0g8EoUZ_E': 'CTS 華視, Taiwan\nhttps://www.youtube.com/c/CtsTw',
-        'TCnaIE_SAtM': 'CTV 中視, Taiwan\nhttps://www.youtube.com/c/twctvnews',
-        //'SBtGwNMfuf0': 'EBC 東森, Taiwan\nhttps://www.youtube.com/c/newsebc',
-        //'jWtNbHdCKVo': 'FOCUS世界新聞, Taiwan\n',
-        'ylYJSBUgaMA': 'FTV 民視, Taiwan\nhttps://www.youtube.com/c/FTVLIVE',
-        'B7Zp3d6xXWw': 'Global News 寰宇, Taiwan\nhttps://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93',
-        'CKjSm5ZeehE': 'iNEWS 三立, Taiwan\nhttps://www.youtube.com/c/setmoney159',
-        '5n0y6b0Q25o': 'mnews 鏡新聞, Taiwan\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
-        '4Uc00FPs27M': 'PTS 公視, Taiwan\nhttps://www.youtube.com/c/ptslivestream',
-        'xL0ch83RAK8': 'TTV 台視, Taiwan\nhttps://www.youtube.com/c/ttvnewsview',
+        '_QbRXRnHMVY': 'CTI 中天\nhttps://www.youtube.com/c/ctitv',
+        'wM0g8EoUZ_E': 'CTS 華視\nhttps://www.youtube.com/c/CtsTw',
+        'TCnaIE_SAtM': 'CTV 中視\nhttps://www.youtube.com/c/twctvnews',
+        //'SBtGwNMfuf0': 'EBC 東森\nhttps://www.youtube.com/c/newsebc',
+        //'jWtNbHdCKVo': 'FOCUS世界新聞\n',
+        'ylYJSBUgaMA': 'FTV 民視\nhttps://www.youtube.com/c/FTVLIVE',
+        'B7Zp3d6xXWw': 'Global News 寰宇\nhttps://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93',
+        'CKjSm5ZeehE': 'iNEWS 三立\nhttps://www.youtube.com/c/setmoney159',
+        '5n0y6b0Q25o': 'mnews 鏡新聞\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
+        '4Uc00FPs27M': 'PTS 公視\nhttps://www.youtube.com/c/ptslivestream',
+        'xL0ch83RAK8': 'TTV 台視\nhttps://www.youtube.com/c/ttvnewsview',
       },
 
       Ukraine: {
