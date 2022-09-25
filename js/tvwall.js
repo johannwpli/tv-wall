@@ -13,8 +13,8 @@ const
       //console.log(this.value)
 
       setUrl()
-      tvGrid()
-      setTV()
+      setTvGrid()
+      setTvSrc()
     },
 
     /* set menu value by menu radio */
@@ -25,7 +25,7 @@ const
       //console.log(this.value)
 
       setUrl()
-      setTV()
+      setTvSrc()
     },
 
     listenGridMenuRadio = () => {
@@ -59,7 +59,7 @@ const
 
     /* set tv size by window size */
 
-    tvSize = () => {
+    setTvSize = () => {
       //console.log({head})
       //console.log({body})
 
@@ -123,7 +123,7 @@ const
 
     /* set grid layout by grid value */
 
-    tvGrid = () => {
+    setTvGrid = () => {
       tvAllNumber = gridRadio.value
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 1~3:1, 4~8:2, 9~15:3, 16~24:4
@@ -162,7 +162,7 @@ const
       }
     },
 
-    setTV = () => {
+    setTvSrc = () => {
       tvSrcKey = menuChecked.value
       //console.log({tvSrcKey})
 
@@ -211,19 +211,16 @@ const
       )
 
       console.groupEnd()
-
-      //tvSize()
-      setInterval(tvSize, 1000) //to fix fullscreen bug
     },    
-
-    //listenWindowResize = () => window.addEventListener('resize', tvSize),
 
     tvwall = () => {
       listenGridMenuRadio()
       listenLangSelect()
-      //listenWindowResize()
-      tvGrid()
-      setTV()
+      setTvGrid()
+      setTvSrc()
+
+      //setTvSize()
+      setInterval(setTvSize, 2000) //to fix fullscreen bug      
     }
 
 tvwall()
