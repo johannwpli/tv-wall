@@ -43,7 +43,6 @@ let
 
     radioMenu = '',
     radioMenuDefault = 'World',
-    //radioMenuShow = ['World', 'Taiwan', 'Ukraine'],
     radioMenuShow = ['World', 'Taiwan'],
 
     selectLang = '',
@@ -82,7 +81,7 @@ const tvSrcObj = {
         'h3MuIUNCCzI': 'FRANCE 24, France\nhttps://www.youtube.com/c/FRANCE24English',
         '5SOmL-522CA': 'GB News, United Kingdom\nhttps://www.youtube.com/c/GBNewsOnline',
         'f0lYkdA-Gtw': 'NHK, Japan\nhttps://www.youtube.com/c/NHKWORLDJAPAN',
-        //'V0I5eglJMRI': 'RT, Russia\n',
+        //'V0I5eglJMRI': 'RT, Russia\n', // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
         '9Auq9mYxFEE': 'Sky News, United Kingdom\nhttps://www.youtube.com/c/SkyNews',
         '5mL-OkdM7Tc': 'TRT, Turkey\nhttps://www.youtube.com/c/trtworld',
         'o3qZWSfkLXY': 'WION, India\nhttps://www.youtube.com/c/WION',
@@ -97,30 +96,9 @@ const tvSrcObj = {
         'ylYJSBUgaMA': 'FTV 民視\nhttps://www.youtube.com/c/FTVLIVE',
         'B7Zp3d6xXWw': 'Global News 寰宇\nhttps://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93',
         'CKjSm5ZeehE': 'iNEWS 三立\nhttps://www.youtube.com/c/setmoney159',
-        '5n0y6b0Q25o': 'mnews 鏡新聞\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
+        '5n0y6b0Q25o': 'mnews 鏡視\nhttps://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw',
         '4Uc00FPs27M': 'PTS 公視\nhttps://www.youtube.com/c/ptslivestream',
         'xL0ch83RAK8': 'TTV 台視\nhttps://www.youtube.com/c/ttvnewsview',
-      },
-
-      Ukraine: {
-        '3NaALp5iZWI': 'Audionix',
-        'q1yTYnX4E4A': 'DD Cyprus1Click',
-        'vjTFWPVFyHk': 'e.hocamm web 1',
-        'SIIpI0u7WMU': 'e.hocamm web 2',
-        'KWByWZuJ3RI': 'Inquizex',
-        'KXuDYZDyHEc': 'Ionatan Funny',
-        'iZebYm-nenY': 'Livestream Events',
-        'cNOb6TRy0Og': 'Lucas LiveStream',
-        'l5M-ABHmyL0': 'Marble Marathon ASMR',
-        'CTX_OWSFpYE': 'NÔMADE BR',
-        '3hiyVq44pK8': 'SameWaveLength',
-        'u-W1N-mlZKo': 'SBK SHOW',
-        'FQyKozPMDsQ': 'Sloth On Meth',
-        'Gb3Q8ttfXeQ': 'The Valkyrie',
-        'e2gC37ILQmk': 'TVL Trzcianka',
-        'uT6RDbXEBj4': 'VBMedia',
-        '16NCx5MnBkk': 'War Stream',
-        'T33IflAtPi0': 'Zabby',
       },
 
       Exotic: {

@@ -220,7 +220,7 @@ const
       setTvSrc()
 
       //setTvSize()
-      setInterval(setTvSize, 2000) //to fix fullscreen bug      
+      setInterval(setTvSize, 1500) //to fix fullscreen bug
     }
 
 tvwall()

@@ -1,10 +1,4 @@
-<style>
-
-#fakeElementToFixCssBug { }
-
 body {
-  /*
-  */
   overflow: hidden;
   margin: 0;
   color: #202124;
@@ -96,7 +90,7 @@ input[type=radio]:checked {
 
 .tv iframe {
   border: 0px solid transparent;
-  transition: all .2s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 
 .tv iframe:hover {
@@ -142,13 +136,8 @@ input[type=radio]:checked {
     content: "🇹🇼";
   }
   
-  input[value="Ukraine"] + span::before {
-    content: "🇺🇦";
-  }
-
   input[value="World"] ~ span:nth-of-type(2),
   input[value="Taiwan"] ~ span:nth-of-type(2),
-  input[value="Ukraine"] ~ span:nth-of-type(2) {
     display: none;
   }
   */
@@ -173,5 +162,3 @@ input[type=radio]:checked {
     display: none;
   }
 }
-
-</style>
