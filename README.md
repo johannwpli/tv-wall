@@ -14,10 +14,13 @@
 
 `ORIGIN` TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>1</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, and Myanmar in 2021. Now 2022, Ukraine is being under attack by Russia. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
 
-`SHORT` Users can set the grid quickly and show hidden menus easily by parameters. e.g., https://johannwpli.github.io/tv-wall/?m=IU&g=12, where g means grid number and m is menu name.
+`HIDDEN MENU` Use 'm' as the menu parameter to play hidden menus. e.g., https://johannwpli.github.io/tv-wall/?m=IU.
 
-`TRICK` Use 'all' as the grid parameter to show all the videos of the given menu. e.g., https://johannwpli.github.io/tv-wall/?m=World&g=all.
+`ALL VIDEOS` Use 'all' as the grid parameter to show all the menu videos. e.g., https://johannwpli.github.io/tv-wall/?g=all.
+
+`CUSTOM VIDEOS` Use 'i' as the id parameter to customize your videos<sup>2</sup>. e.g., https://johannwpli.github.io/tv-wall/?i=w_Ma8oQLmSM,xL0ch83RAK8.
 
 ---
 
-<sup>1</sup> hosted from https://github.com/ncehk2019/ncehk2019.github.io
+<sup>1</sup> Hosted from https://github.com/ncehk2019/ncehk2019.github.io.
+<sup>2</sup> Youtube video ids split by comma.
