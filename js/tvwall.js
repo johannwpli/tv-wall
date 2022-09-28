@@ -183,7 +183,7 @@ const
 
       //console.log('TV Array Length: ', tvSrcArr.length)
       //console.log({tvAllNumber})
-      console.log({tvSrcArr})
+      //console.log({tvSrcArr})
       console.group('Now Playing (' + tvRatio + ')')
 
       document.querySelectorAll('#body .tv').forEach(
