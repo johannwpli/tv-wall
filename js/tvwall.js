@@ -142,12 +142,12 @@ const
       while (body.firstChild) body.firstChild.remove()
 
       for (let i = 0; i < tvRowNumber; i++)
-        body.insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+        body.insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
 
       document.querySelectorAll('#body .row').forEach(
         (e,i) => {
           for (let i = 0; i < tvColNumber; i++)
-            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
+            e.insertAdjacentHTML('beforeEnd', '<div class="cell tv"></div>')
         }
       )
     },
@@ -166,7 +166,12 @@ const
       tvSrcKey = menuChecked.value
       //console.log({tvSrcKey})
 
-      tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+      if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
+        tvSrcArr = tvSrcObj[tvSrcKey]
+      }
+      else {
+        tvSrcArr = urlIdParam.split(',')
+      }
       //console.log({tvSrcArr})
 
       tvRatio =
@@ -174,36 +179,40 @@ const
           ? tvAllNumber + ' of '+ tvSrcArr.length
           : tvSrcArr.length + ' of ' + tvSrcArr.length
 
-      console.group('Now Playing (' + tvRatio + ')')
-
       tvSrcArr.length > tvAllNumber ? shuffle(tvSrcArr) : null
 
       //console.log('TV Array Length: ', tvSrcArr.length)
       //console.log({tvAllNumber})
+      console.log({tvSrcArr})
+      console.group('Now Playing (' + tvRatio + ')')
 
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
-          //console.log(i+1, tvSrcArr[i])
-          tvTitle = tvSrcObj[tvSrcKey][tvSrcArr[i]]
-          tvTitle ? console.log(i+1 + '. '+ tvTitle) : null
-          tvSrc = tvSrcPrefix + tvSrcArr[i]
-          //tvSrc ? console.log({tvSrc}) : null
-
           e.removeAttribute('alt')
           e.removeAttribute('title')
-          while (e.firstChild) e.firstChild.remove()
 
-          if (tvSrcArr[i]) {
-            tvHtml = `<iframe` +
-                     ` title='${tvTitle}'` +
-                     ` frameborder='${tvBorder}'` +
-                     ` allow='${tvAllow}'` +
-                     ` ${tvAllowfullscreen}` +
-                     ` src='${tvSrc}'>` +
-                     `</iframe>`
+          if (typeof tvSrcArr[i] === 'object') {
+            tvSrc = tvSrcPrefix + tvSrcArr[i]['id']
+            tvTitle = tvSrcArr[i]['title']
+            tvChannel = tvSrcArr[i]['channel']
+
+            tvTitle ? console.log(i+1 + '. '+ tvTitle ) : null
+            tvChannel ? console.log(tvChannel) : null
 
             e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
             e.setAttribute('title', tvTitle)
+          }
+          else {
+            tvSrc = tvSrcPrefix + tvSrcArr[i]
+          }
+
+          //tvSrc ? console.log({tvSrc}) : null
+
+          while (e.firstChild) e.firstChild.remove()
+
+          if (tvSrcArr[i]) {
+            tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+
             e.insertAdjacentHTML('beforeEnd', tvHtml)
           }
 
@@ -220,7 +229,7 @@ const
       setTvSrc()
 
       //setTvSize()
-      setInterval(setTvSize, 1500) //to fix fullscreen bug
+      setInterval(setTvSize, 800) //to fix fullscreen bug
     }
 
 tvwall()

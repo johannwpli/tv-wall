@@ -18,7 +18,7 @@
 
 `ALL VIDEOS` Use 'all' as the grid parameter to show all the menu videos. e.g., https://johannwpli.github.io/tv-wall/?g=all.
 
-`CUSTOM VIDEOS` Use 'i' as the id parameter to customize your videos<sup>2</sup>. e.g., https://johannwpli.github.io/tv-wall/?i=w_Ma8oQLmSM,xL0ch83RAK8.
+`CUSTOM VIDEOS` Use 'i' as the id parameter to customize your videos<sup>2</sup>. e.g., https://johannwpli.github.io/tv-wall/?i=kJQP7kiw5Fk,JGwWNGJdvx8.
 
 ---
 

@@ -45,7 +45,7 @@ let
     radioMenu = '',
     radioMenuDefault = 'World',
     radioMenuShow = ['World', 'Taiwan'],
-    radioMenuNew = 'New', // tvSrcObj
+    radioMenuMy = 'My',
 
     selectLang = '',
     selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語'},
@@ -59,7 +59,8 @@ let
     tvHeight,
 
     tvHtml,
-    tvTitle = 'YouTube video player',
+    tvTitle,
+    tvChannel,
     tvBorder = '0',
     tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
     tvAllowfullscreen = 'allowfullscreen',
@@ -80,14 +81,14 @@ const
     setHtml = () => {
       /* set wall */
 
-      tvWall.insertAdjacentHTML('beforeEnd', `<form name="tvWall"></form>`)
+      tvWall.insertAdjacentHTML('beforeEnd', '<form name="tvWall"></form>')
 
       for (const i of wallPartArr)
         document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
 
       /* set head */
 
-      document.querySelector('#head').insertAdjacentHTML('beforeEnd', `<div class="row"></div>`)
+      document.querySelector('#head').insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
 
       for (const i of headPartArr)
         document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
@@ -112,12 +113,11 @@ const
       }
 
       if (urlIdParam) {
-        radioMenuDefault = radioMenuNew
+        radioMenuDefault = radioMenuMy
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
 
         tvSrcArr = urlIdParam.split(',')
-        Object.assign(tvSrcObj[radioMenuDefault], ...tvSrcArr.map(key => ({[key]: ''})))
-        
+        //console.log({tvSrcArr})
         //console.log({tvSrcObj})
         //console.log({radioMenuShow})
       }
@@ -210,7 +210,7 @@ const
     },
 
     setLang = () => {
-      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', `<select name="lang"></select>`)
+      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', '<select name="lang"></select>')
 
       for (const i in selectLangObj)
         selectLang += `<option value="${i}">${selectLangObj[i]}</option>`
