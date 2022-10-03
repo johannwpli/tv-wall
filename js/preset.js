@@ -112,7 +112,7 @@ const
           radioMenu += `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlIdParam) {
+      if (urlIdParam && urlIdParam !== 'null') {
         radioMenuDefault = radioMenuMy
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
 
@@ -177,8 +177,13 @@ const
 
         if (urlGridParam === 'all') {
           if (!urlMenuParam) {
-            tvSrcKey = radioMenuDefault
-            tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+            if (urlIdParam && urlIdParam !== 'null') {
+              tvSrcArr = urlIdParam.split(',')
+            }
+            else {
+              tvSrcKey = radioMenuDefault
+              tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+            }
             //console.log({tvSrcArr})
           }
           //console.log(tvSrcArr.length)
