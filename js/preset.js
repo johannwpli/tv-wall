@@ -112,7 +112,7 @@ const
           radioMenu += `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlIdParam && urlIdParam !== 'null') {
+      if (urlIdParam) { // && urlIdParam !== 'null') {
         radioMenuDefault = radioMenuMy
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
 
@@ -177,7 +177,7 @@ const
 
         if (urlGridParam === 'all') {
           if (!urlMenuParam) {
-            if (urlIdParam && urlIdParam !== 'null') {
+            if (urlIdParam) { // && urlIdParam !== 'null') {
               tvSrcArr = urlIdParam.split(',')
             }
             else {
@@ -224,7 +224,7 @@ const
     },
 
     setUrl = () => {
-      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&i=' + urlIdParam
+      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value //+ '&i=' + urlIdParam
       //console.log({newUrl})
       window.history.pushState(newState, oldTitle, newUrl)
     },
