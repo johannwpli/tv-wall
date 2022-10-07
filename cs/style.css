@@ -57,35 +57,19 @@ input[type=radio]:checked {
 
 .cell {
   display: table-cell;
-  /*
   vertical-align: middle;
-  */
   text-align: center;
+  width: calc(100% / 4);
+  white-space: nowrap;
 }
 
 .title {
   font-weight: 700;
   text-align: left;
-  width: 0px;
-  white-space: nowrap;
-}
-
-.grid {
-  text-align: center;
-  width: 0px;
-  white-space: nowrap;
-}
-
-.menu {
-  text-align: center;
-  width: 0px;
-  white-space: nowrap;
 }
 
 .lang {
   text-align: right;
-  width: 0px;
-  white-space: nowrap;
 }
 
 .tv iframe {
@@ -148,12 +132,20 @@ input[type=radio]:checked {
     */
   }
 
-  .tablet, .desktop, .lang {
+  .tablet, .desktop {
     display: none;
   }
 
+  .cell {
+    width: calc(100% / 3);
+  }
+  
   .menu {
     text-align: right;
+  }
+
+  .lang {
+    display: none;
   }
 }
 
