@@ -21,22 +21,6 @@ input[type=radio]:checked {
   background: #e2e2e2;
 }
 
-/*
-input[type=radio] {
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px #000;
-  border-radius: 50%;
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  transition: all .2s ease-in-out;
-}
-
-input[type=radio]:checked {
-  background-color: #000;
-}
-*/
-
 #head {
   border: 8px solid transparent;
   background: #fff;
