@@ -1,13 +1,20 @@
+:root {
+  --bright-color: #fff;
+  --brighter-color: #e2e2e2;
+  --darker-color: #c0c0c0;
+  --dark-color: #000;
+}
+
 body {
   overflow: hidden;
   margin: 0;
-  color: #202124;
-  background: #000;
+  color: var(--dark-color);
+  background: var(--dark-color);
   font-size: 15px;
 }
 
 a {
-  color: #000;
+  color: var(--dark-color);
   text-decoration: none;
 }
 
@@ -18,12 +25,12 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-  background: #e2e2e2;
+  background: var(--brighter-color);
 }
 
 #head {
   border: 8px solid transparent;
-  background: #fff;
+  background: var(--bright-color);
 }
 
 #body {
@@ -61,29 +68,25 @@ input[type=radio]:checked {
   transition: all .1s ease-in-out;
 }
 
-.tv iframe:hover {
-  border: 0px solid #0f0;
-}
-
 .grid label, .menu label{
     margin: 0 .5px;
 }
 
 .grid label:first-of-type, .menu label:first-of-type {
-    border: 1px solid silver;
+    border: 1px solid var(--darker-color);
     border-radius: 8px;
     padding: 0px 4px;
-    background: #e2e2e2;
+    background: var(--brighter-color);
     font-size: 12px;
 }
 
-.grid label:first-of-type.en::before {  content: 'grid' }
-.grid label:first-of-type.zh::before {  content: '網格' }
-.grid label:first-of-type.jp::before {  content: 'グリッド' }
+.grid label:first-of-type.en::before { content: 'grid'; }
+.grid label:first-of-type.zh::before {  content: '網格'; }
+.grid label:first-of-type.jp::before {  content: 'グリッド'; }
 
-.menu label:first-of-type.en::before {  content: 'menu' }
-.menu label:first-of-type.zh::before {  content: '選單' }
-.menu label:first-of-type.jp::before {  content: 'メニュー' }
+.menu label:first-of-type.en::before {  content: 'menu'; }
+.menu label:first-of-type.zh::before {  content: '選單'; }
+.menu label:first-of-type.jp::before {  content: 'メニュー'; }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;
@@ -91,31 +94,10 @@ input[type=radio]:checked {
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
-  background: #e2e2e2;
+  background: var(--brighter-color);
 }
 
 @media (max-width: 480px) {
-  /*
-  input[value="World"] + span::before {
-    content: "🗺️";
-  }
-  
-  input[value="Taiwan"] + span::before {
-    content: "🇹🇼";
-  }
-  
-  input[value="World"] ~ span:nth-of-type(2),
-  input[value="Taiwan"] ~ span:nth-of-type(2),
-    display: none;
-  }
-  */
-  
-  input[type=radio] {
-    /*
-    appearance: none;
-    */
-  }
-
   .tablet, .desktop {
     display: none;
   }
