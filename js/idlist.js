@@ -5,7 +5,8 @@ let
     tvSrcObj = {
         World: [
             { id: 'F-POY4Q0QSI', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
-            { id: 'w_Ma8oQLmSM', title: 'ABC, United States', channel: 'https://www.youtube.com/c/ABCNews' },
+            { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
+            { id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'GE_SfNVNyqk', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'ntmPIzlkcJk', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },

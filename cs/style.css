@@ -1,20 +1,20 @@
 :root {
-  --bright-color: #fff;
+  --brightest-color: #fff;
   --brighter-color: #e2e2e2;
   --darker-color: #c0c0c0;
-  --dark-color: #000;
+  --darkest-color: #000;
 }
 
 body {
   overflow: hidden;
   margin: 0;
-  color: var(--dark-color);
-  background: var(--dark-color);
+  color: var(--darkest-color);
+  background: var(--darkest-color);
   font-size: 15px;
 }
 
 a {
-  color: var(--dark-color);
+  color: var(--darkest-color);
   text-decoration: none;
 }
 
@@ -30,7 +30,7 @@ input[type=radio]:checked {
 
 #head {
   border: 8px solid transparent;
-  background: var(--bright-color);
+  background: var(--brightest-color);
 }
 
 #body {
