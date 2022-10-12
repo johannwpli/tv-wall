@@ -196,8 +196,9 @@ const
             tvTitle = tvSrcArr[i]['title']
             tvChannel = tvSrcArr[i]['channel']
 
-            tvTitle ? console.log(i+1 + '. '+ tvTitle ) : null
-            tvChannel ? console.log(tvChannel) : null
+            tvTitle ? tvInfo = i+1 + '. '+ tvTitle : null
+            tvChannel ? tvInfo += ' ' + tvChannel : null
+            console.log(tvInfo)
 
             e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
             e.setAttribute('title', tvTitle)

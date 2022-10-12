@@ -59,6 +59,7 @@ let
     tvHeight,
 
     tvHtml,
+    tvInfo,
     tvTitle,
     tvChannel,
     tvBorder = '0',
@@ -155,7 +156,7 @@ const
         const j =
           i >= radioGridDesktop
             ? 'desktop'
-            :  i >= radioGridTablet
+            : i >= radioGridTablet
               ? 'tablet'
               : 'mobile'
 

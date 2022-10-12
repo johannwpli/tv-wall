@@ -1,20 +1,18 @@
 :root {
-  --brightest-color: #fff;
-  --brighter-color: #e2e2e2;
-  --darker-color: #c0c0c0;
-  --darkest-color: #000;
+  --bright-color: #fff;
+  --inter-color: #e2e2e2;
+  --dark-color: #000;
+  --darkalpha-color: rgba(0, 0, 0, 50%);
 }
 
 body {
   overflow: hidden;
   margin: 0;
-  color: var(--darkest-color);
-  background: var(--darkest-color);
   font-size: 15px;
 }
 
 a {
-  color: var(--darkest-color);
+  color: var(--dark-color);
   text-decoration: none;
 }
 
@@ -25,16 +23,19 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-  background: var(--brighter-color);
+  background: var(--inter-color);
 }
 
 #head {
   border: 8px solid transparent;
-  background: var(--brightest-color);
+  color: var(--dark-color);
+  background: var(--bright-color);
 }
 
 #body {
   border: 8px solid transparent;
+  color: var(--bright-color);
+  background: var(--dark-color);
 }
 
 .table {
@@ -73,10 +74,10 @@ input[type=radio]:checked {
 }
 
 .grid label:first-of-type, .menu label:first-of-type {
-    border: 1px solid var(--darker-color);
+    box-shadow: 0px 0px 0px 1px var(--darkalpha-color);
     border-radius: 8px;
     padding: 0px 4px;
-    background: var(--brighter-color);
+    background: var(--inter-color);
     font-size: 12px;
 }
 
@@ -94,7 +95,7 @@ input[type=radio]:checked {
 }
 
 .grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
-  background: var(--brighter-color);
+  background: var(--inter-color);
 }
 
 @media (max-width: 480px) {
