@@ -23,6 +23,7 @@ let
     urlSearchParams = new URLSearchParams(location.search),
     urlMenuParam = urlSearchParams.get('m'),
     urlGridParam = urlSearchParams.get('g'),
+    urllangParam = urlSearchParams.get('l'),
     urlIdParam = urlSearchParams.get('i'),
 
     oldUrl = location.pathname,
@@ -41,11 +42,13 @@ let
     radioGridDefault = 3,
     radioGridTablet = 4,
     radioGridDesktop = 12,
+    gridRadio,
 
     radioMenu = '',
-    radioMenuDefault = 'World',
     radioMenuShow = ['World', 'Taiwan'],
+    radioMenuDefault = 'World',
     radioMenuMy = 'My',
+    menuRadio,
 
     selectLang = '',
     selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語'},
@@ -105,6 +108,7 @@ const
       //console.log({tvSrcObj})
       //console.log({urlGridParam})
       //console.log({urlMenuParam})
+      //console.log({urllangParam})
       //console.log({urlIdParam})
       //console.log({radioMenuShow})
 
@@ -113,7 +117,7 @@ const
           radioMenu += `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
       }
 
-      if (urlIdParam) { // && urlIdParam !== 'null') {
+      if (urlIdParam) {
         radioMenuDefault = radioMenuMy
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
 
@@ -142,11 +146,9 @@ const
       document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
 
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
-
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
 
-      menuRadio = document.tvWall.menu 
-      menuChecked = document.querySelector('input[name="menu"]:checked') 
+      menuRadio = document.tvWall.menu
     },
 
     setGrid = () => {
@@ -208,24 +210,34 @@ const
       document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
 
       document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('required','required')
-
       document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
 
-      gridRadio = document.tvWall.grid 
-      gridChecked = document.querySelector('input[name="grid"]:checked') 
+      gridRadio = document.tvWall.grid
     },
 
     setLang = () => {
-      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', '<select name="lang"></select>')
+      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', '<select></select>')
+      document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
       for (const i in selectLangObj)
-        selectLang += `<option value="${i}">${selectLangObj[i]}</option>`
+        selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
 
       document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
+
+      if (urllangParam && urllangParam in selectLangObj) {
+        selectLangDefault = urllangParam
+      }
+
+      //document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('required','required')
+      document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected','selected')
     },
 
     setUrl = () => {
-      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value //+ '&i=' + urlIdParam
+      menuChecked = document.querySelector('input[name="menu"]:checked')
+      gridChecked = document.querySelector('input[name="grid"]:checked')
+      langSelected = document.querySelector('option[name="lang"]:checked')
+
+      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelected.value
       //console.log({newUrl})
       window.history.pushState(newState, oldTitle, newUrl)
     },

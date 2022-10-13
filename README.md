@@ -16,7 +16,9 @@
 
 `HIDDEN MENU` Use 'm' as the menu parameter to show hidden menus. e.g., http://tvwall.cc/?m=IU.
 
-`ALL VIDEOS` Use 'all' as the grid parameter to play all the menu videos. e.g., http://tvwall.cc/?g=all.
+`ALL VIDEOS` Use 'g' as the grid parameter to play all the menu videos. e.g., http://tvwall.cc/?g=all.
+
+`SET LANGUAGE` Use 'l' as the language parameter to set the default language. e.g., http://tvwall.cc/?l=zh.
 
 `CUSTOM IDS` Use 'i' as the id parameter to customize your videos<sup>3</sup>. e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8.
 

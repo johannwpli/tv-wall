@@ -9,6 +9,8 @@ body {
   overflow: hidden;
   margin: 0;
   font-size: 15px;
+  color: var(--bright-color);
+  background: var(--dark-color);
 }
 
 a {
@@ -17,7 +19,7 @@ a {
 }
 
 input[type=radio] {
-  margin: 2px;
+  margin: 1.5px;
   width: 11px;
   height: 11px;
 }
@@ -34,8 +36,6 @@ input[type=radio]:checked {
 
 #body {
   border: 8px solid transparent;
-  color: var(--bright-color);
-  background: var(--dark-color);
 }
 
 .table {
@@ -69,14 +69,11 @@ input[type=radio]:checked {
   transition: all .1s ease-in-out;
 }
 
-.grid label, .menu label{
-    margin: 0 .5px;
-}
-
-.grid label:first-of-type, .menu label:first-of-type {
+.grid label:first-of-type, .menu label:first-of-type, .lang label:first-of-type {
+    margin: 0 4.5px;
     box-shadow: 0px 0px 0px 1px var(--darkalpha-color);
-    border-radius: 8px;
-    padding: 0px 4px;
+    border-radius: 7px;
+    padding: 0px 4.5px;
     background: var(--inter-color);
     font-size: 12px;
 }
@@ -88,6 +85,10 @@ input[type=radio]:checked {
 .menu label:first-of-type.en::before {  content: 'menu'; }
 .menu label:first-of-type.zh::before {  content: '選單'; }
 .menu label:first-of-type.jp::before {  content: 'メニュー'; }
+
+.lang label:first-of-type.en::before {  content: 'language'; }
+.lang label:first-of-type.zh::before {  content: '語言'; }
+.lang label:first-of-type.jp::before {  content: 'ランゲージ'; }
 
 .grid label:not(:first-of-type), .menu label:not(:first-of-type) {
   border: 1px solid transparent;

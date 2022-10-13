@@ -36,23 +36,37 @@ const
         j.addEventListener('click', clickMenuRadio)
     },
 
-    gridMenuClasslistAdd = (value) => {
+    langClasslistAdd = (value) => {
       document.querySelector('.grid label:first-of-type').classList.add(value)
       document.querySelector('.menu label:first-of-type').classList.add(value)
+      document.querySelector('.lang label:first-of-type').classList.add(value)
     },
 
-    gridMenuClasslistRemove = (value) => {
+    langClasslistRemove = (value) => {
       document.querySelector('.grid label:first-of-type').classList.remove(value)
       document.querySelector('.menu label:first-of-type').classList.remove(value)
+      document.querySelector('.lang label:first-of-type').classList.remove(value)
     },
 
     clickLangSelect = (e) => {
-      gridMenuClasslistAdd(e.target.value)
+      langClasslistAdd(e.target.value)
 
       const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
       //console.log(toRemoveArr)
 
-      for (const i of toRemoveLangArr) gridMenuClasslistRemove(i)
+      for (const i of toRemoveLangArr)
+        langClasslistRemove(i)
+
+      setUrl()
+    },
+
+    setLangSelect = (value) => {
+      langClasslistAdd(value)
+
+      const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
+
+      for (const i of toRemoveLangArr)
+        langClasslistRemove(i)
     },
 
     listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener("change", clickLangSelect),
@@ -224,6 +238,7 @@ const
     },    
 
     tvwall = () => {
+      setLangSelect(langSelected.value)
       listenGridMenuRadio()
       listenLangSelect()
       setTvGrid()
