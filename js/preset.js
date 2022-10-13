@@ -40,20 +40,21 @@ let
 
     radioGrid = '',
     radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, ], // 15, 16, 20, 24, 25,
-    radioGridDefault = 3,
-    radioGridTablet = 4,
-    radioGridDesktop = 12,
-    gridRadio,
+    radioGridDefault,
+    radioGridTablet = 4, // shows from 4 on tablet
+    radioGridDesktop = 12, // shows from 12 on desktop
 
     radioMenu = '',
     radioMenuShow = ['World', 'Taiwan'],
     radioMenuDefault = 'World',
     radioMenuMy = 'My',
-    menuRadio,
 
     selectLang = '',
     selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語'},
     selectLangDefault = 'en',
+
+    gridRadio,
+    menuRadio,
 
     tvAllNumber,
     tvShortNumber,
@@ -204,6 +205,14 @@ const
         }
 
         //console.log({radioGridDefault})
+      }
+      else {
+        radioGridDefault =
+          window.innerWidth > 1024
+            ? 9
+            : window.innerWidth > 480
+              ? 6
+              : 3
       }
 
       //console.log({radioGrid})
