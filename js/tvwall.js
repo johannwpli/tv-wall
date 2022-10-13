@@ -5,6 +5,7 @@
    Demo     https://johannwpli.github.io/tv-wall/   */
 
 const
+
     /* set grid value by grid radio */
 
     clickGridRadio = function() {
@@ -13,8 +14,7 @@ const
       //console.log(this.value)
 
       setUrl()
-      setTvGrid()
-      setTvSrc()
+      setTv()
     },
 
     /* set menu value by menu radio */
@@ -25,7 +25,7 @@ const
       //console.log(this.value)
 
       setUrl()
-      setTvSrc()
+      setTv()
     },
 
     listenGridMenuRadio = () => {
@@ -235,17 +235,19 @@ const
       )
 
       console.groupEnd()
-    },    
+    },
+
+    setTv = () => {
+      setTvGrid()
+      setTvSrc()
+    },
 
     tvwall = () => {
       setLangSelect(langSelected.value)
       listenGridMenuRadio()
       listenLangSelect()
-      setTvGrid()
-      setTvSrc()
-
-      //setTvSize()
-      setInterval(setTvSize, 800) //to fix fullscreen bug
+      setTv()
+      setInterval(setTvSize, 800) // to fix fullscreen bug // setTvSize()
     }
 
 tvwall()

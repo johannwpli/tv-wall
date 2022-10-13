@@ -5,6 +5,7 @@
    Demo     https://johannwpli.github.io/tv-wall/   */
 
 let
+
     /* set tv */
 
     tvWall = document.getElementById('tvWall'),
@@ -145,7 +146,7 @@ const
 
       document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
 
-      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
+      //document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
 
       menuRadio = document.tvWall.menu
@@ -209,7 +210,7 @@ const
 
       document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
 
-      document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('required','required')
+      //document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('required','required')
       document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
 
       gridRadio = document.tvWall.grid
@@ -224,9 +225,8 @@ const
 
       document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
 
-      if (urllangParam && urllangParam in selectLangObj) {
+      if (urllangParam && urllangParam in selectLangObj)
         selectLangDefault = urllangParam
-      }
 
       //document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('required','required')
       document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected','selected')
