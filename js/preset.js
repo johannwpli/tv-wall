@@ -209,10 +209,10 @@ const
       else {
         radioGridDefault =
           window.innerWidth > 1024
-            ? 9
+            ? 9 // shows 9 on desktop
             : window.innerWidth > 480
-              ? 6
-              : 3
+              ? 6 // shows 6 on tablet
+              : 3 // shows 3 on mobile
       }
 
       //console.log({radioGrid})
