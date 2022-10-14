@@ -37,7 +37,7 @@ let
     cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
     radioGrid = '',
-    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12], // 15, 16, 20, 24, 25,
+    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,'all'], // 15, 16, 20, 24, 25,
     radioGridDefault,
     radioGridTablet = 4, // shows from 4 on tablet
     radioGridDesktop = 12, // shows from 12 on desktop
@@ -169,14 +169,6 @@ const
       //console.log(radioGridArr.includes(urlGridParam))
 
       if (urlGridParam) {
-        if (!isNaN(urlGridParam)) {
-          //console.log(!isNaN(urlGridParam))
-          radioGridDefault =
-            radioGridArr.includes(urlGridParam)
-              ? urlGridParam
-              : radioGridArr.reduce(getClosestGrid(urlGridParam))
-        }
-
         if (urlGridParam === 'all') {
           if (!urlMenuParam) {
             if (urlIdParam) {
@@ -188,17 +180,15 @@ const
             }
           }
           //console.log({tvSrcArr})
-          //console.log(tvSrcArr.length)
-          //console.log({radioGridArr})
-          //console.log(radioGridArr[radioGridArr.length - 1])
+          radioGridDefault = 'all'
+        }
 
-          if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 1]) {
-            radioGridDefault = radioGridArr[radioGridArr.length - 1]
-          }
-          else {
-            while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
-            radioGridDefault = tvSrcArr.length
-          }
+        if (!isNaN(urlGridParam)) {
+          //console.log(!isNaN(urlGridParam))
+          radioGridDefault =
+            radioGridArr.includes(urlGridParam)
+              ? urlGridParam
+              : radioGridArr.reduce(getClosestGrid(urlGridParam))
         }
 
         //console.log({radioGridDefault})

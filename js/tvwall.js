@@ -9,8 +9,8 @@ const
     /* set grid value by grid radio */
 
     clickGridRadio = function() {
-      //gridChecked ? console.log(gridChecked.value) : null
-      this !== gridChecked ? gridChecked = this : null
+      //if (gridChecked) console.log(gridChecked.value)
+      if (this !== gridChecked) gridChecked = this
       //console.log(this.value)
 
       setTv()
@@ -20,8 +20,8 @@ const
     /* set menu value by menu radio */
 
     clickMenuRadio = function() {
-      //menuChecked ? console.log(menuChecked.value) : null
-      this !== menuChecked ? menuChecked = this : null
+      //if (menuChecked) console.log(menuChecked.value)
+      if (this !== menuChecked) menuChecked = this
       //console.log(this.value)
 
       setTv()
@@ -138,7 +138,33 @@ const
     /* set grid layout by grid value */
 
     setTvGrid = () => {
-      tvAllNumber = gridRadio.value
+      tvSrcKey = menuChecked.value
+      //console.log({tvSrcKey})
+
+      if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
+        tvSrcArr = tvSrcObj[tvSrcKey]
+      }
+      else {
+        tvSrcArr = urlIdParam.split(',')
+      }
+      //console.log({tvSrcArr})
+      //console.log(tvSrcArr.length)
+      //console.log({radioGridArr})
+      //console.log(radioGridArr[radioGridArr.length - 2])
+
+      if (gridRadio.value === 'all') {
+        if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
+          tvAllNumber = radioGridArr[radioGridArr.length - 2]
+        }
+        else {
+          while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
+          tvAllNumber = tvSrcArr.length
+        }
+      }
+      else {
+        tvAllNumber = gridRadio.value
+      }
+      
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // 1~3:1, 4~8:2, 9~15:3, 16~24:4
 
@@ -177,23 +203,12 @@ const
     },
 
     setTvSrc = () => {
-      tvSrcKey = menuChecked.value
-      //console.log({tvSrcKey})
-
-      if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
-        tvSrcArr = tvSrcObj[tvSrcKey]
-      }
-      else {
-        tvSrcArr = urlIdParam.split(',')
-      }
-      //console.log({tvSrcArr})
-
       tvRatio =
         tvAllNumber < tvSrcArr.length
           ? tvAllNumber + ' of '+ tvSrcArr.length
           : tvSrcArr.length + ' of ' + tvSrcArr.length
 
-      tvSrcArr.length > tvAllNumber ? shuffle(tvSrcArr) : null
+      if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
 
       //console.log('TV Array Length: ', tvSrcArr.length)
       //console.log({tvAllNumber})
@@ -210,8 +225,8 @@ const
             tvTitle = tvSrcArr[i]['title']
             tvChannel = tvSrcArr[i]['channel']
 
-            tvTitle ? tvInfo = i+1 + '. '+ tvTitle : null
-            tvChannel ? tvInfo += ' \n' + tvChannel : null
+            if (tvTitle) tvInfo = i+1 + '. '+ tvTitle
+            if (tvChannel) tvInfo += ' \n' + tvChannel
             console.log(tvInfo)
 
             e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
@@ -221,7 +236,7 @@ const
             tvSrc = tvSrcPrefix + tvSrcArr[i]
           }
 
-          //tvSrc ? console.log({tvSrc}) : null
+          //if (tvSrc) console.log({tvSrc})
 
           while (e.firstChild) e.firstChild.remove()
 
@@ -247,7 +262,7 @@ const
       listenGridMenuRadio()
       listenLangSelect()
       setTv()
-      setInterval(setTvSize, 800) // to fix fullscreen bug // setTvSize()
+      setInterval(setTvSize, 800) // to fix fullscreen bug
     }
 
 tvwall()
