@@ -13,8 +13,8 @@ const
       this !== gridChecked ? gridChecked = this : null
       //console.log(this.value)
 
-      setUrl()
       setTv()
+      setUrl()
     },
 
     /* set menu value by menu radio */
@@ -24,8 +24,8 @@ const
       this !== menuChecked ? menuChecked = this : null
       //console.log(this.value)
 
-      setUrl()
       setTv()
+      setUrl()
     },
 
     listenGridMenuRadio = () => {

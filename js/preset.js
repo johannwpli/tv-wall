@@ -24,13 +24,11 @@ let
     urlSearchParams = new URLSearchParams(location.search),
     urlMenuParam = urlSearchParams.get('m'),
     urlGridParam = urlSearchParams.get('g'),
-    urllangParam = urlSearchParams.get('l'),
+    urlLangParam = urlSearchParams.get('l'),
     urlIdParam = urlSearchParams.get('i'),
 
     oldUrl = location.pathname,
-    oldTitle = siteTitle,
     newUrl,
-    newTitle,
     newState = { additionalInformation: 'Updated the URL with JS' },
 
     wallPartArr = ['head', 'body'],
@@ -39,7 +37,7 @@ let
     cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
     radioGrid = '',
-    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, ], // 15, 16, 20, 24, 25,
+    radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12], // 15, 16, 20, 24, 25,
     radioGridDefault,
     radioGridTablet = 4, // shows from 4 on tablet
     radioGridDesktop = 12, // shows from 12 on desktop
@@ -110,7 +108,7 @@ const
       //console.log({tvSrcObj})
       //console.log({urlGridParam})
       //console.log({urlMenuParam})
-      //console.log({urllangParam})
+      //console.log({urlLangParam})
       //console.log({urlIdParam})
       //console.log({radioMenuShow})
 
@@ -147,7 +145,6 @@ const
 
       document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
 
-      //document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('required','required')
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
 
       menuRadio = document.tvWall.menu
@@ -182,15 +179,15 @@ const
 
         if (urlGridParam === 'all') {
           if (!urlMenuParam) {
-            if (urlIdParam) { // && urlIdParam !== 'null') {
+            if (urlIdParam) {
               tvSrcArr = urlIdParam.split(',')
             }
             else {
               tvSrcKey = radioMenuDefault
               tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
             }
-            //console.log({tvSrcArr})
           }
+          //console.log({tvSrcArr})
           //console.log(tvSrcArr.length)
           //console.log({radioGridArr})
           //console.log(radioGridArr[radioGridArr.length - 1])
@@ -219,7 +216,6 @@ const
 
       document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
 
-      //document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('required','required')
       document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
 
       gridRadio = document.tvWall.grid
@@ -234,10 +230,9 @@ const
 
       document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
 
-      if (urllangParam && urllangParam in selectLangObj)
-        selectLangDefault = urllangParam
+      if (urlLangParam && urlLangParam in selectLangObj)
+        selectLangDefault = urlLangParam
 
-      //document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('required','required')
       document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected','selected')
     },
 
@@ -248,7 +243,7 @@ const
 
       newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelected.value
       //console.log({newUrl})
-      window.history.pushState(newState, oldTitle, newUrl)
+      window.history.pushState(newState, siteTitle, newUrl)
     },
 
     preset = () => {
