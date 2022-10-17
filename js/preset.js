@@ -38,9 +38,13 @@ let
 
     radioGrid = '',
     radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,'all'], // 15, 16, 20, 24, 25,
+    radioGridTablet = 4, // shows on tablet from
+    radioGridDesktop = 9, // shows on desktop from
+
     radioGridDefault,
-    radioGridTablet = 4, // shows from 4 on tablet
-    radioGridDesktop = 12, // shows from 12 on desktop
+    radioGridDefaultMobile = '3', // default grid on mobile
+    radioGridDefaultTablet = '6', // default grid on tablet
+    radioGridDefaultDesktop = '9', // default grid on desktop
 
     radioMenu = '',
     radioMenuShow = ['World', 'Taiwan'],
@@ -196,10 +200,10 @@ const
       else {
         radioGridDefault =
           window.innerWidth > 1024
-            ? 9 // shows 9 on desktop
+            ? radioGridDefaultDesktop // desktop
             : window.innerWidth > 480
-              ? 6 // shows 6 on tablet
-              : 3 // shows 3 on mobile
+              ? radioGridDefaultTablet //tablet
+              : radioGridDefaultMobile //mobile
       }
 
       //console.log({radioGrid})
