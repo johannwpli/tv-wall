@@ -134,7 +134,6 @@ const
       //console.log({tvSrcObj})
       //console.log({radioMenuShow})
     }
-
     else {
       if (urlMenuParam && urlMenuParam in tvSrcObj) {
         radioMenuDefault = urlMenuParam
@@ -174,11 +173,11 @@ const
 
     //console.log({urlGridParam})
     //console.log({radioGridArr})
-    //console.log(radioGridArr.includes(urlGridParam))
+    //console.log(radioGridArr.includes(Number(urlGridParam)))
 
     if (urlGridParam) {
       if (urlGridParam === 'all') {
-        if (!urlMenuParam) {
+        if (urlMenuParam) {
           if (urlIdParam) {
             tvSrcArr = urlIdParam.split(',')
           }
@@ -187,19 +186,20 @@ const
             tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
           }
         }
-        //console.log({tvSrcArr})
-        radioGridDefault = 'all'
+        console.log({tvSrcArr})
+
+        radioGridDefault = urlGridParam
       }
 
-      if (!isNaN(urlGridParam)) {
+      if (!isNaN(urlGridParam)) { // is a number
         //console.log(!isNaN(urlGridParam))
+        //console.log(radioGridArr.includes(Number(urlGridParam)))
         radioGridDefault =
-          radioGridArr.includes(urlGridParam)
+          radioGridArr.includes(Number(urlGridParam))
             ? urlGridParam
             : radioGridArr.reduce(getClosestGrid(urlGridParam))
       }
 
-      //console.log({radioGridDefault})
     }
     else {
       radioGridDefault =
@@ -210,6 +210,7 @@ const
             : radioGridDefaultMobile //mobile
     }
 
+    //console.log({radioGridDefault})
     //console.log({radioGrid})
 
     document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
@@ -247,7 +248,7 @@ const
   preset = () => {
     setHtml()
     setMenu()
-    setGrid() // has to be after setMenu()
+    setGrid() // has to set after setMenu()
     setLang()
     setUrl()
   }
