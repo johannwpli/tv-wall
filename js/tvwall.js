@@ -6,263 +6,263 @@
 
 const
 
-    /* set grid value by grid radio */
+  /* set grid value by grid radio */
 
-    clickGridRadio = function() {
-      //if (gridChecked) console.log(gridChecked.value)
-      if (this !== gridChecked) gridChecked = this
-      //console.log(this.value)
+  clickGridRadio = function() {
+    //if (gridChecked) console.log(gridChecked.value)
+    if (this !== gridChecked) gridChecked = this
+    //console.log(this.value)
 
-      setTv()
-      setUrl()
-    },
+    setTv()
+    setUrl()
+  },
 
-    /* set menu value by menu radio */
+  /* set menu value by menu radio */
 
-    clickMenuRadio = function() {
-      //if (menuChecked) console.log(menuChecked.value)
-      if (this !== menuChecked) menuChecked = this
-      //console.log(this.value)
+  clickMenuRadio = function() {
+    //if (menuChecked) console.log(menuChecked.value)
+    if (this !== menuChecked) menuChecked = this
+    //console.log(this.value)
 
-      setTv()
-      setUrl()
-    },
+    setTv()
+    setUrl()
+  },
 
-    listenGridMenuRadio = () => {
-      for (const i of gridRadio)
-        i.addEventListener('click', clickGridRadio)
+  listenGridMenuRadio = () => {
+    for (const i of gridRadio)
+      i.addEventListener('click', clickGridRadio)
 
-      for (const j of menuRadio)
-        j.addEventListener('click', clickMenuRadio)
-    },
+    for (const j of menuRadio)
+      j.addEventListener('click', clickMenuRadio)
+  },
 
-    langClasslistAdd = (value) => {
-      document.querySelector('.grid label:first-of-type').classList.add(value)
-      document.querySelector('.menu label:first-of-type').classList.add(value)
-      document.querySelector('.lang label:first-of-type').classList.add(value)
-    },
+  langClasslistAdd = (value) => {
+    document.querySelector('.grid label:first-of-type').classList.add(value)
+    document.querySelector('.menu label:first-of-type').classList.add(value)
+    document.querySelector('.lang label:first-of-type').classList.add(value)
+  },
 
-    langClasslistRemove = (value) => {
-      document.querySelector('.grid label:first-of-type').classList.remove(value)
-      document.querySelector('.menu label:first-of-type').classList.remove(value)
-      document.querySelector('.lang label:first-of-type').classList.remove(value)
-    },
+  langClasslistRemove = (value) => {
+    document.querySelector('.grid label:first-of-type').classList.remove(value)
+    document.querySelector('.menu label:first-of-type').classList.remove(value)
+    document.querySelector('.lang label:first-of-type').classList.remove(value)
+  },
 
-    clickLangSelect = (e) => {
-      langClasslistAdd(e.target.value)
+  clickLangSelect = (e) => {
+    langClasslistAdd(e.target.value)
 
-      const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
-      //console.log(toRemoveArr)
+    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
+    //console.log(toRemoveArr)
 
-      for (const i of toRemoveLangArr)
-        langClasslistRemove(i)
+    for (const i of toRemoveLangArr)
+      langClasslistRemove(i)
 
-      setUrl()
-    },
+    setUrl()
+  },
 
-    setLangSelect = (value) => {
-      langClasslistAdd(value)
+  setLangSelect = (value) => {
+    langClasslistAdd(value)
 
-      const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
+    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
 
-      for (const i of toRemoveLangArr)
-        langClasslistRemove(i)
-    },
+    for (const i of toRemoveLangArr)
+      langClasslistRemove(i)
+  },
 
-    listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener("change", clickLangSelect),
+  listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener("change", clickLangSelect),
 
-    /* set tv size by window size */
+  /* set tv size by window size */
 
-    setTvSize = () => {
-      //console.log({head})
-      //console.log({body})
+  setTvSize = () => {
+    //console.log({head})
+    //console.log({body})
 
-      tv = document.querySelector('.tv')
-      iframe = document.querySelector('iframe')
+    tv = document.querySelector('.tv')
+    iframe = document.querySelector('iframe')
 
-      getCssPx = (e,p) => 
-        getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 //toNumber
+    getCssPx = (e,p) => 
+      getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 //toNumber
 
-      bodyBorderWidth = getCssPx(body,'border-width') * 2
-      headBorderWidth = getCssPx(head,'border-width') * 2
-      headHeight = getCssPx(head,'height')
+    bodyBorderWidth = getCssPx(body,'border-width') * 2
+    headBorderWidth = getCssPx(head,'border-width') * 2
+    headHeight = getCssPx(head,'height')
 
-      //console.log({bodyBorderWidth})
-      //console.log({headBorderWidth})
-      //console.log({headHeight})
+    //console.log({bodyBorderWidth})
+    //console.log({headBorderWidth})
+    //console.log({headHeight})
 
-      widthDiff = bodyBorderWidth
-      heightDiff = bodyBorderWidth + headBorderWidth + headHeight
+    widthDiff = bodyBorderWidth
+    heightDiff = bodyBorderWidth + headBorderWidth + headHeight
 
-      //console.log({widthDiff})
-      //console.log({heightDiff})
+    //console.log({widthDiff})
+    //console.log({heightDiff})
 
-      //console.log(getCssPx(tv,'width'))
-      //console.log(getCssPx(tv,'height'))
-      //console.log(getCssPx(iframe,'width'))
-      //console.log(getCssPx(iframe,'height'))
+    //console.log(getCssPx(tv,'width'))
+    //console.log(getCssPx(tv,'height'))
+    //console.log(getCssPx(iframe,'width'))
+    //console.log(getCssPx(iframe,'height'))
 
-      iframeBorderWidth = getCssPx(iframe,'border-width') * 2
-      //iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
-      iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
+    iframeBorderWidth = getCssPx(iframe,'border-width') * 2
+    //iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
+    iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
 
-      //console.log({iframeBorderWidth})
-      //console.log({iframeGapWidth})
-      //console.log({iframeGapHeight})
+    //console.log({iframeBorderWidth})
+    //console.log({iframeGapWidth})
+    //console.log({iframeGapHeight})
 
-      docWidth = window.innerWidth - widthDiff
-      docHeight = window.innerHeight - heightDiff
+    docWidth = window.innerWidth - widthDiff
+    docHeight = window.innerHeight - heightDiff
 
-      //console.log('window.innerWidth: ', window.innerWidth)
-      //console.log('window.innerHeight: ', window.innerHeight)
-      //console.log({docWidth})
-      //console.log({docHeight})
+    //console.log('window.innerWidth: ', window.innerWidth)
+    //console.log('window.innerHeight: ', window.innerHeight)
+    //console.log({docWidth})
+    //console.log({docHeight})
 
-      tvWidth = docWidth / tvColNumber - iframeBorderWidth
-      tvHeight = docHeight / tvRowNumber - iframeGapHeight - iframeBorderWidth
+    tvWidth = docWidth / tvColNumber - iframeBorderWidth
+    tvHeight = docHeight / tvRowNumber - iframeGapHeight - iframeBorderWidth
 
-      //console.log({tvWidth})
-      //console.log({tvHeight})
+    //console.log({tvWidth})
+    //console.log({tvHeight})
 
-      //console.log('tvWidth * tvColNumber: ', tvWidth * tvColNumber)
-      //console.log('tvHeight * tvRowNumber: ', tvHeight * tvRowNumber)
+    //console.log('tvWidth * tvColNumber: ', tvWidth * tvColNumber)
+    //console.log('tvHeight * tvRowNumber: ', tvHeight * tvRowNumber)
 
-      document.querySelectorAll('iframe').forEach(
-        (e) => {
-          e.setAttribute('width', tvWidth)
-          e.setAttribute('height', tvHeight)
-        }
-      )
-    },
+    document.querySelectorAll('iframe').forEach(
+      (e) => {
+        e.setAttribute('width', tvWidth)
+        e.setAttribute('height', tvHeight)
+      }
+    )
+  },
 
-    /* set grid layout by grid value */
+  /* set grid layout by grid value */
 
-    setTvGrid = () => {
-      tvSrcKey = menuChecked.value
-      //console.log({tvSrcKey})
+  setTvGrid = () => {
+    tvSrcKey = menuChecked.value
+    //console.log({tvSrcKey})
 
-      if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
-        tvSrcArr = tvSrcObj[tvSrcKey]
+    if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
+      tvSrcArr = tvSrcObj[tvSrcKey]
+    }
+    else {
+      tvSrcArr = urlIdParam.split(',')
+    }
+    //console.log({tvSrcArr})
+    //console.log(tvSrcArr.length)
+    //console.log({radioGridArr})
+    //console.log(radioGridArr[radioGridArr.length - 2])
+
+    if (gridRadio.value === 'all') {
+      if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
+        tvAllNumber = radioGridArr[radioGridArr.length - 2]
       }
       else {
-        tvSrcArr = urlIdParam.split(',')
+        while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
+        tvAllNumber = tvSrcArr.length
       }
-      //console.log({tvSrcArr})
-      //console.log(tvSrcArr.length)
-      //console.log({radioGridArr})
-      //console.log(radioGridArr[radioGridArr.length - 2])
+    }
+    else {
+      tvAllNumber = gridRadio.value
+    }
+    
+    tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
+    // 1~3:1, 4~8:2, 9~15:3, 16~24:4
 
-      if (gridRadio.value === 'all') {
-        if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
-          tvAllNumber = radioGridArr[radioGridArr.length - 2]
+    window.innerWidth >= window.innerHeight
+      ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
+      : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
+
+    //console.log({tvAllNumber})
+    //console.log({tvRowNumber})
+    //console.log({tvColNumber})
+
+    /* innerHTML vs removeChild vs remove
+        https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
+    while (body.firstChild) body.firstChild.remove()
+
+    for (let i = 0; i < tvRowNumber; i++)
+      body.insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
+
+    document.querySelectorAll('#body .row').forEach(
+      (e,i) => {
+        for (let i = 0; i < tvColNumber; i++)
+          e.insertAdjacentHTML('beforeEnd', '<div class="cell tv"></div>')
+      }
+    )
+  },
+
+  /* shuffle array with Fisher-Yates algo          
+      https://shubo.io/javascript-random-shuffle/ */
+
+  shuffle = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+  },
+
+  setTvSrc = () => {
+    tvRatio =
+      tvAllNumber < tvSrcArr.length
+        ? tvAllNumber + ' of '+ tvSrcArr.length
+        : tvSrcArr.length + ' of ' + tvSrcArr.length
+
+    if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
+
+    //console.log('TV Array Length: ', tvSrcArr.length)
+    //console.log({tvAllNumber})
+    //console.log({tvSrcArr})
+    console.group('Now Playing (' + tvRatio + ')')
+
+    document.querySelectorAll('#body .tv').forEach(
+      (e,i) => {
+        e.removeAttribute('alt')
+        e.removeAttribute('title')
+
+        if (typeof tvSrcArr[i] === 'object') {
+          tvSrc = tvSrcPrefix + tvSrcArr[i]['id']
+          tvTitle = tvSrcArr[i]['title']
+          tvChannel = tvSrcArr[i]['channel']
+
+          if (tvTitle) tvInfo = i+1 + '. '+ tvTitle
+          if (tvChannel) tvInfo += ' \n' + tvChannel
+          console.log(tvInfo)
+
+          e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
+          e.setAttribute('title', tvTitle)
         }
         else {
-          while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
-          tvAllNumber = tvSrcArr.length
+          tvSrc = tvSrcPrefix + tvSrcArr[i]
         }
-      }
-      else {
-        tvAllNumber = gridRadio.value
-      }
-      
-      tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
-      // 1~3:1, 4~8:2, 9~15:3, 16~24:4
 
-      window.innerWidth >= window.innerHeight
-        ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
-        : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
+        //if (tvSrc) console.log({tvSrc})
 
-      //console.log({tvAllNumber})
-      //console.log({tvRowNumber})
-      //console.log({tvColNumber})
+        while (e.firstChild) e.firstChild.remove()
 
-      /* innerHTML vs removeChild vs remove
-         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+        if (tvSrcArr[i]) {
+          tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
-      while (body.firstChild) body.firstChild.remove()
-
-      for (let i = 0; i < tvRowNumber; i++)
-        body.insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
-
-      document.querySelectorAll('#body .row').forEach(
-        (e,i) => {
-          for (let i = 0; i < tvColNumber; i++)
-            e.insertAdjacentHTML('beforeEnd', '<div class="cell tv"></div>')
+          e.insertAdjacentHTML('beforeEnd', tvHtml)
         }
-      )
-    },
 
-    /* shuffle array with Fisher-Yates algo          
-       https://shubo.io/javascript-random-shuffle/ */
-
-    shuffle = (arr) => {
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]]
       }
-    },
+    )
 
-    setTvSrc = () => {
-      tvRatio =
-        tvAllNumber < tvSrcArr.length
-          ? tvAllNumber + ' of '+ tvSrcArr.length
-          : tvSrcArr.length + ' of ' + tvSrcArr.length
+    console.groupEnd()
+  },
 
-      if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
+  setTv = () => {
+    setTvGrid()
+    setTvSrc()
+  },
 
-      //console.log('TV Array Length: ', tvSrcArr.length)
-      //console.log({tvAllNumber})
-      //console.log({tvSrcArr})
-      console.group('Now Playing (' + tvRatio + ')')
-
-      document.querySelectorAll('#body .tv').forEach(
-        (e,i) => {
-          e.removeAttribute('alt')
-          e.removeAttribute('title')
-
-          if (typeof tvSrcArr[i] === 'object') {
-            tvSrc = tvSrcPrefix + tvSrcArr[i]['id']
-            tvTitle = tvSrcArr[i]['title']
-            tvChannel = tvSrcArr[i]['channel']
-
-            if (tvTitle) tvInfo = i+1 + '. '+ tvTitle
-            if (tvChannel) tvInfo += ' \n' + tvChannel
-            console.log(tvInfo)
-
-            e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
-            e.setAttribute('title', tvTitle)
-          }
-          else {
-            tvSrc = tvSrcPrefix + tvSrcArr[i]
-          }
-
-          //if (tvSrc) console.log({tvSrc})
-
-          while (e.firstChild) e.firstChild.remove()
-
-          if (tvSrcArr[i]) {
-            tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
-
-            e.insertAdjacentHTML('beforeEnd', tvHtml)
-          }
-
-        }
-      )
-
-      console.groupEnd()
-    },
-
-    setTv = () => {
-      setTvGrid()
-      setTvSrc()
-    },
-
-    tvwall = () => {
-      setLangSelect(langSelected.value)
-      listenGridMenuRadio()
-      listenLangSelect()
-      setTv()
-      setInterval(setTvSize, 800) // to fix fullscreen bug
-    }
+  tvwall = () => {
+    setLangSelect(langSelected.value)
+    listenGridMenuRadio()
+    listenLangSelect()
+    setTv()
+    setInterval(setTvSize, 800) // to fix fullscreen bug
+  }
 
 tvwall()
