@@ -6,7 +6,7 @@ let
         World: [
             { id: 'F-POY4Q0QSI', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
-            { id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' },
+            //{ id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' }, // uniframeable
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'GE_SfNVNyqk', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'ntmPIzlkcJk', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
@@ -28,7 +28,7 @@ let
             { id: 'CKjSm5ZeehE', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: '4Uc00FPs27M', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
-            { id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/c/ttvnewsview' },
+            //{ id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/c/ttvnewsview' }, // uniframeable
         ],
 
         Exotic: [
