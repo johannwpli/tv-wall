@@ -118,14 +118,17 @@ const
     //console.log({docWidth})
     //console.log({docHeight})
 
-    tvWidth = docWidth / tvColNumber - iframeBorderWidth
-    tvHeight = docHeight / tvRowNumber - iframeGapHeight - iframeBorderWidth
+    tvWidth = docWidth / tvColNumber - iframeBorderWidth //- iframeGapWidth // cause wrong width
+    tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
 
     //console.log({tvWidth})
     //console.log({tvHeight})
 
-    //console.log('tvWidth * tvColNumber: ', tvWidth * tvColNumber)
-    //console.log('tvHeight * tvRowNumber: ', tvHeight * tvRowNumber)
+    screenWidth = docWidth - iframeBorderWidth
+    screenHeight = docHeight - iframeBorderWidth - iframeGapHeight
+
+    //console.log({screenWidth})
+    //console.log({screenHeight})
 
     document.querySelectorAll('iframe').forEach(
       (e) => {

@@ -10,6 +10,8 @@ let
   heightDiff,
   docWidth,
   docHeight,
+  screenWidth,
+  screenHeight,
 
   newUrl,
   radioGrid = '',
@@ -186,7 +188,7 @@ const
             tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
           }
         }
-        console.log({tvSrcArr})
+        //console.log({tvSrcArr})
 
         radioGridDefault = urlGridParam
       }
