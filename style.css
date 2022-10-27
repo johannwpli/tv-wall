@@ -51,13 +51,16 @@ input[type=radio]:checked {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  width: calc(100% / 4);
   white-space: nowrap;
 }
 
 .title {
   font-weight: 700;
   text-align: left;
+}
+
+.thea {
+  display: none;
 }
 
 .lang {
@@ -69,7 +72,10 @@ input[type=radio]:checked {
   transition: all .1s ease-in-out;
 }
 
-.grid label:first-of-type, .menu label:first-of-type, .lang label:first-of-type {
+.grid label:first-of-type,
+.menu label:first-of-type,
+.thea label:first-of-type,
+.lang label:first-of-type {
     margin: 0 4.5px;
     box-shadow: 0px 0px 0px 1px var(--darkalpha-color);
     border-radius: 7px;
@@ -86,21 +92,28 @@ input[type=radio]:checked {
 .menu label:first-of-type.zh::before {  content: '選單'; }
 .menu label:first-of-type.jp::before {  content: 'メニュー'; }
 
+.thea label:first-of-type.en::before {  content: 'theater'; }
+.thea label:first-of-type.zh::before {  content: '劇院'; }
+.thea label:first-of-type.jp::before {  content: 'シアター'; }
+
 .lang label:first-of-type.en::before {  content: 'language'; }
 .lang label:first-of-type.zh::before {  content: '語言'; }
 .lang label:first-of-type.jp::before {  content: 'ランゲージ'; }
 
-.grid label:not(:first-of-type), .menu label:not(:first-of-type) {
+.grid label:not(:first-of-type),
+.menu label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 9px;
 }
 
-.grid label:not(:first-of-type):hover, .menu label:not(:first-of-type):hover {
+.grid label:not(:first-of-type):hover,
+.menu label:not(:first-of-type):hover {
   background: var(--inter-color);
 }
 
 @media (max-width: 480px) {
-  .tablet, .desktop {
+  .tablet,
+  .desktop {
     display: none;
   }
 

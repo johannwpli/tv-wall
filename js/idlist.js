@@ -12,11 +12,13 @@ let
             { id: 'ntmPIzlkcJk', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '5SOmL-522CA', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
+            //{ id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' },
+            { id: 'WB-y7_ymPJ4', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' },
             //{ id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: '9Auq9mYxFEE', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: '5mL-OkdM7Tc', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
-            { id: 'jsI43div0vc', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
+            { id: 'zY6cgqeCD9g', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
         Taiwan: [
@@ -31,18 +33,6 @@ let
             //{ id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/c/ttvnewsview' }, // uniframeable
         ],
 
-        Exotic: [
-            { id: 'Rq8_WqE67SE', title: '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese' },
-            { id: 'rbfHY8mkhT8', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
-            { id: 'sUW4dDWiz-A', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
-            { id: 'SmDXanmSsUQ', title: 'Pieces - L\'Arc～en～Ciel - Japanese' },
-            { id: 'NJR8Inf77Ac', title: '너랑 나 - 아이유(IU) - Korean' },
-            { id: 'f_iQRO5BdCM', title: '너랑 나 - 아이유(IU) - Korean' },
-            { id: 'GQt03lkFQE4', title: '좋은 날 - 아이유(IU) - Korean' },
-            { id: 'jeqdYqsrsA0', title: '좋은 날 - 아이유(IU) - Korean' },
-            { id: '3ql6lSe1E-M', title: 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian' },
-        ],
-
         IU: [
             { id: 'aERrdOMxXmQ', title: 'Last Fantasy' },
             { id: 'XdPX3f58UwE', title: 'My old story' },
@@ -55,6 +45,18 @@ let
             { id: 'emJoiIMqB58', title: '只有我不知道的事' },
             { id: 'lPffVN5lR6U', title: 'Every End of The Day 一天的盡頭' },
             { id: 'NPXVXh4HIQE', title: 'Ending Scene 這樣的Ending' },
+        ],
+
+        Exotic: [
+            { id: 'Rq8_WqE67SE', title: '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese' },
+            { id: 'rbfHY8mkhT8', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
+            { id: 'sUW4dDWiz-A', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
+            { id: 'SmDXanmSsUQ', title: 'Pieces - L\'Arc～en～Ciel - Japanese' },
+            { id: 'NJR8Inf77Ac', title: '너랑 나 - 아이유(IU) - Korean' },
+            { id: 'f_iQRO5BdCM', title: '너랑 나 - 아이유(IU) - Korean' },
+            { id: 'GQt03lkFQE4', title: '좋은 날 - 아이유(IU) - Korean' },
+            { id: 'jeqdYqsrsA0', title: '좋은 날 - 아이유(IU) - Korean' },
+            { id: '3ql6lSe1E-M', title: 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian' },
         ],
 
         Taiwanese: [

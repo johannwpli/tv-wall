@@ -13,14 +13,28 @@ let
   screenWidth,
   screenHeight,
 
+  docCellTitle,
+  docCellGrid,
+  docCellMenu,
+  docCellThea,
+  docCellLang,
+
   newUrl,
   radioGrid = '',
   radioMenu = '',
+  selectThea = '',
   selectLang = '',
 
   radioGridDefault,
   radioMenuDefault = 'World',
+  selectTheaDefault = 'all',
+  selectTheaObj = {all: 'all'},
   selectLangDefault = 'en',
+
+  menuChecked,
+  gridChecked,
+  theaSelected,
+  langSelected,
 
   gridRadio,
   menuRadio,
@@ -38,6 +52,7 @@ let
   tvChannel,
 
   tvSrcArr,
+  tvSrcArrCached,
   tvRatio,
   tvSrcKey,
   tvSrc
@@ -62,7 +77,7 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'grid', 'menu', 'lang'],
+  headPartArr = ['title', 'grid', 'menu', 'thea', 'lang'],
 
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
@@ -109,11 +124,13 @@ const
 
     /*set title */
 
-    document.querySelector('.cell.title').insertAdjacentHTML('beforeEnd', cellTitle)
+    docCellTitle = document.querySelector('.cell.title')
+    docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
   },
 
   setMenu = () => {
-    document.querySelector('.cell.menu').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellMenu = document.querySelector('.cell.menu')
+    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
     //console.log({tvSrcObj})
     //console.log({urlGridParam})
@@ -152,7 +169,7 @@ const
 
     //console.log({radioMenu})
 
-    document.querySelector('.cell.menu').insertAdjacentHTML('beforeEnd', radioMenu)
+    docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
 
     document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
 
@@ -160,7 +177,8 @@ const
   },
 
   setGrid = () => {
-    document.querySelector('.cell.grid').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellGrid = document.querySelector('.cell.grid')
+    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
     for (const i of radioGridArr) {
       const j =
@@ -215,7 +233,7 @@ const
     //console.log({radioGridDefault})
     //console.log({radioGrid})
 
-    document.querySelector('.cell.grid').insertAdjacentHTML('beforeEnd', radioGrid)
+    docCellGrid.insertAdjacentHTML('beforeEnd', radioGrid)
 
     document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
 
@@ -223,8 +241,9 @@ const
   },
 
   setLang = () => {
-    document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', '<select></select>')
-    document.querySelector('.cell.lang').insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellLang = document.querySelector('.cell.lang')
+    docCellLang.insertAdjacentHTML('afterBegin', '<select></select>')
+    docCellLang.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
     for (const i in selectLangObj)
       selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
@@ -250,7 +269,7 @@ const
   preset = () => {
     setHtml()
     setMenu()
-    setGrid() // has to set after setMenu()
+    setGrid() // has to be after setMenu()
     setLang()
     setUrl()
   }

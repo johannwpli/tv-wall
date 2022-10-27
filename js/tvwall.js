@@ -6,6 +6,83 @@
 
 const
 
+  removeAllFirstChild = (e) => {
+    while (e.firstChild)
+      e.firstChild.remove()
+  },
+
+  setThea = () => {
+    docCellThea = document.querySelector('.cell.thea')
+
+    removeAllFirstChild(docCellThea)
+    selectThea = ''
+    selectTheaObj = {all: 'all'},
+
+    docCellThea.insertAdjacentHTML('afterBegin', '<select></select>')
+    docCellThea.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+
+    //console.log({tvSrcArr})
+    //console.log({tvSrcArrCached})
+
+    if (tvSrcArrCached) {
+      ////console.log('tvSrcArrCached is available')
+      
+      if (gridChecked.value === 'all') {
+        for (let i = 0; i < tvSrcArrCached.length; i++) {
+          if (typeof tvSrcArrCached[i] === 'object')
+            selectTheaObj[i + 1] = tvSrcArrCached[i]['id']
+          else
+            selectTheaObj[i + 1] = tvSrcArrCached[i]
+        }
+      }
+      else {
+        for (let i = 0; i < gridChecked.value; i++) {
+          if (typeof tvSrcArrCached[i] === 'object')
+            selectTheaObj[i + 1] = tvSrcArrCached[i]['id']
+          else
+            selectTheaObj[i + 1] = tvSrcArrCached[i]
+        }
+      }
+    }
+    else {
+      //console.log('tvSrcArrCached is NOT available')
+      tvSrcKey = menuChecked.value
+      //console.log({tvSrcKey})
+
+      if (tvSrcObj.hasOwnProperty(tvSrcKey))
+        tvSrcArr = tvSrcObj[tvSrcKey]
+      else
+        tvSrcArr = urlIdParam.split(',')
+
+      //console.log({tvSrcArr})
+
+      for (let i = 0; i < tvSrcArr.length; i++) {
+        if (typeof tvSrcArr[i] === 'object')
+          selectTheaObj[i + 1] = tvSrcArr[i]['id']
+        else
+          selectTheaObj[i + 1] = tvSrcArr[i]
+      }
+    }
+
+    ////console.log(selectTheaObj)
+
+    for (const k in selectTheaObj)
+      selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
+
+    document.querySelector('.cell.thea select').insertAdjacentHTML('beforeEnd', selectThea)
+
+    document.querySelector(`option[value='${selectTheaDefault}']`).setAttribute('selected','selected')
+  },
+
+  setLangSelect = (value) => {
+    langClasslistAdd(value)
+
+    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
+
+    for (const i of toRemoveLangArr)
+      langClasslistRemove(i)
+  },
+
   /* set grid value by grid radio */
 
   clickGridRadio = function() {
@@ -15,6 +92,7 @@ const
 
     setTv()
     setUrl()
+    setThea()
   },
 
   /* set menu value by menu radio */
@@ -26,6 +104,7 @@ const
 
     setTv()
     setUrl()
+    setThea()
   },
 
   listenGridMenuRadio = () => {
@@ -36,16 +115,22 @@ const
       j.addEventListener('click', clickMenuRadio)
   },
 
+  clickTheaSelect = (e) => {
+    console.log(e)
+    setTvGrid()
+    setTvSrc(e)
+  },
+
+  listenTheaSelect = () => document.querySelector('.cell.thea select').addEventListener('change', clickTheaSelect),
+
   langClasslistAdd = (value) => {
-    document.querySelector('.grid label:first-of-type').classList.add(value)
-    document.querySelector('.menu label:first-of-type').classList.add(value)
-    document.querySelector('.lang label:first-of-type').classList.add(value)
+    for (let i = 1; i < headPartArr.length; i++)
+      document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.add(value)
   },
 
   langClasslistRemove = (value) => {
-    document.querySelector('.grid label:first-of-type').classList.remove(value)
-    document.querySelector('.menu label:first-of-type').classList.remove(value)
-    document.querySelector('.lang label:first-of-type').classList.remove(value)
+    for (let i = 1; i < headPartArr.length; i++)
+      document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.remove(value)
   },
 
   clickLangSelect = (e) => {
@@ -60,16 +145,7 @@ const
     setUrl()
   },
 
-  setLangSelect = (value) => {
-    langClasslistAdd(value)
-
-    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
-
-    for (const i of toRemoveLangArr)
-      langClasslistRemove(i)
-  },
-
-  listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener("change", clickLangSelect),
+  listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
   /* set tv size by window size */
 
@@ -144,29 +220,38 @@ const
     tvSrcKey = menuChecked.value
     //console.log({tvSrcKey})
 
-    if (tvSrcObj.hasOwnProperty(tvSrcKey)) {
+    if (tvSrcObj.hasOwnProperty(tvSrcKey))
       tvSrcArr = tvSrcObj[tvSrcKey]
-    }
-    else {
+    else
       tvSrcArr = urlIdParam.split(',')
-    }
+
     //console.log({tvSrcArr})
-    //console.log(tvSrcArr.length)
     //console.log({radioGridArr})
     //console.log(radioGridArr[radioGridArr.length - 2])
 
-    if (gridRadio.value === 'all') {
-      if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
-        tvAllNumber = radioGridArr[radioGridArr.length - 2]
+    theaSelected = document.querySelector('option[name="thea"]:checked')
+
+    if (theaSelected.value === 'all') {
+      if (gridChecked.value === 'all') {
+        if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
+          tvAllNumber = radioGridArr[radioGridArr.length - 2]
+        }
+        else {
+          let _temp = tvSrcArr.length
+          while (!radioGridArr.includes(_temp))
+            _temp++
+          tvAllNumber = _temp
+        }
       }
       else {
-        while (!radioGridArr.includes(tvSrcArr.length)) tvSrcArr.length++
-        tvAllNumber = tvSrcArr.length
+        tvAllNumber = gridChecked.value
       }
     }
     else {
-      tvAllNumber = gridRadio.value
+      tvAllNumber = 1
     }
+    //console.log({tvSrcArr})
+    ////console.log(theaSelected.value)
     
     tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
     // 1~3:1, 4~8:2, 9~15:3, 16~24:4
@@ -182,7 +267,7 @@ const
     /* innerHTML vs removeChild vs remove
         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
-    while (body.firstChild) body.firstChild.remove()
+    removeAllFirstChild(body)
 
     for (let i = 0; i < tvRowNumber; i++)
       body.insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
@@ -195,7 +280,7 @@ const
     )
   },
 
-  /* shuffle array with Fisher-Yates algo          
+  /* shuffle array with Fisher-Yates algo
       https://shubo.io/javascript-random-shuffle/ */
 
   shuffle = (arr) => {
@@ -205,17 +290,25 @@ const
     }
   },
 
-  setTvSrc = () => {
-    tvRatio =
-      tvAllNumber < tvSrcArr.length
-        ? tvAllNumber + ' of '+ tvSrcArr.length
-        : tvSrcArr.length + ' of ' + tvSrcArr.length
+  setTvSrc = (event) => {
+    //console.log(event)
+    if (!event) {
+      tvSrcArrCached = [...tvSrcArr]
 
-    if (tvSrcArr.length > tvAllNumber) shuffle(tvSrcArr)
+      if (tvSrcArrCached.length > tvAllNumber)
+        shuffle(tvSrcArrCached)
+    }
 
     //console.log('TV Array Length: ', tvSrcArr.length)
     //console.log({tvAllNumber})
     //console.log({tvSrcArr})
+    //console.log({tvSrcArrCached})
+
+    tvRatio =
+      tvAllNumber < tvSrcArrCached.length
+        ? `${tvAllNumber} of ${tvSrcArrCached.length}`
+        : `${tvSrcArrCached.length} of ${tvSrcArrCached.length}`
+
     console.group('Now Playing (' + tvRatio + ')')
 
     document.querySelectorAll('#body .tv').forEach(
@@ -223,32 +316,38 @@ const
         e.removeAttribute('alt')
         e.removeAttribute('title')
 
-        if (typeof tvSrcArr[i] === 'object') {
-          tvSrc = tvSrcPrefix + tvSrcArr[i]['id']
-          tvTitle = tvSrcArr[i]['title']
-          tvChannel = tvSrcArr[i]['channel']
+        if (typeof tvSrcArrCached[i] === 'object') {
+          tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
+          tvTitle = tvSrcArrCached[i]['title']
+          tvChannel = tvSrcArrCached[i]['channel']
 
-          if (tvTitle) tvInfo = i+1 + '. '+ tvTitle
-          if (tvChannel) tvInfo += ' \n' + tvChannel
-          console.log(tvInfo)
+          tvInfo = i+1 + '. '
+          if (tvTitle) tvInfo += tvTitle
+          tvInfo += ' ' + tvSrc
+          if (tvChannel) tvInfo += ' on ' + tvChannel
 
           e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
           e.setAttribute('title', tvTitle)
         }
         else {
-          tvSrc = tvSrcPrefix + tvSrcArr[i]
+          tvSrc = tvSrcPrefix + tvSrcArrCached[i]
+
+          tvInfo = i+1 + '. '
+          tvInfo += ' ' + tvSrc
         }
 
-        //if (tvSrc) console.log({tvSrc})
+        console.log(tvInfo)
 
-        while (e.firstChild) e.firstChild.remove()
+        removeAllFirstChild(e)
 
-        if (tvSrcArr[i]) {
-          tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
-
-          e.insertAdjacentHTML('beforeEnd', tvHtml)
+        if (event) {
+          tvSrc = tvSrcPrefix + theaSelected.value
         }
+          ////console.log({tvSrc})
 
+        tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+
+        e.insertAdjacentHTML('beforeEnd', tvHtml)
       }
     )
 
@@ -261,8 +360,10 @@ const
   },
 
   tvwall = () => {
+    setThea()
     setLangSelect(langSelected.value)
     listenGridMenuRadio()
+    listenTheaSelect()
     listenLangSelect()
     setTv()
     setInterval(setTvSize, 800) // to fix fullscreen bug
