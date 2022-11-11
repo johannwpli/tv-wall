@@ -29,7 +29,15 @@ let
   radioMenuDefault = 'World',
   selectTheaDefault = 'all',
   selectTheaObj = {all: 'all'},
-  selectLangDefault = 'en',
+
+  browserLang = navigator.language || navigator.userLanguage,
+
+  selectLangDefault = 
+    browserLang === 'zh-TW' || browserLang === 'zh-HK'
+      ? 'zh'
+      : browserLang === 'ja'
+        ? 'jp'
+        : 'en',
 
   menuChecked,
   gridChecked,
@@ -269,7 +277,7 @@ const
   preset = () => {
     setHtml()
     setMenu()
-    setGrid() // has to be after setMenu()
+    setGrid() // set after setMenu()
     setLang()
     setUrl()
   }
