@@ -25,12 +25,17 @@ let
   selectThea = '',
   selectLang = '',
 
+  browserLang = navigator.language || navigator.userLanguage,
+
   radioGridDefault,
-  radioMenuDefault = 'World',
+
+  radioMenuDefault =
+    browserLang === 'zh-TW'
+      ? 'Taiwan'
+      : 'World',
+
   selectTheaDefault = 'all',
   selectTheaObj = {all: 'all'},
-
-  browserLang = navigator.language || navigator.userLanguage,
 
   selectLangDefault = 
     browserLang === 'zh-TW' || browserLang === 'zh-HK'
