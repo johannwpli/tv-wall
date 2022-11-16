@@ -1,8 +1,8 @@
 /* Author   Johann Li
-   LinkedIn https://www.linkedin.com/in/johannwpli/
-   GitHub   https://github.com/johannwpli/
-   Website  https://johann.li/
-   Demo     https://johannwpli.github.io/tv-wall/   */
+LinkedIn https://www.linkedin.com/in/johannwpli/
+GitHub   https://github.com/johannwpli/
+Website  https://johann.li/
+Demo     https://johannwpli.github.io/tv-wall/ */
 
 const
 
@@ -21,11 +21,11 @@ const
     docCellThea.insertAdjacentHTML('afterBegin', '<select></select>')
     docCellThea.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
-    //console.log({tvSrcArr})
-    //console.log({tvSrcArrCached})
+    // console.log({tvSrcArr})
+    // console.log({tvSrcArrCached})
 
     if (tvSrcArrCached) {
-      ////console.log('tvSrcArrCached is available')
+      //// console.log('tvSrcArrCached is available')
       
       if (gridChecked.value === 'all') {
         for (let i = 0; i < tvSrcArrCached.length; i++) {
@@ -45,16 +45,16 @@ const
       }
     }
     else {
-      //console.log('tvSrcArrCached is NOT available')
+      // console.log('tvSrcArrCached is NOT available')
       tvSrcKey = menuChecked.value
-      //console.log({tvSrcKey})
+      // console.log({tvSrcKey})
 
       if (tvSrcObj.hasOwnProperty(tvSrcKey))
         tvSrcArr = tvSrcObj[tvSrcKey]
       else
         tvSrcArr = urlIdParam.split(',')
 
-      //console.log({tvSrcArr})
+      // console.log({tvSrcArr})
 
       for (let i = 0; i < tvSrcArr.length; i++) {
         if (typeof tvSrcArr[i] === 'object')
@@ -64,7 +64,7 @@ const
       }
     }
 
-    ////console.log(selectTheaObj)
+    //// console.log(selectTheaObj)
 
     for (const k in selectTheaObj)
       selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
@@ -88,7 +88,7 @@ const
   clickGridRadio = function() {
     //if (gridChecked) console.log(gridChecked.value)
     if (this !== gridChecked) gridChecked = this
-    //console.log(this.value)
+    // console.log(this.value)
 
     setTv()
     setUrl()
@@ -98,9 +98,9 @@ const
   /* set menu value by menu radio */
 
   clickMenuRadio = function() {
-    //if (menuChecked) console.log(menuChecked.value)
-    if (this !== menuChecked) menuChecked = this
-    //console.log(this.value)
+      // if (menuChecked) console.log(menuChecked.value)
+      if (this !== menuChecked) menuChecked = this
+      // console.log(this.value)
 
     setTv()
     setUrl()
@@ -137,7 +137,7 @@ const
     langClasslistAdd(e.target.value)
 
     const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
-    //console.log(toRemoveArr)
+    // console.log(toRemoveArr)
 
     for (const i of toRemoveLangArr)
       langClasslistRemove(i)
@@ -147,11 +147,26 @@ const
 
   listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
+/*   listenKeyPress = () => {
+    // https://codepen.io/DBoy_Fresh/pen/RgjYKG
+    document.onkeydown = function(e) {
+      let keyPress = e.key
+
+      for (let menu of radioMenuShow) {
+        // https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix
+        if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) { // check if menu starts with key pressed as prefix 
+          console.log(keyPress)
+          console.log(menu)
+        }
+      }
+    }
+  } */
+
   /* set tv size by window size */
 
   setTvSize = () => {
-    //console.log({head})
-    //console.log({body})
+    // console.log({head})
+    // console.log({body})
 
     tv = document.querySelector('.tv')
     iframe = document.querySelector('iframe')
@@ -163,48 +178,48 @@ const
     headBorderWidth = getCssPx(head,'border-width') * 2
     headHeight = getCssPx(head,'height')
 
-    //console.log({bodyBorderWidth})
-    //console.log({headBorderWidth})
-    //console.log({headHeight})
+    // console.log({bodyBorderWidth})
+    // console.log({headBorderWidth})
+    // console.log({headHeight})
 
     widthDiff = bodyBorderWidth
     heightDiff = bodyBorderWidth + headBorderWidth + headHeight
 
-    //console.log({widthDiff})
-    //console.log({heightDiff})
+    // console.log({widthDiff})
+    // console.log({heightDiff})
 
-    //console.log(getCssPx(tv,'width'))
-    //console.log(getCssPx(tv,'height'))
-    //console.log(getCssPx(iframe,'width'))
-    //console.log(getCssPx(iframe,'height'))
+    // console.log(getCssPx(tv,'width'))
+    // console.log(getCssPx(tv,'height'))
+    // console.log(getCssPx(iframe,'width'))
+    // console.log(getCssPx(iframe,'height'))
 
     iframeBorderWidth = getCssPx(iframe,'border-width') * 2
     //iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
     iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
 
-    //console.log({iframeBorderWidth})
-    //console.log({iframeGapWidth})
-    //console.log({iframeGapHeight})
+    // console.log({iframeBorderWidth})
+    // console.log({iframeGapWidth})
+    // console.log({iframeGapHeight})
 
     docWidth = window.innerWidth - widthDiff
     docHeight = window.innerHeight - heightDiff
 
-    //console.log('window.innerWidth: ', window.innerWidth)
-    //console.log('window.innerHeight: ', window.innerHeight)
-    //console.log({docWidth})
-    //console.log({docHeight})
+    // console.log('window.innerWidth: ', window.innerWidth)
+    // console.log('window.innerHeight: ', window.innerHeight)
+    // console.log({docWidth})
+    // console.log({docHeight})
 
     tvWidth = docWidth / tvColNumber - iframeBorderWidth //- iframeGapWidth // cause wrong width
     tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
 
-    //console.log({tvWidth})
-    //console.log({tvHeight})
+    // console.log({tvWidth})
+    // console.log({tvHeight})
 
     screenWidth = docWidth - iframeBorderWidth
     screenHeight = docHeight - iframeBorderWidth - iframeGapHeight
 
-    //console.log({screenWidth})
-    //console.log({screenHeight})
+    // console.log({screenWidth})
+    // console.log({screenHeight})
 
     document.querySelectorAll('iframe').forEach(
       (e) => {
@@ -218,16 +233,16 @@ const
 
   setTvGrid = () => {
     tvSrcKey = menuChecked.value
-    //console.log({tvSrcKey})
+    // console.log({tvSrcKey})
 
     if (tvSrcObj.hasOwnProperty(tvSrcKey))
       tvSrcArr = tvSrcObj[tvSrcKey]
     else
       tvSrcArr = urlIdParam.split(',')
 
-    //console.log({tvSrcArr})
-    //console.log({radioGridArr})
-    //console.log(radioGridArr[radioGridArr.length - 2])
+    // console.log({tvSrcArr})
+    // console.log({radioGridArr})
+    // console.log(radioGridArr[radioGridArr.length - 2])
 
     theaSelected = document.querySelector('option[name="thea"]:checked')
 
@@ -250,8 +265,8 @@ const
     else {
       tvAllNumber = 1
     }
-    //console.log({tvSrcArr})
-    ////console.log(theaSelected.value)
+    // console.log({tvSrcArr})
+    //// console.log(theaSelected.value)
     
     tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
     // 1~3:1, 4~8:2, 9~15:3, 16~24:4
@@ -260,9 +275,9 @@ const
       ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
       : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
-    //console.log({tvAllNumber})
-    //console.log({tvRowNumber})
-    //console.log({tvColNumber})
+    // console.log({tvAllNumber})
+    // console.log({tvRowNumber})
+    // console.log({tvColNumber})
 
     /* innerHTML vs removeChild vs remove
         https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
@@ -291,7 +306,7 @@ const
   },
 
   setTvSrc = (event) => {
-    //console.log(event)
+    // console.log(event)
     if (!event) {
       tvSrcArrCached = [...tvSrcArr]
 
@@ -299,10 +314,10 @@ const
         shuffle(tvSrcArrCached)
     }
 
-    //console.log('TV Array Length: ', tvSrcArr.length)
-    //console.log({tvAllNumber})
-    //console.log({tvSrcArr})
-    //console.log({tvSrcArrCached})
+    // console.log('TV Array Length: ', tvSrcArr.length)
+    // console.log({tvAllNumber})
+    // console.log({tvSrcArr})
+    // console.log({tvSrcArrCached})
 
     tvRatio =
       tvAllNumber < tvSrcArrCached.length
@@ -343,7 +358,7 @@ const
         if (event) {
           tvSrc = tvSrcPrefix + theaSelected.value
         }
-          ////console.log({tvSrc})
+          //// console.log({tvSrc})
 
         tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 

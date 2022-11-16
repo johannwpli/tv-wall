@@ -1,8 +1,8 @@
 /* Author   Johann Li
-   LinkedIn https://www.linkedin.com/in/johannwpli/
-   GitHub   https://github.com/johannwpli/
-   Website  https://johann.li/
-   Demo     https://johannwpli.github.io/tv-wall/   */
+LinkedIn https://www.linkedin.com/in/johannwpli/
+GitHub   https://github.com/johannwpli/
+Website  https://johann.li/
+Demo     https://johannwpli.github.io/tv-wall/ */
 
 let
 
@@ -145,12 +145,12 @@ const
     docCellMenu = document.querySelector('.cell.menu')
     docCellMenu.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
-    //console.log({tvSrcObj})
-    //console.log({urlGridParam})
-    //console.log({urlMenuParam})
-    //console.log({urlLangParam})
-    //console.log({urlIdParam})
-    //console.log({radioMenuShow})
+    // console.log({tvSrcObj})
+    // console.log({urlGridParam})
+    // console.log({urlMenuParam})
+    // console.log({urlLangParam})
+    // console.log({urlIdParam})
+    // console.log({radioMenuShow})
 
     for (const i in tvSrcObj) {
       if (radioMenuShow.includes(i))
@@ -162,9 +162,9 @@ const
       radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
 
       tvSrcArr = urlIdParam.split(',')
-      //console.log({tvSrcArr})
-      //console.log({tvSrcObj})
-      //console.log({radioMenuShow})
+      // console.log({tvSrcArr})
+      // console.log({tvSrcObj})
+      // console.log({radioMenuShow})
     }
     else {
       if (urlMenuParam && urlMenuParam in tvSrcObj) {
@@ -172,7 +172,7 @@ const
 
         tvSrcKey = radioMenuDefault
         tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-        //console.log({tvSrcArr})
+        // console.log({tvSrcArr})
 
         if (!radioMenuShow.includes(urlMenuParam)) {
           radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
@@ -180,7 +180,7 @@ const
       }
     }
 
-    //console.log({radioMenu})
+    // console.log({radioMenu})
 
     docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
 
@@ -204,9 +204,9 @@ const
       radioGrid += `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
     }
 
-    //console.log({urlGridParam})
-    //console.log({radioGridArr})
-    //console.log(radioGridArr.includes(Number(urlGridParam)))
+    // console.log({urlGridParam})
+    // console.log({radioGridArr})
+    // console.log(radioGridArr.includes(Number(urlGridParam)))
 
     if (urlGridParam) {
       if (urlGridParam === 'all') {
@@ -219,14 +219,14 @@ const
             tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
           }
         }
-        //console.log({tvSrcArr})
+        // console.log({tvSrcArr})
 
         radioGridDefault = urlGridParam
       }
 
       if (!isNaN(urlGridParam)) { // is a number
-        //console.log(!isNaN(urlGridParam))
-        //console.log(radioGridArr.includes(Number(urlGridParam)))
+        // console.log(!isNaN(urlGridParam))
+        // console.log(radioGridArr.includes(Number(urlGridParam)))
         radioGridDefault =
           radioGridArr.includes(Number(urlGridParam))
             ? urlGridParam
@@ -243,8 +243,8 @@ const
             : radioGridDefaultMobile //mobile
     }
 
-    //console.log({radioGridDefault})
-    //console.log({radioGrid})
+    // console.log({radioGridDefault})
+    // console.log({radioGrid})
 
     docCellGrid.insertAdjacentHTML('beforeEnd', radioGrid)
 
@@ -275,7 +275,7 @@ const
     langSelected = document.querySelector('option[name="lang"]:checked')
 
     newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelected.value
-    //console.log({newUrl})
+    // console.log({newUrl})
     window.history.pushState(newState, siteTitle, newUrl)
   },
 
