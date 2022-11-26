@@ -328,15 +328,20 @@ const
 
     document.querySelectorAll('#body .tv').forEach(
       (e,i) => {
+        // console.log(e)
         e.removeAttribute('alt')
         e.removeAttribute('title')
+        // console.log(tvSrcArrCached[i])
+
+        if (tvSrcArrCached[i]) {
 
         if (typeof tvSrcArrCached[i] === 'object') {
+          console.log( tvSrcArrCached[i]['id'])
           tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
           tvTitle = tvSrcArrCached[i]['title']
           tvChannel = tvSrcArrCached[i]['channel']
 
-          tvInfo = i+1 + '. '
+          tvInfo = i + 1 + '. '
           if (tvTitle) tvInfo += tvTitle
           tvInfo += ' ' + tvSrc
           if (tvChannel) tvInfo += ' on ' + tvChannel
@@ -347,7 +352,7 @@ const
         else {
           tvSrc = tvSrcPrefix + tvSrcArrCached[i]
 
-          tvInfo = i+1 + '. '
+          tvInfo = i + 1 + '. '
           tvInfo += ' ' + tvSrc
         }
 
@@ -363,6 +368,7 @@ const
         tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
         e.insertAdjacentHTML('beforeEnd', tvHtml)
+      }
       }
     )
 

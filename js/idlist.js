@@ -26,10 +26,10 @@ let
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
             { id: 'ABn_ccXn_jc', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' },
-            // { id: 'dPGURLi_q2k', title: 'EBC 東森', channel: 'https://www.youtube.com/@newsebc' }, // for temp
+            { id: 'dPGURLi_q2k', title: 'EBC 東森', channel: 'https://www.youtube.com/@newsebc' }, // for temp
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
             { id: 'B7Zp3d6xXWw', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
-            // { id: '_fkCuKsqpU8', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },  // for temp
+            { id: '_fkCuKsqpU8', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },  // for temp
             { id: 'CKjSm5ZeehE', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: '4Uc00FPs27M', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
