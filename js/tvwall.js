@@ -334,41 +334,39 @@ const
         // console.log(tvSrcArrCached[i])
 
         if (tvSrcArrCached[i]) {
+          if (typeof tvSrcArrCached[i] === 'object') {
+            console.log( tvSrcArrCached[i]['id'])
+            tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
+            tvTitle = tvSrcArrCached[i]['title']
+            tvChannel = tvSrcArrCached[i]['channel']
 
-        if (typeof tvSrcArrCached[i] === 'object') {
-          console.log( tvSrcArrCached[i]['id'])
-          tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
-          tvTitle = tvSrcArrCached[i]['title']
-          tvChannel = tvSrcArrCached[i]['channel']
+            tvInfo = i + 1 + '. '
+            if (tvTitle) tvInfo += tvTitle
+            tvInfo += ' ' + tvSrc
+            if (tvChannel) tvInfo += ' on ' + tvChannel
 
-          tvInfo = i + 1 + '. '
-          if (tvTitle) tvInfo += tvTitle
-          tvInfo += ' ' + tvSrc
-          if (tvChannel) tvInfo += ' on ' + tvChannel
+            e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
+            e.setAttribute('title', tvTitle)
+          }
+          else {
+            tvSrc = tvSrcPrefix + tvSrcArrCached[i]
 
-          e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
-          e.setAttribute('title', tvTitle)
-        }
-        else {
-          tvSrc = tvSrcPrefix + tvSrcArrCached[i]
+            tvInfo = i + 1 + '. '
+            tvInfo += ' ' + tvSrc
+          }
 
-          tvInfo = i + 1 + '. '
-          tvInfo += ' ' + tvSrc
-        }
+          console.log(tvInfo)
 
-        console.log(tvInfo)
+          removeAllFirstChild(e)
 
-        removeAllFirstChild(e)
+          if (event) tvSrc = tvSrcPrefix + theaSelected.value
 
-        if (event) {
-          tvSrc = tvSrcPrefix + theaSelected.value
-        }
           //// console.log({tvSrc})
 
-        tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+          tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
-        e.insertAdjacentHTML('beforeEnd', tvHtml)
-      }
+          e.insertAdjacentHTML('beforeEnd', tvHtml)
+        }
       }
     )
 

@@ -34,6 +34,7 @@ let
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: '4Uc00FPs27M', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
             //{ id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/c/ttvnewsview' }, // uniframeable
+            { id: 'FNoZAiCCi4s', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' }, // for temp
         ],
 
         IU: [
