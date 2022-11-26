@@ -335,7 +335,7 @@ const
 
         if (tvSrcArrCached[i]) {
           if (typeof tvSrcArrCached[i] === 'object') {
-            console.log( tvSrcArrCached[i]['id'])
+            // console.log( tvSrcArrCached[i]['id'])
             tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
             tvTitle = tvSrcArrCached[i]['title']
             tvChannel = tvSrcArrCached[i]['channel']
