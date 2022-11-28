@@ -1,5 +1,5 @@
-/* menu      : [ id,        title,      channel ]
-     tvSrcKey: [ tvSrc, tvTitle, tvChannel ] */
+// menu: [ id, title, channel ]
+// tvSrcKey: [ tvSrc, tvTitle, tvChannel ]
 
 let
     tvSrcObj = {
@@ -12,7 +12,7 @@ let
             { id: 'ntmPIzlkcJk', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '5SOmL-522CA', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
-            //{ id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' },
+            //{ id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             { id: 'WB-y7_ymPJ4', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' },
             //{ id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
@@ -26,15 +26,12 @@ let
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
             { id: 'LbS-xQ67fos', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' },
-            // { id: 'dPGURLi_q2k', title: 'EBC 東森', channel: 'https://www.youtube.com/@newsebc' }, // for temp
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
             { id: 'B7Zp3d6xXWw', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
-            // { id: '_fkCuKsqpU8', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },  // for temp
             { id: 'CKjSm5ZeehE', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: '4Uc00FPs27M', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
             //{ id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/c/ttvnewsview' }, // uniframeable
-            // { id: 'FNoZAiCCi4s', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' }, // for temp
         ],
 
         IU: [

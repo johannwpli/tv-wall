@@ -1,8 +1,4 @@
-/* Author   Johann Li
-LinkedIn https://www.linkedin.com/in/johannwpli/
-GitHub   https://github.com/johannwpli/
-Website  https://johann.li/
-Demo     https://johannwpli.github.io/tv-wall/ */
+/* Author: Johann Li, GitHub https://github.com/johannwpli/ */
 
 const
 
