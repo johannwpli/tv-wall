@@ -11,6 +11,7 @@ const
     docCellThea = document.querySelector('.cell.thea')
 
     removeAllFirstChild(docCellThea)
+    
     selectThea = ''
     selectTheaObj = {all: 'all'},
 
@@ -52,15 +53,25 @@ const
 
       // console.log({tvSrcArr})
 
-      for (let i = 0; i < tvSrcArr.length; i++) {
-        if (typeof tvSrcArr[i] === 'object')
-          selectTheaObj[i + 1] = tvSrcArr[i]['id']
-        else
-          selectTheaObj[i + 1] = tvSrcArr[i]
+      if (gridChecked.value === 'all') {
+        for (let i = 0; i < tvSrcArr.length; i++) {
+          if (typeof tvSrcArr[i] === 'object')
+            selectTheaObj[i + 1] = tvSrcArr[i]['id']
+          else
+            selectTheaObj[i + 1] = tvSrcArr[i]
+        }
+      }
+      else {
+        for (let i = 0; i < gridChecked.value; i++) {
+          if (typeof tvSrcArr[i] === 'object')
+            selectTheaObj[i + 1] = tvSrcArr[i]['id']
+          else
+            selectTheaObj[i + 1] = tvSrcArr[i]
+        }
       }
     }
 
-    //// console.log(selectTheaObj)
+    // console.log(selectTheaObj)
 
     for (const k in selectTheaObj)
       selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
@@ -112,7 +123,7 @@ const
   },
 
   clickTheaSelect = (e) => {
-    console.log(e)
+    // console.log(e)
     setTvGrid()
     setTvSrc(e)
   },
@@ -241,6 +252,7 @@ const
     // console.log(radioGridArr[radioGridArr.length - 2])
 
     theaSelected = document.querySelector('option[name="thea"]:checked')
+    // console.log(theaSelected.value)
 
     if (theaSelected.value === 'all') {
       if (gridChecked.value === 'all') {
@@ -262,7 +274,6 @@ const
       tvAllNumber = 1
     }
     // console.log({tvSrcArr})
-    //// console.log(theaSelected.value)
     
     tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
     // 1~3:1, 4~8:2, 9~15:3, 16~24:4
@@ -355,7 +366,12 @@ const
 
           removeAllFirstChild(e)
 
-          if (event) tvSrc = tvSrcPrefix + theaSelected.value
+          if (event) {
+            if (theaSelected.value !== 'all')
+              tvSrc = tvSrcPrefix + theaSelected.value
+            else
+              tvSrc = tvSrcPrefix + tvSrcArrCached[i] // to fix
+          }
 
           //// console.log({tvSrc})
 
@@ -381,7 +397,7 @@ const
     listenTheaSelect()
     listenLangSelect()
     setTv()
-    setInterval(setTvSize, 800) // to fix fullscreen bug
+    setInterval(setTvSize, 1000) // to fix fullscreen bug
   }
 
 tvwall()

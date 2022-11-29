@@ -93,7 +93,7 @@ const
   widthTablet = 480,
   widthDesktop = 1024,
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,'all'], // 15, 16, 20, 24, 25,
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,16, 'all'], // 15, 16, 20, 24, 25,
   radioGridTablet = 4, // shows on tablet from
   radioGridDesktop = 9, // shows on desktop from
 

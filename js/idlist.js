@@ -73,7 +73,9 @@ let
             { id: 'JrTl0k8YPpE', title: '大千懺 - 蓮歌子' },
             { id: '0QpGmmGUxos', title: '愛你的是我 - 荒山亮 & 麗莎' },
             { id: 'jLBn_S-f_iM', title: '愛你的是我 - 荒山亮 & 麗莎' },
-            { id: 'gpwztOjPcmg', title: '愛你的是我 - 愛妳的是我 & 蔡佳瑩' },
+            { id: 'gpwztOjPcmg', title: '愛你的是我 - 荒山亮 & 蔡佳瑩' },
+            { id: 'PrwhLvMOkqE', title: '真愛只有你 - 林姍 & 傅振輝' },
+            { id: 'uFwqNrOXVgI', title: '無人來作伴 - 林姍 & 翁立友' },
             { id: 'dOjt0L5KI8U', title: '愛你的代價 - 方瑞娥 & 高向鵬' },
         ],
 
