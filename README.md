@@ -12,7 +12,7 @@
 
 `WEBSITE` https://johann.li/
 
-`ORIGIN` TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>2</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, and Myanmar in 2021. Now 2022, Ukraine is being under attack by Russia. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
+`ORIGIN` TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>2</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar in 2021, and China in 2022. Battles between countries have continued and lasted, such as Russia and Ukraine. The conflict since 2014 even saw a significant escalation as Russia launched a full-scale invasion of Ukraine in February 2022. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
 
 `COMPATIBILITY` TV Wall supports multi browsers and devices, including mobiles, tablets, and computers.<sup>3</sup>
 
@@ -28,5 +28,5 @@
 
 <sup>1</sup> Redirects to https://johannwpli.github.io/tv-wall/.  
 <sup>2</sup> Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
-<sup>3</sup> The default number of videos on mobile is 3, on tablets is 6, and on computers is 9.  
+<sup>3</sup> The default number of videos on mobiles is 3, on tablets is 6, and on computers is 9.  
 <sup>4</sup> Place YouTube video IDs separated by a comma.
