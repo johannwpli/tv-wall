@@ -12,7 +12,7 @@
 
 `WEBSITE` https://johann.li/
 
-`ORIGIN` TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>2</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar in 2021, and China in 2022. Battles between countries have continued and lasted, such as Russia and Ukraine. The conflict since 2014 even saw a significant escalation as Russia launched a full-scale invasion of Ukraine in February 2022. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
+`ORIGIN` TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>2</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar and Iran in 2021, and China in 2022. Besides, Battles between countries such as Russia and Ukraine have continued and lasted. The conflict since 2014 even saw a significant escalation in February 2022 as Russia launched a full-scale invasion of Ukraine. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
 
 `COMPATIBILITY` TV Wall supports multi browsers and devices, including mobiles, tablets, and computers.<sup>3</sup>
 
