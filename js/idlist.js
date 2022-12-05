@@ -18,7 +18,7 @@ let
             //{ id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: '9Auq9mYxFEE', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: '5mL-OkdM7Tc', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
-            { id: 'zY6cgqeCD9g', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
+            { id: '3JlVqzNSYys', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
         Taiwan: [
