@@ -9,7 +9,7 @@ let
             //{ id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' }, // uniframeable
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'ammKkVgtIHw', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
-            { id: 'ntmPIzlkcJk', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
+            { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '5SOmL-522CA', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             //{ id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
