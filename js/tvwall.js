@@ -1,4 +1,4 @@
-/* Author: Johann Li, GitHub https://github.com/johannwpli/ */
+// Author: Johann Li, GitHub: https://github.com/johannwpli/
 
 const
 
