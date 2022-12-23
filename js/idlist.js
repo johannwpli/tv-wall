@@ -1,5 +1,5 @@
-// menu: [ {id, title, channel}, ... ]
-// tvSrcKey: [ {tvSrc, tvTitle, tvChannel}, ... ]
+/* menu: [ {id, title, channel}, ... ]
+tvSrcKey: [ {tvSrc, tvTitle, tvChannel}, ... ] */
 
 let
     tvSrcObj = {

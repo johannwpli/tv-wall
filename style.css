@@ -5,6 +5,15 @@
   --darkalpha-color: rgba(0, 0, 0, 50%);
 }
 
+@font-face {
+    font-family: hunterxhunter;
+    src: url(hunterxhunter.woff);
+}
+
+/* * {
+    font-family: hunterxhunter;
+} */
+
 body {
   overflow: hidden;
   margin: 0;
@@ -67,6 +76,10 @@ input[type=radio]:checked {
   text-align: right;
 }
 
+option[value='hh'] { 
+  /* font-family: hunterxhunter; */
+}
+
 .tv iframe {
   border: 0px solid transparent;
   transition: all .1s ease-in-out;
@@ -84,21 +97,25 @@ input[type=radio]:checked {
     font-size: 12px;
 }
 
-.grid label:first-of-type.en::before { content: 'grid'; }
+.grid label:first-of-type.en::before {  content: 'grid'; }
 .grid label:first-of-type.zh::before {  content: '網格'; }
 .grid label:first-of-type.jp::before {  content: 'グリッド'; }
+.grid label:first-of-type.hh::before {  content: 'grid'; font-family: hunterxhunter; }
 
 .menu label:first-of-type.en::before {  content: 'menu'; }
 .menu label:first-of-type.zh::before {  content: '選單'; }
 .menu label:first-of-type.jp::before {  content: 'メニュー'; }
+.menu label:first-of-type.hh::before {  content: 'menu'; font-family: hunterxhunter; }
 
 .thea label:first-of-type.en::before {  content: 'theater'; }
 .thea label:first-of-type.zh::before {  content: '劇院'; }
 .thea label:first-of-type.jp::before {  content: 'シアター'; }
+.thea label:first-of-type.hh::before {  content: 'theater'; font-family: hunterxhunter; }
 
 .lang label:first-of-type.en::before {  content: 'language'; }
 .lang label:first-of-type.zh::before {  content: '語言'; }
 .lang label:first-of-type.jp::before {  content: 'ランゲージ'; }
+.lang label:first-of-type.hh::before {  content: 'language'; font-family: hunterxhunter; }
 
 .grid label:not(:first-of-type),
 .menu label:not(:first-of-type) {
