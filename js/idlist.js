@@ -11,7 +11,7 @@ let
             { id: 'ammKkVgtIHw', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
-            { id: '5SOmL-522CA', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
+            { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             //{ id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             { id: 'WB-y7_ymPJ4', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' },

@@ -74,7 +74,8 @@ const
     // console.log(selectTheaObj)
 
     for (const k in selectTheaObj)
-      selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
+      // selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
+      selectThea += `<option name="thea" value="${k}">${k}</option>`
 
     document.querySelector('.cell.thea select').insertAdjacentHTML('beforeEnd', selectThea)
 
@@ -123,9 +124,51 @@ const
   },
 
   clickTheaSelect = (e) => {
+    // clearInterval(intervalSetTvSize)
+
     // console.log(e)
-    setTvGrid()
-    setTvSrc(e)
+    theaSelected = document.querySelector('option[name="thea"]:checked')
+    // console.log(theaSelected.value)
+    // console.log({tvSrcArrCached})
+
+    // console.log({screenWidth})
+    console.log('----------------------')
+    console.log({screenHeight})
+    console.log('----------------------')
+
+    if (theaSelected.value === 'all') {
+      for (let i = 1; i <= tvSrcArrCached.length; i++)
+        document.getElementById(`${i}`).classList.remove('onThea')
+        // document.getElementById(`${i}`).classList.remove('hide')
+
+        // document.getElementById(`${i}`).setAttribute('width', tvWidth)
+        // document.getElementById(`${i}`).setAttribute('height', tvHeight)
+    }
+    else {
+      for (let i = 1; i <= tvSrcArrCached.length; i++) {
+        document.getElementById(`${i}`).classList.add('onThea')
+
+        if (i !== theaSelected.value * 1) {
+          document.getElementById(`${i}`).setAttribute('width', '0')
+          document.getElementById(`${i}`).setAttribute('height', '0')
+          // document.getElementById(`${i}`).classList.add('hide')
+        }
+        else {
+          document.getElementById(`${i}`).setAttribute('width', screenWidth)
+          document.getElementById(`${i}`).setAttribute('height', screenHeight)
+          // document.getElementById(`${i}`).classList.remove('hide')
+        }
+      }
+    }
+
+    // document.getElementById(`${theaSelected.value}`).style.display = 'none'
+    // document.getElementById(`${theaSelected.value}`).classList.remove('hide')
+    // document.getElementById(`${theaSelected.value}`).setAttribute('width', screenWidth)
+    // document.getElementById(`${theaSelected.value}`).setAttribute('height', screenHeight)
+
+
+    // setTvGrid() // to remove old code
+    // setTvSrc(e) // to remove old code
   },
 
   listenTheaSelect = () => document.querySelector('.cell.thea select').addEventListener('change', clickTheaSelect),
@@ -206,7 +249,7 @@ const
 
     // console.log({iframeBorderWidth})
     // console.log({iframeGapWidth})
-    // console.log({iframeGapHeight})
+    // console.log({iframeGapHeight}) // changable
 
     docWidth = window.innerWidth - widthDiff
     docHeight = window.innerHeight - heightDiff
@@ -228,8 +271,10 @@ const
     // console.log({screenWidth})
     // console.log({screenHeight})
 
-    document.querySelectorAll('iframe').forEach(
-      (e) => {
+    document.querySelectorAll('iframe:not(.onThea)').forEach(
+      (e,i) => {
+        let _temp = i + 1
+        e.setAttribute('id', _temp)
         e.setAttribute('width', tvWidth)
         e.setAttribute('height', tvHeight)
       }
@@ -335,6 +380,8 @@ const
 
     document.querySelectorAll('#body .tv').forEach(
       (e,i) => {
+        let _temp = i + 1
+        // console.log(_temp)
         // console.log(e)
         e.removeAttribute('alt')
         e.removeAttribute('title')
@@ -347,18 +394,19 @@ const
             tvTitle = tvSrcArrCached[i]['title']
             tvChannel = tvSrcArrCached[i]['channel']
 
-            tvInfo = i + 1 + '. '
+            tvInfo = _temp + '. '
             if (tvTitle) tvInfo += tvTitle
             tvInfo += ' ' + tvSrc
             if (tvChannel) tvInfo += ' on ' + tvChannel
 
+            // e.setAttribute('id', _temp)
             e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
             e.setAttribute('title', tvTitle)
           }
           else {
             tvSrc = tvSrcPrefix + tvSrcArrCached[i]
 
-            tvInfo = i + 1 + '. '
+            tvInfo = _temp + '. '
             tvInfo += ' ' + tvSrc
           }
 
@@ -390,6 +438,8 @@ const
     setTvSrc()
   },
 
+  intervalSetTvSize = setInterval(setTvSize, 1000),
+
   tvwall = () => {
     setThea()
     setLangSelect(langSelected.value)
@@ -397,7 +447,8 @@ const
     listenTheaSelect()
     listenLangSelect()
     setTv()
-    setInterval(setTvSize, 1000) // to fix fullscreen bug
+    // setTvSize()
+    // setInterval(setTvSize, 1000) // to fix fullscreen bug
   }
 
 tvwall()
