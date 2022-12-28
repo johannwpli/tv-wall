@@ -1,5 +1,10 @@
 // Author: Johann Li, GitHub: https://github.com/johannwpli/
 
+let
+
+  intervalSetTvSize,
+  intervalSetTvSizeCount = false
+
 const
 
   removeAllFirstChild = (e) => {
@@ -101,6 +106,7 @@ const
     setTv()
     setUrl()
     setThea()
+    listenTheaSelect()
   },
 
   /* set menu value by menu radio */
@@ -113,6 +119,7 @@ const
     setTv()
     setUrl()
     setThea()
+    listenTheaSelect()
   },
 
   listenGridMenuRadio = () => {
@@ -133,23 +140,24 @@ const
     // console.warn({screenHeight})
 
     if (theaSelected.value === 'all') {
-      intervalSetTvSize = setInterval(setTvSize, 1000)
-      
+      onIntervalSetTvSize()
+
       // for (let i = 1; i <= tvSrcArrCached.length; i++)
         // document.getElementById(`${i}`).classList.remove('onThea')
     }
     else {
-      clearInterval(intervalSetTvSize)
-
+      offIntervalSetTvSize()
+      
       for (let i = 1; i <= tvSrcArrCached.length; i++) {
+        console.log(i)
         // document.getElementById(`${i}`).classList.add('onThea')
         if (i !== theaSelected.value * 1) {
-          document.getElementById(`${i}`).setAttribute('width', '0')
-          document.getElementById(`${i}`).setAttribute('height', '0')
+          document.getElementById(i).setAttribute('width', '0')
+          document.getElementById(i).setAttribute('height', '0')
         }
         else {
-          document.getElementById(`${i}`).setAttribute('width', screenWidth)
-          document.getElementById(`${i}`).setAttribute('height', screenHeight)
+          document.getElementById(i).setAttribute('width', screenWidth)
+          document.getElementById(i).setAttribute('height', screenHeight)
         }
       }
 
@@ -164,7 +172,7 @@ const
     }
 
     // setTvGrid() // to remove old code
-    // setTvSrc(e) // to remove old code
+    // setTvSrc() // to remove old code
   },
 
   listenTheaSelect = () => document.querySelector('.cell.thea select').addEventListener('change', clickTheaSelect),
@@ -267,7 +275,7 @@ const
     // console.log({screenWidth})
     // console.log({screenHeight})
 
-    document.querySelectorAll('iframe:not(.onThea)').forEach(
+    document.querySelectorAll('iframe').forEach(
       (e,i) => {
         let _temp = i + 1
         e.setAttribute('id', _temp)
@@ -292,27 +300,19 @@ const
     // console.log({radioGridArr})
     // console.log(radioGridArr[radioGridArr.length - 2])
 
-    theaSelected = document.querySelector('option[name="thea"]:checked')
-    // console.log(theaSelected.value)
-
-    if (theaSelected.value === 'all') {
-      if (gridChecked.value === 'all') {
-        if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
-          tvAllNumber = radioGridArr[radioGridArr.length - 2]
-        }
-        else {
-          let _temp = tvSrcArr.length
-          while (!radioGridArr.includes(_temp))
-            _temp++
-          tvAllNumber = _temp
-        }
+    if (gridChecked.value === 'all') {
+      if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
+        tvAllNumber = radioGridArr[radioGridArr.length - 2]
       }
       else {
-        tvAllNumber = gridChecked.value
+        let _temp = tvSrcArr.length
+        while (!radioGridArr.includes(_temp))
+          _temp++
+        tvAllNumber = _temp
       }
     }
     else {
-      tvAllNumber = 1
+      tvAllNumber = gridChecked.value
     }
     // console.log({tvSrcArr})
     
@@ -353,14 +353,11 @@ const
     }
   },
 
-  setTvSrc = (event) => {
-    // console.log(event)
-    if (!event) {
-      tvSrcArrCached = [...tvSrcArr]
+  setTvSrc = () => {
+    tvSrcArrCached = [...tvSrcArr]
 
-      if (tvSrcArrCached.length > tvAllNumber)
-        shuffle(tvSrcArrCached)
-    }
+    if (tvSrcArrCached.length > tvAllNumber)
+      shuffle(tvSrcArrCached)
 
     // console.log('TV Array Length: ', tvSrcArr.length)
     // console.log({tvAllNumber})
@@ -410,14 +407,7 @@ const
 
           removeAllFirstChild(e)
 
-          if (event) {
-            if (theaSelected.value !== 'all')
-              tvSrc = tvSrcPrefix + theaSelected.value
-            else
-              tvSrc = tvSrcPrefix + tvSrcArrCached[i] // to fix
-          }
-
-          //// console.log({tvSrc})
+          // console.log({tvSrc})
 
           tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
@@ -429,9 +419,32 @@ const
     console.groupEnd()
   },
 
+  onIntervalSetTvSize = () => {
+    // console.log({intervalSetTvSizeCount})
+
+    if (!intervalSetTvSizeCount) {
+      intervalSetTvSize = setInterval(setTvSize, 1000) // to fix bug of 1st iframe return from fullscreen
+      intervalSetTvSizeCount = true
+    }
+
+    console.log({intervalSetTvSizeCount})
+  },
+  
+  offIntervalSetTvSize = () => {
+    // console.log({intervalSetTvSizeCount})
+
+    if (intervalSetTvSizeCount) {
+      clearInterval(intervalSetTvSize)
+      intervalSetTvSizeCount = false
+    }
+
+    console.log({intervalSetTvSizeCount})
+  },
+
   setTv = () => {
     setTvGrid()
     setTvSrc()
+    onIntervalSetTvSize()
   },
 
   tvwall = () => {
@@ -444,8 +457,5 @@ const
     // setTvSize()
     // setInterval(setTvSize, 1000) 
   }
-
-// to fix bug of 1st iframe return from fullscreen, use clearInterval(intervalSetTvSize) to stop
-let intervalSetTvSize = setInterval(setTvSize, 1000)
 
 tvwall()
