@@ -124,48 +124,44 @@ const
   },
 
   clickTheaSelect = (e) => {
-    // clearInterval(intervalSetTvSize)
-
     // console.log(e)
     theaSelected = document.querySelector('option[name="thea"]:checked')
     // console.log(theaSelected.value)
     // console.log({tvSrcArrCached})
 
     // console.log({screenWidth})
-    console.log('----------------------')
-    console.log({screenHeight})
-    console.log('----------------------')
+    // console.warn({screenHeight})
 
     if (theaSelected.value === 'all') {
-      for (let i = 1; i <= tvSrcArrCached.length; i++)
-        document.getElementById(`${i}`).classList.remove('onThea')
-        // document.getElementById(`${i}`).classList.remove('hide')
-
-        // document.getElementById(`${i}`).setAttribute('width', tvWidth)
-        // document.getElementById(`${i}`).setAttribute('height', tvHeight)
+      intervalSetTvSize = setInterval(setTvSize, 1000)
+      
+      // for (let i = 1; i <= tvSrcArrCached.length; i++)
+        // document.getElementById(`${i}`).classList.remove('onThea')
     }
     else {
-      for (let i = 1; i <= tvSrcArrCached.length; i++) {
-        document.getElementById(`${i}`).classList.add('onThea')
+      clearInterval(intervalSetTvSize)
 
+      for (let i = 1; i <= tvSrcArrCached.length; i++) {
+        // document.getElementById(`${i}`).classList.add('onThea')
         if (i !== theaSelected.value * 1) {
           document.getElementById(`${i}`).setAttribute('width', '0')
           document.getElementById(`${i}`).setAttribute('height', '0')
-          // document.getElementById(`${i}`).classList.add('hide')
         }
         else {
           document.getElementById(`${i}`).setAttribute('width', screenWidth)
           document.getElementById(`${i}`).setAttribute('height', screenHeight)
-          // document.getElementById(`${i}`).classList.remove('hide')
         }
       }
+
+      // for (let i = 1; i <= tvSrcArrCached.length; i++) {
+      //   if (i !== theaSelected.value * 1) {
+      //     document.getElementById(`${i}`).classList.add('hide')
+      //   }
+      //   else {
+      //     document.getElementById(`${i}`).classList.remove('hide')
+      //   }
+      // }
     }
-
-    // document.getElementById(`${theaSelected.value}`).style.display = 'none'
-    // document.getElementById(`${theaSelected.value}`).classList.remove('hide')
-    // document.getElementById(`${theaSelected.value}`).setAttribute('width', screenWidth)
-    // document.getElementById(`${theaSelected.value}`).setAttribute('height', screenHeight)
-
 
     // setTvGrid() // to remove old code
     // setTvSrc(e) // to remove old code
@@ -249,7 +245,7 @@ const
 
     // console.log({iframeBorderWidth})
     // console.log({iframeGapWidth})
-    // console.log({iframeGapHeight}) // changable
+    // console.log({iframeGapHeight}) // dynamic
 
     docWidth = window.innerWidth - widthDiff
     docHeight = window.innerHeight - heightDiff
@@ -438,8 +434,6 @@ const
     setTvSrc()
   },
 
-  intervalSetTvSize = setInterval(setTvSize, 1000),
-
   tvwall = () => {
     setThea()
     setLangSelect(langSelected.value)
@@ -448,7 +442,10 @@ const
     listenLangSelect()
     setTv()
     // setTvSize()
-    // setInterval(setTvSize, 1000) // to fix fullscreen bug
+    // setInterval(setTvSize, 1000) 
   }
+
+// to fix bug of 1st iframe return from fullscreen, use clearInterval(intervalSetTvSize) to stop
+let intervalSetTvSize = setInterval(setTvSize, 1000)
 
 tvwall()
