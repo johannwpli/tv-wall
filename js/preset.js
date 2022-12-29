@@ -104,7 +104,7 @@ const
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
 
-  selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語', 'hh': 'カワシ'},
+  selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語', 'hh': 'ハンター語'},
 
   tvBorder = 0,
   tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
