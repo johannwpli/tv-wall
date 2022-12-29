@@ -68,14 +68,6 @@ input[type=radio]:checked {
   text-align: left;
 }
 
-.thea {
-  /* display: none; */
-}
-
-.hide {
-  display: none;
-}
-
 .lang {
   text-align: right;
 }
@@ -86,7 +78,7 @@ option[value='hh'] {
 
 .tv iframe {
   border: 0px solid transparent;
-  transition: all .1s ease-in-out;
+  transition: all .05s ease-in-out;
 }
 
 .grid label:first-of-type,
@@ -144,6 +136,10 @@ option[value='hh'] {
   
   .menu {
     text-align: right;
+  }
+
+  .thea {
+    display: none;
   }
 
   .lang {

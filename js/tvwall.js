@@ -140,17 +140,19 @@ const
     // console.warn({screenHeight})
 
     if (theaSelected.value === 'all') {
-      onIntervalSetTvSize()
-
-      // for (let i = 1; i <= tvSrcArrCached.length; i++)
-        // document.getElementById(`${i}`).classList.remove('onThea')
+      setIntervalSetTvSize(true)
     }
     else {
-      offIntervalSetTvSize()
-      
-      for (let i = 1; i <= tvSrcArrCached.length; i++) {
-        console.log(i)
-        // document.getElementById(`${i}`).classList.add('onThea')
+      setIntervalSetTvSize(false)
+
+      let _temp
+
+      _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
+
+      for (let i = 1; i <= _temp; i++) {
+          // console.log(_temp)
+          // console.log(i)
+
         if (i !== theaSelected.value * 1) {
           document.getElementById(i).setAttribute('width', '0')
           document.getElementById(i).setAttribute('height', '0')
@@ -160,19 +162,7 @@ const
           document.getElementById(i).setAttribute('height', screenHeight)
         }
       }
-
-      // for (let i = 1; i <= tvSrcArrCached.length; i++) {
-      //   if (i !== theaSelected.value * 1) {
-      //     document.getElementById(`${i}`).classList.add('hide')
-      //   }
-      //   else {
-      //     document.getElementById(`${i}`).classList.remove('hide')
-      //   }
-      // }
     }
-
-    // setTvGrid() // to remove old code
-    // setTvSrc() // to remove old code
   },
 
   listenTheaSelect = () => document.querySelector('.cell.thea select').addEventListener('change', clickTheaSelect),
@@ -327,8 +317,7 @@ const
     // console.log({tvRowNumber})
     // console.log({tvColNumber})
 
-    /* innerHTML vs removeChild vs remove
-        https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+    // innerHTML vs removeChild vs remove, https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block
 
     removeAllFirstChild(body)
 
@@ -343,8 +332,7 @@ const
     )
   },
 
-  /* shuffle array with Fisher-Yates algo
-      https://shubo.io/javascript-random-shuffle/ */
+  // shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/
 
   shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -393,7 +381,7 @@ const
             if (tvChannel) tvInfo += ' on ' + tvChannel
 
             // e.setAttribute('id', _temp)
-            e.setAttribute('alt', tvSrcKey + ' - ' + tvTitle)
+            e.setAttribute('alt', _temp + '. ' + tvSrcKey + ' > ' + tvTitle)
             e.setAttribute('title', tvTitle)
           }
           else {
@@ -419,32 +407,29 @@ const
     console.groupEnd()
   },
 
-  onIntervalSetTvSize = () => {
+  setIntervalSetTvSize = (status) => {
     // console.log({intervalSetTvSizeCount})
 
-    if (!intervalSetTvSizeCount) {
-      intervalSetTvSize = setInterval(setTvSize, 1000) // to fix bug of 1st iframe return from fullscreen
-      intervalSetTvSizeCount = true
+    if (status) {
+      if (!intervalSetTvSizeCount) {
+        intervalSetTvSize = setInterval(setTvSize, 1000) // to fix bug of 1st iframe returning from fullscreen
+        intervalSetTvSizeCount = true
+      }
+    }
+    else {
+      if (intervalSetTvSizeCount) {
+        clearInterval(intervalSetTvSize)
+        intervalSetTvSizeCount = false
+      }
     }
 
-    console.log({intervalSetTvSizeCount})
-  },
-  
-  offIntervalSetTvSize = () => {
     // console.log({intervalSetTvSizeCount})
-
-    if (intervalSetTvSizeCount) {
-      clearInterval(intervalSetTvSize)
-      intervalSetTvSizeCount = false
-    }
-
-    console.log({intervalSetTvSizeCount})
   },
 
   setTv = () => {
     setTvGrid()
     setTvSrc()
-    onIntervalSetTvSize()
+    setIntervalSetTvSize(true)
   },
 
   tvwall = () => {
