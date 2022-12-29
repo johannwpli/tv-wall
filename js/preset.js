@@ -1,4 +1,4 @@
-// Author: Johann Li, GitHub: https://github.com/johannwpli/
+/* Author: Johann Li, GitHub: https://github.com/johannwpli/ */
 
 let
 
@@ -86,16 +86,16 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'grid', 'menu', 'thea', 'lang'],
+  headPartArr = ['title', 'menu', 'grid', 'thea', 'lang'],
 
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
   widthTablet = 480,
   widthDesktop = 1024,
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,16, 'all'], // 15, 16, 20, 24, 25,
-  radioGridTablet = 4, // shows on tablet from
-  radioGridDesktop = 9, // shows on desktop from
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,16, 'all'], // 20, 24, 25,
+  radioGridTablet = 4, // shows from on tablet
+  radioGridDesktop = 9, // shows from on desktop
 
   radioGridDefaultMobile = '3', // default grid on mobile
   radioGridDefaultTablet = '6', // default grid on tablet
@@ -111,12 +111,12 @@ const
   tvAllowfullscreen = 'allowfullscreen',
   tvSrcPrefix = 'https://www.youtube-nocookie.com/embed/',
 
-  /* Get the closest number out of an array
-      https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
+  /* Get the closest number out of an array, https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
 
   getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
   setHtml = () => {
+
     /* set wall */
 
     tvWall.insertAdjacentHTML('beforeEnd', '<form name="tvWall"></form>')

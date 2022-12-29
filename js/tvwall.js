@@ -1,4 +1,4 @@
-// Author: Johann Li, GitHub: https://github.com/johannwpli/
+/* Author: Johann Li, GitHub: https://github.com/johannwpli/ */
 
 let
 
@@ -317,7 +317,7 @@ const
     // console.log({tvRowNumber})
     // console.log({tvColNumber})
 
-    // innerHTML vs removeChild vs remove, https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block
+    /* innerHTML vs removeChild vs remove, https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
     removeAllFirstChild(body)
 
@@ -332,7 +332,7 @@ const
     )
   },
 
-  // shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/
+  /* shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/ */
 
   shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
