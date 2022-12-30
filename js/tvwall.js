@@ -132,35 +132,51 @@ const
 
   clickTheaSelect = (e) => {
     // console.log(e)
+
     theaSelected = document.querySelector('option[name="thea"]:checked')
     // console.log(theaSelected.value)
     // console.log({tvSrcArrCached})
-
+    
     // console.log({screenWidth})
     // console.warn({screenHeight})
 
     if (theaSelected.value === 'all') {
       setIntervalSetTvSize(true)
+      
+      for (let i = 1; i <= tvRowNumber; i++)
+          document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
       setIntervalSetTvSize(false)
 
-      let _temp
-
-      _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
+      let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
 
       for (let i = 1; i <= _temp; i++) {
           // console.log(_temp)
           // console.log(i)
 
         if (i !== theaSelected.value * 1) {
-          document.getElementById(i).setAttribute('width', '0')
-          document.getElementById(i).setAttribute('height', '0')
+          document.getElementById(`tv${i}`).setAttribute('width', '0')
+          document.getElementById(`tv${i}`).setAttribute('height', '0')
         }
         else {
-          document.getElementById(i).setAttribute('width', screenWidth)
-          document.getElementById(i).setAttribute('height', screenHeight)
+          document.getElementById(`tv${i}`).setAttribute('width', screenWidth)
+          document.getElementById(`tv${i}`).setAttribute('height', screenHeight)
         }
+      }
+
+      // console.log({tvAllNumber}) // 12
+      // console.log({tvRowNumber}) // 4
+      // console.log({tvColNumber}) // 3
+  
+      let rowNumber  = Math.floor((theaSelected.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+      // console.log({rowNumber})
+  
+      for (let i = 1; i <= tvRowNumber; i++) {
+        if (i !== rowNumber)
+          document.getElementById(`row${i}`).classList.add('hide')
+        else
+          document.getElementById(`row${i}`).classList.remove('hide')
       }
     }
   },
@@ -268,7 +284,7 @@ const
     document.querySelectorAll('iframe').forEach(
       (e,i) => {
         let _temp = i + 1
-        e.setAttribute('id', _temp)
+        e.setAttribute('id', `tv${_temp}`)
         e.setAttribute('width', tvWidth)
         e.setAttribute('height', tvHeight)
       }
@@ -321,8 +337,10 @@ const
 
     removeAllFirstChild(body)
 
-    for (let i = 0; i < tvRowNumber; i++)
-      body.insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
+    for (let i = 0; i < tvRowNumber; i++) {
+      let _temp = i + 1
+      body.insertAdjacentHTML('beforeEnd', `<div class="row" id="row${_temp}"></div>`)
+    }
 
     document.querySelectorAll('#body .row').forEach(
       (e,i) => {

@@ -56,6 +56,10 @@ input[type=radio]:checked {
   display: table-row;
 }
 
+.hide {
+  display: none;
+}
+
 .cell {
   display: table-cell;
   vertical-align: middle;
