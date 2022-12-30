@@ -342,10 +342,12 @@ const
       body.insertAdjacentHTML('beforeEnd', `<div class="row" id="row${_temp}"></div>`)
     }
 
+    let tvNumber = 1
     document.querySelectorAll('#body .row').forEach(
       (e,i) => {
-        for (let i = 0; i < tvColNumber; i++)
-          e.insertAdjacentHTML('beforeEnd', '<div class="cell tv"></div>')
+        for (let j = 0; j < tvColNumber; j++)
+          // e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"><h1>${tvNumber++}</h1></div>`) // to show tv number
+          e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
       }
     )
   },
@@ -377,51 +379,57 @@ const
 
     console.group('Now Playing (' + tvRatio + ')')
 
-    document.querySelectorAll('#body .tv').forEach(
-      (e,i) => {
-        let _temp = i + 1
-        // console.log(_temp)
-        // console.log(e)
-        e.removeAttribute('alt')
-        e.removeAttribute('title')
-        // console.log(tvSrcArrCached[i])
+    // return
 
-        if (tvSrcArrCached[i]) {
-          if (typeof tvSrcArrCached[i] === 'object') {
-            // console.log( tvSrcArrCached[i]['id'])
-            tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
-            tvTitle = tvSrcArrCached[i]['title']
-            tvChannel = tvSrcArrCached[i]['channel']
+    const setTvHtml = () => {
+      document.querySelectorAll('#body .tv').forEach(
+        (e,i) => {
+          let _temp = i + 1
+          // console.log(_temp)
+          // console.log(e)
+          e.removeAttribute('alt')
+          e.removeAttribute('title')
+          // console.log(tvSrcArrCached[i])
 
-            tvInfo = _temp + '. '
-            if (tvTitle) tvInfo += tvTitle
-            tvInfo += ' ' + tvSrc
-            if (tvChannel) tvInfo += ' on ' + tvChannel
+          if (tvSrcArrCached[i]) {
+            if (typeof tvSrcArrCached[i] === 'object') {
+              // console.log( tvSrcArrCached[i]['id'])
+              tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
+              tvTitle = tvSrcArrCached[i]['title']
+              tvChannel = tvSrcArrCached[i]['channel']
 
-            // e.setAttribute('id', _temp)
-            e.setAttribute('alt', _temp + '. ' + tvSrcKey + ' > ' + tvTitle)
-            e.setAttribute('title', tvTitle)
+              tvInfo = _temp + '. '
+              if (tvTitle) tvInfo += tvTitle
+              tvInfo += ' ' + tvSrc
+              if (tvChannel) tvInfo += ' on ' + tvChannel
+
+              // e.setAttribute('id', _temp)
+              e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
+              e.setAttribute('title', _temp + '. ' + tvTitle)
+            }
+            else {
+              tvSrc = tvSrcPrefix + tvSrcArrCached[i]
+
+              tvInfo = _temp + '. '
+              tvInfo += ' ' + tvSrc
+            }
+
+            console.log(tvInfo)
+
+            removeAllFirstChild(e)
+
+            // console.log({tvSrc})
+
+            tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+
+            e.insertAdjacentHTML('beforeEnd', tvHtml)
           }
-          else {
-            tvSrc = tvSrcPrefix + tvSrcArrCached[i]
-
-            tvInfo = _temp + '. '
-            tvInfo += ' ' + tvSrc
-          }
-
-          console.log(tvInfo)
-
-          removeAllFirstChild(e)
-
-          // console.log({tvSrc})
-
-          tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
-
-          e.insertAdjacentHTML('beforeEnd', tvHtml)
         }
-      }
-    )
-
+      )
+    }
+    
+    setTimeout(() => { setTvHtml() }, 500)
+  
     console.groupEnd()
   },
 
