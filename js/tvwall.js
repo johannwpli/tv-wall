@@ -430,7 +430,7 @@ const
 
     if (status) {
       if (!intervalSetTvSizeCount) {
-        intervalSetTvSize = setInterval(setTvSize, 1000) // to fix bug of 1st iframe returning from fullscreen
+        intervalSetTvSize = setInterval(setTvSize, 500) // to fix bug of 1st iframe returning from fullscreen
         intervalSetTvSizeCount = true
       }
     }
@@ -457,8 +457,6 @@ const
     listenTheaSelect()
     listenLangSelect()
     setTv()
-    // setTvSize()
-    // setInterval(setTvSize, 1000) 
   }
 
 tvwall()
