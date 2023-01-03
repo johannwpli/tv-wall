@@ -139,7 +139,7 @@ const
 
   setMenu = () => {
     docCellMenu = document.querySelector('.cell.menu')
-    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
 
     // console.log({tvSrcObj})
     // console.log({urlGridParam})
@@ -187,7 +187,7 @@ const
 
   setGrid = () => {
     docCellGrid = document.querySelector('.cell.grid')
-    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
 
     for (const i of radioGridArr) {
       const j =
@@ -252,7 +252,7 @@ const
   setLang = () => {
     docCellLang = document.querySelector('.cell.lang')
     docCellLang.insertAdjacentHTML('afterBegin', '<select></select>')
-    docCellLang.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellLang.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
 
     for (const i in selectLangObj)
       selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
