@@ -1,4 +1,5 @@
 :root {
+  --font-size: 15px;
   --bright-color: #fff;
   --inter-color: #e2e2e2;
   --dark-color: #000;
@@ -10,14 +11,10 @@
     src: url(hunterxhunter.woff);
 }
 
-/* * {
-    font-family: hunterxhunter;
-} */
-
 body {
   overflow: hidden;
   margin: 0;
-  font-size: 15px;
+  font-size: var(--font-size);
   color: var(--bright-color);
   background: var(--dark-color);
 }
@@ -67,21 +64,30 @@ input[type=radio]:checked {
   white-space: nowrap;
 }
 
+.cell:last-of-type {
+  text-align: right;
+}
+
 .title {
   font-weight: 700;
   text-align: left;
 }
 
-.lang {
-  text-align: right;
+option[value='hh'] { 
+  font-family: hunterxhunter;
 }
 
-option[value='hh'] { 
-  /* font-family: hunterxhunter; */
+.tvNumber {
+  display: none;
+  position: absolute;
+}
+
+.tv:hover .tvNumber{
+  display: block;
 }
 
 .tv iframe {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
   transition: all .05s ease-in-out;
 }
 
@@ -90,11 +96,11 @@ option[value='hh'] {
 .thea label:first-of-type,
 .lang label:first-of-type {
     margin: 0 4.5px;
-    box-shadow: 0px 0px 0px 1px var(--darkalpha-color);
+    box-shadow: 0 0 0 1px var(--darkalpha-color);
     border-radius: 7px;
-    padding: 0px 4.5px;
+    padding: 0 4.5px;
     background: var(--inter-color);
-    font-size: 12px;
+    font-size: .8em;
 }
 
 .grid label:first-of-type.en::before {  content: 'grid'; }
@@ -138,15 +144,12 @@ option[value='hh'] {
     width: calc(100% / 3);
   }
   
-  .menu {
+  .grid {
     text-align: right;
   }
 
+  .lang,
   .thea {
-    display: none;
-  }
-
-  .lang {
     display: none;
   }
 }

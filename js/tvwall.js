@@ -342,11 +342,9 @@ const
       body.insertAdjacentHTML('beforeEnd', `<div class="row" id="row${_temp}"></div>`)
     }
 
-    let tvNumber = 1
     document.querySelectorAll('#body .row').forEach(
       (e,i) => {
         for (let j = 0; j < tvColNumber; j++)
-          // e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"><h1>${tvNumber++}</h1></div>`) // to show tv number
           e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
       }
     )
@@ -382,6 +380,7 @@ const
     // return
 
     const setTvHtml = () => {
+      let tvNumber = 1
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
           let _temp = i + 1
@@ -420,7 +419,8 @@ const
 
             // console.log({tvSrc})
 
-            tvHtml = `<iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+            tvHtml = `<div class='tvNumber'>${tvNumber++}</div>
+              <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
             e.insertAdjacentHTML('beforeEnd', tvHtml)
           }
@@ -428,6 +428,7 @@ const
       )
     }
     
+
     setTimeout(() => { setTvHtml() }, 500)
   
     console.groupEnd()

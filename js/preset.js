@@ -86,7 +86,7 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'menu', 'grid', 'thea', 'lang'],
+  headPartArr = ['title', 'menu', 'grid', 'lang', 'thea'],
 
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
@@ -104,7 +104,7 @@ const
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
 
-  selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語', 'hh': 'ハンター語'},
+  selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語', 'hh': 'hunter'}, // ハンター語
 
   tvBorder = 0,
   tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
