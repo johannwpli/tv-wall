@@ -12,13 +12,13 @@ let
   docCellTitle,
   docCellGrid,
   docCellMenu,
-  docCellThea,
+  docCellThtr,
   docCellLang,
 
   newUrl,
   radioGrid = '',
   radioMenu = '',
-  selectThea = '',
+  selectThtr = '',
   selectLang = '',
 
   browserLang = navigator.language || navigator.userLanguage,
@@ -30,8 +30,8 @@ let
       ? 'Taiwan'
       : 'World',
 
-  selectTheaDefault = 'all',
-  selectTheaObj = {all: 'all'},
+  selectThtrDefault = 'all',
+  selectThtrObj = {all: 'all'},
 
   selectLangDefault = 
     browserLang === 'zh-TW' || browserLang === 'zh-HK'
@@ -42,7 +42,7 @@ let
 
   menuChecked,
   gridChecked,
-  theaSelected,
+  thtrSelected,
   langSelected,
 
   gridRadio,
@@ -86,7 +86,7 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'menu', 'grid', 'lang', 'thea'],
+  headPartArr = ['title', 'menu', 'grid', 'lang', 'thtr'],
 
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
@@ -235,8 +235,8 @@ const
         window.innerWidth > widthDesktop
           ? radioGridDefaultDesktop // desktop
           : window.innerWidth > widthTablet
-            ? radioGridDefaultTablet //tablet
-            : radioGridDefaultMobile //mobile
+            ? radioGridDefaultTablet // tablet
+            : radioGridDefaultMobile // mobile
     }
 
     // console.log({radioGridDefault})

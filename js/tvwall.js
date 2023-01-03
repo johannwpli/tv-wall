@@ -12,37 +12,37 @@ const
       e.firstChild.remove()
   },
 
-  setThea = () => {
-    docCellThea = document.querySelector('.cell.thea')
+  setThtrSelect = () => {
+    docCellThtr = document.querySelector('.cell.thtr')
 
-    removeAllFirstChild(docCellThea)
+    removeAllFirstChild(docCellThtr)
     
-    selectThea = ''
-    selectTheaObj = {all: 'all'},
+    selectThtr = ''
+    selectThtrObj = {all: 'all'},
 
-    docCellThea.insertAdjacentHTML('afterBegin', '<select></select>')
-    docCellThea.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
+    docCellThtr.insertAdjacentHTML('afterBegin', '<select></select>')
+    docCellThtr.insertAdjacentHTML('afterBegin', `<label class="tablet ${selectLangDefault}"></label>`)
 
     // console.log({tvSrcArr})
     // console.log({tvSrcArrCached})
 
     if (tvSrcArrCached) {
-      //// console.log('tvSrcArrCached is available')
+      // console.log('tvSrcArrCached is available')
       
       if (gridChecked.value === 'all') {
         for (let i = 0; i < tvSrcArrCached.length; i++) {
           if (typeof tvSrcArrCached[i] === 'object')
-            selectTheaObj[i + 1] = tvSrcArrCached[i]['id']
+            selectThtrObj[i + 1] = tvSrcArrCached[i]['id']
           else
-            selectTheaObj[i + 1] = tvSrcArrCached[i]
+            selectThtrObj[i + 1] = tvSrcArrCached[i]
         }
       }
       else {
         for (let i = 0; i < gridChecked.value; i++) {
           if (typeof tvSrcArrCached[i] === 'object')
-            selectTheaObj[i + 1] = tvSrcArrCached[i]['id']
+            selectThtrObj[i + 1] = tvSrcArrCached[i]['id']
           else
-            selectTheaObj[i + 1] = tvSrcArrCached[i]
+            selectThtrObj[i + 1] = tvSrcArrCached[i]
         }
       }
     }
@@ -61,30 +61,30 @@ const
       if (gridChecked.value === 'all') {
         for (let i = 0; i < tvSrcArr.length; i++) {
           if (typeof tvSrcArr[i] === 'object')
-            selectTheaObj[i + 1] = tvSrcArr[i]['id']
+            selectThtrObj[i + 1] = tvSrcArr[i]['id']
           else
-            selectTheaObj[i + 1] = tvSrcArr[i]
+            selectThtrObj[i + 1] = tvSrcArr[i]
         }
       }
       else {
         for (let i = 0; i < gridChecked.value; i++) {
           if (typeof tvSrcArr[i] === 'object')
-            selectTheaObj[i + 1] = tvSrcArr[i]['id']
+            selectThtrObj[i + 1] = tvSrcArr[i]['id']
           else
-            selectTheaObj[i + 1] = tvSrcArr[i]
+            selectThtrObj[i + 1] = tvSrcArr[i]
         }
       }
     }
 
-    // console.log(selectTheaObj)
+    // console.log(selectThtrObj)
 
-    for (const k in selectTheaObj)
-      // selectThea += `<option name="thea" value="${selectTheaObj[k]}">${k}</option>`
-      selectThea += `<option name="thea" value="${k}">${k}</option>`
+    for (const k in selectThtrObj)
+      // selectThtr += `<option name="thtr" value="${selectThtrObj[k]}">${k}</option>`
+      selectThtr += `<option name="thtr" value="${k}">${k}</option>`
 
-    document.querySelector('.cell.thea select').insertAdjacentHTML('beforeEnd', selectThea)
+    document.querySelector('.cell.thtr select').insertAdjacentHTML('beforeEnd', selectThtr)
 
-    document.querySelector(`option[value='${selectTheaDefault}']`).setAttribute('selected','selected')
+    document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected','selected')
   },
 
   setLangSelect = (value) => {
@@ -99,14 +99,13 @@ const
   /* set grid value by grid radio */
 
   clickGridRadio = function() {
-    //if (gridChecked) console.log(gridChecked.value)
+    // if (gridChecked) console.log(gridChecked.value)
     if (this !== gridChecked) gridChecked = this
     // console.log(this.value)
 
     setTv()
     setUrl()
-    setThea()
-    listenTheaSelect()
+    setThtr()
   },
 
   /* set menu value by menu radio */
@@ -118,8 +117,7 @@ const
 
     setTv()
     setUrl()
-    setThea()
-    listenTheaSelect()
+    setThtr()
   },
 
   listenGridMenuRadio = () => {
@@ -130,17 +128,17 @@ const
       j.addEventListener('click', clickMenuRadio)
   },
 
-  clickTheaSelect = (e) => {
+  clickThtrSelect = (e) => {
     // console.log(e)
 
-    theaSelected = document.querySelector('option[name="thea"]:checked')
-    // console.log(theaSelected.value)
+    thtrSelected = document.querySelector('option[name="thtr"]:checked')
+    // console.log(thtrSelected.value)
     // console.log({tvSrcArrCached})
     
     // console.log({screenWidth})
     // console.warn({screenHeight})
 
-    if (theaSelected.value === 'all') {
+    if (thtrSelected.value === 'all') {
       setIntervalSetTvSize(true)
       
       for (let i = 1; i <= tvRowNumber; i++)
@@ -155,7 +153,7 @@ const
           // console.log(_temp)
           // console.log(i)
 
-        if (i !== theaSelected.value * 1) {
+        if (i !== thtrSelected.value * 1) {
           document.getElementById(`tv${i}`).setAttribute('width', '0')
           document.getElementById(`tv${i}`).setAttribute('height', '0')
         }
@@ -169,7 +167,7 @@ const
       // console.log({tvRowNumber}) // 4
       // console.log({tvColNumber}) // 3
   
-      let rowNumber  = Math.floor((theaSelected.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+      let rowNumber  = Math.floor((thtrSelected.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
   
       for (let i = 1; i <= tvRowNumber; i++) {
@@ -181,7 +179,7 @@ const
     }
   },
 
-  listenTheaSelect = () => document.querySelector('.cell.thea select').addEventListener('change', clickTheaSelect),
+  listenThtrSelect = () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
 
   langClasslistAdd = (value) => {
     for (let i = 1; i < headPartArr.length; i++)
@@ -232,7 +230,7 @@ const
     iframe = document.querySelector('iframe')
 
     getCssPx = (e,p) => 
-      getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 //toNumber
+      getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 // toNumber
 
     bodyBorderWidth = getCssPx(body,'border-width') * 2
     headBorderWidth = getCssPx(head,'border-width') * 2
@@ -254,7 +252,7 @@ const
     // console.log(getCssPx(iframe,'height'))
 
     iframeBorderWidth = getCssPx(iframe,'border-width') * 2
-    //iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
+    // iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
     iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
 
     // console.log({iframeBorderWidth})
@@ -269,7 +267,7 @@ const
     // console.log({docWidth})
     // console.log({docHeight})
 
-    tvWidth = docWidth / tvColNumber - iframeBorderWidth //- iframeGapWidth // cause wrong width
+    tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // cause wrong width
     tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
 
     // console.log({tvWidth})
@@ -453,6 +451,11 @@ const
     // console.log({intervalSetTvSizeCount})
   },
 
+  setThtr = () => {
+    setThtrSelect()
+    listenThtrSelect()
+  },
+
   setTv = () => {
     setTvGrid()
     setTvSrc()
@@ -460,10 +463,9 @@ const
   },
 
   tvwall = () => {
-    setThea()
+    setThtr()
     setLangSelect(langSelected.value)
     listenGridMenuRadio()
-    listenTheaSelect()
     listenLangSelect()
     setTv()
   }

@@ -82,7 +82,7 @@ option[value='hh'] {
   position: absolute;
 }
 
-.tv:hover .tvNumber{
+.tv:hover .tvNumber {
   display: block;
 }
 
@@ -93,8 +93,8 @@ option[value='hh'] {
 
 .grid label:first-of-type,
 .menu label:first-of-type,
-.thea label:first-of-type,
-.lang label:first-of-type {
+.lang label:first-of-type,
+.thtr label:first-of-type {
     margin: 0 4.5px;
     box-shadow: 0 0 0 1px var(--darkalpha-color);
     border-radius: 7px;
@@ -113,15 +113,15 @@ option[value='hh'] {
 .menu label:first-of-type.jp::before {  content: 'メニュー'; }
 .menu label:first-of-type.hh::before {  content: 'menu'; font-family: hunterxhunter; }
 
-.thea label:first-of-type.en::before {  content: 'theater'; }
-.thea label:first-of-type.zh::before {  content: '劇院'; }
-.thea label:first-of-type.jp::before {  content: 'シアター'; }
-.thea label:first-of-type.hh::before {  content: 'theater'; font-family: hunterxhunter; }
-
-.lang label:first-of-type.en::before {  content: 'language'; }
+.lang label:first-of-type.en::before {  content: 'lang'; }
 .lang label:first-of-type.zh::before {  content: '語言'; }
 .lang label:first-of-type.jp::before {  content: 'ランゲージ'; }
-.lang label:first-of-type.hh::before {  content: 'language'; font-family: hunterxhunter; }
+.lang label:first-of-type.hh::before {  content: 'lang'; font-family: hunterxhunter; }
+
+.thtr label:first-of-type.en::before {  content: 'thtr'; }
+.thtr label:first-of-type.zh::before {  content: '劇院'; }
+.thtr label:first-of-type.jp::before {  content: 'シアター'; }
+.thtr label:first-of-type.hh::before {  content: 'thtr'; font-family: hunterxhunter; }
 
 .grid label:not(:first-of-type),
 .menu label:not(:first-of-type) {
@@ -149,7 +149,7 @@ option[value='hh'] {
   }
 
   .lang,
-  .thea {
+  .thtr {
     display: none;
   }
 }
