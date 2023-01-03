@@ -8,11 +8,12 @@
 
 @font-face {
     font-family: hunterxhunter;
-    src: url(hunterxhunter.woff);
+    src: local("hunterxhunter Regular"), local("hunterxhunter"), url(ft/hunterxhunter-regular.woff) format("woff");
+    font-display: swap;
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0;
   font-size: var(--font-size);
   color: var(--bright-color);
@@ -61,7 +62,7 @@ input[type=radio]:checked {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .cell:last-of-type {
