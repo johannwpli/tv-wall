@@ -91,15 +91,15 @@ const
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
   widthTablet = 480,
-  widthDesktop = 1024,
+  widthLaptop = 1024,
 
   radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,16, 'all'], // 20, 24, 25,
   radioGridTablet = 4, // shows from on tablet
-  radioGridDesktop = 9, // shows from on desktop
+  radioGridLaptop = 8, // shows from on laptop
 
   radioGridDefaultMobile = '3', // default grid on mobile
   radioGridDefaultTablet = '6', // default grid on tablet
-  radioGridDefaultDesktop = '9', // default grid on desktop
+  radioGridDefaultLaptop = '9', // default grid on laptop
 
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
@@ -139,7 +139,7 @@ const
 
   setMenu = () => {
     docCellMenu = document.querySelector('.cell.menu')
-    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
+    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
 
     // console.log({tvSrcObj})
     // console.log({urlGridParam})
@@ -187,12 +187,12 @@ const
 
   setGrid = () => {
     docCellGrid = document.querySelector('.cell.grid')
-    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
+    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
 
     for (const i of radioGridArr) {
       const j =
-        i >= radioGridDesktop
-          ? 'desktop'
+        i >= radioGridLaptop
+          ? 'laptop'
           : i >= radioGridTablet
             ? 'tablet'
             : 'mobile'
@@ -232,8 +232,8 @@ const
     }
     else {
       radioGridDefault =
-        window.innerWidth > widthDesktop
-          ? radioGridDefaultDesktop // desktop
+        window.innerWidth > widthLaptop
+          ? radioGridDefaultLaptop // laptop
           : window.innerWidth > widthTablet
             ? radioGridDefaultTablet // tablet
             : radioGridDefaultMobile // mobile
@@ -252,7 +252,7 @@ const
   setLang = () => {
     docCellLang = document.querySelector('.cell.lang')
     docCellLang.insertAdjacentHTML('afterBegin', '<select></select>')
-    docCellLang.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
+    docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
 
     for (const i in selectLangObj)
       selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`

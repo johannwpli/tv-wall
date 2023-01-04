@@ -21,7 +21,7 @@ const
     selectThtrObj = {all: 'all'},
 
     docCellThtr.insertAdjacentHTML('afterBegin', '<select></select>')
-    docCellThtr.insertAdjacentHTML('afterBegin', `<label class="desktop ${selectLangDefault}"></label>`)
+    docCellThtr.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
 
     // console.log({tvSrcArr})
     // console.log({tvSrcArrCached})

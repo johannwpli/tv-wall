@@ -8,8 +8,11 @@
 
 @font-face {
     font-family: hunterxhunter;
-    src: local("hunterxhunter Regular"), local("hunterxhunter"), url(ft/hunterxhunter-regular.woff) format("woff");
     font-display: swap;
+    src:
+      local("hunterxhunter Regular"),
+      local("hunterxhunter"),
+      url(ft/hunterxhunter-regular.woff) format("woff");
 }
 
 body {
@@ -92,8 +95,8 @@ option[value='hh'] {
   transition: all .05s ease-in-out;
 }
 
-.grid label:first-of-type,
 .menu label:first-of-type,
+.grid label:first-of-type,
 .lang label:first-of-type,
 .thtr label:first-of-type {
     margin: 0 4.5px;
@@ -104,15 +107,15 @@ option[value='hh'] {
     font-size: .8em;
 }
 
-.grid label:first-of-type.en::before {  content: 'grid'; }
-.grid label:first-of-type.zh::before {  content: '網格'; }
-.grid label:first-of-type.jp::before {  content: 'グリッド'; }
-.grid label:first-of-type.hh::before {  content: 'grid'; font-family: hunterxhunter; }
-
 .menu label:first-of-type.en::before {  content: 'menu'; }
 .menu label:first-of-type.zh::before {  content: '選單'; }
 .menu label:first-of-type.jp::before {  content: 'メニュー'; }
 .menu label:first-of-type.hh::before {  content: 'menu'; font-family: hunterxhunter; }
+
+.grid label:first-of-type.en::before {  content: 'grid'; }
+.grid label:first-of-type.zh::before {  content: '網格'; }
+.grid label:first-of-type.jp::before {  content: 'グリッド'; }
+.grid label:first-of-type.hh::before {  content: 'grid'; font-family: hunterxhunter; }
 
 .lang label:first-of-type.en::before {  content: 'lang'; }
 .lang label:first-of-type.zh::before {  content: '語言'; }
@@ -124,20 +127,19 @@ option[value='hh'] {
 .thtr label:first-of-type.jp::before {  content: 'シアター'; }
 .thtr label:first-of-type.hh::before {  content: 'thtr'; font-family: hunterxhunter; }
 
-.grid label:not(:first-of-type),
-.menu label:not(:first-of-type) {
+.menu label:not(:first-of-type),
+.grid label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 9px;
 }
 
-.grid label:not(:first-of-type):hover,
-.menu label:not(:first-of-type):hover {
+.menu label:not(:first-of-type):hover,
+.grid label:not(:first-of-type):hover {
   background: var(--inter-color);
 }
 
-@media (max-width: 480px) {
-  .tablet,
-  .desktop {
+@media (max-width: 768px) {
+  .tablet {
     display: none;
   }
 
@@ -156,15 +158,17 @@ option[value='hh'] {
 }
 
 @media (max-width: 1024px) {
-  .desktop {
+  .cell:not(.title) label:first-of-type,
+  .lang select,
+  .laptop {
     display: none;
   }
 }
 
 /* https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
 
-320px — 480px: Mobile devices
-481px — 768px: iPads, Tablets
-769px — 1024px: Small screens, laptops
-1025px — 1200px: Desktops, large screens
+320px — 480px: Mobile devices => mobile
+481px — 768px: iPads, Tablets => tablet
+769px — 1024px: Small screens, laptops => laptop
+1025px — 1200px: Desktops, large screens => desktop
 1201px and more —  Extra large screens, TV */
