@@ -38,7 +38,7 @@ Instructions
 
 `VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://tvwall.cc/?g=all, to play all the videos.
 
-`SET LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://tvwall.cc/?l=jp, to set Japanese as the display language.
+`DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://tvwall.cc/?l=jp, to set Japanese as the display language.
 
 `THEATER MODE` Use the drop-down menu<sup>[5]</sup> to watch the video in theater mode., e.g., select 1 to watch the top left video.
  
