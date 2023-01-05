@@ -12,7 +12,7 @@
     src:
       local("hunterxhunter Regular"),
       local("hunterxhunter"),
-      url(ft/hunterxhunter-regular.woff) format("woff");
+      url(font/hunterxhunter-regular.woff) format("woff");
 }
 
 body {
