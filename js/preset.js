@@ -129,7 +129,7 @@ const
 
     // console.log({hour})
 
-    if (hour >= 18)
+    if (hour < 6 || hour >= 18)
       document.querySelector('#head').classList.add('dark')
 
     /* set head */
