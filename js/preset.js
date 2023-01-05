@@ -88,6 +88,7 @@ const
   wallPartArr = ['head', 'body'],
   headPartArr = ['title', 'menu', 'grid', 'lang', 'thtr'],
 
+  hour = (new Date).getHours(),
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
   widthTablet = 480,
@@ -123,6 +124,13 @@ const
 
     for (const i of wallPartArr)
       document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
+
+    /* set dark */
+
+    // console.log({hour})
+
+    if (hour >= 18)
+      document.querySelector('#head').classList.add('dark')
 
     /* set head */
 

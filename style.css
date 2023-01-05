@@ -44,6 +44,10 @@ input[type=radio]:checked {
   background: var(--bright-color);
 }
 
+.dark {
+  filter: invert(100%);
+}
+
 #body {
   border: 8px solid transparent;
 }
@@ -144,7 +148,7 @@ option[value='hh'] {
   }
 
   .cell {
-    width: calc(100% / 3);
+    /* width: calc(100% / 3); */
   }
   
   .grid {
