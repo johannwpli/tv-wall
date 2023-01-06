@@ -30,8 +30,8 @@ let
       ? 'Taiwan'
       : 'World',
 
-  selectThtrDefault = 'all',
-  selectThtrObj = {all: 'all'},
+  selectThtrObj = {},
+  selectThtrDefault = 0,
 
   selectLangDefault = 
     browserLang === 'zh-TW' || browserLang === 'zh-HK'
@@ -42,8 +42,8 @@ let
 
   menuChecked,
   gridChecked,
-  thtrSelected,
-  langSelected,
+  thtrSelect,
+  langSelect,
 
   gridRadio,
   menuRadio,
@@ -259,8 +259,10 @@ const
 
   setLang = () => {
     docCellLang = document.querySelector('.cell.lang')
-    docCellLang.insertAdjacentHTML('afterBegin', '<select></select>')
+    docCellLang.insertAdjacentHTML('afterBegin', '<select id="lang"></select>')
     docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+
+    langSelect = document.querySelector('#lang')
 
     for (const i in selectLangObj)
       selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
@@ -276,9 +278,8 @@ const
   setUrl = () => {
     menuChecked = document.querySelector('input[name="menu"]:checked')
     gridChecked = document.querySelector('input[name="grid"]:checked')
-    langSelected = document.querySelector('option[name="lang"]:checked')
 
-    newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelected.value
+    newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelect.value
     // console.log({newUrl})
     window.history.pushState(newState, siteTitle, newUrl)
   },

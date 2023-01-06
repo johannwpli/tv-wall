@@ -16,7 +16,7 @@
 }
 
 body {
-  /* overflow: hidden; */
+  overflow: hidden;
   margin: 0;
   font-size: var(--font-size);
   color: var(--bright-color);

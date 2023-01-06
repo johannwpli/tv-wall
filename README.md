@@ -41,6 +41,8 @@ Instructions
 `DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://tvwall.cc/?l=jp, to set Japanese as the display language.
 
 `THEATER MODE` Use the drop-down menu<sup>[5]</sup> to watch the video in theater mode., e.g., select 1 to watch the top left video.
+
+`HOTKEY` Press the keyboard to trigger the hotkey to the theater mode., e.g., press 0 to activate the 'all' of theater mode.
  
  
  References

@@ -18,10 +18,12 @@ const
     removeAllFirstChild(docCellThtr)
     
     selectThtr = ''
-    selectThtrObj = {all: 'all'},
+    selectThtrObj[selectThtrDefault] = 'all'
 
-    docCellThtr.insertAdjacentHTML('afterBegin', '<select></select>')
+    docCellThtr.insertAdjacentHTML('afterBegin', '<select id="thtr"></select>')
     docCellThtr.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+
+    thtrSelect = document.querySelector('#thtr')
 
     // console.log({tvSrcArr})
     // console.log({tvSrcArrCached})
@@ -78,9 +80,12 @@ const
 
     // console.log(selectThtrObj)
 
-    for (const k in selectThtrObj)
-      // selectThtr += `<option name="thtr" value="${selectThtrObj[k]}">${k}</option>`
-      selectThtr += `<option name="thtr" value="${k}">${k}</option>`
+    for (const k in selectThtrObj) {
+      // console.log(k)
+      (k === '0')
+        ? selectThtr += `<option name="thtr" value="${k}">${selectThtrObj[k]}</option>`
+        : selectThtr += `<option name="thtr" value="${k}">${k}</option>`
+    }
 
     document.querySelector('.cell.thtr select').insertAdjacentHTML('beforeEnd', selectThtr)
 
@@ -131,14 +136,13 @@ const
   clickThtrSelect = (e) => {
     // console.log(e)
 
-    thtrSelected = document.querySelector('option[name="thtr"]:checked')
-    // console.log(thtrSelected.value)
+    // console.log(thtrSelect.value)
     // console.log({tvSrcArrCached})
     
     // console.log({screenWidth})
     // console.warn({screenHeight})
 
-    if (thtrSelected.value === 'all') {
+    if (thtrSelect.value === '0') {
       setIntervalSetTvSize(true)
       
       for (let i = 1; i <= tvRowNumber; i++)
@@ -153,13 +157,15 @@ const
           // console.log(_temp)
           // console.log(i)
 
-        if (i !== thtrSelected.value * 1) {
-          document.getElementById(`tv${i}`).setAttribute('width', '0')
-          document.getElementById(`tv${i}`).setAttribute('height', '0')
-        }
-        else {
-          document.getElementById(`tv${i}`).setAttribute('width', screenWidth)
-          document.getElementById(`tv${i}`).setAttribute('height', screenHeight)
+        if (document.getElementById(`tv${i}`)) {
+          if (i !== thtrSelect.value * 1) {
+            document.getElementById(`tv${i}`).setAttribute('width', '0')
+            document.getElementById(`tv${i}`).setAttribute('height', '0')
+          }
+          else {
+            document.getElementById(`tv${i}`).setAttribute('width', screenWidth)
+            document.getElementById(`tv${i}`).setAttribute('height', screenHeight)
+          }
         }
       }
 
@@ -167,15 +173,13 @@ const
       // console.log({tvRowNumber}) // 4
       // console.log({tvColNumber}) // 3
   
-      let rowNumber  = Math.floor((thtrSelected.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+      let rowNumber  = Math.floor((thtrSelect.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
   
-      for (let i = 1; i <= tvRowNumber; i++) {
-        if (i !== rowNumber)
-          document.getElementById(`row${i}`).classList.add('hide')
-        else
-          document.getElementById(`row${i}`).classList.remove('hide')
-      }
+      for (let i = 1; i <= tvRowNumber; i++)
+        (i !== rowNumber)
+          ? document.getElementById(`row${i}`).classList.add('hide')
+          : document.getElementById(`row${i}`).classList.remove('hide')
     }
   },
 
@@ -205,20 +209,30 @@ const
 
   listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
-/*   listenKeyPress = () => {
-    // https://codepen.io/DBoy_Fresh/pen/RgjYKG
-    document.onkeydown = function(e) {
-      let keyPress = e.key
+  listenKeyPress = () => {
+    /* Capture KeyBoard Input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
 
-      for (let menu of radioMenuShow) {
-        // https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix
-        if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) { // check if menu starts with key pressed as prefix 
-          console.log(keyPress)
-          console.log(menu)
-        }
-      }
+    document.onkeydown = (e) => {
+      let keyPress = e.key
+      // console.log({keyPress})
+      // console.log(selectThtrObj)
+      // console.log(keyPress in selectThtrObj)
+
+      if (keyPress in selectThtrObj)
+        thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
+
+      // console.log(thtrSelect.value)
+
+      clickThtrSelect()
+
+      // for (let menu of radioMenuShow) {
+      //   // https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix
+      //   if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) { // check if menu starts with key pressed as prefix 
+      //     console.log(menu)
+      //   }
+      // }
     }
-  } */
+  }
 
   /* set tv size by window size */
 
@@ -464,9 +478,10 @@ const
 
   tvwall = () => {
     setThtr()
-    setLangSelect(langSelected.value)
+    setLangSelect(langSelect.value)
     listenGridMenuRadio()
     listenLangSelect()
+    listenKeyPress()
     setTv()
   }
 
