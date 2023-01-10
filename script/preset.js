@@ -73,7 +73,7 @@ const
   siteAuthor = 'Johann Li',
   siteUrl = 'https://johannwpli.github.io/tv-wall/',
   siteTitle = document.title,
-  siteName = 'TV Wall',
+  siteName = '⚡ TV Wall',
   githubUrl = 'https://github.com/johannwpli/tv-wall',
 
   urlSearchParams = new URLSearchParams(location.search),

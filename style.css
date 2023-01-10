@@ -1,5 +1,6 @@
 :root {
   --font-size: 15px;
+  --title-color: #ff8a00;
   --bright-color: #fff;
   --inter-color: #e2e2e2;
   --dark-color: #000;
@@ -10,9 +11,9 @@
     font-family: hunterxhunter;
     font-display: swap;
     src:
-      local("hunterxhunter Regular"),
-      local("hunterxhunter"),
-      url(font/hunterxhunter-regular.woff) format("woff");
+      local('hunterxhunter Regular'),
+      local('hunterxhunter'),
+      url(font/hunterxhunter-regular.woff) format('woff');
 }
 
 body {
@@ -83,6 +84,9 @@ form > .table {
 .title {
   font-weight: 700;
   text-align: left;
+  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 option[value='hh'] { 
