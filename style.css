@@ -54,7 +54,7 @@ form > .table {
   background: var(--dark-color);
 }
 
-.dark {
+.night {
   filter: invert(100%);
 }
 
