@@ -139,14 +139,14 @@ const
     for (const i of headPartArr)
       document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
 
-    /* set gradient */
-
-      document.querySelector('.title').classList.add('grad')
-
     /*set title */
 
     docCellTitle = document.querySelector('.cell.title')
     docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
+
+    /* set gradient */
+
+    docCellTitle.classList.add('grad')
   },
 
   setMenu = () => {
