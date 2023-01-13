@@ -58,6 +58,12 @@ form > .table {
   filter: invert(100%);
 }
 
+.grad {
+  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .table {
   display: table;
   width: calc(100% - var(--border-width)*2);
@@ -85,9 +91,6 @@ form > .table {
 .title {
   font-weight: 700;
   text-align: left;
-  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 option[value='hh'] { 
