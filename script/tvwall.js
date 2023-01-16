@@ -236,7 +236,7 @@ const
 
   /* get css property pixel value */
 
-  getCssPx = (e,p) => 
+  getCssPx = (e,p) =>
     getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // toNumber
 
   /* set tv size by window size */
@@ -441,9 +441,8 @@ const
         }
       )
     }
-    
 
-    setTimeout(() => { setTvHtml() }, 500)
+    setTimeout(() => { setTvHtml() }, 50)
   
     console.groupEnd()
   },
