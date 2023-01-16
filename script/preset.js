@@ -192,7 +192,7 @@ const
 
     docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
 
-    document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked','checked')
+    document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked', 'checked')
 
     menuRadio = document.tvWall.menu
   },
@@ -256,7 +256,7 @@ const
 
     docCellGrid.insertAdjacentHTML('beforeEnd', radioGrid)
 
-    document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked','checked')
+    document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked', 'checked')
 
     gridRadio = document.tvWall.grid
   },
@@ -276,7 +276,7 @@ const
     if (urlLangParam && urlLangParam in selectLangObj)
       selectLangDefault = urlLangParam
 
-    document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected','selected')
+    document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected', 'selected')
   },
 
   setUrl = () => {

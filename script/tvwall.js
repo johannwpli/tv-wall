@@ -89,7 +89,7 @@ const
 
     document.querySelector('.cell.thtr select').insertAdjacentHTML('beforeEnd', selectThtr)
 
-    document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected','selected')
+    document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
   },
 
   setLangSelect = (value) => {
@@ -232,7 +232,12 @@ const
       //   }
       // }
     }
-  }
+  },
+
+  /* get css property pixel value */
+
+  getCssPx = (e,p) => 
+    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // toNumber
 
   /* set tv size by window size */
 
@@ -243,12 +248,9 @@ const
     tv = document.querySelector('.tv')
     iframe = document.querySelector('iframe')
 
-    getCssPx = (e,p) => 
-      getComputedStyle(e).getPropertyValue(p).replace('px','') * 1 // toNumber
-
-    bodyBorderWidth = getCssPx(body,'border-width') * 2
-    headBorderWidth = getCssPx(head,'border-width') * 2
-    headHeight = getCssPx(head,'height')
+    bodyBorderWidth = getCssPx(body, 'border-width') * 2
+    headBorderWidth = getCssPx(head, 'border-width') * 2
+    headHeight = getCssPx(head, 'height')
 
     // console.log({bodyBorderWidth})
     // console.log({headBorderWidth})
@@ -260,14 +262,14 @@ const
     // console.log({widthDiff})
     // console.log({heightDiff})
 
-    // console.log(getCssPx(tv,'width'))
-    // console.log(getCssPx(tv,'height'))
-    // console.log(getCssPx(iframe,'width'))
-    // console.log(getCssPx(iframe,'height'))
+    // console.log(getCssPx(tv, 'width'))
+    // console.log(getCssPx(tv, 'height'))
+    // console.log(getCssPx(iframe, 'width'))
+    // console.log(getCssPx(iframe, 'height'))
 
-    iframeBorderWidth = getCssPx(iframe,'border-width') * 2
-    // iframeGapWidth = getCssPx(tv,'width') - getCssPx(iframe,'width')
-    iframeGapHeight = getCssPx(tv,'height') - getCssPx(iframe,'height')
+    iframeBorderWidth = getCssPx(iframe, 'border-width') * 2
+    // iframeGapWidth = getCssPx(tv, 'width') - getCssPx(iframe, 'width')
+    iframeGapHeight = getCssPx(tv, 'height') - getCssPx(iframe, 'height')
 
     // console.log({iframeBorderWidth})
     // console.log({iframeGapWidth})
