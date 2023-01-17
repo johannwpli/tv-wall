@@ -134,28 +134,22 @@ const
       j.addEventListener('click', clickMenuRadio)
   },
 
-  clickThtrSelect = (e) => {
-    // console.log(e)
-
+  clickThtrSelect = (event) => {
+    // console.log(event)
+    // console.log({tvNumberFlag})
     // console.log(thtrSelect.value)
     // console.log({tvSrcArrCached})
-    
-    // console.log({screenWidth})
-    // console.warn({screenHeight})
 
     if (thtrSelect.value === '0') {
-      // console.log({tvNumberFlag})
       // setIntervalSetTvSize(true)
-
       setTvSize()
       
       for (let i = 1; i <= tvRowNumber; i++)
           document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
-      tvNumberFlag = thtrSelect.value
-      // console.log({tvNumberFlag})
       // setIntervalSetTvSize(false)
+      tvNumberFlag = thtrSelect.value
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
 
@@ -241,14 +235,21 @@ const
     }
   },
 
+  resizeTvSize = () => {
+    getWidthAndHeight()
+    clickThtrSelect()
+  },
+
+  listenWindowResize = () => window.addEventListener('resize', resizeTvSize),
+
   /* get css property pixel value */
 
   getCssPx = (e,p) =>
     getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // toNumber
 
-  /* set tv size by window size */
+  /* get width and height of  tv and screen */
 
-  setTvSize = () => {
+  getWidthAndHeight = () => {
     // console.log({head})
     // console.log({body})
     // console.log({tvNumberFlag})
@@ -314,6 +315,12 @@ const
 
     // console.log({screenWidth})
     // console.log({screenHeight})
+  },
+
+  /* set tv size by window size */
+
+  setTvSize = () => {
+    getWidthAndHeight()
 
     document.querySelectorAll('iframe').forEach(
       (e,i) => {
@@ -411,8 +418,6 @@ const
 
     console.group('Now Playing (' + tvRatio + ')')
 
-    // return
-
     const setTvHtml = () => {
       let tvNumber = 1
       document.querySelectorAll('#body .tv').forEach(
@@ -492,6 +497,13 @@ const
     listenThtrSelect()
   },
 
+  listenAll = () => {
+    listenGridMenuRadio()
+    listenLangSelect()
+    listenKeyPress()
+    listenWindowResize()
+  },
+
   setTv = () => {
     setTvGrid()
     setTvSrc()
@@ -502,9 +514,7 @@ const
   tvwall = () => {
     setThtr()
     setLangSelect(langSelect.value)
-    listenGridMenuRadio()
-    listenLangSelect()
-    listenKeyPress()
+    listenAll()
     setTv()
   }
 
