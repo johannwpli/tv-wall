@@ -2,8 +2,9 @@
 
 let
 
-  intervalSetTvSize,
-  intervalSetTvSizeCount = false
+  // intervalSetTvSize,
+  // intervalSetTvSizeFlag = false,
+  tvNumberFlag
 
 const
 
@@ -143,28 +144,34 @@ const
     // console.warn({screenHeight})
 
     if (thtrSelect.value === '0') {
-      setIntervalSetTvSize(true)
+      // console.log({tvNumberFlag})
+      // setIntervalSetTvSize(true)
+
+      setTvSize()
       
       for (let i = 1; i <= tvRowNumber; i++)
           document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
-      setIntervalSetTvSize(false)
+      tvNumberFlag = thtrSelect.value
+      // console.log({tvNumberFlag})
+      // setIntervalSetTvSize(false)
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
 
       for (let i = 1; i <= _temp; i++) {
-          // console.log(_temp)
-          // console.log(i)
+        // console.log(_temp)
+        // console.log(i)
+        let e = document.getElementById(`tv${i}`)
 
-        if (document.getElementById(`tv${i}`)) {
+        if (e) {
           if (i !== thtrSelect.value * 1) {
-            document.getElementById(`tv${i}`).setAttribute('width', '0')
-            document.getElementById(`tv${i}`).setAttribute('height', '0')
+            e.setAttribute('width', '0')
+            e.setAttribute('height', '0')
           }
           else {
-            document.getElementById(`tv${i}`).setAttribute('width', screenWidth)
-            document.getElementById(`tv${i}`).setAttribute('height', screenHeight)
+            e.setAttribute('width', screenWidth)
+            e.setAttribute('height', screenHeight)
           }
         }
       }
@@ -176,10 +183,10 @@ const
       let rowNumber  = Math.floor((thtrSelect.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
   
-      for (let i = 1; i <= tvRowNumber; i++)
-        (i !== rowNumber)
-          ? document.getElementById(`row${i}`).classList.add('hide')
-          : document.getElementById(`row${i}`).classList.remove('hide')
+      for (let i = 1; i <= tvRowNumber; i++) {
+        let e = document.getElementById(`row${i}`)
+        i !== rowNumber ? e.classList.add('hide') : e.classList.remove('hide')
+      }
     }
   },
 
@@ -244,17 +251,27 @@ const
   setTvSize = () => {
     // console.log({head})
     // console.log({body})
+    // console.log({tvNumberFlag})
 
-    tv = document.querySelector('.tv')
-    iframe = document.querySelector('iframe')
+    if (tvNumberFlag) {
+      let _temp = tvNumberFlag - 1
+      tv = document.querySelectorAll('.tv')[_temp]
+      iframe = document.querySelectorAll('iframe')[_temp]
+    }
+    else {
+      tv = document.querySelector('.tv')
+      iframe = document.querySelector('iframe')
+    }
 
     bodyBorderWidth = getCssPx(body, 'border-width') * 2
     headBorderWidth = getCssPx(head, 'border-width') * 2
     headHeight = getCssPx(head, 'height')
+    iframeBorderWidth = getCssPx(iframe, 'border-width') * 2
 
     // console.log({bodyBorderWidth})
     // console.log({headBorderWidth})
     // console.log({headHeight})
+    // console.log({iframeBorderWidth})
 
     widthDiff = bodyBorderWidth
     heightDiff = bodyBorderWidth + headBorderWidth + headHeight
@@ -262,16 +279,19 @@ const
     // console.log({widthDiff})
     // console.log({heightDiff})
 
-    // console.log(getCssPx(tv, 'width'))
-    // console.log(getCssPx(tv, 'height'))
-    // console.log(getCssPx(iframe, 'width'))
-    // console.log(getCssPx(iframe, 'height'))
+    tvNowWidth = getCssPx(tv, 'width')
+    tvNowHeight = getCssPx(tv, 'height')
+    iframeNowWidth = getCssPx(iframe, 'width')
+    iframeNowHeight = getCssPx(iframe, 'height')
 
-    iframeBorderWidth = getCssPx(iframe, 'border-width') * 2
-    // iframeGapWidth = getCssPx(tv, 'width') - getCssPx(iframe, 'width')
-    iframeGapHeight = getCssPx(tv, 'height') - getCssPx(iframe, 'height')
+    // console.log({tvNowWidth})
+    // console.log({tvNowHeight})
+    // console.log({iframeNowWidth}) // default 300
+    // console.log({iframeNowHeight}) //default 150
 
-    // console.log({iframeBorderWidth})
+    // iframeGapWidth = tvNowWidth - iframeNowWidth
+    iframeGapHeight = tvNowHeight - iframeNowHeight
+
     // console.log({iframeGapWidth})
     // console.log({iframeGapHeight}) // dynamic
 
@@ -442,29 +462,30 @@ const
       )
     }
 
-    setTimeout(() => { setTvHtml() }, 50)
+    // setTimeout(() => { setTvHtml() }, 50)
+    setTvHtml()
   
     console.groupEnd()
   },
 
-  setIntervalSetTvSize = (status) => {
-    // console.log({intervalSetTvSizeCount})
+/*   setIntervalSetTvSize = (status) => {
+    // console.log({intervalSetTvSizeFlag})
 
     if (status) {
-      if (!intervalSetTvSizeCount) {
+      if (!intervalSetTvSizeFlag) {
         intervalSetTvSize = setInterval(setTvSize, 500) // to fix bug of 1st iframe returning from fullscreen
-        intervalSetTvSizeCount = true
+        intervalSetTvSizeFlag = true
       }
     }
     else {
-      if (intervalSetTvSizeCount) {
+      if (intervalSetTvSizeFlag) {
         clearInterval(intervalSetTvSize)
-        intervalSetTvSizeCount = false
+        intervalSetTvSizeFlag = false
       }
     }
 
-    // console.log({intervalSetTvSizeCount})
-  },
+    // console.log({intervalSetTvSizeFlag})
+  }, */
 
   setThtr = () => {
     setThtrSelect()
@@ -474,7 +495,8 @@ const
   setTv = () => {
     setTvGrid()
     setTvSrc()
-    setIntervalSetTvSize(true)
+    setTvSize()
+    // setIntervalSetTvSize(true)
   },
 
   tvwall = () => {
