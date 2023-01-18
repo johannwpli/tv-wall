@@ -58,10 +58,20 @@ form > .table {
   filter: invert(100%);
 }
 
+@keyframes grad {
+  50% {
+    background: linear-gradient(270deg, var(--title-color), var(--dark-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .grad {
   background: linear-gradient(90deg, var(--title-color), var(--dark-color));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation-name: grad;
+  animation-duration: .5s;
 }
 
 .table {
