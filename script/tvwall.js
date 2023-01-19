@@ -364,7 +364,7 @@ const
     // console.log({tvSrcArr})
     
     tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
-    // 1~3:1, 4~8:2, 9~15:3, 16~24:4
+    // tvAllNumber: tvShortNumber; 1~3: 1, 4~8: 2, 9~15: 3, 16~24: 4
 
     window.innerWidth >= window.innerHeight
       ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)

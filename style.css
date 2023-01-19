@@ -59,10 +59,9 @@ form > .table {
 }
 
 @keyframes grad {
-  50% {
-    background: linear-gradient(270deg, var(--title-color), var(--dark-color));
+  0% {
+    background: var(--dark-color);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 }
 
@@ -71,7 +70,7 @@ form > .table {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation-name: grad;
-  animation-duration: .5s;
+  animation-duration: 3s;
 }
 
 .table {
@@ -169,10 +168,6 @@ option[value='hh'] {
     display: none;
   }
 
-  .cell {
-    /* width: calc(100% / 3); */
-  }
-  
   .grid {
     text-align: right;
   }
@@ -191,10 +186,10 @@ option[value='hh'] {
   }
 }
 
-/* https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
+/* What Breakpoints Should You Use?, https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
 
-320px — 480px: Mobile devices => mobile
-481px — 768px: iPads, Tablets => tablet
-769px — 1024px: Small screens, laptops => laptop
-1025px — 1200px: Desktops, large screens => desktop
-1201px and more —  Extra large screens, TV */
+320~480px: Mobile devices => mobile
+481~768px: iPads, tablets => tablet
+769~1024px: Small screens, laptops => laptop
+1025~1200px: Large screens, desktops
+1201px~: Extra large screens, TV */
