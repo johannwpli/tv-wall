@@ -73,6 +73,11 @@ form > .table {
   animation-duration: 3s;
 }
 
+.grad:hover {
+  -webkit-text-fill-color: unset;
+  /* transition: all 3s ease-in-out; not working */
+}
+
 .table {
   display: table;
   width: calc(100% - var(--border-width)*2);
