@@ -1,5 +1,4 @@
 :root {
-  /* --font-size: 15px; */
   --border-width: 8px;
   --title-color: #ff8a00;
   --bright-color: #fff;
@@ -95,7 +94,6 @@ form > .table {
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  /* white-space: nowrap; */
 }
 
 .cell:last-of-type {
@@ -105,6 +103,8 @@ form > .table {
 .title {
   font-weight: 700;
   text-align: left;
+  width: 0;
+  white-space: nowrap;
 }
 
 option[value='hh'] { 
