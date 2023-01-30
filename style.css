@@ -72,9 +72,19 @@ form > .table {
   animation-duration: 3s;
 }
 
+@keyframes hover {
+  0% {
+    background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
 .grad:hover {
-  -webkit-text-fill-color: unset;
-  /* transition: all 3s ease-in-out; not working */
+  background: var(--dark-color);
+  -webkit-background-clip: text;
+  animation-name: hover;
+  animation-duration: 3s;
 }
 
 .table {
