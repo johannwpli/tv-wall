@@ -117,9 +117,9 @@ const
   /* set menu value by menu radio */
 
   clickMenuRadio = function() {
-      // if (menuChecked) console.log(menuChecked.value)
-      if (this !== menuChecked) menuChecked = this
-      // console.log(this.value)
+    // if (menuChecked) console.log(menuChecked.value)
+    if (this !== menuChecked) menuChecked = this
+    // console.log(this.value)
 
     setTv()
     setUrl()
@@ -211,7 +211,7 @@ const
   listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
   listenKeyPress = () => {
-    /* Capture KeyBoard Input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+    /* capture keyboard input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
 
     document.onkeydown = (e) => {
       let keyPress = e.key
@@ -219,19 +219,23 @@ const
       // console.log(selectThtrObj)
       // console.log(keyPress in selectThtrObj)
 
-      if (keyPress in selectThtrObj)
+      /* check if thtr equals to key pressed */
+
+      if (keyPress in selectThtrObj) {
         thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
+        // console.log(thtrSelect.value)
+        clickThtrSelect()
+      }
 
-      // console.log(thtrSelect.value)
+      /* check if menu prefixes with key pressed, https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix */
 
-      clickThtrSelect()
-
-      // for (let menu of radioMenuShow) {
-      //   // https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix
-      //   if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) { // check if menu starts with key pressed as prefix 
-      //     console.log(menu)
-      //   }
-      // }
+      for (let menu of radioMenuShow) {
+        if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) {
+          // console.log(menu)
+          document.querySelector('div.menu').querySelectorAll(`input[value="${menu}"]`)[0].checked = 'checked'
+          clickMenuRadio()
+        }
+      }
     }
   },
 
@@ -335,6 +339,8 @@ const
   /* set grid layout by grid value */
 
   setTvGrid = () => {
+    menuChecked = document.querySelector('input[name="menu"]:checked')
+    // console.log(menuChecked.value)
     tvSrcKey = menuChecked.value
     // console.log({tvSrcKey})
 
