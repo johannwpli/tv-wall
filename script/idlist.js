@@ -8,7 +8,7 @@ let
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
             //{ id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' }, // uniframeable
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
-            { id: 'bBqjJWtjNFo', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
+            { id: 'dZvHWVKY-AQ', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
