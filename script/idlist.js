@@ -8,12 +8,12 @@ let
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
             // { id: 'w_Ma8oQLmSM', title: 'ABC News, United States', channel: 'https://www.youtube.com/c/ABCNews' }, // uniframeable
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
-            { id: 'G7Zu6O-CdHM', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
+            { id: 'pqabxBKzZ6M', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
-            { id: 'WB-y7_ymPJ4', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
+            { id: 'Nen3UXaWDDE', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: '9Auq9mYxFEE', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
@@ -22,7 +22,7 @@ let
         ],
 
         Taiwan: [
-            { id: '_QbRXRnHMVY', title: 'CTI 中天', channel: 'https://www.youtube.com/c/ctitv' },
+            { id: 'oIgbl7t0S_w', title: 'CTI 中天', channel: 'https://www.youtube.com/c/ctitv' },
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
             { id: 'LbS-xQ67fos', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' },
