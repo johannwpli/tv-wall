@@ -91,6 +91,7 @@ let
             { id: 'UehlbisT5Gs', title: '如果不是因為你 - 林志炫' },
             { id: 'EqBAV4i7d20', title: '傳奇 - 李健' },
             { id: 'NA4otP-v6iI', title: '無與倫比的美麗 - 蘇打綠' },
+            { id: 'U1_ILHivgGE', title: '流星下的願 - 張學友 & 許慧欣' },
             { id: 'n-k-_jzcp7c', title: '美麗的神話 - 孫楠 & 韓紅' },
             { id: '22b1WnBg5LA', title: '堅強的理由 - 莫文蔚 & 伍佰' },
         ],
