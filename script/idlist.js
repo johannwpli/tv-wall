@@ -10,7 +10,7 @@ let
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'pqabxBKzZ6M', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
-            { id: 'h3MuIUNCCzI', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
+            { id: 'tkDUSYHoKxE', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             { id: 'Nen3UXaWDDE', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
