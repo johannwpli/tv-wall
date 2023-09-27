@@ -49,18 +49,6 @@ let
             { id: 'NPXVXh4HIQE', title: 'Ending Scene 這樣的Ending' },
         ],
 
-        Exotic: [
-            { id: 'Rq8_WqE67SE', title: '裏切り者のレクイエム - ハセガワダイスケ(長谷川大輔) - Japanese' },
-            { id: 'rbfHY8mkhT8', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
-            { id: 'sUW4dDWiz-A', title: '夕暮れの鳥 - 神聖かまってちゃん(神聖放逐樂隊) - Japanese' },
-            { id: 'SmDXanmSsUQ', title: 'Pieces - L\'Arc～en～Ciel - Japanese' },
-            { id: 'NJR8Inf77Ac', title: '너랑 나 - 아이유(IU) - Korean' },
-            { id: 'f_iQRO5BdCM', title: '너랑 나 - 아이유(IU) - Korean' },
-            { id: 'GQt03lkFQE4', title: '좋은 날 - 아이유(IU) - Korean' },
-            { id: 'jeqdYqsrsA0', title: '좋은 날 - 아이유(IU) - Korean' },
-            { id: '3ql6lSe1E-M', title: 'My Heart - ACHA SEPTRIASA & IRWANSYAH - Indonesian' },
-        ],
-
         Taiwanese: [
             { id: '9gnqI0ygqWw', title: '青石願 - 黃鳳儀' },
             { id: 'KEBoeE0PdJM', title: '青石願 - 黃鳳儀' },
