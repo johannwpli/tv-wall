@@ -92,15 +92,18 @@ const
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
 
   widthTablet = 480,
-  widthLaptop = 1024,
+  widthLaptop = 800,
+  widthDesktop = 1024,
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15,16, 'all'], // 20, 24, 25,
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 'all'], // 20, 24, 25,
   radioGridTablet = 4, // shows from on tablet
   radioGridLaptop = 8, // shows from on laptop
+  radioGridDesktop = 12, // shows from on desktop
 
   radioGridDefaultMobile = '3', // default grid on mobile
   radioGridDefaultTablet = '6', // default grid on tablet
   radioGridDefaultLaptop = '9', // default grid on laptop
+  radioGridDefaultDesktop = '12', // default grid on desktop
 
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
@@ -203,11 +206,13 @@ const
 
     for (const i of radioGridArr) {
       const j =
-        i >= radioGridLaptop
-          ? 'laptop'
-          : i >= radioGridTablet
-            ? 'tablet'
-            : 'mobile'
+        i >= radioGridDesktop
+            ? 'desktop'
+            : i >= radioGridLaptop
+              ? 'laptop'
+              : i >= radioGridTablet
+                ? 'tablet'
+                : 'mobile'
 
       radioGrid += `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
     }
@@ -244,11 +249,13 @@ const
     }
     else {
       radioGridDefault =
-        window.innerWidth > widthLaptop
-          ? radioGridDefaultLaptop // laptop
-          : window.innerWidth > widthTablet
-            ? radioGridDefaultTablet // tablet
-            : radioGridDefaultMobile // mobile
+        window.innerWidth > widthDesktop
+          ? radioGridDefaultDesktop // desktop
+          : window.innerWidth > widthLaptop
+              ? radioGridDefaultLaptop // laptop
+              : window.innerWidth > widthTablet
+                ? radioGridDefaultTablet // tablet
+                : radioGridDefaultMobile // mobile
     }
 
     // console.log({radioGridDefault})

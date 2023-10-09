@@ -49,6 +49,6 @@ Instructions
 ---
 1. Redirects to https://johannwpli.github.io/tv-wall/.  
 2. Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
-3. The default number of videos on mobiles is 3, on tablets is 6, and on computers is 9.  
+3. The default number of videos on mobiles is 3, on tablets is 6, on laptop is 9, and on desktops is 12.  
 4. Place YouTube video IDs separated by a comma.  
 5. The number of the top left video is 1, then 2, and so on, from left to right, top to down.
