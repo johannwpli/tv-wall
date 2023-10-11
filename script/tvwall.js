@@ -4,6 +4,7 @@ let
 
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
+  intervalSetTvSizeDelay = 2000,
   tvNumberFlag
 
 const
@@ -484,7 +485,7 @@ const
 
     if (status) {
       if (!intervalSetTvSizeFlag) {
-        intervalSetTvSize = setInterval(setTvSize, 1000) // to fix iframe bug returning from fullscreen
+        intervalSetTvSize = setInterval(setTvSize, intervalSetTvSizeDelay) // to fix iframe bug returning from fullscreen
         intervalSetTvSizeFlag = true
       }
     }
