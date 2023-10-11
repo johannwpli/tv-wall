@@ -2,8 +2,8 @@
 
 let
 
-  // intervalSetTvSize,
-  // intervalSetTvSizeFlag = false,
+  intervalSetTvSize,
+  intervalSetTvSizeFlag = false,
   tvNumberFlag
 
 const
@@ -141,14 +141,14 @@ const
     // console.log({tvSrcArrCached})
 
     if (thtrSelect.value === '0') {
-      // setIntervalSetTvSize(true)
+      setIntervalSetTvSize(true)
       setTvSize()
       
       for (let i = 1; i <= tvRowNumber; i++)
           document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
-      // setIntervalSetTvSize(false)
+      setIntervalSetTvSize(false)
       tvNumberFlag = thtrSelect.value
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
@@ -479,12 +479,12 @@ const
     console.groupEnd()
   },
 
-/*   setIntervalSetTvSize = (status) => {
+  setIntervalSetTvSize = (status) => {
     // console.log({intervalSetTvSizeFlag})
 
     if (status) {
       if (!intervalSetTvSizeFlag) {
-        intervalSetTvSize = setInterval(setTvSize, 500) // to fix bug of 1st iframe returning from fullscreen
+        intervalSetTvSize = setInterval(setTvSize, 5000) // to fix iframe bug returning from fullscreen
         intervalSetTvSizeFlag = true
       }
     }
@@ -496,7 +496,7 @@ const
     }
 
     // console.log({intervalSetTvSizeFlag})
-  }, */
+  },
 
   setThtr = () => {
     setThtrSelect()
@@ -514,7 +514,7 @@ const
     setTvGrid()
     setTvSrc()
     setTvSize()
-    // setIntervalSetTvSize(true)
+    setIntervalSetTvSize(true)
   },
 
   tvwall = () => {
