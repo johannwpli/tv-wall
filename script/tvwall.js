@@ -484,7 +484,7 @@ const
 
     if (status) {
       if (!intervalSetTvSizeFlag) {
-        intervalSetTvSize = setInterval(setTvSize, 5000) // to fix iframe bug returning from fullscreen
+        intervalSetTvSize = setInterval(setTvSize, 1000) // to fix iframe bug returning from fullscreen
         intervalSetTvSizeFlag = true
       }
     }
