@@ -8,12 +8,12 @@
 }
 
 @font-face {
-    font-family: hunterxhunter;
-    font-display: swap;
-    src:
-      local('hunterxhunter Regular'),
-      local('hunterxhunter'),
-      url(font/hunterxhunter-regular.woff) format('woff');
+  font-family: hunterxhunter;
+  font-display: swap;
+  src:
+    local('hunterxhunter Regular'),
+    local('hunterxhunter'),
+    url(font/hunterxhunter-regular.woff) format('woff');
 }
 
 body {
@@ -39,8 +39,8 @@ input[type=radio]:checked {
   background: var(--inter-color);
 }
 
-form > .table {
-    border: var(--border-width) solid transparent;
+form>.table {
+  border: var(--border-width) solid transparent;
 }
 
 #head {
@@ -117,7 +117,7 @@ form > .table {
   white-space: nowrap;
 }
 
-option[value='hh'] { 
+option[value='hh'] {
   font-family: hunterxhunter;
 }
 
@@ -139,33 +139,81 @@ option[value='hh'] {
 .grid label:first-of-type,
 .lang label:first-of-type,
 .thtr label:first-of-type {
-    margin: 0 4.5px;
-    box-shadow: 0 0 0 1px var(--darkalpha-color);
-    border-radius: 7px;
-    padding: 0 4.5px;
-    background: var(--inter-color);
-    font-size: .8em;
+  margin: 0 4.5px;
+  box-shadow: 0 0 0 1px var(--darkalpha-color);
+  border-radius: 7px;
+  padding: 0 4.5px;
+  background: var(--inter-color);
+  font-size: .8em;
 }
 
-.menu label:first-of-type.en::before {  content: 'menu'; }
-.menu label:first-of-type.zh::before {  content: '選單'; }
-.menu label:first-of-type.jp::before {  content: 'メニュー'; }
-.menu label:first-of-type.hh::before {  content: 'menu'; font-family: hunterxhunter; }
+.menu label:first-of-type.en::before {
+  content: 'menu';
+}
 
-.grid label:first-of-type.en::before {  content: 'grid'; }
-.grid label:first-of-type.zh::before {  content: '網格'; }
-.grid label:first-of-type.jp::before {  content: 'グリッド'; }
-.grid label:first-of-type.hh::before {  content: 'grid'; font-family: hunterxhunter; }
+.menu label:first-of-type.zh::before {
+  content: '選單';
+}
 
-.lang label:first-of-type.en::before {  content: 'lang'; }
-.lang label:first-of-type.zh::before {  content: '語言'; }
-.lang label:first-of-type.jp::before {  content: 'ランゲージ'; }
-.lang label:first-of-type.hh::before {  content: 'lang'; font-family: hunterxhunter; }
+.menu label:first-of-type.jp::before {
+  content: 'メニュー';
+}
 
-.thtr label:first-of-type.en::before {  content: 'thtr'; }
-.thtr label:first-of-type.zh::before {  content: '劇院'; }
-.thtr label:first-of-type.jp::before {  content: 'シアター'; }
-.thtr label:first-of-type.hh::before {  content: 'thtr'; font-family: hunterxhunter; }
+.menu label:first-of-type.hh::before {
+  content: 'menu';
+  font-family: hunterxhunter;
+}
+
+.grid label:first-of-type.en::before {
+  content: 'grid';
+}
+
+.grid label:first-of-type.zh::before {
+  content: '網格';
+}
+
+.grid label:first-of-type.jp::before {
+  content: 'グリッド';
+}
+
+.grid label:first-of-type.hh::before {
+  content: 'grid';
+  font-family: hunterxhunter;
+}
+
+.lang label:first-of-type.en::before {
+  content: 'lang';
+}
+
+.lang label:first-of-type.zh::before {
+  content: '語言';
+}
+
+.lang label:first-of-type.jp::before {
+  content: 'ランゲージ';
+}
+
+.lang label:first-of-type.hh::before {
+  content: 'lang';
+  font-family: hunterxhunter;
+}
+
+.thtr label:first-of-type.en::before {
+  content: 'thtr';
+}
+
+.thtr label:first-of-type.zh::before {
+  content: '劇院';
+}
+
+.thtr label:first-of-type.jp::before {
+  content: 'シアター';
+}
+
+.thtr label:first-of-type.hh::before {
+  content: 'thtr';
+  font-family: hunterxhunter;
+}
 
 .menu label:not(:first-of-type),
 .grid label:not(:first-of-type) {
@@ -194,17 +242,23 @@ option[value='hh'] {
 }
 
 @media (max-width: 1024px) {
+
   .cell:not(.title) label:first-of-type,
   .lang select,
-  .laptop {
+  .laptop,
+  .desktop {
     display: none;
   }
 }
 
-/* What Breakpoints Should You Use?, https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
+/*
 
-320~480px: Mobile devices => mobile
-481~768px: iPads, tablets => tablet
-769~1024px: Small screens, laptops => laptop
-1025~1200px: Large screens, desktops
-1201px~: Extra large screens, TV */
+What Breakpoints Should You Use?, https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
+
+320~480px: Mobile devices -> mobile
+481~768px: iPads, tablets -> tablet
+769~1024px: Small screens, laptops -> laptop
+1025~1200px: Large screens, desktops -> desktop
+1201px~: Extra large screens, TV
+
+*/
