@@ -5,7 +5,8 @@ let
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
   intervalSetTvSizeDelay = 2000,
-  tvNumberFlag
+  tvNumberFlag,
+  maxThtrLength
 
 const
 
@@ -29,25 +30,27 @@ const
 
     // console.log({tvSrcArr})
     // console.log({tvSrcArrCached})
+    // console.log(selectThtrObj)
+
+    for (const member in selectThtrObj)
+      if (member !== '0') delete selectThtrObj[member]
+
+    // console.log(selectThtrObj)
 
     if (tvSrcArrCached) {
       // console.log('tvSrcArrCached is available')
+      // console.log({tvSrcArrCached})
       
-      if (gridChecked.value === 'all') {
-        for (let i = 0; i < tvSrcArrCached.length; i++) {
-          if (typeof tvSrcArrCached[i] === 'object')
-            selectThtrObj[i + 1] = tvSrcArrCached[i]['id']
-          else
-            selectThtrObj[i + 1] = tvSrcArrCached[i]
-        }
-      }
-      else {
-        for (let i = 0; i < gridChecked.value; i++) {
-          if (typeof tvSrcArrCached[i] === 'object')
-            selectThtrObj[i + 1] = tvSrcArrCached[i]['id']
-          else
-            selectThtrObj[i + 1] = tvSrcArrCached[i]
-        }
+      maxThtrLength = (gridChecked.value === 'all')
+        ? tvSrcArrCached.length
+        : Math.min(gridChecked.value, tvSrcArrCached.length)
+
+      // console.log({maxThtrLength})
+
+      for (let i = 0; i < maxThtrLength; i++) {
+        selectThtrObj[i + 1] = (typeof tvSrcArrCached[i] === 'object')
+          ? tvSrcArrCached[i]['id']
+          : tvSrcArrCached[i]
       }
     }
     else {
@@ -55,28 +58,22 @@ const
       tvSrcKey = menuChecked.value
       // console.log({tvSrcKey})
 
-      if (tvSrcObj.hasOwnProperty(tvSrcKey))
-        tvSrcArr = tvSrcObj[tvSrcKey]
-      else
-        tvSrcArr = urlIdParam.split(',')
+      tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
+        ? tvSrcObj[tvSrcKey]
+        : urlIdParam.split(',')
 
       // console.log({tvSrcArr})
 
-      if (gridChecked.value === 'all') {
-        for (let i = 0; i < tvSrcArr.length; i++) {
-          if (typeof tvSrcArr[i] === 'object')
-            selectThtrObj[i + 1] = tvSrcArr[i]['id']
-          else
-            selectThtrObj[i + 1] = tvSrcArr[i]
-        }
-      }
-      else {
-        for (let i = 0; i < gridChecked.value; i++) {
-          if (typeof tvSrcArr[i] === 'object')
-            selectThtrObj[i + 1] = tvSrcArr[i]['id']
-          else
-            selectThtrObj[i + 1] = tvSrcArr[i]
-        }
+      maxThtrLength = (gridChecked.value === 'all')
+        ? tvSrcArr.length
+        : Math.min(gridChecked.value, tvSrcArr.length)
+
+      // console.log({maxThtrLength})
+
+      for (let i = 0; i < maxThtrLength; i++) {
+        selectThtrObj[i + 1] = (typeof tvSrcArr[i] === 'object')
+          ? tvSrcArr[i]['id']
+          : tvSrcArr[i]
       }
     }
 
@@ -345,10 +342,9 @@ const
     tvSrcKey = menuChecked.value
     // console.log({tvSrcKey})
 
-    if (tvSrcObj.hasOwnProperty(tvSrcKey))
-      tvSrcArr = tvSrcObj[tvSrcKey]
-    else
-      tvSrcArr = urlIdParam.split(',')
+    tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
+      ? tvSrcObj[tvSrcKey]
+      : urlIdParam.split(',')
 
     // console.log({tvSrcArr})
     // console.log({radioGridArr})
