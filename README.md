@@ -25,16 +25,16 @@ Johann Li
 
 Origin
 ---
-TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>[2]</sup>, which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar and Iran in 2021, and China in 2022. Besides, Battles between countries such as Russia and Ukraine have continued and lasted. The conflict since 2014 even saw a significant escalation in February 2022 as Russia launched a full-scale invasion of Ukraine. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
+TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>[2]</sup> (stops running), which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar and Iran in 2021, and China in 2022. Besides, Battles between countries such as Russia and Ukraine have continued and lasted. The conflict since 2014 even saw a significant escalation in February 2022 as Russia launched a full-scale invasion of Ukraine. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
 
 
 Instructions
 ---
-`COMPATIBILITY` TV Wall supports multi browsers and devices<sup>[3]</sup>, including mobiles, tablets, and computers.
+`COMPATIBILITY` TV Wall supports multi browsers and devices<sup>[3]</sup>, including mobiles, tablets, laptops, and desktops.
 
 `HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://tvwall.cc/?m=IU, to show IU videos.
 
-`CUSTOM IDS` Use 'i' as the id param to customize your video list<sup>[4]</sup>, e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to customize your video list with these 2 YouTube video IDs.
+`CUSTOM IDS` Use 'i' as the id param to customize your video list<sup>[4]</sup>, e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with these 2 YouTube video IDs.
 
 `VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://tvwall.cc/?g=all, to play all the videos.
 
@@ -43,9 +43,9 @@ Instructions
 `THEATER MODE` Use the drop-down menu<sup>[5]</sup> to watch the video in theater mode., e.g., select 1 to watch the top left video.
 
 `HOTKEY` Press the keyboard to trigger the hotkey to the unhidden menu and theater mode., e.g., press 0 to activate the 'all' of theater mode.
- 
- 
- References
+
+
+References
 ---
 1. Redirects to https://johannwpli.github.io/tv-wall/.  
 2. Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
