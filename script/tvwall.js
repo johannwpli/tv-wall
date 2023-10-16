@@ -4,7 +4,7 @@ let
 
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
-  intervalSetTvSizeDelay = 2000,
+  intervalSetTvSizeDelay = 1500, // 1.5 secs
   tvNumberFlag,
   maxThtrLength
 
