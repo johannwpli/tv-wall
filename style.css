@@ -30,12 +30,13 @@ body {
 
 #tvWall {
   display: flex;
-  width: 75vw;
+  width: calc(100vw - 255px);
 }
 
 #tlkio {
   display: flex;
-  width: 25vw;
+  width: 255px;
+  height: 100vh;
 }
 
 a {
