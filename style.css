@@ -29,13 +29,13 @@ body {
 }
 
 #tvWall {
-  display: flex;
-  width: calc(100vw - 255px);
+  /* display: flex; */
+  width: calc(100vw - 275px);
 }
 
 #tlkio {
-  display: flex;
-  width: 255px;
+  /* display: flex; */
+  width: 275px;
   height: 100vh;
 }
 
