@@ -2,11 +2,12 @@
 
 let
 
+  tvwallPercent = 1, // default
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
   intervalSetTvSizeDelay = 1500, // 1.5 secs
   tvNumberFlag,
-  maxThtrLength
+  maxThtrNumber
 
 const
 
@@ -25,7 +26,7 @@ const
 
     docCellThtr.insertAdjacentHTML('afterBegin', '<select id="thtr"></select>')
     docCellThtr.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-
+maxThtrNumber
     thtrSelect = document.querySelector('#thtr')
 
     // console.log({tvSrcArr})
@@ -41,13 +42,13 @@ const
       // console.log('tvSrcArrCached is available')
       // console.log({tvSrcArrCached})
       
-      maxThtrLength = (gridChecked.value === 'all')
+      maxThtrNumber = (gridChecked.value === 'all')
         ? tvSrcArrCached.length
         : Math.min(gridChecked.value, tvSrcArrCached.length)
 
-      // console.log({maxThtrLength})
+      // console.log({maxThtrNumber})
 
-      for (let i = 0; i < maxThtrLength; i++) {
+      for (let i = 0; i < maxThtrNumber; i++) {
         selectThtrObj[i + 1] = (typeof tvSrcArrCached[i] === 'object')
           ? tvSrcArrCached[i]['id']
           : tvSrcArrCached[i]
@@ -64,13 +65,13 @@ const
 
       // console.log({tvSrcArr})
 
-      maxThtrLength = (gridChecked.value === 'all')
+      maxThtrNumber = (gridChecked.value === 'all')
         ? tvSrcArr.length
         : Math.min(gridChecked.value, tvSrcArr.length)
 
-      // console.log({maxThtrLength})
+      // console.log({maxThtrNumber})
 
-      for (let i = 0; i < maxThtrLength; i++) {
+      for (let i = 0; i < maxThtrNumber; i++) {
         selectThtrObj[i + 1] = (typeof tvSrcArr[i] === 'object')
           ? tvSrcArr[i]['id']
           : tvSrcArr[i]
@@ -298,7 +299,13 @@ const
     // console.log({iframeGapWidth})
     // console.log({iframeGapHeight}) // dynamic
 
-    docWidth = window.innerWidth - widthDiff
+    // console.log(getComputedStyle(tvWall).getPropertyValue('width').replace('px', ''))
+    // console.log(window.innerWidth)
+
+    tvwallPercent = getComputedStyle(tvWall).getPropertyValue('width').replace('px', '') / window.innerWidth
+    // console.log({tvwallPercent})
+
+    docWidth = (window.innerWidth - widthDiff) * tvwallPercent
     docHeight = window.innerHeight - heightDiff
 
     // console.log('window.innerWidth: ', window.innerWidth)
