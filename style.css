@@ -24,10 +24,6 @@ body {
   background: var(--dark-color);
 }
 
-#container {
-  display: flex;
-}
-
 a {
   color: var(--dark-color);
   text-decoration: none;
