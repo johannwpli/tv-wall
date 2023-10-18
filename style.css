@@ -17,20 +17,26 @@
 }
 
 body {
-  overflow: hidden;
+  /* overflow: hidden; */
   margin: 0;
   font-size: var(--font-size);
   color: var(--bright-color);
   background: var(--dark-color);
 }
 
+#container {
+  display: flex;
+}
+
 #tvWall {
-  width: 100%;
+  display: flex;
+  width: 80%;
   height: 100%;
 }
 
 #tlkio {
-  width: 0%;
+  display: flex;
+  width: 20%;
   height: 100%;
 }
 
