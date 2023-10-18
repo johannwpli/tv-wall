@@ -28,14 +28,6 @@ body {
   display: flex;
 }
 
-#tvWall {
-  
-}
-
-#tlkio {
-
-}
-
 a {
   color: var(--dark-color);
   text-decoration: none;
