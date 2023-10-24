@@ -26,7 +26,7 @@ Johann Li
 
 Structurizr DSL
 ---
-Structurizr DSL<sup>[2]</sup> - a way to create Structurizr software architecture models based upon the C4 model using a textual domain specific language (DSL).  
+Structurizr DSL - a way to create Structurizr software architecture models based upon the C4 model using a textual domain specific language (DSL)<sup>[2]</sup>.  
 ![Structurizr System Context Image](image/structurizr-SystemContext-001.png "Structurizr System Context")  
 ![Structurizr System Context Key Image](image/structurizr-SystemContext-001-key.png "Structurizr System Context Key")  
 ![Structurizr Container Image](image/structurizr-Container-001.png "Structurizr Container")  
@@ -58,7 +58,7 @@ Instructions
 References
 ---
 1. Redirects to https://johannwpli.github.io/tv-wall/.  
-2. See more at https://structurizr.org/ 
+2. Read more at https://structurizr.org/ and https://c4model.com/.  
 3. Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
 4. The default number of videos on mobiles is 3, on tablets is 6, on laptop is 9, and on desktops is 12.  
 5. Place YouTube video IDs separated by a comma.  
