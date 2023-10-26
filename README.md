@@ -2,7 +2,7 @@ Contents
 ---
 1	[TLDR](#tldr)  
 2	[Author](#author)  
-3	[Structurizr DSL](#structurizr-dsl)  
+3	[Structurizr Diagram](#structurizr-diagram)  
 4	[Origin](#origin)  
 5	[Instructions](#instructions)  
 6	[References](#references)  
@@ -10,7 +10,7 @@ Contents
 
 TLDR
 ---
-TV Wall http://tvwall.cc<sup>[1]</sup>
+TVWall.cc http://tvwall.cc<sup>[1]</sup> - an elegant means to pick your fave YouTube videos
 
 
 Author
@@ -24,12 +24,20 @@ Johann Li
 `WEBSITE` https://johann.li/
 
 
-Structurizr DSL
+Structurizr Diagram
 ---
-Structurizr DSL - a way to create Structurizr software architecture models based upon the C4 model using a textual domain specific language (DSL)<sup>[2]</sup>.  
+Structurizr builds upon "diagrams as code", allowing you to create multiple software architecture diagrams from a single model<sup>[2]</sup>.  
+  
+Structurizr System Context  
 ![Structurizr System Context Image](image/structurizr-SystemContext-001.png "Structurizr System Context")  
+  
+Structurizr System Context Key  
 ![Structurizr System Context Key Image](image/structurizr-SystemContext-001-key.png "Structurizr System Context Key")  
+  
+Structurizr Container  
 ![Structurizr Container Image](image/structurizr-Container-001.png "Structurizr Container")  
+  
+Structurizr Container Key  
 ![Structurizr Container Key Image](image/structurizr-Container-001-key.png "Structurizr Container Key")  
 
 
