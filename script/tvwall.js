@@ -6,7 +6,7 @@ let
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
   intervalSetTvSizeDelay = 1500, // 1.5 secs
-  tvNumberFlag,
+  tvNumberFlag = 0, // default,
   maxThtrNumber
 
 const
@@ -80,8 +80,22 @@ maxThtrNumber
 
     // console.log(selectThtrObj)
 
+    // to convert numbers larger than 9 to alphabets, e.g. 10 -> a, 11 -> b...
+    
+    for (let [k, v] of Object.entries(selectThtrObj)) {
+      k = k * 1 // convert to number
+
+      if (k >= 10) {
+        delete selectThtrObj[k]
+        selectThtrObj[k.toString(36)] = v
+      }
+    }
+
+    // console.log(selectThtrObj)
+
     for (const k in selectThtrObj) {
-      // console.log(k)
+      // console.log(typeof(k))
+
       (k === '0')
         ? selectThtr += `<option name="thtr" value="${k}">${selectThtrObj[k]}</option>`
         : selectThtr += `<option name="thtr" value="${k}">${k}</option>`
@@ -142,23 +156,26 @@ maxThtrNumber
     if (thtrSelect.value === '0') {
       setIntervalSetTvSize(true)
       setTvSize()
+      tvNumberFlag = 0
       
       for (let i = 1; i <= tvRowNumber; i++)
           document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
       setIntervalSetTvSize(false)
-      tvNumberFlag = thtrSelect.value
+      tvNumberFlag = parseInt(thtrSelect.value, 36)
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
 
       for (let i = 1; i <= _temp; i++) {
-        // console.log(_temp)
-        // console.log(i)
-        let e = document.getElementById(`tv${i}`)
+        // console.log(_temp) // number
+
+        let e = document.getElementById(`tv${i.toString(36)}`)
+        // console.log(e)
+        // console.log(thtrSelect.value)
 
         if (e) {
-          if (i !== thtrSelect.value * 1) {
+          if (i !== parseInt(thtrSelect.value, 36)) {
             e.setAttribute('width', '0')
             e.setAttribute('height', '0')
           }
@@ -173,7 +190,8 @@ maxThtrNumber
       // console.log({tvRowNumber}) // 4
       // console.log({tvColNumber}) // 3
   
-      let rowNumber  = Math.floor((thtrSelect.value - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+      // parseInt((12).toString(36), 36) // 12 -> c -> 12
+      let rowNumber  = Math.floor((parseInt(thtrSelect.value, 36) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
   
       for (let i = 1; i <= tvRowNumber; i++) {
@@ -181,6 +199,9 @@ maxThtrNumber
         i !== rowNumber ? e.classList.add('hide') : e.classList.remove('hide')
       }
     }
+
+    // console.log({tvNumberFlag})
+    // console.log(thtrSelect.value)
   },
 
   listenThtrSelect = () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
@@ -248,7 +269,7 @@ maxThtrNumber
   /* get css property pixel value */
 
   getCssPx = (e,p) =>
-    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // toNumber
+    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
 
   /* get width and height of  tv and screen */
 
@@ -333,7 +354,8 @@ maxThtrNumber
 
     document.querySelectorAll('iframe').forEach(
       (e,i) => {
-        let _temp = i + 1
+        let _temp = (i + 1).toString(36) // to convert numbers to alphabets
+
         e.setAttribute('id', `tv${_temp}`)
         e.setAttribute('width', tvWidth)
         e.setAttribute('height', tvHeight)
@@ -429,10 +451,11 @@ maxThtrNumber
     console.group('Now Playing (' + tvRatio + ')')
 
     const setTvHtml = () => {
-      let tvNumber = 1
+      // let tvNumber = 1
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
-          let _temp = i + 1
+          let _temp = (i + 1).toString(36) // to convert numbers to alphabets
+
           // console.log(_temp)
           // console.log(e)
           e.removeAttribute('alt')
@@ -468,7 +491,7 @@ maxThtrNumber
 
             // console.log({tvSrc})
 
-            tvHtml = `<div class='tvNumber'>${tvNumber++}</div>
+            tvHtml = `<div class='tvNumber'>${_temp}</div>
               <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
             e.insertAdjacentHTML('beforeEnd', tvHtml)
