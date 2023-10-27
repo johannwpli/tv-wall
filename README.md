@@ -60,7 +60,7 @@ Instructions
 
 `THEATER MODE` Use the drop-down menu<sup>[6]</sup> to watch the video in theater mode., e.g., select 1 to watch the top left video.
 
-`HOTKEY` Press the keyboard to trigger the hotkey to the unhidden menu and theater mode., e.g., press 0 to activate the 'all' of theater mode.
+`HOTKEY` Press the keyboard to trigger the hotkey to the theater mode., e.g., press 0 to activate the 'all' of theater mode.
 
 
 References

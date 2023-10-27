@@ -228,13 +228,13 @@ maxThtrNumber
 
       /* check if menu prefixes with key pressed, https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix */
 
-      for (let menu of radioMenuShow) {
-        if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) {
-          // console.log(menu)
-          document.querySelector('div.menu').querySelectorAll(`input[value="${menu}"]`)[0].checked = 'checked'
-          clickMenuRadio()
-        }
-      }
+      // for (let menu of radioMenuShow) {
+      //   if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) {
+      //     // console.log(menu)
+      //     document.querySelector('div.menu').querySelectorAll(`input[value="${menu}"]`)[0].checked = 'checked'
+      //     clickMenuRadio()
+      //   }
+      // }
     }
   },
 
