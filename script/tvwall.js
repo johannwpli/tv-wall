@@ -11,6 +11,14 @@ let
 
 const
 
+  numberToAlphanumeric = (e) => {
+    return e.toString(36)
+  },
+
+  alphanumericToNumber = (e) => {
+    return parseInt(e, 36)
+  },
+
   removeAllFirstChild = (e) => {
     while (e.firstChild)
       e.firstChild.remove()
@@ -80,14 +88,12 @@ maxThtrNumber
 
     // console.log(selectThtrObj)
 
-    // to convert numbers larger than 9 to alphabets, e.g. 10 -> a, 11 -> b...
-    
     for (let [k, v] of Object.entries(selectThtrObj)) {
       k = k * 1 // convert to number
 
       if (k >= 10) {
         delete selectThtrObj[k]
-        selectThtrObj[k.toString(36)] = v
+        selectThtrObj[numberToAlphanumeric(k)] = v
       }
     }
 
@@ -163,19 +169,19 @@ maxThtrNumber
     }
     else {
       setIntervalSetTvSize(false)
-      tvNumberFlag = parseInt(thtrSelect.value, 36)
+      tvNumberFlag = alphanumericToNumber(thtrSelect.value)
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
 
       for (let i = 1; i <= _temp; i++) {
         // console.log(_temp) // number
 
-        let e = document.getElementById(`tv${i.toString(36)}`)
+        let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
         // console.log(e)
         // console.log(thtrSelect.value)
 
         if (e) {
-          if (i !== parseInt(thtrSelect.value, 36)) {
+          if (i !== alphanumericToNumber(thtrSelect.value)) {
             e.setAttribute('width', '0')
             e.setAttribute('height', '0')
           }
@@ -190,8 +196,7 @@ maxThtrNumber
       // console.log({tvRowNumber}) // 4
       // console.log({tvColNumber}) // 3
   
-      // parseInt((12).toString(36), 36) // 12 -> c -> 12
-      let rowNumber  = Math.floor((parseInt(thtrSelect.value, 36) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+      let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
   
       for (let i = 1; i <= tvRowNumber; i++) {
@@ -354,7 +359,7 @@ maxThtrNumber
 
     document.querySelectorAll('iframe').forEach(
       (e,i) => {
-        let _temp = (i + 1).toString(36) // to convert numbers to alphabets
+        let _temp = numberToAlphanumeric(i + 1)
 
         e.setAttribute('id', `tv${_temp}`)
         e.setAttribute('width', tvWidth)
@@ -454,7 +459,7 @@ maxThtrNumber
       // let tvNumber = 1
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
-          let _temp = (i + 1).toString(36) // to convert numbers to alphabets
+          let _temp = numberToAlphanumeric(i + 1)
 
           // console.log(_temp)
           // console.log(e)
