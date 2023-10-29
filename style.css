@@ -27,7 +27,7 @@ body {
 
 #tvWall {
   width: calc(100vw - 300px);
-  height: calc(100vh);
+  height: 100vh;
 }
 
 a {
