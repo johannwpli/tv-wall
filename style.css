@@ -17,11 +17,17 @@
 }
 
 body {
+  display: flex;
   overflow: hidden;
   margin: 0;
   font-size: var(--font-size);
   color: var(--bright-color);
   background: var(--dark-color);
+}
+
+#tvWall {
+  width: calc(100vw - 300px);
+  height: calc(100vh);
 }
 
 a {

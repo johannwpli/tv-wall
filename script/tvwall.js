@@ -2,11 +2,11 @@
 
 let
 
-  tvwallPercent = 1, // default
+  tvwallPercent = 1, // fail-safe
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
-  intervalSetTvSizeDelay = 1500, // 1.5 secs
-  tvNumberFlag = 0, // default,
+  intervalSetTvSizeDelay = 1500, // i.e. 1.5 secs
+  tvNumberFlag = 0, // default
   maxThtrNumber
 
 const
@@ -357,7 +357,7 @@ maxThtrNumber
   setTvSize = () => {
     getWidthAndHeight()
 
-    document.querySelectorAll('iframe').forEach(
+    document.querySelectorAll('#tvWall iframe').forEach(
       (e,i) => {
         let _temp = numberToAlphanumeric(i + 1)
 
