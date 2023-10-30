@@ -26,8 +26,22 @@ body {
 }
 
 #tvWall {
-  width: calc(100vw - 300px);
+  width: 100vw;
   height: 100vh;
+}
+
+#ctRoom {
+  display: none;
+}
+
+@media (min-width: 1920px) {
+  #tvWall {
+    width: calc(100vw - 300px);
+  }
+
+  #ctRoom {
+    display: block;
+  }
 }
 
 a {
@@ -248,7 +262,6 @@ option[value='hh'] {
 }
 
 @media (max-width: 1024px) {
-
   .cell:not(.title) label:first-of-type,
   .lang select,
   .laptop,
