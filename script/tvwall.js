@@ -516,7 +516,7 @@ maxThtrNumber
 
     if (status) {
       if (!intervalSetTvSizeFlag) {
-        intervalSetTvSize = setInterval(setTvSize, intervalSetTvSizeDelay) // to fix iframe bug returning from fullscreen
+        intervalSetTvSize = setInterval(setTvSize, intervalSetTvSizeDelay) // to fix iframe native bug returning from fullscreen
         intervalSetTvSizeFlag = true
       }
     }
