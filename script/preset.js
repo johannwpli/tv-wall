@@ -73,7 +73,7 @@ const
   siteAuthor = 'Johann Li',
   siteUrl = 'https://johannwpli.github.io/tv-wall/',
   siteTitle = document.title,
-  siteName = '⚡ TV Wall',
+  siteName = '⚡ TVWall',
   githubUrl = 'https://github.com/johannwpli/tv-wall',
 
   urlSearchParams = new URLSearchParams(location.search),
@@ -89,7 +89,7 @@ const
   headPartArr = ['title', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
-  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>&nbsp;<a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy;">&copy;</a></label>`,
+  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label>`,
 
   widthTablet = 480,
   widthLaptop = 800,
