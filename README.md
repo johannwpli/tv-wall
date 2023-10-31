@@ -10,7 +10,7 @@ Contents
 
 TLDR
 ---
-TVWall.cc http://tvwall.cc<sup>[1]</sup> - an elegant means to pick your fave YouTube videos
+TVWall.cc http://tvwall.cc<sup>[1]</sup> - discovering your favorite YouTube videos with ease
 
 
 Author
