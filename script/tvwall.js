@@ -30,7 +30,7 @@ const
     removeAllFirstChild(docCellThtr)
     
     selectThtr = ''
-    selectThtrObj[selectThtrDefault] = 'all'
+    selectThtrObj[selectThtrDefault] = '0'
 
     docCellThtr.insertAdjacentHTML('afterBegin', '<select id="thtr"></select>')
     docCellThtr.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
@@ -41,8 +41,8 @@ maxThtrNumber
     // console.log({tvSrcArrCached})
     // console.log(selectThtrObj)
 
-    for (const member in selectThtrObj)
-      if (member !== '0') delete selectThtrObj[member]
+    for (const k in selectThtrObj)
+      if (k !== '0') delete selectThtrObj[k]
 
     // console.log(selectThtrObj)
 
@@ -100,11 +100,11 @@ maxThtrNumber
     // console.log(selectThtrObj)
 
     for (const k in selectThtrObj) {
-      // console.log(typeof(k))
-
       (k === '0')
         ? selectThtr += `<option name="thtr" value="${k}">${selectThtrObj[k]}</option>`
         : selectThtr += `<option name="thtr" value="${k}">${k}</option>`
+
+      // console.log(typeof(k))
     }
 
     document.querySelector('.cell.thtr select').insertAdjacentHTML('beforeEnd', selectThtr)
