@@ -153,6 +153,9 @@ maxThtrNumber
     if (this.value === 'On') {
       // console.log(ctRoom)
 
+      chatOn.classList.add('hide')
+      chatOff.classList.remove('hide')
+    
       tvWall.insertAdjacentHTML('afterEnd', `${chatroomHtml}`)
       tvWall.classList.add('ctRoomed')
 
@@ -161,6 +164,9 @@ maxThtrNumber
       resizeTvSize()
     }
     else {
+      chatOn.classList.remove('hide')
+      chatOff.classList.add('hide')
+
       if (ctRoom) ctRoom.remove()
 
       tvWall.classList.remove('ctRoomed')

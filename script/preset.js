@@ -27,6 +27,9 @@ let
 
   browserLang = navigator.language || navigator.userLanguage,
 
+  chatOn,
+  chatOff,
+
   radioMenuDefault =
     browserLang === 'zh-TW'
       ? 'Taiwan'
@@ -100,6 +103,8 @@ const
   widthTablet = 480,
   widthLaptop = 800,
   widthDesktop = 1024,
+
+  classHide = 'class="hide"',
 
   radioChatShow = ['On', 'Off'],
   radioChatDefault = 'Off',
@@ -175,13 +180,18 @@ const
     // console.log({radioChatShow})
 
     for (const i of radioChatShow)
-      radioChat += `<label><input type="radio" name="chat" value="${i}" />${i}</label>`
+      radioChat += `<label id="${i}"><input type="radio" name="chat" value="${i}" />${i}</label>`
 
     // console.log({radioChat})
 
     docCellChat.insertAdjacentHTML('beforeEnd', radioChat)
 
-    document.querySelector(`input[value='${radioChatDefault}']`).setAttribute('checked', 'checked')
+    chatOn = document.getElementById('On')
+    chatOff = document.getElementById('Off')
+
+    chatOff.classList.add('hide')
+
+    // document.querySelector(`input[value='${radioChatDefault}']`).setAttribute('checked', 'checked')
 
     chatRadio = document.tvWall.chat
   },
