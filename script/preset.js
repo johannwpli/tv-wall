@@ -1,5 +1,7 @@
 /* Author: Johann Li, GitHub: https://github.com/johannwpli/ */
 
+"use strict"
+
 let
 
   widthDiff,
@@ -10,28 +12,27 @@ let
   screenHeight,
 
   docCellTitle,
-  docCellGrid,
+  docCellChat,
   docCellMenu,
-  docCellThtr,
+  docCellGrid,
   docCellLang,
+  docCellThtr,
 
   newUrl,
-  radioGrid = '',
+  radioChat = '',
   radioMenu = '',
-  selectThtr = '',
+  radioGrid = '',
   selectLang = '',
+  selectThtr = '',
 
   browserLang = navigator.language || navigator.userLanguage,
-
-  radioGridDefault,
 
   radioMenuDefault =
     browserLang === 'zh-TW'
       ? 'Taiwan'
       : 'World',
 
-  selectThtrObj = {},
-  selectThtrDefault = 0,
+  radioGridDefault,
 
   selectLangDefault = 
     browserLang === 'zh-TW' || browserLang === 'zh-HK'
@@ -40,11 +41,16 @@ let
         ? 'jp'
         : 'en',
 
+  selectThtrObj = {},
+  selectThtrDefault = 0,
+
+  chatChecked,
   menuChecked,
   gridChecked,
   thtrSelect,
   langSelect,
 
+  chatRadio,
   gridRadio,
   menuRadio,
 
@@ -86,7 +92,7 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'menu', 'grid', 'lang', 'thtr'],
+  headPartArr = ['title', 'chat', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label>`,
@@ -95,27 +101,37 @@ const
   widthLaptop = 800,
   widthDesktop = 1024,
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 'all'], // 20, 24, 25,
-  radioGridTablet = 4, // shows from on tablet
-  radioGridLaptop = 8, // shows from on laptop
-  radioGridDesktop = 12, // shows from on desktop
+  radioChatShow = ['On', 'Off'],
+  radioChatDefault = 'Off',
+
+  radioMenuShow = ['World', 'Taiwan'],
+  radioMenuMy = 'My',
+
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 'all'], // 16, 20, 24, 25, ...
+  radioGridTablet = 4, // shows from on tablet, i.e. 4, 6
+  radioGridLaptop = 8, // shows from on laptop, i.e. 8, 9
+  radioGridDesktop = 12, // shows from on desktop, i.e. 12, 15
+  // radioGridLscreen = 16, // shows from on lscreen, i.e. 16, 20
 
   radioGridDefaultMobile = '3', // default grid on mobile
   radioGridDefaultTablet = '6', // default grid on tablet
   radioGridDefaultLaptop = '9', // default grid on laptop
   radioGridDefaultDesktop = '12', // default grid on desktop
 
-  radioMenuShow = ['World', 'Taiwan'],
-  radioMenuMy = 'My',
-
-  selectLangObj = { 'en': 'English', 'zh': '繁體中文', 'jp': '日本語', 'hh': 'hunter'}, // ハンター語
+  selectLangObj = {
+    'en': 'English',
+    'zh': '繁體中文',
+    'jp': '日本語',
+    'hh': 'hunter' // ハンター語
+  },
 
   tvBorder = 0,
   tvAllow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture',
   tvAllowfullscreen = 'allowfullscreen',
   tvSrcPrefix = 'https://www.youtube-nocookie.com/embed/',
 
-  /* Get the closest number out of an array, https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
+  /* Get the closest number out of an array,
+  https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
 
   getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
@@ -150,6 +166,24 @@ const
     /* set gradient */
 
     docCellTitle.classList.add('grad')
+  },
+
+  setChat = () => {
+    docCellChat = document.querySelector('.cell.chat')
+    docCellChat.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+
+    // console.log({radioChatShow})
+
+    for (const i of radioChatShow)
+      radioChat += `<label><input type="radio" name="chat" value="${i}" />${i}</label>`
+
+    // console.log({radioChat})
+
+    docCellChat.insertAdjacentHTML('beforeEnd', radioChat)
+
+    document.querySelector(`input[value='${radioChatDefault}']`).setAttribute('checked', 'checked')
+
+    chatRadio = document.tvWall.chat
   },
 
   setMenu = () => {
@@ -206,13 +240,18 @@ const
 
     for (const i of radioGridArr) {
       const j =
-        i >= radioGridDesktop
-            ? 'desktop'
-            : i >= radioGridLaptop
-              ? 'laptop'
-              : i >= radioGridTablet
-                ? 'tablet'
-                : 'mobile'
+        // i >= radioGridLscreen
+        // ? 'lscreen'
+        // :
+          i >= radioGridDesktop
+          ? 'desktop'
+          :
+            i >= radioGridLaptop
+            ? 'laptop'
+            :
+              i >= radioGridTablet
+              ? 'tablet'
+              : 'mobile'
 
       radioGrid += `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
     }
@@ -297,6 +336,7 @@ const
 
   preset = () => {
     setHtml()
+    setChat()
     setMenu()
     setGrid() // set after setMenu()
     setLang()

@@ -30,18 +30,12 @@ body {
   height: 100vh;
 }
 
-#ctRoom {
-  display: none;
+#tvWall.ctRoomed {
+  width: calc(100vw - 300px);
 }
 
-@media (min-width: 1366px) {
-  #tvWall {
-    width: calc(100vw - 300px);
-  }
-
-  #ctRoom {
-    display: block;
-  }
+#ctRoom {
+  width: 300px;
 }
 
 a {
@@ -155,6 +149,7 @@ option[value='hh'] {
   transition: all .05s ease-in-out;
 }
 
+.chat label:first-of-type,
 .menu label:first-of-type,
 .grid label:first-of-type,
 .lang label:first-of-type,
@@ -166,6 +161,27 @@ option[value='hh'] {
   background: var(--inter-color);
   font-size: .8em;
 }
+
+/* Chat */
+
+.chat label:first-of-type.en::before {
+  content: 'chat';
+}
+
+.chat label:first-of-type.zh::before {
+  content: '聊天';
+}
+
+.chat label:first-of-type.jp::before {
+  content: 'チャット';
+}
+
+.chat label:first-of-type.hh::before {
+  content: 'chat';
+  font-family: hunterxhunter;
+}
+
+/* Menu */
 
 .menu label:first-of-type.en::before {
   content: 'menu';
@@ -184,6 +200,8 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
+/* Grid */
+
 .grid label:first-of-type.en::before {
   content: 'grid';
 }
@@ -200,6 +218,8 @@ option[value='hh'] {
   content: 'grid';
   font-family: hunterxhunter;
 }
+
+/* Lang */
 
 .lang label:first-of-type.en::before {
   content: 'lang';
@@ -218,6 +238,8 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
+/* Thtr */
+
 .thtr label:first-of-type.en::before {
   content: 'thtr';
 }
@@ -235,12 +257,14 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
+.chat label:not(:first-of-type),
 .menu label:not(:first-of-type),
 .grid label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 9px;
 }
 
+.chat label:not(:first-of-type):hover,
 .menu label:not(:first-of-type):hover,
 .grid label:not(:first-of-type):hover {
   background: var(--inter-color);
@@ -259,7 +283,6 @@ option[value='hh'] {
 }
 
 @media (max-width: 1024px) {
-  .cell:not(.title) label:first-of-type,
   .lang select,
   .laptop,
   .desktop {
@@ -267,14 +290,29 @@ option[value='hh'] {
   }
 }
 
+@media (max-width: 1200px) {
+  .cell:not(.title) label:first-of-type,
+  .chat,
+  .lscreen {
+    display: none;
+  }
+}
+
 /*
 
-What Breakpoints Should You Use?, https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
+What Breakpoints Should You Use?,
+https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
 
-320~480px: Mobile devices -> mobile
-481~768px: iPads, tablets -> tablet
-769~1024px: Small screens, laptops -> laptop
-1025~1200px: Large screens, desktops -> desktop
-1201px~: Extra large screens, TV
+Pixel     | Device                  | Class
+----------+-------------------------+--------
+320-480   | Mobile devices          | mobile
+----------+-------------------------+--------
+481-768   | iPads, tablets          | tablet
+----------+-------------------------+--------
+769-1024  | Small screens, laptops  | laptop
+----------+-------------------------+--------
+1025-1200 | Large screens, desktops | desktop
+----------+-------------------------+--------
+1201-     | Extra large screens, TV | lscreen
 
 */

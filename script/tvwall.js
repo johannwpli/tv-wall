@@ -1,11 +1,31 @@
 /* Author: Johann Li, GitHub: https://github.com/johannwpli/ */
 
+"use strict"
+
 let
 
   tvwallPercent = 1, // fail-safe
+
+  ctRoom,
+  chatroomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
+
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
   intervalSetTvSizeDelay = 1500, // i.e. 1.5 secs
+
+  tv,
+  iframe,
+  bodyBorderWidth,
+  headBorderWidth,
+  headHeight,
+  iframeBorderWidth,
+
+  tvNowWidth,
+  tvNowHeight,
+  iframeNowWidth,
+  iframeNowHeight,
+  iframeGapHeight,
+
   tvNumberFlag = 0, // default
   maxThtrNumber
 
@@ -112,6 +132,8 @@ maxThtrNumber
     document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
   },
 
+  listenThtrSelect = () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
+
   setLangSelect = (value) => {
     langClasslistAdd(value)
 
@@ -121,16 +143,30 @@ maxThtrNumber
       langClasslistRemove(i)
   },
 
-  /* set grid value by grid radio */
+  /* set chat value by chat radio */
 
-  clickGridRadio = function() {
-    // if (gridChecked) console.log(gridChecked.value)
-    if (this !== gridChecked) gridChecked = this
+  changeChatRadio = function() {
+    // if (chatChecked) console.log(chatChecked.value)
+    if (this !== chatChecked) chatChecked = this
     // console.log(this.value)
 
-    setTv()
-    setUrl()
-    setThtr()
+    if (this.value === 'On') {
+      // console.log(ctRoom)
+
+      tvWall.insertAdjacentHTML('afterEnd', `${chatroomHtml}`)
+      tvWall.classList.add('ctRoomed')
+
+      ctRoom = document.querySelector('#ctRoom')
+
+      resizeTvSize()
+    }
+    else {
+      if (ctRoom) ctRoom.remove()
+
+      tvWall.classList.remove('ctRoomed')
+
+      resizeTvSize()
+    }
   },
 
   /* set menu value by menu radio */
@@ -145,12 +181,27 @@ maxThtrNumber
     setThtr()
   },
 
-  listenGridMenuRadio = () => {
-    for (const i of gridRadio)
-      i.addEventListener('click', clickGridRadio)
+  /* set grid value by grid radio */
+
+  clickGridRadio = function() {
+    // if (gridChecked) console.log(gridChecked.value)
+    if (this !== gridChecked) gridChecked = this
+    // console.log(this.value)
+
+    setTv()
+    setUrl()
+    setThtr()
+  },
+
+  listenChatMenuGridRadio = () => {
+    for (const i of chatRadio)
+      i.addEventListener('change', changeChatRadio)
 
     for (const j of menuRadio)
       j.addEventListener('click', clickMenuRadio)
+
+    for (const k of gridRadio)
+      k.addEventListener('click', clickGridRadio)
   },
 
   clickThtrSelect = (event) => {
@@ -209,8 +260,6 @@ maxThtrNumber
     // console.log(thtrSelect.value)
   },
 
-  listenThtrSelect = () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
-
   langClasslistAdd = (value) => {
     for (let i = 1; i < headPartArr.length; i++)
       document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.add(value)
@@ -236,7 +285,8 @@ maxThtrNumber
   listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
   listenKeyPress = () => {
-    /* capture keyboard input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+    /* capture keyboard input,
+    https://codepen.io/DBoy_Fresh/pen/RgjYKG */
 
     document.onkeydown = (e) => {
       let keyPress = e.key
@@ -252,7 +302,8 @@ maxThtrNumber
         clickThtrSelect()
       }
 
-      /* check if menu prefixes with key pressed, https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix */
+      /* check if menu prefixes with key pressed,
+      https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix */
 
       // for (let menu of radioMenuShow) {
       //   if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) {
@@ -274,7 +325,7 @@ maxThtrNumber
   /* get css property pixel value */
 
   getCssPx = (e,p) =>
-    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
+    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1, // convert to number
 
   /* get width and height of  tv and screen */
 
@@ -352,22 +403,6 @@ maxThtrNumber
     // console.log({screenHeight})
   },
 
-  /* set tv size by window size */
-
-  setTvSize = () => {
-    getWidthAndHeight()
-
-    document.querySelectorAll('#tvWall iframe').forEach(
-      (e,i) => {
-        let _temp = numberToAlphanumeric(i + 1)
-
-        e.setAttribute('id', `tv${_temp}`)
-        e.setAttribute('width', tvWidth)
-        e.setAttribute('height', tvHeight)
-      }
-    )
-  },
-
   /* set grid layout by grid value */
 
   setTvGrid = () => {
@@ -411,7 +446,8 @@ maxThtrNumber
     // console.log({tvRowNumber})
     // console.log({tvColNumber})
 
-    /* innerHTML vs removeChild vs remove, https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+    /* innerHTML vs removeChild vs remove,
+    https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
     removeAllFirstChild(body)
 
@@ -428,7 +464,8 @@ maxThtrNumber
     )
   },
 
-  /* shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/ */
+  /* shuffle array with Fisher-Yates algo,
+  https://shubo.io/javascript-random-shuffle/ */
 
   shuffle = (arr) => {
     for (let i = arr.length - 1; i > 0; i--) {
@@ -511,6 +548,22 @@ maxThtrNumber
     console.groupEnd()
   },
 
+  /* set tv size by window size */
+
+  setTvSize = () => {
+    getWidthAndHeight()
+
+    document.querySelectorAll('#tvWall iframe').forEach(
+      (e,i) => {
+        let _temp = numberToAlphanumeric(i + 1)
+
+        e.setAttribute('id', `tv${_temp}`)
+        e.setAttribute('width', tvWidth)
+        e.setAttribute('height', tvHeight)
+      }
+    )
+  },
+
   setIntervalSetTvSize = (status) => {
     // console.log({intervalSetTvSizeFlag})
 
@@ -536,7 +589,7 @@ maxThtrNumber
   },
 
   listenAll = () => {
-    listenGridMenuRadio()
+    listenChatMenuGridRadio()
     listenLangSelect()
     listenKeyPress()
     listenWindowResize()
