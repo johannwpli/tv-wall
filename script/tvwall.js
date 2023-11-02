@@ -249,9 +249,9 @@ maxThtrNumber
         }
       }
 
-      // console.log({tvAllNumber}) // 12
-      // console.log({tvRowNumber}) // 4
-      // console.log({tvColNumber}) // 3
+      // console.log({tvAllNumber}) // e.g. 12
+      // console.log({tvRowNumber}) // e.g. 4
+      // console.log({tvColNumber}) // e.g. 3
   
       let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
       // console.log({rowNumber})
@@ -268,7 +268,6 @@ maxThtrNumber
 
   langClasslistAdd = (value) => {
     for (let i = 1; i < headPartArr.length; i++) {
-      // document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.add(value)
       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
         (e) => e.classList.add(value)
       )
@@ -277,10 +276,10 @@ maxThtrNumber
 
   langClasslistRemove = (value) => {
     for (let i = 1; i < headPartArr.length; i++) {
-      // document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.remove(value)
       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
         (e) => e.classList.remove(value)
-      )    }
+      )
+    }
   },
 
   clickLangSelect = (e) => {
@@ -389,10 +388,8 @@ maxThtrNumber
     // console.log({iframeGapWidth})
     // console.log({iframeGapHeight}) // dynamic
 
-    // console.log(getComputedStyle(tvWall).getPropertyValue('width').replace('px', ''))
-    // console.log(window.innerWidth)
-
     tvwallPercent = getComputedStyle(tvWall).getPropertyValue('width').replace('px', '') / window.innerWidth
+    // console.log(window.innerWidth)
     // console.log({tvwallPercent})
 
     docWidth = (window.innerWidth - widthDiff) * tvwallPercent
@@ -403,7 +400,7 @@ maxThtrNumber
     // console.log({docWidth})
     // console.log({docHeight})
 
-    tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // cause wrong width
+    tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // causes wrong width
     tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
 
     // console.log({tvWidth})
@@ -506,7 +503,6 @@ maxThtrNumber
     console.group('Now Playing (' + tvRatio + ')')
 
     const setTvHtml = () => {
-      // let tvNumber = 1
       document.querySelectorAll('#body .tv').forEach(
         (e,i) => {
           let _temp = numberToAlphanumeric(i + 1)

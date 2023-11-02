@@ -188,7 +188,7 @@ option[value='hh'] {
   }
 
   .chat label[name="On"].zh::after {
-    content: '開';
+    content: '開啟';
   }
 
   .chat label[name="On"].jp::after {
@@ -207,7 +207,7 @@ option[value='hh'] {
   }
 
   .chat label[name="Off"].zh::after {
-    content: '關';
+    content: '關閉';
   }
 
   .chat label[name="Off"].jp::after {
