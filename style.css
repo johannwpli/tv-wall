@@ -165,19 +165,20 @@ option[value='hh'] {
 /* Chat */
 
 .chat label:first-of-type.en::before {
-  content: 'chat';
+  content: 'chatroom';
 }
 
 .chat label:first-of-type.zh::before {
-  content: '聊天';
+  content: '聊天室';
 }
 
 .chat label:first-of-type.jp::before {
-  content: 'チャット';
+  content: 'チャットルーム';
+  /* content: '雑談室'; */
 }
 
 .chat label:first-of-type.hh::before {
-  content: 'chat';
+  content: 'chatroom';
   font-family: hunterxhunter;
 }
 
