@@ -267,13 +267,20 @@ maxThtrNumber
   },
 
   langClasslistAdd = (value) => {
-    for (let i = 1; i < headPartArr.length; i++)
-      document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.add(value)
+    for (let i = 1; i < headPartArr.length; i++) {
+      // document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.add(value)
+      document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+        (e) => e.classList.add(value)
+      )
+    }
   },
 
   langClasslistRemove = (value) => {
-    for (let i = 1; i < headPartArr.length; i++)
-      document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.remove(value)
+    for (let i = 1; i < headPartArr.length; i++) {
+      // document.querySelector(`.${headPartArr[i]} label:first-of-type`).classList.remove(value)
+      document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+        (e) => e.classList.remove(value)
+      )    }
   },
 
   clickLangSelect = (e) => {

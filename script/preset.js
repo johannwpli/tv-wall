@@ -180,7 +180,7 @@ const
     // console.log({radioChatShow})
 
     for (const i of radioChatShow)
-      radioChat += `<label id="${i}"><input type="radio" name="chat" value="${i}" />${i}</label>`
+      radioChat += `<label id="${i}" name="${i}"><input type="radio" name="chat" value="${i}" /></label>`
 
     // console.log({radioChat})
 
@@ -209,7 +209,7 @@ const
 
     for (const i in tvSrcObj) {
       if (radioMenuShow.includes(i))
-        radioMenu += `<label><input type="radio" name="menu" value="${i}" />${i}</label>`
+        radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
     }
 
     if (urlIdParam) {

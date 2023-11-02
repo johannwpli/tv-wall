@@ -181,6 +181,44 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
+  /* On */
+
+  .chat label[name="On"].en::after {
+    content: 'On';
+  }
+
+  .chat label[name="On"].zh::after {
+    content: '開';
+  }
+
+  .chat label[name="On"].jp::after {
+    content: 'オン';
+  }
+
+  .chat label[name="On"].hh::after {
+    content: 'On';
+    font-family: hunterxhunter;
+  }
+
+  /* Off */
+
+  .chat label[name="Off"].en::after {
+    content: 'Off';
+  }
+
+  .chat label[name="Off"].zh::after {
+    content: '關';
+  }
+
+  .chat label[name="Off"].jp::after {
+    content: 'オフ';
+  }
+
+  .chat label[name="Off"].hh::after {
+    content: 'Off';
+    font-family: hunterxhunter;
+  }
+
 /* Menu */
 
 .menu label:first-of-type.en::before {
@@ -199,6 +237,46 @@ option[value='hh'] {
   content: 'menu';
   font-family: hunterxhunter;
 }
+
+  /* World */
+
+  .menu label[name="World"].en::after {
+    content: 'World';
+  }
+
+  .menu label[name="World"].zh::after {
+    content: '世界';
+  }
+
+  .menu label[name="World"].jp::after {
+    /* content: 'ワールド'; */
+    content: '世界';
+  }
+
+  .menu label[name="World"].hh::after {
+    content: 'World';
+    font-family: hunterxhunter;
+  }
+
+  /* Taiwan */
+
+  .menu label[name="Taiwan"].en::after {
+    content: 'Taiwan';
+  }
+
+  .menu label[name="Taiwan"].zh::after {
+    content: '臺灣';
+  }
+
+  .menu label[name="Taiwan"].jp::after {
+    /* content: 'タイワン'; */
+    content: '台湾';
+  }
+
+  .menu label[name="Taiwan"].hh::after {
+    content: 'Taiwan';
+    font-family: hunterxhunter;
+  }
 
 /* Grid */
 
