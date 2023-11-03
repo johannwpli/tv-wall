@@ -12,14 +12,14 @@ let
   screenHeight,
 
   docCellTitle,
-  docCellChat,
+  docCellCtrm,
   docCellMenu,
   docCellGrid,
   docCellLang,
   docCellThtr,
 
   newUrl,
-  radioChat = '',
+  radioCtrm = '',
   radioMenu = '',
   radioGrid = '',
   selectLang = '',
@@ -27,8 +27,8 @@ let
 
   browserLang = navigator.language || navigator.userLanguage,
 
-  chatOn,
-  chatOff,
+  ctrmOn,
+  ctrmOff,
 
   radioMenuDefault =
     browserLang === 'zh-TW'
@@ -47,13 +47,13 @@ let
   selectThtrObj = {},
   selectThtrDefault = 0,
 
-  chatChecked,
+  ctrmChecked,
   menuChecked,
   gridChecked,
   thtrSelect,
   langSelect,
 
-  chatRadio,
+  ctrmRadio,
   gridRadio,
   menuRadio,
 
@@ -95,7 +95,7 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'chat', 'menu', 'grid', 'lang', 'thtr'],
+  headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label>`,
@@ -106,8 +106,8 @@ const
 
   classHide = 'class="hide"',
 
-  radioChatShow = ['On', 'Off'],
-  radioChatDefault = 'Off',
+  radioCtrmShow = ['On', 'Off'],
+  radioCtrmDefault = 'Off',
 
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
@@ -173,27 +173,27 @@ const
     docCellTitle.classList.add('grad')
   },
 
-  setChat = () => {
-    docCellChat = document.querySelector('.cell.chat')
-    docCellChat.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  setCtrm = () => {
+    docCellCtrm = document.querySelector('.cell.ctrm')
+    docCellCtrm.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
 
-    // console.log({radioChatShow})
+    // console.log({radioCtrmShow})
 
-    for (const i of radioChatShow)
-      radioChat += `<label id="${i}" name="${i}"><input type="radio" name="chat" value="${i}" /></label>`
+    for (const i of radioCtrmShow)
+      radioCtrm += `<label id="${i}" name="${i}"><input type="radio" name="ctrm" value="${i}" /></label>`
 
-    // console.log({radioChat})
+    // console.log({radioCtrm})
 
-    docCellChat.insertAdjacentHTML('beforeEnd', radioChat)
+    docCellCtrm.insertAdjacentHTML('beforeEnd', radioCtrm)
 
-    chatOn = document.getElementById('On')
-    chatOff = document.getElementById('Off')
+    ctrmOn = document.getElementById('On')
+    ctrmOff = document.getElementById('Off')
 
-    chatOff.classList.add('hide')
+    ctrmOff.classList.add('hide')
 
-    // document.querySelector(`input[value='${radioChatDefault}']`).setAttribute('checked', 'checked')
+    // document.querySelector(`input[value='${radioCtrmDefault}']`).setAttribute('checked', 'checked')
 
-    chatRadio = document.tvWall.chat
+    ctrmRadio = document.tvWall.ctrm
   },
 
   setMenu = () => {
@@ -263,7 +263,10 @@ const
               ? 'tablet'
               : 'mobile'
 
-      radioGrid += `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
+      radioGrid +=
+        i !== 'all'
+        ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
+        : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
     }
 
     // console.log({urlGridParam})
@@ -346,7 +349,7 @@ const
 
   preset = () => {
     setHtml()
-    setChat()
+    setCtrm()
     setMenu()
     setGrid() // set after setMenu()
     setLang()

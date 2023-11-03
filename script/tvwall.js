@@ -7,7 +7,7 @@ let
   tvwallPercent = 1, // fail-safe
 
   ctRoom,
-  chatroomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
+  ctRoomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
 
   intervalSetTvSize,
   intervalSetTvSizeFlag = false,
@@ -143,20 +143,20 @@ maxThtrNumber
       langClasslistRemove(i)
   },
 
-  /* set chat value by chat radio */
+  /* set ctrm value by ctrm radio */
 
-  changeChatRadio = function() {
-    // if (chatChecked) console.log(chatChecked.value)
-    if (this !== chatChecked) chatChecked = this
+  changeCtrmRadio = function() {
+    // if (ctrmChecked) console.log(ctrmChecked.value)
+    if (this !== ctrmChecked) ctrmChecked = this
     // console.log(this.value)
 
     if (this.value === 'On') {
       // console.log(ctRoom)
 
-      chatOn.classList.add('hide')
-      chatOff.classList.remove('hide')
+      ctrmOn.classList.add('hide')
+      ctrmOff.classList.remove('hide')
     
-      tvWall.insertAdjacentHTML('afterEnd', `${chatroomHtml}`)
+      tvWall.insertAdjacentHTML('afterEnd', `${ctRoomHtml}`)
       tvWall.classList.add('ctRoomed')
 
       ctRoom = document.querySelector('#ctRoom')
@@ -164,8 +164,8 @@ maxThtrNumber
       resizeTvSize()
     }
     else {
-      chatOn.classList.remove('hide')
-      chatOff.classList.add('hide')
+      ctrmOn.classList.remove('hide')
+      ctrmOff.classList.add('hide')
 
       if (ctRoom) ctRoom.remove()
 
@@ -199,9 +199,9 @@ maxThtrNumber
     setThtr()
   },
 
-  listenChatMenuGridRadio = () => {
-    for (const i of chatRadio)
-      i.addEventListener('change', changeChatRadio)
+  listenCtrmMenuGridRadio = () => {
+    for (const i of ctrmRadio)
+      i.addEventListener('change', changeCtrmRadio)
 
     for (const j of menuRadio)
       j.addEventListener('click', clickMenuRadio)
@@ -598,7 +598,7 @@ maxThtrNumber
   },
 
   listenAll = () => {
-    listenChatMenuGridRadio()
+    listenCtrmMenuGridRadio()
     listenLangSelect()
     listenKeyPress()
     listenWindowResize()

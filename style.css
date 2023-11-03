@@ -149,7 +149,7 @@ option[value='hh'] {
   transition: all .05s ease-in-out;
 }
 
-.chat label:first-of-type,
+.ctrm label:first-of-type,
 .menu label:first-of-type,
 .grid label:first-of-type,
 .lang label:first-of-type,
@@ -162,60 +162,60 @@ option[value='hh'] {
   font-size: .8em;
 }
 
-/* Chat */
+/* Ctrm */
 
-.chat label:first-of-type.en::before {
+.ctrm label:first-of-type.en::before {
   content: 'chatroom';
 }
 
-.chat label:first-of-type.zh::before {
+.ctrm label:first-of-type.zh::before {
   content: '聊天室';
 }
 
-.chat label:first-of-type.jp::before {
-  content: 'チャットルーム';
-  /* content: '雑談室'; */
+.ctrm label:first-of-type.jp::before {
+  /* content: 'チャットルーム'; */
+  content: '雑談室';
 }
 
-.chat label:first-of-type.hh::before {
+.ctrm label:first-of-type.hh::before {
   content: 'chatroom';
   font-family: hunterxhunter;
 }
 
   /* On */
 
-  .chat label[name="On"].en::after {
+  .ctrm label[name="On"].en::after {
     content: 'On';
   }
 
-  .chat label[name="On"].zh::after {
+  .ctrm label[name="On"].zh::after {
     content: '開啟';
   }
 
-  .chat label[name="On"].jp::after {
+  .ctrm label[name="On"].jp::after {
     content: 'オン';
   }
 
-  .chat label[name="On"].hh::after {
+  .ctrm label[name="On"].hh::after {
     content: 'On';
     font-family: hunterxhunter;
   }
 
   /* Off */
 
-  .chat label[name="Off"].en::after {
+  .ctrm label[name="Off"].en::after {
     content: 'Off';
   }
 
-  .chat label[name="Off"].zh::after {
+  .ctrm label[name="Off"].zh::after {
     content: '關閉';
   }
 
-  .chat label[name="Off"].jp::after {
+  .ctrm label[name="Off"].jp::after {
     content: 'オフ';
   }
 
-  .chat label[name="Off"].hh::after {
+  .ctrm label[name="Off"].hh::after {
     content: 'Off';
     font-family: hunterxhunter;
   }
@@ -250,8 +250,8 @@ option[value='hh'] {
   }
 
   .menu label[name="World"].jp::after {
-    content: 'ワールド';
-    /* content: '世界'; */
+    /* content: 'ワールド'; */
+    content: '世界';
   }
 
   .menu label[name="World"].hh::after {
@@ -270,8 +270,8 @@ option[value='hh'] {
   }
 
   .menu label[name="Taiwan"].jp::after {
-    content: 'タイワン';
-    /* content: '台湾'; */
+    /* content: 'タイワン'; */
+    content: '台湾';
   }
 
   .menu label[name="Taiwan"].hh::after {
@@ -297,6 +297,26 @@ option[value='hh'] {
   content: 'grid';
   font-family: hunterxhunter;
 }
+
+  /* all */
+
+  .grid label[name="all"].en::after {
+    content: 'all';
+  }
+
+  .grid label[name="all"].zh::after {
+    content: '全部';
+  }
+
+  .grid label[name="all"].jp::after {
+    /* content: 'すべて'; */
+    content: '全部';
+  }
+
+  .grid label[name="all"].hh::after {
+    content: 'all';
+    font-family: hunterxhunter;
+  }
 
 /* Lang */
 
@@ -336,14 +356,14 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
-.chat label:not(:first-of-type),
+.ctrm label:not(:first-of-type),
 .menu label:not(:first-of-type),
 .grid label:not(:first-of-type) {
   border: 1px solid transparent;
   border-radius: 9px;
 }
 
-.chat label:not(:first-of-type):hover,
+.ctrm label:not(:first-of-type):hover,
 .menu label:not(:first-of-type):hover,
 .grid label:not(:first-of-type):hover {
   background: var(--inter-color);
@@ -371,7 +391,7 @@ option[value='hh'] {
 
 @media (max-width: 1200px) {
   .cell:not(.title) label:first-of-type,
-  .chat,
+  .ctrm,
   .lscreen {
     display: none;
   }
