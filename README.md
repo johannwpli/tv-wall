@@ -43,7 +43,7 @@ Structurizr Container Key
 
 Origin
 ---
-TV Wall inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>[3]</sup> (stops running), which live-streamed Hong Kong in 2019. Wars never end and are always nearby. Taiwanese fought against the government in 2014, while Thailand people and Belarusian in 2020, Myanmar and Iran in 2021, and China in 2022. Besides, Battles between countries such as Russia and Ukraine have continued and lasted. The conflict since 2014 even saw a significant escalation in February 2022 as Russia launched a full-scale invasion of Ukraine. However, Earth citizens who pursue democracy will continue to stand together and fight for freedom.
+The TV Wall project was inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>[3]</sup>, which live-streamed Hong Kong in 2019. Wars never really end, and they are always happening somewhere or the other. In 2014, people in Taiwan fought against their government, while in 2020, it was the people of Thailand and Belarus. In 2021, the struggle for democracy continued in Myanmar and Iran, and in 2022, it was China's turn. Additionally, battles between countries such as Russia and Ukraine have continued for a long time. However, citizens of the earth who value democracy will always stand together and fight for freedom.
 
 
 Instructions

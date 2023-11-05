@@ -100,9 +100,10 @@ const
   hour = (new Date).getHours(),
   cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label>`,
 
-  widthTablet = 480,
-  widthLaptop = 800,
-  widthDesktop = 1024,
+  widthTablet = 576,
+  widthLaptop = 768,
+  widthDesktop = 992,
+  widthLscreen = 1200,
 
   classHide = 'class="hide"',
 
@@ -112,16 +113,17 @@ const
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 'all'], // 16, 20, 24, 25, ...
-  radioGridTablet = 4, // shows from on tablet, i.e. 4, 6
-  radioGridLaptop = 8, // shows from on laptop, i.e. 8, 9
-  radioGridDesktop = 12, // shows from on desktop, i.e. 12, 15
-  // radioGridLscreen = 16, // shows from on lscreen, i.e. 16, 20
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 'all'], // 24, 25, ...
+  radioGridTabletShow = 4, // shows from on tablet, i.e. 4, 6
+  radioGridLaptopShow = 8, // shows from on laptop, i.e. 8, 9
+  radioGridDesktopShow = 12, // shows from on desktop, i.e. 12, 15
+  radioGridLscreenShow = 16, // shows from on lscreen, i.e. 16, 20
 
-  radioGridDefaultMobile = '3', // default grid on mobile
-  radioGridDefaultTablet = '6', // default grid on tablet
-  radioGridDefaultLaptop = '9', // default grid on laptop
-  radioGridDefaultDesktop = '12', // default grid on desktop
+  radioGridMobileDefault = '3', // default grid on mobile
+  radioGridTabletDefault = '6', // default grid on tablet
+  radioGridLaptopDefault = '9', // default grid on laptop
+  radioGridDesktopDefault = '12', // default grid on desktop
+  radioGridLscreenDefault = '15', // default grid on lscreen
 
   selectLangObj = {
     'en': 'English',
@@ -250,16 +252,16 @@ const
 
     for (const i of radioGridArr) {
       const j =
-        // i >= radioGridLscreen
+        // i >= radioGridLscreenShow
         // ? 'lscreen'
         // :
-          i >= radioGridDesktop
+          i >= radioGridDesktopShow
           ? 'desktop'
           :
-            i >= radioGridLaptop
+            i >= radioGridLaptopShow
             ? 'laptop'
             :
-              i >= radioGridTablet
+              i >= radioGridTabletShow
               ? 'tablet'
               : 'mobile'
 
@@ -301,13 +303,15 @@ const
     }
     else {
       radioGridDefault =
-        window.innerWidth > widthDesktop
-          ? radioGridDefaultDesktop // desktop
-          : window.innerWidth > widthLaptop
-              ? radioGridDefaultLaptop // laptop
-              : window.innerWidth > widthTablet
-                ? radioGridDefaultTablet // tablet
-                : radioGridDefaultMobile // mobile
+        window.innerWidth > widthLscreen
+          ? radioGridLscreenDefault // lscreen
+          : window.innerWidth > widthDesktop
+              ? radioGridDesktopDefault // desktop
+              : window.innerWidth > widthLaptop
+                  ? radioGridLaptopDefault // laptop
+                  : window.innerWidth > widthTablet
+                    ? radioGridTabletDefault // tablet
+                    : radioGridMobileDefault // mobile
     }
 
     // console.log({radioGridDefault})

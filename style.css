@@ -381,7 +381,7 @@ option[value='hh'] {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 992px) {
   .lang select,
   .laptop,
   .desktop {
@@ -396,22 +396,3 @@ option[value='hh'] {
     display: none;
   }
 }
-
-/*
-
-What Breakpoints Should You Use?,
-https://www.lambdatest.com/blog/how-to-use-css-breakpoints-for-responsive-design/
-
-Pixel     | Device                  | Class
-----------+-------------------------+--------
-320-480   | Mobile devices          | mobile
-----------+-------------------------+--------
-481-768   | iPads, tablets          | tablet
-----------+-------------------------+--------
-769-1024  | Small screens, laptops  | laptop
-----------+-------------------------+--------
-1025-1200 | Large screens, desktops | desktop
-----------+-------------------------+--------
-1201-     | Extra large screens, TV | lscreen
-
-*/
