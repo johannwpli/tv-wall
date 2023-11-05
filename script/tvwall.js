@@ -199,16 +199,16 @@ maxThtrNumber
     setThtr()
   },
 
-  listenCtrmMenuGridRadio = () => {
-    for (const i of ctrmRadio)
-      i.addEventListener('change', changeCtrmRadio)
+  // listenCtrmMenuGridRadio = () => {
+  //   for (const i of ctrmRadio)
+  //     i.addEventListener('change', changeCtrmRadio)
 
-    for (const j of menuRadio)
-      j.addEventListener('click', clickMenuRadio)
+  //   for (const j of menuRadio)
+  //     j.addEventListener('click', clickMenuRadio)
 
-    for (const k of gridRadio)
-      k.addEventListener('click', clickGridRadio)
-  },
+  //   for (const k of gridRadio)
+  //     k.addEventListener('click', clickGridRadio)
+  // },
 
   clickThtrSelect = (event) => {
     // console.log(event)
@@ -294,52 +294,89 @@ maxThtrNumber
     setUrl()
   },
 
-  listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
+  // listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
-  listenKeyPress = () => {
-    /* capture keyboard input,
-    https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+  listen = {
+    ctrmMenuGridRadio: () => {
+      for (const i of ctrmRadio)
+        i.addEventListener('change', changeCtrmRadio)
+  
+      for (const j of menuRadio)
+        j.addEventListener('click', clickMenuRadio)
+  
+      for (const k of gridRadio)
+        k.addEventListener('click', clickGridRadio)
+    },
 
-    document.onkeydown = (e) => {
-      let keyPress = e.key
-      // console.log({keyPress})
-      // console.log(selectThtrObj)
-      // console.log(keyPress in selectThtrObj)
+    langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
 
-      /* check if thtr equals to key pressed */
-
-      if (keyPress in selectThtrObj) {
-        thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
-        // console.log(thtrSelect.value)
-        clickThtrSelect()
+    keyPress: () => {
+      /* capture keyboard input,
+      https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+  
+      document.onkeydown = (e) => {
+        let keyPress = e.key
+        // console.log({keyPress})
+        // console.log(selectThtrObj)
+        // console.log(keyPress in selectThtrObj)
+  
+        /* check if thtr equals to key pressed */
+  
+        if (keyPress in selectThtrObj) {
+          thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
+          // console.log(thtrSelect.value)
+          clickThtrSelect()
+        }
       }
+    },
 
-      /* check if menu prefixes with key pressed,
-      https://stackoverflow.com/questions/53093241/check-if-string-is-starting-with-prefix */
+    windowResize: () => window.addEventListener('resize', resizeTvSize),
 
-      // for (let menu of radioMenuShow) {
-      //   if (menu.toLowerCase().indexOf(keyPress.toLowerCase()) === 0) {
-      //     // console.log(menu)
-      //     document.querySelector('div.menu').querySelectorAll(`input[value="${menu}"]`)[0].checked = 'checked'
-      //     clickMenuRadio()
-      //   }
-      // }
-    }
+    orientationChange: () => screen.orientation.addEventListener('change', handleOrientation)
   },
+
+  // listenKeyPress = () => {
+  //   /* capture keyboard input,
+  //   https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+
+  //   document.onkeydown = (e) => {
+  //     let keyPress = e.key
+  //     // console.log({keyPress})
+  //     // console.log(selectThtrObj)
+  //     // console.log(keyPress in selectThtrObj)
+
+  //     /* check if thtr equals to key pressed */
+
+  //     if (keyPress in selectThtrObj) {
+  //       thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
+  //       // console.log(thtrSelect.value)
+  //       clickThtrSelect()
+  //     }
+  //   }
+  // },
 
   resizeTvSize = () => {
     getWidthAndHeight()
     clickThtrSelect()
   },
 
-  listenWindowResize = () => window.addEventListener('resize', resizeTvSize),
+  handleOrientation = () => {
+    console.log(screen.orientation)
+    // getWidthAndHeight()
+    // TO DO
+  },
+
+  // listenWindowResize = () => window.addEventListener('resize', resizeTvSize),
+
+  // listenOrientationChange = () => screen.orientation.addEventListener('change', handleOrientation),
+
 
   /* get css property pixel value */
 
   getCssPx = (e,p) =>
     getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1, // convert to number
 
-  /* get width and height of  tv and screen */
+  /* get width and height of tv and screen */
 
   getWidthAndHeight = () => {
     // console.log({head})
@@ -598,10 +635,11 @@ maxThtrNumber
   },
 
   listenAll = () => {
-    listenCtrmMenuGridRadio()
-    listenLangSelect()
-    listenKeyPress()
-    listenWindowResize()
+    listen.ctrmMenuGridRadio()
+    listen.langSelect()
+    listen.keyPress()
+    listen.windowResize()
+    // listen.orientationChange()
   },
 
   setTv = () => {
