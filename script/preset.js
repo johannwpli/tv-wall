@@ -157,222 +157,224 @@ const
 
   getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
-  setHtml = () => {
+  set = {
+    html: () => {
 
-    /* set wall */
+      /* set wall */
+  
+      tvWall.insertAdjacentHTML('beforeEnd', '<form name="tvWall"></form>')
+  
+      for (const i of wallPartArr)
+        document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
+  
+      /* set night mode */
+  
+      // console.log({hour})
+  
+      if (hour < 6 || hour >= 18)
+        document.querySelector('#head').classList.add('night')
+  
+      /* set head */
+  
+      document.querySelector('#head').insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
+  
+      for (const i of headPartArr)
+        document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
+  
+      /*set title */
+  
+      docCellTitle = document.querySelector('.cell.title')
+      docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
+  
+      /* set gradient */
+  
+      docCellTitle.classList.add('grad')
+    },
 
-    tvWall.insertAdjacentHTML('beforeEnd', '<form name="tvWall"></form>')
-
-    for (const i of wallPartArr)
-      document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
-
-    /* set night mode */
-
-    // console.log({hour})
-
-    if (hour < 6 || hour >= 18)
-      document.querySelector('#head').classList.add('night')
-
-    /* set head */
-
-    document.querySelector('#head').insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
-
-    for (const i of headPartArr)
-      document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
-
-    /*set title */
-
-    docCellTitle = document.querySelector('.cell.title')
-    docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
-
-    /* set gradient */
-
-    docCellTitle.classList.add('grad')
-  },
-
-  setCtrm = () => {
-    docCellCtrm = document.querySelector('.cell.ctrm')
-    docCellCtrm.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-
-    // console.log({radioCtrmShow})
-
-    for (const i of radioCtrmShow)
-      radioCtrm += `<label id="${i}" name="${i}"><input type="radio" name="ctrm" value="${i}" /></label>`
-
-    // console.log({radioCtrm})
-
-    docCellCtrm.insertAdjacentHTML('beforeEnd', radioCtrm)
-
-    ctrmOn = document.getElementById('On')
-    ctrmOff = document.getElementById('Off')
-
-    ctrmOff.classList.add('hide')
-
-    // document.querySelector(`input[value='${radioCtrmDefault}']`).setAttribute('checked', 'checked')
-
-    ctrmRadio = document.tvWall.ctrm
-  },
-
-  setMenu = () => {
-    docCellMenu = document.querySelector('.cell.menu')
-    docCellMenu.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-
-    // console.log({tvSrcObj})
-    // console.log({urlGridParam})
-    // console.log({urlMenuParam})
-    // console.log({urlLangParam})
-    // console.log({urlIdParam})
-    // console.log({radioMenuShow})
-
-    for (const i in tvSrcObj) {
-      if (radioMenuShow.includes(i))
-        radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
-    }
-
-    if (urlIdParam) {
-      radioMenuDefault = radioMenuMy
-      radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
-
-      tvSrcArr = urlIdParam.split(',')
-      // console.log({tvSrcArr})
+    ctrm: () => {
+      docCellCtrm = document.querySelector('.cell.ctrm')
+      docCellCtrm.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  
+      // console.log({radioCtrmShow})
+  
+      for (const i of radioCtrmShow)
+        radioCtrm += `<label id="${i}" name="${i}"><input type="radio" name="ctrm" value="${i}" /></label>`
+  
+      // console.log({radioCtrm})
+  
+      docCellCtrm.insertAdjacentHTML('beforeEnd', radioCtrm)
+  
+      ctrmOn = document.getElementById('On')
+      ctrmOff = document.getElementById('Off')
+  
+      ctrmOff.classList.add('hide')
+  
+      // document.querySelector(`input[value='${radioCtrmDefault}']`).setAttribute('checked', 'checked')
+  
+      ctrmRadio = document.tvWall.ctrm
+    },
+  
+    menu: () => {
+      docCellMenu = document.querySelector('.cell.menu')
+      docCellMenu.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  
       // console.log({tvSrcObj})
+      // console.log({urlGridParam})
+      // console.log({urlMenuParam})
+      // console.log({urlLangParam})
+      // console.log({urlIdParam})
       // console.log({radioMenuShow})
-    }
-    else {
-      if (urlMenuParam && urlMenuParam in tvSrcObj) {
-        radioMenuDefault = urlMenuParam
-
-        tvSrcKey = radioMenuDefault
-        tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+  
+      for (const i in tvSrcObj) {
+        if (radioMenuShow.includes(i))
+          radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
+      }
+  
+      if (urlIdParam) {
+        radioMenuDefault = radioMenuMy
+        radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
+  
+        tvSrcArr = urlIdParam.split(',')
         // console.log({tvSrcArr})
-
-        if (!radioMenuShow.includes(urlMenuParam)) {
-          radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
+        // console.log({tvSrcObj})
+        // console.log({radioMenuShow})
+      }
+      else {
+        if (urlMenuParam && urlMenuParam in tvSrcObj) {
+          radioMenuDefault = urlMenuParam
+  
+          tvSrcKey = radioMenuDefault
+          tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+          // console.log({tvSrcArr})
+  
+          if (!radioMenuShow.includes(urlMenuParam)) {
+            radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
+          }
         }
       }
-    }
+  
+      // console.log({radioMenu})
+  
+      docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
+  
+      document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked', 'checked')
+  
+      menuRadio = document.tvWall.menu
+    },
 
-    // console.log({radioMenu})
-
-    docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
-
-    document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked', 'checked')
-
-    menuRadio = document.tvWall.menu
-  },
-
-  setGrid = () => {
-    docCellGrid = document.querySelector('.cell.grid')
-    docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-
-    for (const i of radioGridArr) {
-      const j =
-        i >= radioGridObj.lscreen.show
-        ? 'lscreen'
-        :
-          i >= radioGridObj.desktop.show
-          ? 'desktop'
+    grid: () => {
+      docCellGrid = document.querySelector('.cell.grid')
+      docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  
+      for (const i of radioGridArr) {
+        const j =
+          i >= radioGridObj.lscreen.show
+          ? 'lscreen'
           :
-            i >= radioGridObj.laptop.show
-            ? 'laptop'
+            i >= radioGridObj.desktop.show
+            ? 'desktop'
             :
-              i >= radioGridObj.tablet.show
-              ? 'tablet'
-              : 'mobile'
-
-      radioGrid +=
-        i !== 'all'
-        ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
-        : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
-    }
-
-    // console.log({urlGridParam})
-    // console.log({radioGridArr})
-    // console.log(radioGridArr.includes(Number(urlGridParam)))
-
-    if (urlGridParam) {
-      if (urlGridParam === 'all') {
-        if (urlMenuParam) {
-          if (urlIdParam) {
-            tvSrcArr = urlIdParam.split(',')
+              i >= radioGridObj.laptop.show
+              ? 'laptop'
+              :
+                i >= radioGridObj.tablet.show
+                ? 'tablet'
+                : 'mobile'
+  
+        radioGrid +=
+          i !== 'all'
+          ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
+          : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
+      }
+  
+      // console.log({urlGridParam})
+      // console.log({radioGridArr})
+      // console.log(radioGridArr.includes(Number(urlGridParam)))
+  
+      if (urlGridParam) {
+        if (urlGridParam === 'all') {
+          if (urlMenuParam) {
+            if (urlIdParam) {
+              tvSrcArr = urlIdParam.split(',')
+            }
+            else {
+              tvSrcKey = radioMenuDefault
+              tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+            }
           }
-          else {
-            tvSrcKey = radioMenuDefault
-            tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-          }
+          // console.log({tvSrcArr})
+  
+          radioGridDefault = urlGridParam
         }
-        // console.log({tvSrcArr})
-
-        radioGridDefault = urlGridParam
+  
+        if (!isNaN(urlGridParam)) { // is a number
+          // console.log(!isNaN(urlGridParam))
+          // console.log(radioGridArr.includes(Number(urlGridParam)))
+          radioGridDefault =
+            radioGridArr.includes(Number(urlGridParam))
+              ? urlGridParam
+              : radioGridArr.reduce(getClosestGrid(urlGridParam))
+        }
+  
       }
-
-      if (!isNaN(urlGridParam)) { // is a number
-        // console.log(!isNaN(urlGridParam))
-        // console.log(radioGridArr.includes(Number(urlGridParam)))
+      else {
         radioGridDefault =
-          radioGridArr.includes(Number(urlGridParam))
-            ? urlGridParam
-            : radioGridArr.reduce(getClosestGrid(urlGridParam))
+          window.innerWidth >= radioGridObj.lscreen.width
+            ? radioGridObj.lscreen.default // lscreen
+            : window.innerWidth >= radioGridObj.desktop.width
+                ? radioGridObj.desktop.default // desktop
+                : window.innerWidth >= radioGridObj.laptop.width
+                    ? radioGridObj.laptop.default // laptop
+                    : window.innerWidth >= radioGridObj.tablet.width
+                      ? radioGridObj.tablet.default // tablet
+                      : radioGridObj.mobile.default // mobile
       }
+  
+      // console.log({radioGridDefault})
+      // console.log({radioGrid})
+  
+      docCellGrid.insertAdjacentHTML('beforeEnd', radioGrid)
+  
+      document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked', 'checked')
+  
+      gridRadio = document.tvWall.grid
+    },
 
+    lang: () => {
+      docCellLang = document.querySelector('.cell.lang')
+      docCellLang.insertAdjacentHTML('afterBegin', '<select id="lang"></select>')
+      docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  
+      langSelect = document.querySelector('#lang')
+  
+      for (const i in selectLangObj)
+        selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
+  
+      document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
+  
+      if (urlLangParam && urlLangParam in selectLangObj)
+        selectLangDefault = urlLangParam
+  
+      document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected', 'selected')
+    },
+  
+    url: () => {
+      menuChecked = document.querySelector('input[name="menu"]:checked')
+      gridChecked = document.querySelector('input[name="grid"]:checked')
+  
+      newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelect.value
+      // console.log({newUrl})
+      window.history.pushState(newState, siteTitle, newUrl)
     }
-    else {
-      radioGridDefault =
-        window.innerWidth >= radioGridObj.lscreen.width
-          ? radioGridObj.lscreen.default // lscreen
-          : window.innerWidth >= radioGridObj.desktop.width
-              ? radioGridObj.desktop.default // desktop
-              : window.innerWidth >= radioGridObj.laptop.width
-                  ? radioGridObj.laptop.default // laptop
-                  : window.innerWidth >= radioGridObj.tablet.width
-                    ? radioGridObj.tablet.default // tablet
-                    : radioGridObj.mobile.default // mobile
-    }
-
-    // console.log({radioGridDefault})
-    // console.log({radioGrid})
-
-    docCellGrid.insertAdjacentHTML('beforeEnd', radioGrid)
-
-    document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked', 'checked')
-
-    gridRadio = document.tvWall.grid
-  },
-
-  setLang = () => {
-    docCellLang = document.querySelector('.cell.lang')
-    docCellLang.insertAdjacentHTML('afterBegin', '<select id="lang"></select>')
-    docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-
-    langSelect = document.querySelector('#lang')
-
-    for (const i in selectLangObj)
-      selectLang += `<option name="lang" value="${i}">${selectLangObj[i]}</option>`
-
-    document.querySelector('.cell.lang select').insertAdjacentHTML('beforeEnd', selectLang)
-
-    if (urlLangParam && urlLangParam in selectLangObj)
-      selectLangDefault = urlLangParam
-
-    document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected', 'selected')
-  },
-
-  setUrl = () => {
-    menuChecked = document.querySelector('input[name="menu"]:checked')
-    gridChecked = document.querySelector('input[name="grid"]:checked')
-
-    newUrl = oldUrl + '?m=' + menuChecked.value + '&g=' + gridChecked.value + '&l=' + langSelect.value
-    // console.log({newUrl})
-    window.history.pushState(newState, siteTitle, newUrl)
   },
 
   preset = () => {
-    setHtml()
-    setCtrm()
-    setMenu()
-    setGrid() // set after setMenu()
-    setLang()
-    setUrl()
+    set.html()
+    set.ctrm()
+    set.menu()
+    set.grid() // set after set.menu()
+    set.lang()
+    set.url()
   }
 
 preset()
