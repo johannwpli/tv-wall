@@ -132,20 +132,9 @@ maxThtrNumber
     document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
   },
 
-  listenThtrSelect = () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
-
-  setLangSelect = (value) => {
-    langClasslistAdd(value)
-
-    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
-
-    for (const i of toRemoveLangArr)
-      langClasslistRemove(i)
-  },
-
-  /* set ctrm value by ctrm radio */
-
   changeCtrmRadio = function() {
+    /* set ctrm value by ctrm radio */
+
     // if (ctrmChecked) console.log(ctrmChecked.value)
     if (this !== ctrmChecked) ctrmChecked = this
     // console.log(this.value)
@@ -175,40 +164,29 @@ maxThtrNumber
     }
   },
 
-  /* set menu value by menu radio */
-
   clickMenuRadio = function() {
+    /* set menu value by menu radio */
+
     // if (menuChecked) console.log(menuChecked.value)
     if (this !== menuChecked) menuChecked = this
     // console.log(this.value)
 
-    setTv()
-    setUrl()
-    setThtr()
+    setTvAll()
+    set.url()
+    setAndListenThtrSelect()
   },
 
-  /* set grid value by grid radio */
-
   clickGridRadio = function() {
+    /* set grid value by grid radio */
+
     // if (gridChecked) console.log(gridChecked.value)
     if (this !== gridChecked) gridChecked = this
     // console.log(this.value)
 
-    setTv()
-    setUrl()
-    setThtr()
+    setTvAll()
+    set.url()
+    setAndListenThtrSelect()
   },
-
-  // listenCtrmMenuGridRadio = () => {
-  //   for (const i of ctrmRadio)
-  //     i.addEventListener('change', changeCtrmRadio)
-
-  //   for (const j of menuRadio)
-  //     j.addEventListener('click', clickMenuRadio)
-
-  //   for (const k of gridRadio)
-  //     k.addEventListener('click', clickGridRadio)
-  // },
 
   changeThtrSelect = (value) => {
     // console.log(value)
@@ -223,15 +201,15 @@ maxThtrNumber
     // console.log({tvSrcArrCached})
 
     if (thtrSelect.value === '0') {
-      setIntervalSetTvSize(true)
-      setTvSize()
+      setTv.sizeInterval(true)
+      setTv.size()
       tvNumberFlag = 0
       
       for (let i = 1; i <= tvRowNumber; i++)
           document.getElementById(`row${i}`).classList.remove('hide')
     }
     else {
-      setIntervalSetTvSize(false)
+      setTv.sizeInterval(false)
       tvNumberFlag = alphanumericToNumber(thtrSelect.value)
 
       let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
@@ -302,12 +280,12 @@ maxThtrNumber
     for (const i of toRemoveLangArr)
       langClasslistRemove(i)
 
-    setUrl()
+    set.url()
   },
 
-  // listenLangSelect = () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
-
   listen = {
+    thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
+
     ctrmMenuGridRadio: () => {
       for (const i of ctrmRadio)
         i.addEventListener('change', changeCtrmRadio)
@@ -347,26 +325,6 @@ maxThtrNumber
     orientationChange: () => screen.orientation.addEventListener('change', handleOrientation)
   },
 
-  // listenKeyPress = () => {
-  //   /* capture keyboard input,
-  //   https://codepen.io/DBoy_Fresh/pen/RgjYKG */
-
-  //   document.onkeydown = (e) => {
-  //     let keyPress = e.key
-  //     // console.log({keyPress})
-  //     // console.log(selectThtrObj)
-  //     // console.log(keyPress in selectThtrObj)
-
-  //     /* check if thtr equals to key pressed */
-
-  //     if (keyPress in selectThtrObj) {
-  //       thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
-  //       // console.log(thtrSelect.value)
-  //       clickThtrSelect()
-  //     }
-  //   }
-  // },
-
   resizeTvSize = () => {
     getWidthAndHeight()
     clickThtrSelect()
@@ -377,11 +335,6 @@ maxThtrNumber
     // getWidthAndHeight()
     // TO DO
   },
-
-  // listenWindowResize = () => window.addEventListener('resize', resizeTvSize),
-
-  // listenOrientationChange = () => screen.orientation.addEventListener('change', handleOrientation),
-
 
   /* get css property pixel value */
 
@@ -462,67 +415,6 @@ maxThtrNumber
     // console.log({screenHeight})
   },
 
-  /* set grid layout by grid value */
-
-  setTvGrid = () => {
-    menuChecked = document.querySelector('input[name="menu"]:checked')
-    // console.log(menuChecked.value)
-    tvSrcKey = menuChecked.value
-    // console.log({tvSrcKey})
-
-    tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
-      ? tvSrcObj[tvSrcKey]
-      : urlIdParam.split(',')
-
-    // console.log({tvSrcArr})
-    // console.log({radioGridArr})
-    // console.log(radioGridArr[radioGridArr.length - 2])
-
-    if (gridChecked.value === 'all') {
-      if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
-        tvAllNumber = radioGridArr[radioGridArr.length - 2]
-      }
-      else {
-        let _temp = tvSrcArr.length
-        while (!radioGridArr.includes(_temp))
-          _temp++
-        tvAllNumber = _temp
-      }
-    }
-    else {
-      tvAllNumber = gridChecked.value
-    }
-    // console.log({tvSrcArr})
-    
-    tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
-    // tvAllNumber: tvShortNumber; 1~3: 1, 4~8: 2, 9~15: 3, 16~24: 4
-
-    window.innerWidth >= window.innerHeight
-      ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
-      : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
-
-    // console.log({tvAllNumber})
-    // console.log({tvRowNumber})
-    // console.log({tvColNumber})
-
-    /* innerHTML vs removeChild vs remove,
-    https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
-
-    removeAllFirstChild(body)
-
-    for (let i = 0; i < tvRowNumber; i++) {
-      let _temp = i + 1
-      body.insertAdjacentHTML('beforeEnd', `<div class="row" id="row${_temp}"></div>`)
-    }
-
-    document.querySelectorAll('#body .row').forEach(
-      (e,i) => {
-        for (let j = 0; j < tvColNumber; j++)
-          e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
-      }
-    )
-  },
-
   /* shuffle array with Fisher-Yates algo,
   https://shubo.io/javascript-random-shuffle/ */
 
@@ -533,120 +425,192 @@ maxThtrNumber
     }
   },
 
-  setTvSrc = () => {
-    tvSrcArrCached = [...tvSrcArr]
+  setLangSelect = (value) => {
+    langClasslistAdd(value)
 
-    if (tvSrcArrCached.length > tvAllNumber)
-      shuffle(tvSrcArrCached)
+    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
 
-    // console.log('TV Array Length: ', tvSrcArr.length)
-    // console.log({tvAllNumber})
-    // console.log({tvSrcArr})
-    // console.log({tvSrcArrCached})
+    for (const i of toRemoveLangArr)
+      langClasslistRemove(i)
+  },
 
-    tvRatio =
-      tvAllNumber < tvSrcArrCached.length
-        ? `${tvAllNumber} of ${tvSrcArrCached.length}`
-        : `${tvSrcArrCached.length} of ${tvSrcArrCached.length}`
+  setTv = {
+    grid: () => {
+      /* set grid layout by grid value */
 
-    console.group('Now Playing (' + tvRatio + ')')
+      menuChecked = document.querySelector('input[name="menu"]:checked')
+      // console.log(menuChecked.value)
+      tvSrcKey = menuChecked.value
+      // console.log({tvSrcKey})
 
-    const setTvHtml = () => {
-      document.querySelectorAll('#body .tv').forEach(
+      tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
+        ? tvSrcObj[tvSrcKey]
+        : urlIdParam.split(',')
+
+      // console.log({tvSrcArr})
+      // console.log({radioGridArr})
+      // console.log(radioGridArr[radioGridArr.length - 2])
+
+      if (gridChecked.value === 'all') {
+        if (tvSrcArr.length >= radioGridArr[radioGridArr.length - 2]) {
+          tvAllNumber = radioGridArr[radioGridArr.length - 2]
+        }
+        else {
+          let _temp = tvSrcArr.length
+          while (!radioGridArr.includes(_temp))
+            _temp++
+          tvAllNumber = _temp
+        }
+      }
+      else {
+        tvAllNumber = gridChecked.value
+      }
+      // console.log({tvSrcArr})
+      
+      tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
+      // tvAllNumber: tvShortNumber; 1~3: 1, 4~8: 2, 9~15: 3, 16~24: 4
+
+      window.innerWidth >= window.innerHeight
+        ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
+        : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
+
+      // console.log({tvAllNumber})
+      // console.log({tvRowNumber})
+      // console.log({tvColNumber})
+
+      /* innerHTML vs removeChild vs remove,
+      https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
+      removeAllFirstChild(body)
+
+      for (let i = 0; i < tvRowNumber; i++) {
+        let _temp = i + 1
+        body.insertAdjacentHTML('beforeEnd', `<div class="row" id="row${_temp}"></div>`)
+      }
+
+      document.querySelectorAll('#body .row').forEach(
+        (e,i) => {
+          for (let j = 0; j < tvColNumber; j++)
+            e.insertAdjacentHTML('beforeEnd', `<div class="cell tv"></div>`)
+        }
+      )
+    },
+
+    src: () => {
+      tvSrcArrCached = [...tvSrcArr]
+
+      if (tvSrcArrCached.length > tvAllNumber)
+        shuffle(tvSrcArrCached)
+
+      // console.log('TV Array Length: ', tvSrcArr.length)
+      // console.log({tvAllNumber})
+      // console.log({tvSrcArr})
+      // console.log({tvSrcArrCached})
+
+      tvRatio =
+        tvAllNumber < tvSrcArrCached.length
+          ? `${tvAllNumber} of ${tvSrcArrCached.length}`
+          : `${tvSrcArrCached.length} of ${tvSrcArrCached.length}`
+
+      console.group('Now Playing (' + tvRatio + ')')
+
+      const setTvHtml = () => {
+        document.querySelectorAll('#body .tv').forEach(
+          (e,i) => {
+            let _temp = numberToAlphanumeric(i + 1)
+
+            // console.log(_temp)
+            // console.log(e)
+            e.removeAttribute('alt')
+            e.removeAttribute('title')
+            // console.log(tvSrcArrCached[i])
+
+            if (tvSrcArrCached[i]) {
+              if (typeof tvSrcArrCached[i] === 'object') {
+                // console.log( tvSrcArrCached[i]['id'])
+                tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
+                tvTitle = tvSrcArrCached[i]['title']
+                tvChannel = tvSrcArrCached[i]['channel']
+
+                tvInfo = _temp + '. '
+                if (tvTitle) tvInfo += tvTitle
+                tvInfo += ' ' + tvSrc
+                if (tvChannel) tvInfo += ' on ' + tvChannel
+
+                // e.setAttribute('id', _temp)
+                e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
+                e.setAttribute('title', _temp + '. ' + tvTitle)
+              }
+              else {
+                tvSrc = tvSrcPrefix + tvSrcArrCached[i]
+
+                tvInfo = _temp + '. '
+                tvInfo += ' ' + tvSrc
+              }
+
+              console.log(tvInfo)
+
+              removeAllFirstChild(e)
+
+              // console.log({tvSrc})
+
+              // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
+              tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode' onclick="changeAndClickThtrSelect('${_temp}')">${_temp}</div>
+                <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+
+              e.insertAdjacentHTML('beforeEnd', tvHtml)
+
+              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect(_temp))
+            }
+          }
+        )
+      }
+
+      // setTimeout(() => { setTvHtml() }, 50)
+      setTvHtml()
+    
+      console.groupEnd()
+    },
+
+    size: () => {
+      /* set tv size by window size */
+
+      getWidthAndHeight()
+
+      document.querySelectorAll('#tvWall iframe').forEach(
         (e,i) => {
           let _temp = numberToAlphanumeric(i + 1)
 
-          // console.log(_temp)
-          // console.log(e)
-          e.removeAttribute('alt')
-          e.removeAttribute('title')
-          // console.log(tvSrcArrCached[i])
-
-          if (tvSrcArrCached[i]) {
-            if (typeof tvSrcArrCached[i] === 'object') {
-              // console.log( tvSrcArrCached[i]['id'])
-              tvSrc = tvSrcPrefix + tvSrcArrCached[i]['id']
-              tvTitle = tvSrcArrCached[i]['title']
-              tvChannel = tvSrcArrCached[i]['channel']
-
-              tvInfo = _temp + '. '
-              if (tvTitle) tvInfo += tvTitle
-              tvInfo += ' ' + tvSrc
-              if (tvChannel) tvInfo += ' on ' + tvChannel
-
-              // e.setAttribute('id', _temp)
-              e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
-              e.setAttribute('title', _temp + '. ' + tvTitle)
-            }
-            else {
-              tvSrc = tvSrcPrefix + tvSrcArrCached[i]
-
-              tvInfo = _temp + '. '
-              tvInfo += ' ' + tvSrc
-            }
-
-            console.log(tvInfo)
-
-            removeAllFirstChild(e)
-
-            // console.log({tvSrc})
-
-            // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
-            tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode' onclick="changeAndClickThtrSelect('${_temp}')">${_temp}</div>
-              <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
-
-            e.insertAdjacentHTML('beforeEnd', tvHtml)
-
-            // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect(_temp))
-          }
+          e.setAttribute('id', `tv${_temp}`)
+          e.setAttribute('width', tvWidth)
+          e.setAttribute('height', tvHeight)
         }
       )
-    }
+    },
 
-    // setTimeout(() => { setTvHtml() }, 50)
-    setTvHtml()
-  
-    console.groupEnd()
+    sizeInterval: (status) => {
+      // console.log({intervalSetTvSizeFlag})
+
+      if (status) {
+        if (!intervalSetTvSizeFlag) {
+          intervalSetTvSize = setInterval(setTv.size, intervalSetTvSizeDelay) // to fix iframe native bug returning from fullscreen
+          intervalSetTvSizeFlag = true
+        }
+      }
+      else {
+        if (intervalSetTvSizeFlag) {
+          clearInterval(intervalSetTvSize)
+          intervalSetTvSizeFlag = false
+        }
+      }
+
+      // console.log({intervalSetTvSizeFlag})
+    },
   },
 
-  /* set tv size by window size */
-
-  setTvSize = () => {
-    getWidthAndHeight()
-
-    document.querySelectorAll('#tvWall iframe').forEach(
-      (e,i) => {
-        let _temp = numberToAlphanumeric(i + 1)
-
-        e.setAttribute('id', `tv${_temp}`)
-        e.setAttribute('width', tvWidth)
-        e.setAttribute('height', tvHeight)
-      }
-    )
-  },
-
-  setIntervalSetTvSize = (status) => {
-    // console.log({intervalSetTvSizeFlag})
-
-    if (status) {
-      if (!intervalSetTvSizeFlag) {
-        intervalSetTvSize = setInterval(setTvSize, intervalSetTvSizeDelay) // to fix iframe native bug returning from fullscreen
-        intervalSetTvSizeFlag = true
-      }
-    }
-    else {
-      if (intervalSetTvSizeFlag) {
-        clearInterval(intervalSetTvSize)
-        intervalSetTvSizeFlag = false
-      }
-    }
-
-    // console.log({intervalSetTvSizeFlag})
-  },
-
-  setThtr = () => {
+  setAndListenThtrSelect = () => {
     setThtrSelect()
-    listenThtrSelect()
+    listen.thtrSelect()
   },
 
   listenAll = () => {
@@ -657,18 +621,18 @@ maxThtrNumber
     // listen.orientationChange()
   },
 
-  setTv = () => {
-    setTvGrid()
-    setTvSrc()
-    setTvSize()
-    setIntervalSetTvSize(true)
+  setTvAll = () => {
+    setTv.grid()
+    setTv.src()
+    setTv.size()
+    setTv.sizeInterval(true)
   },
 
   tvwall = () => {
-    setThtr()
+    setAndListenThtrSelect()
     setLangSelect(langSelect.value)
     listenAll()
-    setTv()
+    setTvAll()
   }
 
 tvwall()
