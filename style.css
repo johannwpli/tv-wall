@@ -138,6 +138,7 @@ option[value='hh'] {
 .tvNumber {
   display: none;
   position: absolute;
+  cursor: pointer;
 }
 
 .tv:hover .tvNumber {

@@ -156,7 +156,7 @@ maxThtrNumber
       ctrmOn.classList.add('hide')
       ctrmOff.classList.remove('hide')
     
-      tvWall.insertAdjacentHTML('afterEnd', `${ctRoomHtml}`)
+      tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
       tvWall.classList.add('ctRoomed')
 
       ctRoom = document.querySelector('#ctRoom')
@@ -209,6 +209,12 @@ maxThtrNumber
   //   for (const k of gridRadio)
   //     k.addEventListener('click', clickGridRadio)
   // },
+
+  changeThtrSelect = (value) => {
+    // console.log(value)
+    thtrSelect.querySelectorAll(`option[value="${value}"]`)[0].selected = 'selected'
+    // console.log(thtrSelect.value)
+  },
 
   clickThtrSelect = (event) => {
     // console.log(event)
@@ -264,6 +270,11 @@ maxThtrNumber
 
     // console.log({tvNumberFlag})
     // console.log(thtrSelect.value)
+  },
+
+  changeAndClickThtrSelect = (value) => {
+    changeThtrSelect(value)
+    clickThtrSelect()
   },
 
   langClasslistAdd = (value) => {
@@ -323,8 +334,9 @@ maxThtrNumber
         /* check if thtr equals to key pressed */
   
         if (keyPress in selectThtrObj) {
-          thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
-          // console.log(thtrSelect.value)
+          // thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
+          // // console.log(thtrSelect.value)
+          changeThtrSelect(keyPress)
           clickThtrSelect()
         }
       }
@@ -579,10 +591,13 @@ maxThtrNumber
 
             // console.log({tvSrc})
 
-            tvHtml = `<div class='tvNumber'>${_temp}</div>
+            // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
+            tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode' onclick="changeAndClickThtrSelect('${_temp}')">${_temp}</div>
               <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
             e.insertAdjacentHTML('beforeEnd', tvHtml)
+
+            // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect(_temp))
           }
         }
       )
