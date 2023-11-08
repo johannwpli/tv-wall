@@ -26,8 +26,7 @@ let
   iframeNowHeight,
   iframeGapHeight,
 
-  tvNumberFlag = 0, // default
-  maxThtrNumber
+  tvNumberFlag = 0 // default
 
 const
 
@@ -37,99 +36,6 @@ const
 
   alphanumericToNumber = (e) => {
     return parseInt(e, 36)
-  },
-
-  removeAllFirstChild = (e) => {
-    while (e.firstChild)
-      e.firstChild.remove()
-  },
-
-  setThtrSelect = () => {
-    docCellThtr = document.querySelector('.cell.thtr')
-
-    removeAllFirstChild(docCellThtr)
-    
-    selectThtr = ''
-    selectThtrObj[selectThtrDefault] = '0'
-
-    docCellThtr.insertAdjacentHTML('afterBegin', '<select id="thtr"></select>')
-    docCellThtr.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
-maxThtrNumber
-    thtrSelect = document.querySelector('#thtr')
-
-    // console.log({tvSrcArr})
-    // console.log({tvSrcArrCached})
-    // console.log(selectThtrObj)
-
-    for (const k in selectThtrObj)
-      if (k !== '0') delete selectThtrObj[k]
-
-    // console.log(selectThtrObj)
-
-    if (tvSrcArrCached) {
-      // console.log('tvSrcArrCached is available')
-      // console.log({tvSrcArrCached})
-      
-      maxThtrNumber = (gridChecked.value === 'all')
-        ? tvSrcArrCached.length
-        : Math.min(gridChecked.value, tvSrcArrCached.length)
-
-      // console.log({maxThtrNumber})
-
-      for (let i = 0; i < maxThtrNumber; i++) {
-        selectThtrObj[i + 1] = (typeof tvSrcArrCached[i] === 'object')
-          ? tvSrcArrCached[i]['id']
-          : tvSrcArrCached[i]
-      }
-    }
-    else {
-      // console.log('tvSrcArrCached is NOT available')
-      tvSrcKey = menuChecked.value
-      // console.log({tvSrcKey})
-
-      tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
-        ? tvSrcObj[tvSrcKey]
-        : urlIdParam.split(',')
-
-      // console.log({tvSrcArr})
-
-      maxThtrNumber = (gridChecked.value === 'all')
-        ? tvSrcArr.length
-        : Math.min(gridChecked.value, tvSrcArr.length)
-
-      // console.log({maxThtrNumber})
-
-      for (let i = 0; i < maxThtrNumber; i++) {
-        selectThtrObj[i + 1] = (typeof tvSrcArr[i] === 'object')
-          ? tvSrcArr[i]['id']
-          : tvSrcArr[i]
-      }
-    }
-
-    // console.log(selectThtrObj)
-
-    for (let [k, v] of Object.entries(selectThtrObj)) {
-      k = k * 1 // convert to number
-
-      if (k >= 10) {
-        delete selectThtrObj[k]
-        selectThtrObj[numberToAlphanumeric(k)] = v
-      }
-    }
-
-    // console.log(selectThtrObj)
-
-    for (const k in selectThtrObj) {
-      (k === '0')
-        ? selectThtr += `<option name="thtr" value="${k}">${selectThtrObj[k]}</option>`
-        : selectThtr += `<option name="thtr" value="${k}">${k}</option>`
-
-      // console.log(typeof(k))
-    }
-
-    document.querySelector('.cell.thtr select').insertAdjacentHTML('beforeEnd', selectThtr)
-
-    document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
   },
 
   changeCtrmRadio = function() {
@@ -560,7 +466,7 @@ maxThtrNumber
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
 
-              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect(_temp))
+              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect('${_temp}')) // doesn't work
             }
           }
         )
@@ -609,7 +515,7 @@ maxThtrNumber
   },
 
   setAndListenThtrSelect = () => {
-    setThtrSelect()
+    set.thtr()
     listen.thtrSelect()
   },
 
