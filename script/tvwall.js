@@ -183,7 +183,7 @@ const
         k.addEventListener('click', clickGridRadio)
     },
 
-    langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', clickLangSelect),
+    langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', changeLangSelect),
 
     keyPress: () => {
       /* capture keyboard input,
@@ -220,9 +220,9 @@ const
     // console.log(screen.orientation)
 
     // getWidthAndHeight() // doesn't work
-    let _temp = window.innerHeight
-    window.innerHeight = window.innerWidth
-    window.innerWidth = _temp
+    // let _temp = window.innerHeight
+    // window.innerHeight = window.innerWidth
+    // window.innerWidth = _temp
 
     // console.log('window.innerWidth: ', window.innerWidth)
     // console.log('window.innerHeight: ', window.innerHeight)
@@ -320,6 +320,8 @@ const
     }
   },
 
+  // TO COMBINE
+
   setLangSelect = (value) => {
     langClasslistAdd(value)
 
@@ -329,7 +331,7 @@ const
       langClasslistRemove(i)
   },
 
-  clickLangSelect = (e) => {
+  changeLangSelect = (e) => {
     langClasslistAdd(e.target.value)
 
     const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
