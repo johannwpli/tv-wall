@@ -30,14 +30,6 @@ let
 
 const
 
-  numberToAlphanumeric = (e) => {
-    return e.toString(36)
-  },
-
-  alphanumericToNumber = (e) => {
-    return parseInt(e, 36)
-  },
-
   changeCtrmRadio = function() {
     /* set ctrm value by ctrm radio */
 
@@ -177,18 +169,6 @@ const
     }
   },
 
-  clickLangSelect = (e) => {
-    langClasslistAdd(e.target.value)
-
-    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
-    // console.log(toRemoveArr)
-
-    for (const i of toRemoveLangArr)
-      langClasslistRemove(i)
-
-    set.url()
-  },
-
   listen = {
     thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
 
@@ -237,9 +217,18 @@ const
   },
 
   handleOrientation = () => {
-    console.log(screen.orientation)
-    // getWidthAndHeight()
-    // TO DO
+    // console.log(screen.orientation)
+
+    // getWidthAndHeight() // doesn't work
+    let _temp = window.innerHeight
+    window.innerHeight = window.innerWidth
+    window.innerWidth = _temp
+
+    // console.log('window.innerWidth: ', window.innerWidth)
+    // console.log('window.innerHeight: ', window.innerHeight)
+
+    setAndListenThtrSelect()
+    setTvAll()
   },
 
   /* get css property pixel value */
@@ -338,6 +327,18 @@ const
 
     for (const i of toRemoveLangArr)
       langClasslistRemove(i)
+  },
+
+  clickLangSelect = (e) => {
+    langClasslistAdd(e.target.value)
+
+    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
+    // console.log(toRemoveArr)
+
+    for (const i of toRemoveLangArr)
+      langClasslistRemove(i)
+
+    set.url()
   },
 
   setTv = {
@@ -472,7 +473,6 @@ const
         )
       }
 
-      // setTimeout(() => { setTvHtml() }, 50)
       setTvHtml()
     
       console.groupEnd()
@@ -515,7 +515,7 @@ const
   },
 
   setAndListenThtrSelect = () => {
-    set.thtr()
+    set.thtr() // to reset thtr
     listen.thtrSelect()
   },
 
@@ -524,7 +524,7 @@ const
     listen.langSelect()
     listen.keyPress()
     listen.windowResize()
-    // listen.orientationChange()
+    listen.orientationChange()
   },
 
   setTvAll = () => {

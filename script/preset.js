@@ -158,6 +158,19 @@ const
 
   getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
 
+  removeAllFirstChild = (e) => {
+    while (e.firstChild)
+      e.firstChild.remove()
+  },
+
+  numberToAlphanumeric = (e) => {
+    return e.toString(36)
+  },
+
+  alphanumericToNumber = (e) => {
+    return parseInt(e, 36)
+  },
+
   set = {
     html: () => {
 
@@ -460,11 +473,6 @@ const
       // console.log({newUrl})
       window.history.pushState(newState, siteTitle, newUrl)
     }
-  },
-
-  removeAllFirstChild = (e) => {
-    while (e.firstChild)
-      e.firstChild.remove()
   },
 
   preset = () => {
