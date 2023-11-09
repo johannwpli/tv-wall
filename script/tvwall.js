@@ -170,9 +170,9 @@ const
   },
 
   listen = {
-    thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
+    'thtrSelect': () => document.querySelector('.cell.thtr select').addEventListener('change', clickThtrSelect),
 
-    ctrmMenuGridRadio: () => {
+    'ctrmMenuGridRadio': () => {
       for (const i of ctrmRadio)
         i.addEventListener('change', changeCtrmRadio)
   
@@ -183,9 +183,9 @@ const
         k.addEventListener('click', clickGridRadio)
     },
 
-    langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', changeLangSelect),
+    'langSelect': () => document.querySelector('.cell.lang select').addEventListener('change', changeLangSelect),
 
-    keyPress: () => {
+    'keyPress': () => {
       /* capture keyboard input,
       https://codepen.io/DBoy_Fresh/pen/RgjYKG */
   
@@ -206,9 +206,9 @@ const
       }
     },
 
-    windowResize: () => window.addEventListener('resize', resizeTvSize),
+    'windowResize': () => window.addEventListener('resize', resizeTvSize),
 
-    orientationChange: () => screen.orientation.addEventListener('change', handleOrientation)
+    'orientationChange': () => screen.orientation.addEventListener('change', handleOrientation)
   },
 
   resizeTvSize = () => {
@@ -320,31 +320,23 @@ const
     }
   },
 
-  // TO COMBINE
-
   setLangSelect = (value) => {
     langClasslistAdd(value)
 
     const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
+    // console.log(toRemoveArr)
 
     for (const i of toRemoveLangArr)
       langClasslistRemove(i)
   },
 
   changeLangSelect = (e) => {
-    langClasslistAdd(e.target.value)
-
-    const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== e.target.value)
-    // console.log(toRemoveArr)
-
-    for (const i of toRemoveLangArr)
-      langClasslistRemove(i)
-
+    setLangSelect(e.target.value)
     set.url()
   },
 
   setTv = {
-    grid: () => {
+    'grid': () => {
       /* set grid layout by grid value */
 
       menuChecked = document.querySelector('input[name="menu"]:checked')
@@ -405,7 +397,7 @@ const
       )
     },
 
-    src: () => {
+    'src': () => {
       tvSrcArrCached = [...tvSrcArr]
 
       if (tvSrcArrCached.length > tvAllNumber)
@@ -480,7 +472,7 @@ const
       console.groupEnd()
     },
 
-    size: () => {
+    'size': () => {
       /* set tv size by window size */
 
       getWidthAndHeight()
@@ -496,7 +488,7 @@ const
       )
     },
 
-    sizeInterval: (status) => {
+    'sizeInterval': (status) => {
       // console.log({intervalSetTvSizeFlag})
 
       if (status) {

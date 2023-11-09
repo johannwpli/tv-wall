@@ -172,7 +172,7 @@ const
   },
 
   set = {
-    html: () => {
+    'html': () => {
 
       /* set wall */
   
@@ -205,7 +205,7 @@ const
       docCellTitle.classList.add('grad')
     },
 
-    ctrm: () => {
+    'ctrm': () => {
       docCellCtrm = document.querySelector('.cell.ctrm')
       docCellCtrm.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
@@ -228,7 +228,7 @@ const
       ctrmRadio = document.tvWall.ctrm
     },
   
-    menu: () => {
+    'menu': () => {
       docCellMenu = document.querySelector('.cell.menu')
       docCellMenu.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
@@ -276,7 +276,7 @@ const
       menuRadio = document.tvWall.menu
     },
 
-    grid: () => {
+    'grid': () => {
       docCellGrid = document.querySelector('.cell.grid')
       docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
@@ -354,7 +354,7 @@ const
       gridRadio = document.tvWall.grid
     },
 
-    lang: () => {
+    'lang': () => {
       docCellLang = document.querySelector('.cell.lang')
       docCellLang.insertAdjacentHTML('afterBegin', '<select id="lang"></select>')
       docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
@@ -372,7 +372,7 @@ const
       document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected', 'selected')
     },
 
-    thtr: () => {
+    'thtr': () => {
       docCellThtr = document.querySelector('.cell.thtr')
   
       removeAllFirstChild(docCellThtr)
@@ -465,7 +465,7 @@ const
       document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
     },
   
-    url: () => {
+    'url': () => {
       menuChecked = document.querySelector('input[name="menu"]:checked')
       gridChecked = document.querySelector('input[name="grid"]:checked')
   
