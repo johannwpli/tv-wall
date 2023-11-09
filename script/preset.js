@@ -30,17 +30,15 @@ let
   ctrmOn,
   ctrmOff,
 
-  radioMenuDefault =
-    browserLang === 'zh-TW'
-      ? 'Taiwan'
-      : 'World',
+  radioMenuDefault = (browserLang === 'zh-TW')
+    ? 'Taiwan'
+    : 'World',
 
   radioGridDefault,
 
-  selectLangDefault = 
-    browserLang === 'zh-TW' || browserLang === 'zh-HK'
+  selectLangDefault = (browserLang === 'zh-TW' || browserLang === 'zh-HK')
       ? 'zh'
-      : browserLang === 'ja'
+      : (browserLang === 'ja')
         ? 'jp'
         : 'en',
 
@@ -156,7 +154,7 @@ const
   /* Get the closest number out of an array,
   https://stackoverflow.com/questions/8584902/get-the-closest-number-out-of-an-array#comment95981784_39942209 */
 
-  getClosestGrid = goal => (a,b) => Math.abs(a - goal) < Math.abs(b - goal) ? a : b,
+  getClosestGrid = goal => (a,b) => (Math.abs(a - goal) < Math.abs(b - goal)) ? a : b,
 
   removeAllFirstChild = (e) => {
     while (e.firstChild)
@@ -172,40 +170,40 @@ const
   },
 
   set = {
-    'html': () => {
+    html: () => {
 
-      /* set wall */
+      /* set tvwall parts */
   
       tvWall.insertAdjacentHTML('beforeEnd', '<form name="tvWall"></form>')
   
       for (const i of wallPartArr)
         document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
   
-      /* set night mode */
+      /* set head night mode */
   
       // console.log({hour})
   
       if (hour < 6 || hour >= 18)
         document.querySelector('#head').classList.add('night')
   
-      /* set head */
+      /* set head parts */
   
       document.querySelector('#head').insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
   
       for (const i of headPartArr)
         document.querySelector('#head .row').insertAdjacentHTML('beforeEnd', `<div class="cell ${i}"></div>`)
   
-      /*set title */
+      /* set title */
   
       docCellTitle = document.querySelector('.cell.title')
       docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
   
-      /* set gradient */
+      /* set title gradient */
   
       docCellTitle.classList.add('grad')
     },
 
-    'ctrm': () => {
+    ctrm: () => {
       docCellCtrm = document.querySelector('.cell.ctrm')
       docCellCtrm.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
@@ -228,7 +226,7 @@ const
       ctrmRadio = document.tvWall.ctrm
     },
   
-    'menu': () => {
+    menu: () => {
       docCellMenu = document.querySelector('.cell.menu')
       docCellMenu.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
@@ -276,29 +274,24 @@ const
       menuRadio = document.tvWall.menu
     },
 
-    'grid': () => {
+    grid: () => {
       docCellGrid = document.querySelector('.cell.grid')
       docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
       for (const i of radioGridArr) {
-        const j =
-          i >= radioGridObj.lscreen.show
-          ? 'lscreen'
-          :
-            i >= radioGridObj.desktop.show
-            ? 'desktop'
-            :
-              i >= radioGridObj.laptop.show
-              ? 'laptop'
-              :
-                i >= radioGridObj.tablet.show
-                ? 'tablet'
-                : 'mobile'
+        const j = (i >= radioGridObj.lscreen.show)
+            ? 'lscreen'
+            : (i >= radioGridObj.desktop.show)
+                ? 'desktop'
+                : (i >= radioGridObj.laptop.show)
+                    ? 'laptop'
+                    : (i >= radioGridObj.tablet.show)
+                        ? 'tablet'
+                        : 'mobile'
   
-        radioGrid +=
-          i !== 'all'
-          ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
-          : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
+        radioGrid += (i !== 'all')
+            ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
+            : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
       }
   
       // console.log({urlGridParam})
@@ -324,22 +317,20 @@ const
         if (!isNaN(urlGridParam)) { // is a number
           // console.log(!isNaN(urlGridParam))
           // console.log(radioGridArr.includes(Number(urlGridParam)))
-          radioGridDefault =
-            radioGridArr.includes(Number(urlGridParam))
+          radioGridDefault = (radioGridArr.includes(Number(urlGridParam)))
               ? urlGridParam
               : radioGridArr.reduce(getClosestGrid(urlGridParam))
         }
   
       }
       else {
-        radioGridDefault =
-          window.innerWidth >= radioGridObj.lscreen.width
+        radioGridDefault = (window.innerWidth >= radioGridObj.lscreen.width)
             ? radioGridObj.lscreen.default // lscreen
-            : window.innerWidth >= radioGridObj.desktop.width
+            : (window.innerWidth >= radioGridObj.desktop.width)
                 ? radioGridObj.desktop.default // desktop
-                : window.innerWidth >= radioGridObj.laptop.width
+                : (window.innerWidth >= radioGridObj.laptop.width)
                     ? radioGridObj.laptop.default // laptop
-                    : window.innerWidth >= radioGridObj.tablet.width
+                    : (window.innerWidth >= radioGridObj.tablet.width)
                       ? radioGridObj.tablet.default // tablet
                       : radioGridObj.mobile.default // mobile
       }
@@ -354,7 +345,7 @@ const
       gridRadio = document.tvWall.grid
     },
 
-    'lang': () => {
+    lang: () => {
       docCellLang = document.querySelector('.cell.lang')
       docCellLang.insertAdjacentHTML('afterBegin', '<select id="lang"></select>')
       docCellLang.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
@@ -372,7 +363,7 @@ const
       document.querySelector(`option[value='${selectLangDefault}']`).setAttribute('selected', 'selected')
     },
 
-    'thtr': () => {
+    thtr: () => {
       docCellThtr = document.querySelector('.cell.thtr')
   
       removeAllFirstChild(docCellThtr)
@@ -465,7 +456,7 @@ const
       document.querySelector(`option[value='${selectThtrDefault}']`).setAttribute('selected', 'selected')
     },
   
-    'url': () => {
+    url: () => {
       menuChecked = document.querySelector('input[name="menu"]:checked')
       gridChecked = document.querySelector('input[name="grid"]:checked')
   
