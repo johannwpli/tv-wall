@@ -30,62 +30,6 @@ let
 
 const
 
-  // changeCtrmRadio = function() {
-  //   /* set ctrm value by ctrm radio */
-
-  //   // if (ctrmChecked) console.log(ctrmChecked.value)
-  //   if (this !== ctrmChecked) ctrmChecked = this
-  //   // console.log(this.value)
-
-  //   if (this.value === 'On') {
-  //     // console.log(ctRoom)
-
-  //     ctrmOn.classList.add('hide')
-  //     ctrmOff.classList.remove('hide')
-    
-  //     tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
-  //     tvWall.classList.add('ctRoomed')
-
-  //     ctRoom = document.querySelector('#ctRoom')
-
-  //     resizeTvSize()
-  //   }
-  //   else {
-  //     ctrmOn.classList.remove('hide')
-  //     ctrmOff.classList.add('hide')
-
-  //     if (ctRoom) ctRoom.remove()
-
-  //     tvWall.classList.remove('ctRoomed')
-
-  //     resizeTvSize()
-  //   }
-  // },
-
-  // clickMenuRadio = function() {
-  //   /* set menu value by menu radio */
-
-  //   // if (menuChecked) console.log(menuChecked.value)
-  //   if (this !== menuChecked) menuChecked = this
-  //   // console.log(this.value)
-
-  //   setTvAll()
-  //   set.url()
-  //   resetAndListenThtrSelect()
-  // },
-
-  // clickGridRadio = function() {
-  //   /* set grid value by grid radio */
-
-  //   // if (gridChecked) console.log(gridChecked.value)
-  //   if (this !== gridChecked) gridChecked = this
-  //   // console.log(this.value)
-
-  //   setTvAll()
-  //   set.url()
-  //   resetAndListenThtrSelect()
-  // },
-
   handle = {
     ctrmRadio: {
       change: function() {
@@ -131,7 +75,7 @@ const
     
         setTvAll()
         set.url()
-        resetAndListenThtrSelect()
+        handle.thtrSelect.resetAndListen()
       }
     },
   
@@ -145,19 +89,19 @@ const
     
         setTvAll()
         set.url()
-        resetAndListenThtrSelect()
+        handle.thtrSelect.resetAndListen()
       }
     },
 
     langSelect: {
       set: (value) => {
-        langClasslistAction('add', value)
+        langClasslist.add(value)
     
         const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
         // console.log(toRemoveArr)
     
         for (const i of toRemoveLangArr)
-          langClasslistAction('remove', i)
+          langClasslist.remove(i)
       },
 
       change: (e) => {
@@ -233,6 +177,11 @@ const
         handle.thtrSelect.change(value)
         handle.thtrSelect.click()
       },
+
+      resetAndListen: () => {
+        set.thtr() // to reset thtr
+        listen.thtrSelect()
+      }
     },
 
     window: {
@@ -256,104 +205,41 @@ const
         // console.log('window.innerWidth: ', window.innerWidth)
         // console.log('window.innerHeight: ', window.innerHeight)
     
-        resetAndListenThtrSelect()
+        handle.thtrSelect.resetAndListen()
         setTvAll()
       }
     },
   },
 
-  // changeThtrSelect = (value) => {
-  //   // console.log(value)
-  //   thtrSelect.querySelectorAll(`option[value="${value}"]`)[0].selected = 'selected'
-  //   // console.log(thtrSelect.value)
-  // },
-
-  // clickThtrSelect = (event) => {
-  //   // console.log(event)
-  //   // console.log({tvNumberFlag})
-  //   // console.log(thtrSelect.value)
-  //   // console.log({tvSrcArrCached})
-
-  //   if (thtrSelect.value === '0') {
-  //     setTv.sizeInterval(true)
-  //     setTv.size()
-  //     tvNumberFlag = 0
-      
-  //     for (let i = 1; i <= tvRowNumber; i++)
-  //         document.getElementById(`row${i}`).classList.remove('hide')
+  // langClasslistAction = (action, value) => {
+  //   for (let i = 1; i < headPartArr.length; i++) {
+  //     document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+  //       (e) => (action === 'add')
+  //         ? e.classList.add(value)
+  //         : (action === 'remove')
+  //           ? e.classList.remove(value)
+  //           : null
+  //     )
   //   }
-  //   else {
-  //     setTv.sizeInterval(false)
-  //     tvNumberFlag = alphanumericToNumber(thtrSelect.value)
-
-  //     let _temp = gridChecked.value === 'all' ? tvSrcArrCached.length : gridChecked.value * 1
-
-  //     for (let i = 1; i <= _temp; i++) {
-  //       // console.log(_temp) // number
-
-  //       let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
-  //       // console.log(e)
-  //       // console.log(thtrSelect.value)
-
-  //       if (e) {
-  //         if (i !== alphanumericToNumber(thtrSelect.value)) {
-  //           e.setAttribute('width', '0')
-  //           e.setAttribute('height', '0')
-  //         }
-  //         else {
-  //           e.setAttribute('width', screenWidth)
-  //           e.setAttribute('height', screenHeight)
-  //         }
-  //       }
-  //     }
-
-  //     // console.log({tvAllNumber}) // e.g. 12
-  //     // console.log({tvRowNumber}) // e.g. 4
-  //     // console.log({tvColNumber}) // e.g. 3
-  
-  //     let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
-  //     // console.log({rowNumber})
-  
-  //     for (let i = 1; i <= tvRowNumber; i++) {
-  //       let e = document.getElementById(`row${i}`)
-  //       i !== rowNumber ? e.classList.add('hide') : e.classList.remove('hide')
-  //     }
-  //   }
-
-  //   // console.log({tvNumberFlag})
-  //   // console.log(thtrSelect.value)
   // },
 
-  // changeAndClickThtrSelect = (value) => {
-  //   handle.thtrSelect.change(value)
-  //   handle.thtrSelect.click()
-  // },
+  langClasslist = {
+    add: (value) => {
+      for (let i = 1; i < headPartArr.length; i++) {
+        document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+          (e) => e.classList.add(value)
+        )
+      }
+    },
 
-  langClasslistAction = (action, value) => {
-    for (let i = 1; i < headPartArr.length; i++) {
-      document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-        (e) => (action === 'add')
-          ? e.classList.add(value)
-          : e.classList.remove(value)
-      )
-    }
+    remove: (value) => {
+      for (let i = 1; i < headPartArr.length; i++) {
+        document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+          (e) => e.classList.remove(value)
+        )
+      }
+    },
   },
-
-  // langClasslistAdd = (value) => {
-  //   for (let i = 1; i < headPartArr.length; i++) {
-  //     document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-  //       (e) => e.classList.add(value)
-  //     )
-  //   }
-  // },
-
-  // langClasslistRemove = (value) => {
-  //   for (let i = 1; i < headPartArr.length; i++) {
-  //     document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-  //       (e) => e.classList.remove(value)
-  //     )
-  //   }
-  // },
 
   listen = {
     thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', handle.thtrSelect.click),
@@ -396,47 +282,35 @@ const
     orientationChange: () => screen.orientation.addEventListener('change', handle.orientation.change)
   },
 
-  // resizeTvSize = () => {
-  //   getWidthAndHeight()
-  //   handle.thtrSelect.click()
-  // },
-
-  // handleOrientation = () => {
-  //   // console.log(screen.orientation)
-
-  //   // getWidthAndHeight() // doesn't work
-  //   // let _temp = window.innerHeight
-  //   // window.innerHeight = window.innerWidth
-  //   // window.innerWidth = _temp
-
-  //   // console.log('window.innerWidth: ', window.innerWidth)
-  //   // console.log('window.innerHeight: ', window.innerHeight)
-
-  //   resetAndListenThtrSelect()
-  //   setTvAll()
-  // },
-
   /* get css property pixel value */
 
-  getCssPx = (e,p) =>
-    getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1, // convert to number
+  getCssPx = (e,p) => {
+    // console.log({e})
+    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
+  },
 
   /* get width and height of tv and screen */
 
   getWidthAndHeight = () => {
-    // console.log({head})
     // console.log({body})
+    // console.log({head})
+    // console.log({iframe})
     // console.log({tvNumberFlag})
 
-    if (tvNumberFlag) {
-      let _temp = tvNumberFlag - 1
-      tv = document.querySelectorAll('.tv')[_temp]
-      iframe = document.querySelectorAll('iframe')[_temp]
-    }
-    else {
-      tv = document.querySelector('.tv')
-      iframe = document.querySelector('iframe')
-    }
+    // if (tvNumberFlag) {
+    //   let _temp = tvNumberFlag - 1
+    //   tv = document.querySelectorAll('.tv')[_temp]
+    //   iframe = document.querySelectorAll('iframe')[_temp]
+    //   console.log({_temp})
+    // }
+    // else {
+    //   tv = document.querySelector('.tv')
+    //   iframe = document.querySelector('iframe')
+    // }
+    tv = document.querySelector('.tv')
+    iframe = document.querySelector('iframe')
+    // console.log({tv})
+    // console.log({iframe})
 
     bodyBorderWidth = getCssPx(body, 'border-width') * 2
     headBorderWidth = getCssPx(head, 'border-width') * 2
@@ -504,21 +378,6 @@ const
       [arr[i], arr[j]] = [arr[j], arr[i]]
     }
   },
-
-  // setLangSelect = (value) => {
-  //   langClasslistAdd(value)
-
-  //   const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
-  //   // console.log(toRemoveArr)
-
-  //   for (const i of toRemoveLangArr)
-  //     langClasslistRemove(i)
-  // },
-
-  // changeLangSelect = (e) => {
-  //   setLangSelect(e.target.value)
-  //   set.url()
-  // },
 
   setTv = {
     grid: () => {
@@ -693,10 +552,10 @@ const
     },
   },
 
-  resetAndListenThtrSelect = () => {
-    set.thtr() // to reset thtr
-    listen.thtrSelect()
-  },
+  // resetAndListenThtrSelect = () => {
+  //   set.thtr() // to reset thtr
+  //   listen.thtrSelect()
+  // },
 
   listenAll = () => {
     listen.ctrmMenuGridRadio()
@@ -714,7 +573,7 @@ const
   },
 
   tvwall = () => {
-    resetAndListenThtrSelect()
+    handle.thtrSelect.resetAndListen()
     handle.langSelect.set(langSelect.value)
     listenAll()
     setTvAll()
