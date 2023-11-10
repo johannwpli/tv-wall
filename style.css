@@ -370,6 +370,12 @@ option[value='hh'] {
   background: var(--inter-color);
 }
 
+@media (max-width: 576px) {
+  .tablet {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .grid {
     text-align: right;
@@ -377,14 +383,13 @@ option[value='hh'] {
 
   .lang,
   .thtr,
-  .tablet {
+  .laptop {
     display: none;
   }
 }
 
 @media (max-width: 992px) {
   .lang select,
-  .laptop,
   .desktop {
     display: none;
   }
