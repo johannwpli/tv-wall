@@ -49,7 +49,7 @@ The TV Wall project was inspired by the [反送中直播台 No China Extradition
 
 Instructions
 ---
-`COMPATIBILITY` TV Wall supports multi browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
+`COMPATIBILITY` TV Wall supports multiple browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
 
 `HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://tvwall.cc/?m=IU, to show IU videos.
 
@@ -67,9 +67,9 @@ Instructions
 Breakpoints
 ---  
 <pre>
- Pixel       | Device                  | Class   | NoVA<sup>[5]</sup>   | Default
+ Pixel       | Device                  | Class   |  NoVA<sup>[5]</sup> | Default
 -------------+-------------------------+---------+---------+---------
-      -  576 | Mobile devices          | mobile  | 1, 2, 3 |       3
+  min -  576 | Mobile devices          | mobile  | 1, 2, 3 |       3
 -------------+-------------------------+---------+---------+---------
   577 -  768 | iPads, tablets          | tablet  |    4, 6 |       6
 -------------+-------------------------+---------+---------+---------
@@ -77,7 +77,7 @@ Breakpoints
 -------------+-------------------------+---------+---------+---------
   993 - 1200 | Large screens, desktops | desktop |  12, 15 |      12
 -------------+-------------------------+---------+---------+---------
- 1201 -      | Extra large screens, TV | lscreen |  16, 20 |      15
+ 1201 -  max | Extra large screens, TV | lscreen |  16, 20 |      15
 </pre>
 
 
