@@ -49,17 +49,17 @@ The TV Wall project was inspired by the [反送中直播台 No China Extradition
 
 Instructions
 ---
-`COMPATIBILITY` TV Wall supports multi browsers and devices, including mobiles, tablets, laptops, and desktops.
+`COMPATIBILITY` TV Wall supports multi browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
 
 `HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://tvwall.cc/?m=IU, to show IU videos.
 
-`CUSTOM IDS` Use 'i' as the id param to customize your video list<sup>[4]</sup>, e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with these 2 YouTube video IDs.
+`CUSTOM IDS` Use 'i' as the id param to customize your video list, e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with YouTube video IDs separated by a comma.
 
 `VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://tvwall.cc/?g=all, to play all the videos.
 
 `DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://tvwall.cc/?l=jp, to set Japanese as the display language.
 
-`THEATER MODE` Use the drop-down menu<sup>[5]</sup> to watch the video in theater mode., e.g., select 1 to watch the top left video.
+`THEATER MODE` Use the drop-down menu to watch the video in theater mode., e.g., select 1 to watch the top left video<sup>[4]</sup>.
 
 `HOTKEY` Press the keyboard to trigger the hotkey to the theater mode., e.g., press 0 to activate the '0' of theater mode.
 
@@ -67,7 +67,7 @@ Instructions
 Breakpoints
 ---  
 <pre>
- Pixel       | Device                  | Class   | NoVA<sup>[6]</sup>   | Default
+ Pixel       | Device                  | Class   | NoVA<sup>[5]</sup>   | Default
 -------------+-------------------------+---------+---------+---------
       -  576 | Mobile devices          | mobile  | 1, 2, 3 |       3
 -------------+-------------------------+---------+---------+---------
@@ -86,6 +86,5 @@ References
 1. Redirects to https://johannwpli.github.io/tv-wall/.  
 2. Read more at https://structurizr.org/ and https://c4model.com/.  
 3. Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
-4. Place YouTube video IDs separated by a comma.  
-5. The number of the top left video is 1, then 2, and so on, from left to right, top to down.  
-6. Number of Videos Available, derived from https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints.
+4. The alphanumeric of the top left video is 1, then 2, and so on, from left to right, top to down.  
+5. Number of Videos Available, derived from https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints.
