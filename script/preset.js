@@ -132,7 +132,7 @@ const
       default: 12
     },
 
-    lscreen: {
+    xlscreen: {
       width: 1200,
       show: 16, // i.e. 16, 20
       default: 15
@@ -157,6 +157,9 @@ const
   getClosestGrid = goal => (a,b) => (Math.abs(a - goal) < Math.abs(b - goal)) ? a : b,
 
   removeAllFirstChild = (e) => {
+    /* innerHTML vs removeChild vs remove,
+    https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
+
     while (e.firstChild)
       e.firstChild.remove()
   },
@@ -279,8 +282,8 @@ const
       docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
       for (const i of radioGridArr) {
-        const j = (i >= radioGridObj.lscreen.show)
-            ? 'lscreen'
+        const j = (i >= radioGridObj.xlscreen.show)
+            ? 'xlscreen'
             : (i >= radioGridObj.desktop.show)
                 ? 'desktop'
                 : (i >= radioGridObj.laptop.show)
@@ -324,8 +327,8 @@ const
   
       }
       else {
-        radioGridDefault = (window.innerWidth >= radioGridObj.lscreen.width)
-            ? radioGridObj.lscreen.default // lscreen
+        radioGridDefault = (window.innerWidth >= radioGridObj.xlscreen.width)
+            ? radioGridObj.xlscreen.default // xlscreen
             : (window.innerWidth >= radioGridObj.desktop.width)
                 ? radioGridObj.desktop.default // desktop
                 : (window.innerWidth >= radioGridObj.laptop.width)

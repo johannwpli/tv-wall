@@ -32,8 +32,7 @@ const
 
   handle = {
     ctrmRadio: {
-      change: function() {
-        /* set ctrm value by ctrm radio */
+      change: function() { /* set ctrm value by ctrm radio */
     
         // if (ctrmChecked) console.log(ctrmChecked.value)
         if (this !== ctrmChecked) ctrmChecked = this
@@ -66,8 +65,7 @@ const
     },
   
     menuRadio: {
-      click: function() {
-        /* set menu value by menu radio */
+      click: function() { /* set menu value by menu radio */
     
         // if (menuChecked) console.log(menuChecked.value)
         if (this !== menuChecked) menuChecked = this
@@ -80,8 +78,7 @@ const
     },
   
     gridRadio: {
-      click: function() {
-        /* set grid value by grid radio */
+      click: function() { /* set grid value by grid radio */
     
         // if (gridChecked) console.log(gridChecked.value)
         if (this !== gridChecked) gridChecked = this
@@ -160,7 +157,7 @@ const
           // console.log({tvRowNumber}) // e.g. 4
           // console.log({tvColNumber}) // e.g. 3
       
-          let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1 ) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+          let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
           // console.log({rowNumber})
       
           for (let i = 1; i <= tvRowNumber; i++) {
@@ -211,18 +208,6 @@ const
     },
   },
 
-  // langClasslistAction = (action, value) => {
-  //   for (let i = 1; i < headPartArr.length; i++) {
-  //     document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-  //       (e) => (action === 'add')
-  //         ? e.classList.add(value)
-  //         : (action === 'remove')
-  //           ? e.classList.remove(value)
-  //           : null
-  //     )
-  //   }
-  // },
-
   langClasslist = {
     add: (value) => {
       for (let i = 1; i < headPartArr.length; i++) {
@@ -258,18 +243,15 @@ const
     langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', handle.langSelect.change),
 
     keyPress: () => {
-      /* capture keyboard input,
-      https://codepen.io/DBoy_Fresh/pen/RgjYKG */
+      /* capture keyboard input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
   
       document.onkeydown = (e) => {
         let keyPress = e.key
         // console.log({keyPress})
         // console.log(selectThtrObj)
         // console.log(keyPress in selectThtrObj)
-  
-        /* check if thtr equals to key pressed */
-  
-        if (keyPress in selectThtrObj) {
+
+        if (keyPress in selectThtrObj) { /* check if thtr equals to key pressed */
           // thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
           // // console.log(thtrSelect.value)
           handle.thtrSelect.changeAndClick(keyPress)
@@ -282,33 +264,28 @@ const
     orientationChange: () => screen.orientation.addEventListener('change', handle.orientation.change)
   },
 
-  /* get css property pixel value */
-
-  getCssPx = (e,p) => {
+  getCssPx = (e,p) => { /* get css property pixel value */
     // console.log({e})
     return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
   },
 
-  /* get width and height of tv and screen */
 
-  getWidthAndHeight = () => {
+  getWidthAndHeight = () => { /* get width and height of tv and screen */
     // console.log({body})
     // console.log({head})
     // console.log({iframe})
     // console.log({tvNumberFlag})
 
-    // if (tvNumberFlag) {
-    //   let _temp = tvNumberFlag - 1
-    //   tv = document.querySelectorAll('.tv')[_temp]
-    //   iframe = document.querySelectorAll('iframe')[_temp]
-    //   console.log({_temp})
-    // }
-    // else {
-    //   tv = document.querySelector('.tv')
-    //   iframe = document.querySelector('iframe')
-    // }
-    tv = document.querySelector('.tv')
-    iframe = document.querySelector('iframe')
+    if (tvNumberFlag) {
+      let _temp = alphanumericToNumber(numberToAlphanumeric(tvNumberFlag - 1))
+      tv = document.querySelectorAll('.tv')[`${_temp}`]
+      iframe = document.querySelectorAll('iframe')[`${_temp}`]
+    }
+    else {
+      tv = document.querySelector('.tv')
+      iframe = document.querySelector('iframe')
+    }
+
     // console.log({tv})
     // console.log({iframe})
 
@@ -369,10 +346,9 @@ const
     // console.log({screenHeight})
   },
 
-  /* shuffle array with Fisher-Yates algo,
-  https://shubo.io/javascript-random-shuffle/ */
-
   shuffle = (arr) => {
+    /* shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/ */
+
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]]
@@ -380,8 +356,7 @@ const
   },
 
   setTv = {
-    grid: () => {
-      /* set grid layout by grid value */
+    grid: () => { /* set grid layout by grid value */
 
       menuChecked = document.querySelector('input[name="menu"]:checked')
       // console.log(menuChecked.value)
@@ -422,9 +397,6 @@ const
       // console.log({tvAllNumber})
       // console.log({tvRowNumber})
       // console.log({tvColNumber})
-
-      /* innerHTML vs removeChild vs remove,
-      https://www.measurethat.net/Benchmarks/Show/6910/0/innerhtml-vs-removechild-vs-remove#latest_results_block */
 
       removeAllFirstChild(body)
 
@@ -516,8 +488,7 @@ const
       console.groupEnd()
     },
 
-    size: () => {
-      /* set tv size by window size */
+    size: () => { /* set tv size by window size */
 
       getWidthAndHeight()
 
