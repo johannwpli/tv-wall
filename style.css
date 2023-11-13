@@ -398,7 +398,7 @@ option[value='hh'] {
 @media (max-width: 1200px) {
   .cell:not(.title) label:first-of-type,
   .ctrm,
-  .lscreen {
+  .xlscreen {
     display: none;
   }
 }

@@ -171,6 +171,11 @@ const
       },
 
       changeAndClick: (value) => {
+        handle.thtrSelect.change(value)
+        handle.thtrSelect.click()
+      },
+
+      toggle: (value) => {
         // console.log({tvNumberFlag})
         if (tvNumberFlag !== 0) value = '0'
         // console.log({value})
@@ -477,7 +482,7 @@ const
               // console.log({tvSrc})
 
               // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
-              tvHtml = `<div name='${_temp}' class='tvNumber' title='click to toggle theater mode' onclick="handle.thtrSelect.changeAndClick('${_temp}')">${_temp}</div>
+              tvHtml = `<div name='${_temp}' class='tvNumber' title='click to toggle theater mode' onclick="handle.thtrSelect.toggle('${_temp}')">${_temp}</div>
                 <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
