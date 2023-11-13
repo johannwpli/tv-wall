@@ -180,8 +180,7 @@ const
         if (tvNumberFlag !== 0) value = '0'
         // console.log({value})
 
-        handle.thtrSelect.change(value)
-        handle.thtrSelect.click()
+        handle.thtrSelect.changeAndClick(value)
         // console.log({tvNumberFlag})
       },
 
@@ -261,11 +260,8 @@ const
         // console.log(selectThtrObj)
         // console.log(keyPress in selectThtrObj)
 
-        if (keyPress in selectThtrObj) { /* check if thtr equals to key pressed */
-          // thtrSelect.querySelectorAll(`option[value="${keyPress}"]`)[0].selected = 'selected'
-          // // console.log(thtrSelect.value)
+        if (keyPress in selectThtrObj) /* check if thtr equals to key pressed */
           handle.thtrSelect.changeAndClick(keyPress)
-        }
       }
     },
 
@@ -276,7 +272,7 @@ const
 
   getCssPx = (e,p) => { /* get css property pixel value */
     // console.log({e})
-    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
+    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 || 0 // convert to number
   },
 
 
@@ -483,11 +479,11 @@ const
 
               // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
               tvHtml = `<div name='${_temp}' class='tvNumber' title='click to toggle theater mode' onclick="handle.thtrSelect.toggle('${_temp}')">${_temp}</div>
-                <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+              <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
 
-              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', changeAndClickThtrSelect('${_temp}')) // doesn't work
+              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`)) // doesn't work
             }
           }
         )
