@@ -139,10 +139,23 @@ option[value='hh'] {
   display: none;
   position: absolute;
   cursor: pointer;
+  margin: 2px;
+  box-shadow: 0 0 0 1px var(--darkalpha-color);
+  border-radius: 0.6em;
+  padding: 0 4.5px;
+  color: var(--dark-color);
+  background: var(--bright-color);
+  font-size: .8em;
 }
 
 .tv:hover .tvNumber {
   display: block;
+}
+
+.tv:hover .tvNumber:hover {
+  box-shadow: 0 0 0 1px var(--darkalpha-color);
+  color: var(--bright-color);
+  background: var(--title-color);
 }
 
 .tv iframe {
