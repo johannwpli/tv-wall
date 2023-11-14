@@ -153,7 +153,6 @@ option[value='hh'] {
 }
 
 .tv:hover .tvNumber:hover {
-  box-shadow: 0 0 0 1px var(--darkalpha-color);
   color: var(--bright-color);
   background: var(--title-color);
 }

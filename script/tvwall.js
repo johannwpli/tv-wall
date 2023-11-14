@@ -478,12 +478,23 @@ const
               // console.log({tvSrc})
 
               // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
-              tvHtml = `<div name='${_temp}' class='tvNumber' title='click to toggle theater mode' onclick="handle.thtrSelect.toggle('${_temp}')">${_temp}</div>
-              <iframe frameborder='${tvBorder}' allow='${tvAllow}' ${tvAllowfullscreen} src='${tvSrc}'></iframe>`
+              tvHtml =
+                `<div
+                  name='${_temp}'
+                  class='tvNumber'
+                  title='click to toggle theater mode'
+                  onclick="handle.thtrSelect.toggle('${_temp}')">${_temp}</div>
+                <iframe
+                  frameborder='${tvBorder}'
+                  allow='${tvAllow}' ${tvAllowfullscreen}
+                  src='${tvSrc}'></iframe>`
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
 
               // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`)) // doesn't work
+
+              if (hour < 6 || hour >= 18)
+                document.querySelector(`div[name='${_temp}']`).classList.add('night')
             }
           }
         )
