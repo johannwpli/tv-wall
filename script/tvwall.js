@@ -272,7 +272,7 @@ const
 
   getCssPx = (e,p) => { /* get css property pixel value */
     // console.log({e})
-    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 || 0 // convert to number
+    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
   },
 
 
@@ -284,13 +284,17 @@ const
 
     if (tvNumberFlag) {
       let _temp = alphanumericToNumber(numberToAlphanumeric(tvNumberFlag - 1))
+
+      // console.log(document.querySelectorAll('.tv'))
       tv = document.querySelectorAll('.tv')[`${_temp}`]
-      iframe = document.querySelectorAll('iframe')[`${_temp}`]
+
+      // iframe = document.querySelectorAll('iframe')[`${_temp}`]
     }
     else {
       tv = document.querySelector('.tv')
-      iframe = document.querySelector('iframe')
     }
+
+    iframe = document.querySelector('iframe')
 
     // console.log({tv})
     // console.log({iframe})
