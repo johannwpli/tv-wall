@@ -9,9 +9,11 @@ let
   ctRoom,
   ctRoomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
 
-  intervalSetTvSize,
-  intervalSetTvSizeFlag = false,
-  intervalSetTvSizeDelay = 1500, // i.e. 1.5 secs
+  intervalGridTvSize,
+  intervalGridTvSizeFlag = false,
+  intervalThtrTvSize,
+  intervalThtrTvSizeFlag = false,
+  intervalCheckTvSizeDelay = 1000, // i.e. 1.0 secs
 
   tv,
   iframe,
@@ -120,39 +122,19 @@ const
         // console.log(thtrSelect.value)
         // console.log({tvSrcArrCached})
     
-        if (thtrSelect.value === '0') {
+        if (thtrSelect.value === '0') { // grid mode
           setTv.sizeInterval(true)
-          setTv.size()
+          setTv.checkGridTvSize()
           tvNumberFlag = 0
           
           for (let i = 1; i <= tvRowNumber; i++)
               document.getElementById(`row${i}`).classList.remove('hide')
         }
-        else {
+        else { // theater mode
           setTv.sizeInterval(false)
+          setTv.checkThtrTvSize()
           tvNumberFlag = alphanumericToNumber(thtrSelect.value)
-    
-          let _temp = (gridChecked.value === 'all') ? tvSrcArrCached.length : gridChecked.value * 1
-    
-          for (let i = 1; i <= _temp; i++) {
-            // console.log(_temp) // number
-    
-            let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
-            // console.log(e)
-            // console.log(thtrSelect.value)
-    
-            if (e) {
-              if (i !== alphanumericToNumber(thtrSelect.value)) {
-                e.setAttribute('width', '0')
-                e.setAttribute('height', '0')
-              }
-              else {
-                e.setAttribute('width', screenWidth)
-                e.setAttribute('height', screenHeight)
-              }
-            }
-          }
-    
+        
           // console.log({tvAllNumber}) // e.g. 12
           // console.log({tvRowNumber}) // e.g. 4
           // console.log({tvColNumber}) // e.g. 3
@@ -277,6 +259,7 @@ const
 
 
   getWidthAndHeight = () => { /* get width and height of tv and screen */
+    // console.log('running getWidthAndHeight')
     // console.log({body})
     // console.log({head})
     // console.log({iframe})
@@ -284,17 +267,13 @@ const
 
     if (tvNumberFlag) {
       let _temp = alphanumericToNumber(numberToAlphanumeric(tvNumberFlag - 1))
-
-      // console.log(document.querySelectorAll('.tv'))
       tv = document.querySelectorAll('.tv')[`${_temp}`]
-
-      // iframe = document.querySelectorAll('iframe')[`${_temp}`]
+      iframe = document.querySelectorAll('iframe')[`${_temp}`] || document.querySelector('iframe')
     }
     else {
       tv = document.querySelector('.tv')
+      iframe = document.querySelector('iframe')
     }
-
-    iframe = document.querySelector('iframe')
 
     // console.log({tv})
     // console.log({iframe})
@@ -329,7 +308,7 @@ const
     iframeGapHeight = tvNowHeight - iframeNowHeight
 
     // console.log({iframeGapWidth})
-    // console.log({iframeGapHeight}) // dynamic
+    // console.log({iframeGapHeight}) // dynamic as per device
 
     tvwallPercent = getComputedStyle(tvWall).getPropertyValue('width').replace('px', '') / window.innerWidth
     // console.log(window.innerWidth)
@@ -342,6 +321,8 @@ const
     // console.log('window.innerHeight: ', window.innerHeight)
     // console.log({docWidth})
     // console.log({docHeight})
+    // console.log({tvColNumber})
+    // console.log({tvRowNumber})
 
     tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // causes wrong width
     tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
@@ -373,9 +354,10 @@ const
       tvSrcKey = menuChecked.value
       // console.log({tvSrcKey})
 
-      tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
-        ? tvSrcObj[tvSrcKey]
-        : urlIdParam.split(',')
+      tvSrcArr =
+        (tvSrcObj.hasOwnProperty(tvSrcKey))
+          ? tvSrcObj[tvSrcKey]
+          : urlIdParam.split(',')
 
       // console.log({tvSrcArr})
       // console.log({radioGridArr})
@@ -481,7 +463,7 @@ const
 
               // console.log({tvSrc})
 
-              // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div>
+              // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div> // doesn't work
               tvHtml =
                 `<div
                   name='${_temp}'
@@ -509,38 +491,100 @@ const
       console.groupEnd()
     },
 
-    size: () => { /* set tv size by window size */
-
+    checkGridTvSize: () => {
+      // console.log('grid mode')
       getWidthAndHeight()
 
       document.querySelectorAll('#tvWall iframe').forEach(
         (e,i) => {
           let _temp = numberToAlphanumeric(i + 1)
-
           e.setAttribute('id', `tv${_temp}`)
-          e.setAttribute('width', tvWidth)
-          e.setAttribute('height', tvHeight)
+
+          if (e.getAttribute('width') * 1 !== tvWidth
+              || e.getAttribute('height') * 1 !== tvHeight)
+            setTv.setGridTvSize(e)
         }
       )
     },
 
+    checkThtrTvSize: () => { // to fix
+      // console.log('theater mode')
+      // getWidthAndHeight()
+      // console.log({screenWidth})
+      // console.log({screenHeight})
+
+      let _temp =
+        (gridChecked.value === 'all')
+          ? tvSrcArrCached.length
+          : gridChecked.value * 1
+      // console.log(_temp) // number
+
+      for (let i = 1; i <= _temp; i++) {
+        let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
+        // console.log(e)
+        // console.log(thtrSelect.value)
+
+        if (e) {
+          if (i !== alphanumericToNumber(thtrSelect.value)) {
+            if (e.getAttribute('width') * 1 !== 0
+                || e.getAttribute('height') * 1 !== 0)
+              setTv.setHiddenTvSize(e)
+          }
+          else {
+            if (e.getAttribute('width') * 1 !== screenWidth
+                || e.getAttribute('height') * 1 !== screenHeight) {
+              setTv.setShownTvSize(e)
+            }
+          }
+        }
+      }
+    },
+
+    setGridTvSize: (e) => {
+      // console.log('trigger grid tv resizing')
+      e.setAttribute('width', tvWidth)
+      e.setAttribute('height', tvHeight)
+    },
+
+    setHiddenTvSize: (e) => {
+      // console.log('trigger hidden tv resizing')
+      e.setAttribute('width', '0')
+      e.setAttribute('height', '0')
+    },
+
+    setShownTvSize: (e) => {
+      // console.log('trigger shown tv resizing')
+      e.setAttribute('width', screenWidth)
+      e.setAttribute('height', screenHeight)
+    },
+
     sizeInterval: (status) => {
-      // console.log({intervalSetTvSizeFlag})
+      // console.log({intervalGridTvSizeFlag})
+      // console.log({intervalThtrTvSizeFlag})
 
       if (status) {
-        if (!intervalSetTvSizeFlag) {
-          intervalSetTvSize = setInterval(setTv.size, intervalSetTvSizeDelay) // to fix iframe native bug returning from fullscreen
-          intervalSetTvSizeFlag = true
+        if (!intervalGridTvSizeFlag) {
+          intervalGridTvSize = setInterval(setTv.checkGridTvSize, intervalCheckTvSizeDelay) // to fix iframe native bug returning from fullscreen
+          intervalGridTvSizeFlag = true
+        }
+        if (intervalThtrTvSizeFlag) {
+          clearInterval(intervalThtrTvSize)
+          intervalThtrTvSizeFlag = false
         }
       }
       else {
-        if (intervalSetTvSizeFlag) {
-          clearInterval(intervalSetTvSize)
-          intervalSetTvSizeFlag = false
+        if (intervalGridTvSizeFlag) {
+          clearInterval(intervalGridTvSize)
+          intervalGridTvSizeFlag = false
+        }
+        if (!intervalThtrTvSizeFlag) {
+          intervalThtrTvSize = setInterval(setTv.checkThtrTvSize, intervalCheckTvSizeDelay) // to fix iframe native bug returning from fullscreen
+          intervalThtrTvSizeFlag = true
         }
       }
 
-      // console.log({intervalSetTvSizeFlag})
+      // console.log({intervalGridTvSizeFlag})
+      // console.log({intervalThtrTvSizeFlag})
     },
   },
 
@@ -560,7 +604,7 @@ const
   setTvAll = () => {
     setTv.grid()
     setTv.src()
-    setTv.size()
+    setTv.checkGridTvSize()
     setTv.sizeInterval(true)
   },
 

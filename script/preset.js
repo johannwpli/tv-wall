@@ -30,13 +30,15 @@ let
   ctrmOn,
   ctrmOff,
 
-  radioMenuDefault = (browserLang === 'zh-TW')
-    ? 'Taiwan'
-    : 'World',
+  radioMenuDefault =
+    (browserLang === 'zh-TW')
+      ? 'Taiwan'
+      : 'World',
 
   radioGridDefault,
 
-  selectLangDefault = (browserLang === 'zh-TW' || browserLang === 'zh-HK')
+  selectLangDefault =
+    (browserLang === 'zh-TW' || browserLang === 'zh-HK')
       ? 'zh'
       : (browserLang === 'ja')
         ? 'jp'
@@ -282,7 +284,8 @@ const
       docCellGrid.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
   
       for (const i of radioGridArr) {
-        const j = (i >= radioGridObj.xlscreen.show)
+        const j =
+          (i >= radioGridObj.xlscreen.show)
             ? 'xlscreen'
             : (i >= radioGridObj.desktop.show)
                 ? 'desktop'
@@ -292,7 +295,8 @@ const
                         ? 'tablet'
                         : 'mobile'
   
-        radioGrid += (i !== 'all')
+        radioGrid +=
+          (i !== 'all')
             ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
             : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
       }
@@ -320,14 +324,16 @@ const
         if (!isNaN(urlGridParam)) { // is a number
           // console.log(!isNaN(urlGridParam))
           // console.log(radioGridArr.includes(Number(urlGridParam)))
-          radioGridDefault = (radioGridArr.includes(Number(urlGridParam)))
+          radioGridDefault =
+            (radioGridArr.includes(Number(urlGridParam)))
               ? urlGridParam
               : radioGridArr.reduce(getClosestGrid(urlGridParam))
         }
   
       }
       else {
-        radioGridDefault = (window.innerWidth >= radioGridObj.xlscreen.width)
+        radioGridDefault =
+          (window.innerWidth >= radioGridObj.xlscreen.width)
             ? radioGridObj.xlscreen.default // xlscreen
             : (window.innerWidth >= radioGridObj.desktop.width)
                 ? radioGridObj.desktop.default // desktop
@@ -392,16 +398,18 @@ const
         // console.log('tvSrcArrCached is available')
         // console.log({tvSrcArrCached})
         
-        maxThtrNumber = (gridChecked.value === 'all')
-          ? tvSrcArrCached.length
-          : Math.min(gridChecked.value, tvSrcArrCached.length)
+        maxThtrNumber =
+          (gridChecked.value === 'all')
+            ? tvSrcArrCached.length
+            : Math.min(gridChecked.value, tvSrcArrCached.length)
   
         // console.log({maxThtrNumber})
   
         for (let i = 0; i < maxThtrNumber; i++) {
-          selectThtrObj[i + 1] = (typeof tvSrcArrCached[i] === 'object')
-            ? tvSrcArrCached[i]['id']
-            : tvSrcArrCached[i]
+          selectThtrObj[i + 1] =
+            (typeof tvSrcArrCached[i] === 'object')
+              ? tvSrcArrCached[i]['id']
+              : tvSrcArrCached[i]
         }
       }
       else {
@@ -412,24 +420,27 @@ const
         tvSrcKey = menuChecked.value
         // console.log({tvSrcKey})
   
-        tvSrcArr = (tvSrcObj.hasOwnProperty(tvSrcKey))
-          ? tvSrcObj[tvSrcKey]
-          : urlIdParam.split(',')
+        tvSrcArr =
+          (tvSrcObj.hasOwnProperty(tvSrcKey))
+            ? tvSrcObj[tvSrcKey]
+            : urlIdParam.split(',')
   
         // console.log({tvSrcArr})
 
         gridChecked = document.querySelector('input[name="grid"]:checked')
 
-        maxThtrNumber = (gridChecked.value === 'all')
-          ? tvSrcArr.length
-          : Math.min(gridChecked.value, tvSrcArr.length)
+        maxThtrNumber =
+          (gridChecked.value === 'all')
+            ? tvSrcArr.length
+            : Math.min(gridChecked.value, tvSrcArr.length)
   
         // console.log({maxThtrNumber})
   
         for (let i = 0; i < maxThtrNumber; i++) {
-          selectThtrObj[i + 1] = (typeof tvSrcArr[i] === 'object')
-            ? tvSrcArr[i]['id']
-            : tvSrcArr[i]
+          selectThtrObj[i + 1] =
+            (typeof tvSrcArr[i] === 'object')
+              ? tvSrcArr[i]['id']
+              : tvSrcArr[i]
         }
       }
   
@@ -447,7 +458,7 @@ const
       // console.log(selectThtrObj)
   
       for (const k in selectThtrObj) {
-        (k === '0')
+        k === '0'
           ? selectThtr += `<option name="thtr" value="${k}">${selectThtrObj[k]}</option>`
           : selectThtr += `<option name="thtr" value="${k}">${k}</option>`
   

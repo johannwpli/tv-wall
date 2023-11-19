@@ -157,6 +157,11 @@ option[value='hh'] {
   background: var(--title-color);
 }
 
+.tv:hover .tvNumber:active {
+  color: var(--dark-color);
+  background: var(--bright-color);
+}
+
 .tv iframe {
   border: 0 solid transparent;
   transition: all .05s ease-in-out;
