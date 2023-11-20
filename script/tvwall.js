@@ -73,6 +73,7 @@ const
         if (this !== menuChecked) menuChecked = this
         // console.log(this.value)
     
+        tvNumberFlag = 0
         setTvAll()
         set.url()
         handle.thtrSelect.resetAndListen()
@@ -257,9 +258,30 @@ const
     return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
   },
 
+  /* Wait for a DOM element to Exist,
+  https://bobbyhadz.com/blog/javascript-wait-for-element-to-exist */
 
-  getWidthAndHeight = () => { /* get width and height of tv and screen */
-    // console.log('running getWidthAndHeight')
+  waitForElementToExist = (selector) => {
+    return new Promise(resolve => {
+      if (document.querySelector(selector)) {
+        return resolve(document.querySelector(selector))
+      }
+  
+      const observer = new MutationObserver(() => {
+        if (document.querySelector(selector)) {
+          resolve(document.querySelector(selector))
+          observer.disconnect()
+        }
+      })
+  
+      observer.observe(document.body, {
+        subtree: true,
+        childList: true,
+      })
+    })
+  },
+
+  getWidthAndHeight = async () => { /* get width and height of tv and screen */
     // console.log({body})
     // console.log({head})
     // console.log({iframe})
@@ -267,10 +289,11 @@ const
 
     if (tvNumberFlag) {
       let _temp = alphanumericToNumber(numberToAlphanumeric(tvNumberFlag - 1))
-      tv = document.querySelectorAll('.tv')[`${_temp}`]
-      iframe = document.querySelectorAll('iframe')[`${_temp}`] || document.querySelector('iframe')
+      tv = document.querySelectorAll('.tv')[`${_temp}`]// || document.querySelector('.tv')
+      iframe = document.querySelectorAll('iframe')[`${_temp}`]// || document.querySelector('iframe')
     }
     else {
+      // tv = await waitForElementToExist('.tv')
       tv = document.querySelector('.tv')
       iframe = document.querySelector('iframe')
     }
@@ -493,6 +516,7 @@ const
 
     checkGridTvSize: () => {
       // console.log('grid mode')
+      
       getWidthAndHeight()
 
       document.querySelectorAll('#tvWall iframe').forEach(
@@ -507,11 +531,9 @@ const
       )
     },
 
-    checkThtrTvSize: () => { // to fix
+    checkThtrTvSize: () => {
       // console.log('theater mode')
       // getWidthAndHeight()
-      // console.log({screenWidth})
-      // console.log({screenHeight})
 
       let _temp =
         (gridChecked.value === 'all')
