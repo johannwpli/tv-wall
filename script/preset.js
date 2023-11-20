@@ -67,6 +67,7 @@ let
 
   tvHtml,
   tvInfo,
+  tvInfoAll,
   tvTitle,
   tvChannel,
 
@@ -484,7 +485,7 @@ const
     set.html()
     set.ctrm()
     set.menu()
-    set.grid() // set after set.menu()
+    set.grid() // must set after set.menu()
     set.lang()
     set.thtr()
     set.url()

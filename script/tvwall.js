@@ -9,11 +9,25 @@ let
   ctRoom,
   ctRoomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
 
-  intervalGridTvSize,
-  intervalGridTvSizeFlag = false,
-  intervalThtrTvSize,
-  intervalThtrTvSizeFlag = false,
-  intervalCheckTvSizeDelay = 1000, // i.e. 1.0 secs
+  // intervalGridTvSizeMode,
+  // intervalGridTvSizeFlag = false,
+  // intervalThtrTvSizeMode,
+  // intervalThtrTvSizeFlag = false,
+  // intervalTvSizeCheckDelay = 1000, // i.e. 1.0 secs
+
+  intervalTVSize = {
+    Grid: {
+      Mode: undefined,
+      Flag: false,
+    },
+
+    Thtr: {
+      Mode: undefined,
+      Flag: false,
+    },
+
+    CheckDelay: 1000, // i.e. 1.0 secs
+  },
 
   tv,
   iframe,
@@ -125,7 +139,7 @@ const
     
         if (thtrSelect.value === '0') { // grid mode
           setTv.sizeInterval(true)
-          setTv.checkGridTvSize()
+          setTv.checkTvSize.Grid()
           tvNumberFlag = 0
           
           for (let i = 1; i <= tvRowNumber; i++)
@@ -133,7 +147,7 @@ const
         }
         else { // theater mode
           setTv.sizeInterval(false)
-          setTv.checkThtrTvSize()
+          setTv.checkTvSize.Thtr()
           tvNumberFlag = alphanumericToNumber(thtrSelect.value)
         
           // console.log({tvAllNumber}) // e.g. 12
@@ -258,30 +272,30 @@ const
     return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
   },
 
-  /* Wait for a DOM element to Exist,
-  https://bobbyhadz.com/blog/javascript-wait-for-element-to-exist */
+  // /* Wait for a DOM element to Exist,
+  // https://bobbyhadz.com/blog/javascript-wait-for-element-to-exist */
 
-  waitForElementToExist = (selector) => {
-    return new Promise(resolve => {
-      if (document.querySelector(selector)) {
-        return resolve(document.querySelector(selector))
-      }
+  // waitForElementToExist = (selector) => {
+  //   return new Promise(resolve => {
+  //     if (document.querySelector(selector)) {
+  //       return resolve(document.querySelector(selector))
+  //     }
   
-      const observer = new MutationObserver(() => {
-        if (document.querySelector(selector)) {
-          resolve(document.querySelector(selector))
-          observer.disconnect()
-        }
-      })
+  //     const observer = new MutationObserver(() => {
+  //       if (document.querySelector(selector)) {
+  //         resolve(document.querySelector(selector))
+  //         observer.disconnect()
+  //       }
+  //     })
   
-      observer.observe(document.body, {
-        subtree: true,
-        childList: true,
-      })
-    })
-  },
+  //     observer.observe(document.body, {
+  //       subtree: true,
+  //       childList: true,
+  //     })
+  //   })
+  // },
 
-  getWidthAndHeight = async () => { /* get width and height of tv and screen */
+  getWidthAndHeight = () => { /* get width and height of tv and screen */
     // console.log({body})
     // console.log({head})
     // console.log({iframe})
@@ -289,8 +303,8 @@ const
 
     if (tvNumberFlag) {
       let _temp = alphanumericToNumber(numberToAlphanumeric(tvNumberFlag - 1))
-      tv = document.querySelectorAll('.tv')[`${_temp}`]// || document.querySelector('.tv')
-      iframe = document.querySelectorAll('iframe')[`${_temp}`]// || document.querySelector('iframe')
+      tv = document.querySelectorAll('.tv')[`${_temp}`]
+      iframe = document.querySelectorAll('iframe')[`${_temp}`]
     }
     else {
       // tv = await waitForElementToExist('.tv')
@@ -325,7 +339,7 @@ const
     // console.log({tvNowWidth})
     // console.log({tvNowHeight})
     // console.log({iframeNowWidth}) // default 300
-    // console.log({iframeNowHeight}) //default 150
+    // console.log({iframeNowHeight}) // default 150
 
     // iframeGapWidth = tvNowWidth - iframeNowWidth
     iframeGapHeight = tvNowHeight - iframeNowHeight
@@ -444,7 +458,8 @@ const
           ? `${tvAllNumber} of ${tvSrcArrCached.length}`
           : `${tvSrcArrCached.length} of ${tvSrcArrCached.length}`
 
-      console.group('Now Playing (' + tvRatio + ')')
+      tvInfoAll = 'Now Playing (' + tvRatio + ')'
+      console.group(tvInfoAll)
 
       const setTvHtml = () => {
         document.querySelectorAll('#body .tv').forEach(
@@ -480,23 +495,25 @@ const
                 tvInfo += ' ' + tvSrc
               }
 
+              tvInfoAll += `\n${tvInfo}`
               console.log(tvInfo)
 
               removeAllFirstChild(e)
 
               // console.log({tvSrc})
 
-              // tvHtml = `<div name='${_temp}' class='tvNumber' title='click to trigger theater mode'>${_temp}</div> // doesn't work
               tvHtml =
                 `<div
                   name='${_temp}'
                   class='tvNumber'
                   title='click to toggle theater mode'
-                  onclick="handle.thtrSelect.toggle('${_temp}')">${_temp}</div>
+                  onclick="handle.thtrSelect.toggle('${_temp}')"
+                  >${_temp}</div>
                 <iframe
                   frameborder='${tvBorder}'
                   allow='${tvAllow}' ${tvAllowfullscreen}
-                  src='${tvSrc}'></iframe>`
+                  src='${tvSrc}'
+                  ></iframe>`
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
 
@@ -514,99 +531,167 @@ const
       console.groupEnd()
     },
 
-    checkGridTvSize: () => {
-      // console.log('grid mode')
-      
-      getWidthAndHeight()
+    // checkGridTvSize: () => {
+    //   // console.log('grid mode')
+    //   getWidthAndHeight()
 
-      document.querySelectorAll('#tvWall iframe').forEach(
-        (e,i) => {
-          let _temp = numberToAlphanumeric(i + 1)
-          e.setAttribute('id', `tv${_temp}`)
+    //   document.querySelectorAll('#tvWall iframe').forEach(
+    //     (e,i) => {
+    //       let _temp = numberToAlphanumeric(i + 1)
+    //       e.setAttribute('id', `tv${_temp}`)
 
-          if (e.getAttribute('width') * 1 !== tvWidth
-              || e.getAttribute('height') * 1 !== tvHeight)
-            setTv.setGridTvSize(e)
-        }
-      )
-    },
+    //       if (e.getAttribute('width') * 1 !== tvWidth
+    //           || e.getAttribute('height') * 1 !== tvHeight)
+    //         setTv.setTvSize.Grid(e)
+    //     }
+    //   )
+    // },
 
-    checkThtrTvSize: () => {
-      // console.log('theater mode')
-      // getWidthAndHeight()
+    // checkThtrTvSize: () => {
+    //   // console.log('theater mode')
+    //   // getWidthAndHeight()
 
-      let _temp =
-        (gridChecked.value === 'all')
-          ? tvSrcArrCached.length
-          : gridChecked.value * 1
-      // console.log(_temp) // number
+    //   let _temp =
+    //     (gridChecked.value === 'all')
+    //       ? tvSrcArrCached.length
+    //       : gridChecked.value * 1
+    //   // console.log(_temp) // number
 
-      for (let i = 1; i <= _temp; i++) {
-        let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
-        // console.log(e)
-        // console.log(thtrSelect.value)
+    //   for (let i = 1; i <= _temp; i++) {
+    //     let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
+    //     // console.log(e)
+    //     // console.log(thtrSelect.value)
 
-        if (e) {
-          if (i !== alphanumericToNumber(thtrSelect.value)) {
-            if (e.getAttribute('width') * 1 !== 0
-                || e.getAttribute('height') * 1 !== 0)
-              setTv.setHiddenTvSize(e)
+    //     if (e) {
+    //       if (i !== alphanumericToNumber(thtrSelect.value)) {
+    //         if (e.getAttribute('width') * 1 !== 0
+    //             || e.getAttribute('height') * 1 !== 0)
+    //           setTv.setTvSize.Hidden(e)
+    //       }
+    //       else {
+    //         if (e.getAttribute('width') * 1 !== screenWidth
+    //             || e.getAttribute('height') * 1 !== screenHeight) {
+    //           setTv.setTvSize.Shown(e)
+    //         }
+    //       }
+    //     }
+    //   }
+    // },
+
+    checkTvSize: {
+      Grid: () => {
+        // console.log('grid mode')
+        getWidthAndHeight()
+  
+        document.querySelectorAll('#tvWall iframe').forEach(
+          (e,i) => {
+            let _temp = numberToAlphanumeric(i + 1)
+            e.setAttribute('id', `tv${_temp}`)
+  
+            if (e.getAttribute('width') * 1 !== tvWidth
+                || e.getAttribute('height') * 1 !== tvHeight)
+              setTv.setTvSize.Grid(e)
           }
-          else {
-            if (e.getAttribute('width') * 1 !== screenWidth
-                || e.getAttribute('height') * 1 !== screenHeight) {
-              setTv.setShownTvSize(e)
+        )
+      },
+
+      Thtr: () => {
+        // console.log('theater mode')
+        // getWidthAndHeight()
+  
+        let _temp =
+          (gridChecked.value === 'all')
+            ? tvSrcArrCached.length
+            : gridChecked.value * 1
+        // console.log(_temp) // number
+  
+        for (let i = 1; i <= _temp; i++) {
+          let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
+          // console.log(e)
+          // console.log(thtrSelect.value)
+  
+          if (e) {
+            if (i !== alphanumericToNumber(thtrSelect.value)) {
+              if (e.getAttribute('width') * 1 !== 0
+                  || e.getAttribute('height') * 1 !== 0)
+                setTv.setTvSize.Hidden(e)
+            }
+            else {
+              if (e.getAttribute('width') * 1 !== screenWidth
+                  || e.getAttribute('height') * 1 !== screenHeight) {
+                setTv.setTvSize.Shown(e)
+              }
             }
           }
         }
       }
     },
 
-    setGridTvSize: (e) => {
-      // console.log('trigger grid tv resizing')
-      e.setAttribute('width', tvWidth)
-      e.setAttribute('height', tvHeight)
-    },
+    // setGridTvSize: (e) => {
+    //   // console.log('trigger grid tv resizing')
+    //   e.setAttribute('width', tvWidth)
+    //   e.setAttribute('height', tvHeight)
+    // },
 
-    setHiddenTvSize: (e) => {
-      // console.log('trigger hidden tv resizing')
-      e.setAttribute('width', '0')
-      e.setAttribute('height', '0')
-    },
+    // setHiddenTvSize: (e) => {
+    //   // console.log('trigger hidden tv resizing')
+    //   e.setAttribute('width', '0')
+    //   e.setAttribute('height', '0')
+    // },
 
-    setShownTvSize: (e) => {
-      // console.log('trigger shown tv resizing')
-      e.setAttribute('width', screenWidth)
-      e.setAttribute('height', screenHeight)
+    // setShownTvSize: (e) => {
+    //   // console.log('trigger shown tv resizing')
+    //   e.setAttribute('width', screenWidth)
+    //   e.setAttribute('height', screenHeight)
+    // },
+
+    setTvSize: {
+      Grid: (e) => {
+        // console.log('trigger grid tv resizing')
+        e.setAttribute('width', tvWidth)
+        e.setAttribute('height', tvHeight)
+      },
+
+      Hidden: (e) => {
+        // console.log('trigger hidden tv resizing')
+        e.setAttribute('width', '0')
+        e.setAttribute('height', '0')
+      },
+
+      Shown: (e) => {
+        // console.log('trigger shown tv resizing')
+        e.setAttribute('width', screenWidth)
+        e.setAttribute('height', screenHeight)
+      }
     },
 
     sizeInterval: (status) => {
-      // console.log({intervalGridTvSizeFlag})
-      // console.log({intervalThtrTvSizeFlag})
+      // console.log({intervalTVSize.Grid.Flag})
+      // console.log({intervalTVSize.Thtr.Flag})
 
       if (status) {
-        if (!intervalGridTvSizeFlag) {
-          intervalGridTvSize = setInterval(setTv.checkGridTvSize, intervalCheckTvSizeDelay) // to fix iframe native bug returning from fullscreen
-          intervalGridTvSizeFlag = true
+        if (!intervalTVSize.Grid.Flag) {
+          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix iframe native bug returning from fullscreen
+          intervalTVSize.Grid.Flag = true
         }
-        if (intervalThtrTvSizeFlag) {
-          clearInterval(intervalThtrTvSize)
-          intervalThtrTvSizeFlag = false
+        if (intervalTVSize.Thtr.Flag) {
+          clearInterval(intervalTVSize.Thtr.Mode)
+          intervalTVSize.Thtr.Flag = false
         }
       }
       else {
-        if (intervalGridTvSizeFlag) {
-          clearInterval(intervalGridTvSize)
-          intervalGridTvSizeFlag = false
+        if (intervalTVSize.Grid.Flag) {
+          clearInterval(intervalTVSize.Grid.Mode)
+          intervalTVSize.Grid.Flag = false
         }
-        if (!intervalThtrTvSizeFlag) {
-          intervalThtrTvSize = setInterval(setTv.checkThtrTvSize, intervalCheckTvSizeDelay) // to fix iframe native bug returning from fullscreen
-          intervalThtrTvSizeFlag = true
+        if (!intervalTVSize.Thtr.Flag) {
+          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix iframe native bug returning from fullscreen
+          intervalTVSize.Thtr.Flag = true
         }
       }
 
-      // console.log({intervalGridTvSizeFlag})
-      // console.log({intervalThtrTvSizeFlag})
+      // console.log({intervalTVSize.Grid.Flag})
+      // console.log({intervalTVSize.Thtr.Flag})
     },
   },
 
@@ -626,7 +711,7 @@ const
   setTvAll = () => {
     setTv.grid()
     setTv.src()
-    setTv.checkGridTvSize()
+    setTv.checkTvSize.Grid()
     setTv.sizeInterval(true)
   },
 
