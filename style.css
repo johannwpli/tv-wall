@@ -387,13 +387,13 @@ option[value='hh'] {
   background: var(--inter-color);
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .tablet {
     display: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .grid {
     text-align: right;
   }
@@ -405,17 +405,64 @@ option[value='hh'] {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .lang select,
   .desktop {
     display: none;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   .cell:not(.title) label:first-of-type,
   .ctrm,
   .xlscreen {
     display: none;
   }
 }
+
+/* to fix, doesn't work */
+
+/* .cell:not(.title) label:first-of-type,
+.ctrm,
+.lang,
+.lang select,
+.thtr,
+.tablet,
+.laptop,
+.desktop,
+.xlscreen {
+  display: none;
+}
+
+@media (min-width: 576px) {
+  .tablet {
+    display: inline;
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    text-align: right;
+  }
+
+  .lang,
+  .thtr,
+  .laptop {
+    display: inline;
+  }
+}
+
+@media (min-width: 992px) {
+  .lang select,
+  .desktop {
+    display: inline;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cell:not(.title) label:first-of-type,
+  .ctrm,
+  .xlscreen {
+    display: inline;
+  }
+} */

@@ -66,7 +66,7 @@ let
   tvHeight,
 
   tvHtml,
-  tvInfoFront,
+  tvInfoFront = 'Loading...',
   tvInfoBack,
   tvTitle,
   tvChannel,
@@ -147,6 +147,7 @@ const
   selectLangObj = {
     'en': 'English',
     'zh': '繁體中文',
+    // '??': '台語', // to add
     'jp': '日本語',
     'hh': 'hunter' // ハンター語
   },
