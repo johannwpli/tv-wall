@@ -458,8 +458,8 @@ const
           ? `${tvAllNumber} of ${tvSrcArrCached.length}`
           : `${tvSrcArrCached.length} of ${tvSrcArrCached.length}`
 
-      tvInfoAll = 'Now Playing (' + tvRatio + ')'
-      console.group(tvInfoAll)
+      tvInfoFront = 'Now Playing (' + tvRatio + ')'
+      console.group(tvInfoFront)
 
       const setTvHtml = () => {
         document.querySelectorAll('#body .tv').forEach(
@@ -479,10 +479,13 @@ const
                 tvTitle = tvSrcArrCached[i]['title']
                 tvChannel = tvSrcArrCached[i]['channel']
 
-                tvInfo = _temp + '. '
-                if (tvTitle) tvInfo += tvTitle
-                tvInfo += ' ' + tvSrc
-                if (tvChannel) tvInfo += ' on ' + tvChannel
+                tvInfoFront += `\n${_temp}. `
+                tvInfoFront += tvTitle ? tvTitle : tvSrcArrCached[i]['id']
+
+                tvInfoBack = _temp + '.'
+                if (tvTitle) tvInfoBack += ' ' + tvTitle
+                tvInfoBack += ' ' + tvSrc
+                if (tvChannel) tvInfoBack += ' on ' + tvChannel
 
                 // e.setAttribute('id', _temp)
                 e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
@@ -491,12 +494,13 @@ const
               else {
                 tvSrc = tvSrcPrefix + tvSrcArrCached[i]
 
-                tvInfo = _temp + '. '
-                tvInfo += ' ' + tvSrc
+                tvInfoFront += `\n${_temp}. ${tvSrcArrCached[i]}`
+
+                tvInfoBack = _temp + '.'
+                tvInfoBack += ' ' + tvSrc
               }
 
-              tvInfoAll += `\n${tvInfo}`
-              console.log(tvInfo)
+              console.log(tvInfoBack)
 
               removeAllFirstChild(e)
 
