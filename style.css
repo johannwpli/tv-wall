@@ -141,11 +141,12 @@ option[value='hh'] {
   cursor: pointer;
   margin: 2px;
   box-shadow: 0 0 0 1px var(--darkalpha-color);
-  border-radius: 0.6em;
+  border-radius: .6em;
   padding: 0 4.5px;
-  color: var(--dark-color);
   background: var(--bright-color);
   font-size: .8em;
+  width: .5em;
+  color: var(--dark-color);
 }
 
 .tv:hover .tvNumber {
@@ -419,50 +420,3 @@ option[value='hh'] {
     display: none;
   }
 }
-
-/* to fix, doesn't work */
-
-/* .cell:not(.title) label:first-of-type,
-.ctrm,
-.lang,
-.lang select,
-.thtr,
-.tablet,
-.laptop,
-.desktop,
-.xlscreen {
-  display: none;
-}
-
-@media (min-width: 576px) {
-  .tablet {
-    display: inline;
-  }
-}
-
-@media (min-width: 768px) {
-  .grid {
-    text-align: right;
-  }
-
-  .lang,
-  .thtr,
-  .laptop {
-    display: inline;
-  }
-}
-
-@media (min-width: 992px) {
-  .lang select,
-  .desktop {
-    display: inline;
-  }
-}
-
-@media (min-width: 1200px) {
-  .cell:not(.title) label:first-of-type,
-  .ctrm,
-  .xlscreen {
-    display: inline;
-  }
-} */

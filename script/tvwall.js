@@ -9,12 +9,6 @@ let
   ctRoom,
   ctRoomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
 
-  // intervalGridTvSizeMode,
-  // intervalGridTvSizeFlag = false,
-  // intervalThtrTvSizeMode,
-  // intervalThtrTvSizeFlag = false,
-  // intervalTvSizeCheckDelay = 1000, // i.e. 1.0 secs
-
   intervalTVSize = {
     Grid: {
       Mode: undefined,
@@ -265,7 +259,7 @@ const
     windowResize: () => window.addEventListener('resize', handle.window.resize),
 
     orientationChange: () => {
-      if (screen.orientation) {
+      if (screen && screen.orientation) {
         screen.orientation.addEventListener('change', handle.orientation.change)
       }
     }
@@ -539,53 +533,6 @@ const
       console.groupEnd()
     },
 
-    // checkGridTvSize: () => {
-    //   // console.log('grid mode')
-    //   getWidthAndHeight()
-
-    //   document.querySelectorAll('#tvWall iframe').forEach(
-    //     (e,i) => {
-    //       let _temp = numberToAlphanumeric(i + 1)
-    //       e.setAttribute('id', `tv${_temp}`)
-
-    //       if (e.getAttribute('width') * 1 !== tvWidth
-    //           || e.getAttribute('height') * 1 !== tvHeight)
-    //         setTv.setTvSize.Grid(e)
-    //     }
-    //   )
-    // },
-
-    // checkThtrTvSize: () => {
-    //   // console.log('theater mode')
-    //   // getWidthAndHeight()
-
-    //   let _temp =
-    //     (gridChecked.value === 'all')
-    //       ? tvSrcArrCached.length
-    //       : gridChecked.value * 1
-    //   // console.log(_temp) // number
-
-    //   for (let i = 1; i <= _temp; i++) {
-    //     let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
-    //     // console.log(e)
-    //     // console.log(thtrSelect.value)
-
-    //     if (e) {
-    //       if (i !== alphanumericToNumber(thtrSelect.value)) {
-    //         if (e.getAttribute('width') * 1 !== 0
-    //             || e.getAttribute('height') * 1 !== 0)
-    //           setTv.setTvSize.Hidden(e)
-    //       }
-    //       else {
-    //         if (e.getAttribute('width') * 1 !== screenWidth
-    //             || e.getAttribute('height') * 1 !== screenHeight) {
-    //           setTv.setTvSize.Shown(e)
-    //         }
-    //       }
-    //     }
-    //   }
-    // },
-
     checkTvSize: {
       Grid: () => {
         // console.log('grid mode')
@@ -634,24 +581,6 @@ const
         }
       }
     },
-
-    // setGridTvSize: (e) => {
-    //   // console.log('trigger grid tv resizing')
-    //   e.setAttribute('width', tvWidth)
-    //   e.setAttribute('height', tvHeight)
-    // },
-
-    // setHiddenTvSize: (e) => {
-    //   // console.log('trigger hidden tv resizing')
-    //   e.setAttribute('width', '0')
-    //   e.setAttribute('height', '0')
-    // },
-
-    // setShownTvSize: (e) => {
-    //   // console.log('trigger shown tv resizing')
-    //   e.setAttribute('width', screenWidth)
-    //   e.setAttribute('height', screenHeight)
-    // },
 
     setTvSize: {
       Grid: (e) => {
@@ -702,11 +631,6 @@ const
       // console.log({intervalTVSize.Thtr.Flag})
     },
   },
-
-  // resetAndListenThtrSelect = () => {
-  //   set.thtr() // to reset thtr
-  //   listen.thtrSelect()
-  // },
 
   listenAll = () => {
     listen.ctrmMenuGridRadio()
