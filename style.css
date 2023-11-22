@@ -71,6 +71,10 @@ form>.table {
   filter: invert(100%);
 }
 
+#tvInfo {
+  padding: 0 4.5px;
+}
+
 @keyframes grad {
   0% {
     background: var(--dark-color);

@@ -280,7 +280,7 @@ const
   
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked', 'checked')
   
-      docCellMenu.insertAdjacentHTML('beforeEnd', `<a onclick='alert(tvInfoFront)'>${infoSvg}</a>`)
+      docCellMenu.insertAdjacentHTML('beforeEnd', `<a id='tvInfo' onclick='alert(tvInfoFront)'>${infoSvg}</a>`)
 
       menuRadio = document.tvWall.menu
     },

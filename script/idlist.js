@@ -35,7 +35,7 @@ let
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
             { id: 'C6gYqSHLRw4', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
-            { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' },
+            // { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' }, // uniframeable
             { id: '6KlRR_DGhmI', title: 'PTS 公視', channel: 'https://www.youtube.com/@ptstaigitai' },
             // { id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
             { id: 'm_dhMSvUCIc', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' },

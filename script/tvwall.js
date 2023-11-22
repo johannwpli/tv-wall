@@ -25,6 +25,7 @@ let
 
   tv,
   iframe,
+
   bodyBorderWidth,
   headBorderWidth,
   headHeight,
@@ -32,8 +33,8 @@ let
 
   tvNowWidth,
   tvNowHeight,
-  iframeNowWidth,
-  iframeNowHeight,
+  iframeNowWidth = 300, // default
+  iframeNowHeight = 150, // default
   iframeGapHeight,
 
   tvNumberFlag = 0 // default
@@ -259,9 +260,8 @@ const
     windowResize: () => window.addEventListener('resize', handle.window.resize),
 
     orientationChange: () => {
-      if (screen && screen.orientation) {
+      if (screen && screen.orientation) // on Windows
         screen.orientation.addEventListener('change', handle.orientation.change)
-      }
     }
   },
 
@@ -336,8 +336,8 @@ const
 
     // console.log({tvNowWidth})
     // console.log({tvNowHeight})
-    // console.log({iframeNowWidth}) // default 300
-    // console.log({iframeNowHeight}) // default 150
+    // console.log({iframeNowWidth})
+    // console.log({iframeNowHeight})
 
     // iframeGapWidth = tvNowWidth - iframeNowWidth
     iframeGapHeight = tvNowHeight - iframeNowHeight
@@ -486,6 +486,7 @@ const
                 if (tvChannel) tvInfoBack += ' on ' + tvChannel
 
                 // e.setAttribute('id', _temp)
+                e.setAttribute('name', _temp)
                 e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
                 e.setAttribute('title', _temp + '. ' + tvTitle)
               }
@@ -506,7 +507,7 @@ const
 
               tvHtml =
                 `<div
-                  name='${_temp}'
+                  id='${_temp}'
                   class='tvNumber'
                   title='click to toggle theater mode'
                   onclick="handle.thtrSelect.toggle('${_temp}')"
@@ -522,7 +523,7 @@ const
               // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`)) // doesn't work
 
               if (hour < 6 || hour >= 18)
-                document.querySelector(`div[name='${_temp}']`).classList.add('night')
+                document.querySelector(`div[id='${_temp}']`).classList.add('night')
             }
           }
         )
