@@ -264,7 +264,11 @@ const
 
     windowResize: () => window.addEventListener('resize', handle.window.resize),
 
-    orientationChange: () => screen.orientation.addEventListener('change', handle.orientation.change)
+    orientationChange: () => {
+      if (screen.orientation) {
+        screen.orientation.addEventListener('change', handle.orientation.change)
+      }
+    }
   },
 
   getCssPx = (e,p) => { /* get css property pixel value */
