@@ -14,7 +14,7 @@ let
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             { id: 'Nen3UXaWDDE', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
-            // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
+            { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: '9Auq9mYxFEE', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: '5VF4aor94gw', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
@@ -35,9 +35,9 @@ let
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
             { id: 'C6gYqSHLRw4', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
-            // { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' }, // uniframeable
+            { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' }, // uniframeable
             { id: '6KlRR_DGhmI', title: 'PTS 公視', channel: 'https://www.youtube.com/@ptstaigitai' },
-            // { id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
+            { id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
             { id: 'm_dhMSvUCIc', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' },
         ],
 
