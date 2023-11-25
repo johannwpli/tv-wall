@@ -26,7 +26,7 @@ let
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
             { id: 'S5WOGu2HSes', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
-            { id: 'sMiGnGLzeJo', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
+            { id: '6gXbFIaRJt0', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
             { id: 'WHEPzbFA3hw', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' },
             // { id: 'LbS-xQ67fos', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' }, // alternative of the above
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
