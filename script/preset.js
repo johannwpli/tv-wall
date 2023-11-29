@@ -4,6 +4,9 @@
 
 let
 
+  windowOrientation,
+  windowNowOrientation,
+
   widthDiff,
   heightDiff,
   docWidth,
@@ -180,6 +183,12 @@ const
 
   set = {
     html: () => {
+
+      /* Modifying Screen Orientation in Safari using JavaScript
+      https://copyprogramming.com/howto/javascript-screen-orientation-on-safari */
+
+      windowOrientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
+      // console.log({windowOrientation})
 
       /* set tvwall parts */
   

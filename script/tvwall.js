@@ -184,29 +184,43 @@ const
 
     window: {
       resize: () => {
-        getWidthAndHeight()
-        handle.thtrSelect.click()
+        windowNowOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
+        // console.log({windowOrientation})
+        // console.log({windowNowOrientation})
+        // console.log(windowOrientation !== windowNowOrientation)
+
+        if (windowOrientation !== windowNowOrientation) {
+          windowOrientation = windowNowOrientation
+          handle.thtrSelect.resetAndListen()
+          setTvAll()
+          // console.log({windowOrientation})
+          // console.log({windowNowOrientation})
+          }
+        else {
+          getWidthAndHeight()
+          handle.thtrSelect.click()  
+        }
       }
     },
 
-    orientation: {
-      change: () => {
-        // console.log(screen.orientation)
+    // orientation: {
+    //   change: () => {
+    //     // console.log(screen.orientation)
     
-        // getWidthAndHeight() // doesn't work
+    //     // getWidthAndHeight() // doesn't work
         
-        /* doesn't work either */
-        // let _temp = window.innerHeight
-        // window.innerHeight = window.innerWidth
-        // window.innerWidth = _temp
+    //     /* doesn't work either */
+    //     // let _temp = window.innerHeight
+    //     // window.innerHeight = window.innerWidth
+    //     // window.innerWidth = _temp
     
-        // console.log('window.innerWidth: ', window.innerWidth)
-        // console.log('window.innerHeight: ', window.innerHeight)
+    //     // console.log('window.innerWidth: ', window.innerWidth)
+    //     // console.log('window.innerHeight: ', window.innerHeight)
     
-        handle.thtrSelect.resetAndListen()
-        setTvAll()
-      }
-    },
+    //     handle.thtrSelect.resetAndListen()
+    //     setTvAll()
+    //   }
+    // },
   },
 
   langClasslist = {
@@ -259,10 +273,10 @@ const
 
     windowResize: () => window.addEventListener('resize', handle.window.resize),
 
-    orientationChange: () => {
-      if (screen && screen.orientation) // on Windows
-        screen.orientation.addEventListener('change', handle.orientation.change)
-    }
+    // orientationChange: () => {
+    //   if (screen && screen.orientation) // on Windows
+    //     screen.orientation.addEventListener('change', handle.orientation.change)
+    // }
   },
 
   getCssPx = (e,p) => { /* get css property pixel value */
@@ -638,7 +652,7 @@ const
     listen.langSelect()
     listen.keyPress()
     listen.windowResize()
-    listen.orientationChange()
+    // listen.orientationChange()
   },
 
   setTvAll = () => {
