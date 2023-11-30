@@ -42,6 +42,29 @@ let
 const
 
   handle = {
+    ctRoom: {
+      on: () => {
+        // console.log(ctRoom)
+
+        ctrmOn.classList.add('hide')
+        ctrmOff.classList.remove('hide')
+      
+        tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
+        tvWall.classList.add('ctRoomed')
+
+        ctRoom = document.querySelector('#ctRoom')
+      },
+
+      off: () => {
+        ctrmOn.classList.remove('hide')
+        ctrmOff.classList.add('hide')
+  
+        if (ctRoom) ctRoom.remove()
+  
+        tvWall.classList.remove('ctRoomed')
+      }
+    },
+
     ctrmRadio: {
       change: function() { /* set ctrm value by ctrm radio */
     
@@ -50,28 +73,32 @@ const
         // console.log(this.value)
     
         if (this.value === 'On') {
-          // console.log(ctRoom)
+          handle.ctRoom.on()
+          // // console.log(ctRoom)
     
-          ctrmOn.classList.add('hide')
-          ctrmOff.classList.remove('hide')
+          // ctrmOn.classList.add('hide')
+          // ctrmOff.classList.remove('hide')
         
-          tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
-          tvWall.classList.add('ctRoomed')
+          // tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
+          // tvWall.classList.add('ctRoomed')
     
-          ctRoom = document.querySelector('#ctRoom')
+          // ctRoom = document.querySelector('#ctRoom')
     
-          handle.window.resize()
+          // handle.window.resize()
         }
         else {
-          ctrmOn.classList.remove('hide')
-          ctrmOff.classList.add('hide')
+          handle.ctRoom.off()
+          // ctrmOn.classList.remove('hide')
+          // ctrmOff.classList.add('hide')
     
-          if (ctRoom) ctRoom.remove()
+          // if (ctRoom) ctRoom.remove()
     
-          tvWall.classList.remove('ctRoomed')
+          // tvWall.classList.remove('ctRoomed')
     
-          handle.window.resize()
+          // handle.window.resize()
         }
+
+        handle.window.resize()
       }
     },
   
@@ -102,15 +129,33 @@ const
       }
     },
 
+    langClasslist: {
+      add: (value) => {
+        for (let i = 1; i < headPartArr.length; i++) {
+          document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+            (e) => e.classList.add(value)
+          )
+        }
+      },
+  
+      remove: (value) => {
+        for (let i = 1; i < headPartArr.length; i++) {
+          document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+            (e) => e.classList.remove(value)
+          )
+        }
+      },
+    },
+
     langSelect: {
       set: (value) => {
-        langClasslist.add(value)
+        handle.langClasslist.add(value)
     
         const toRemoveLangArr = Object.keys(selectLangObj).filter((v) => v !== value)
         // console.log(toRemoveArr)
     
         for (const i of toRemoveLangArr)
-          langClasslist.remove(i)
+          handle.langClasslist.remove(i)
       },
 
       change: (e) => {
@@ -184,7 +229,12 @@ const
 
     window: {
       resize: () => {
-        windowNowOrientation = window.innerWidth > window.innerHeight ? 'landscape' : 'portrait'
+        if (window.innerWidth < radioGridObj.xlscreen.width) {
+          ctrmRadio[1].checked = true // switch to 'Off'
+          handle.ctRoom.off()
+        }
+
+        windowNowOrientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
         // console.log({windowOrientation})
         // console.log({windowNowOrientation})
         // console.log(windowOrientation !== windowNowOrientation)
@@ -202,44 +252,25 @@ const
         }
       }
     },
-
-    // orientation: {
-    //   change: () => {
-    //     // console.log(screen.orientation)
-    
-    //     // getWidthAndHeight() // doesn't work
-        
-    //     /* doesn't work either */
-    //     // let _temp = window.innerHeight
-    //     // window.innerHeight = window.innerWidth
-    //     // window.innerWidth = _temp
-    
-    //     // console.log('window.innerWidth: ', window.innerWidth)
-    //     // console.log('window.innerHeight: ', window.innerHeight)
-    
-    //     handle.thtrSelect.resetAndListen()
-    //     setTvAll()
-    //   }
-    // },
   },
 
-  langClasslist = {
-    add: (value) => {
-      for (let i = 1; i < headPartArr.length; i++) {
-        document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-          (e) => e.classList.add(value)
-        )
-      }
-    },
+  // langClasslist = {
+  //   add: (value) => {
+  //     for (let i = 1; i < headPartArr.length; i++) {
+  //       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+  //         (e) => e.classList.add(value)
+  //       )
+  //     }
+  //   },
 
-    remove: (value) => {
-      for (let i = 1; i < headPartArr.length; i++) {
-        document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-          (e) => e.classList.remove(value)
-        )
-      }
-    },
-  },
+  //   remove: (value) => {
+  //     for (let i = 1; i < headPartArr.length; i++) {
+  //       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
+  //         (e) => e.classList.remove(value)
+  //       )
+  //     }
+  //   },
+  // },
 
   listen = {
     thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', handle.thtrSelect.click),
@@ -431,7 +462,7 @@ const
       tvShortNumber = Math.floor(Math.sqrt(tvAllNumber))
       // tvAllNumber: tvShortNumber; 1~3: 1, 4~8: 2, 9~15: 3, 16~24: 4
 
-      window.innerWidth >= window.innerHeight
+      window.innerWidth > window.innerHeight
         ? tvColNumber = tvAllNumber / (tvRowNumber = tvShortNumber)
         : tvRowNumber = tvAllNumber / (tvColNumber = tvShortNumber)
 
