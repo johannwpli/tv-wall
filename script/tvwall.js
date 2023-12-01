@@ -72,32 +72,10 @@ const
         if (this !== ctrmChecked) ctrmChecked = this
         // console.log(this.value)
     
-        if (this.value === 'On') {
-          handle.ctRoom.on()
-          // // console.log(ctRoom)
-    
-          // ctrmOn.classList.add('hide')
-          // ctrmOff.classList.remove('hide')
-        
-          // tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
-          // tvWall.classList.add('ctRoomed')
-    
-          // ctRoom = document.querySelector('#ctRoom')
-    
-          // handle.window.resize()
-        }
-        else {
-          handle.ctRoom.off()
-          // ctrmOn.classList.remove('hide')
-          // ctrmOff.classList.add('hide')
-    
-          // if (ctRoom) ctRoom.remove()
-    
-          // tvWall.classList.remove('ctRoomed')
-    
-          // handle.window.resize()
-        }
-
+        this.value === 'On'
+          ? handle.ctRoom.on()
+          : handle.ctRoom.off()
+          
         handle.window.resize()
       }
     },
@@ -167,7 +145,7 @@ const
     thtrSelect: {
       change: (value) => {
         // console.log(value)
-        thtrSelect.querySelectorAll(`option[value="${value}"]`)[0].selected = 'selected'
+        thtrSelect.querySelectorAll(`option[value="${value}"]`)[0].selected = 'selected' // use querySelectorAll to get NodeList
         // console.log(thtrSelect.value)
       },
 
@@ -230,7 +208,9 @@ const
     window: {
       resize: () => {
         if (window.innerWidth < radioGridObj.xlscreen.width) {
-          ctrmRadio[1].checked = true // switch to 'Off'
+          // console.log("ctrm goes 'Off'")
+          // console.log({ctrmRadio})
+          ctrmRadio[1].checked = true // goes 'Off'
           handle.ctRoom.off()
         }
 
@@ -253,24 +233,6 @@ const
       }
     },
   },
-
-  // langClasslist = {
-  //   add: (value) => {
-  //     for (let i = 1; i < headPartArr.length; i++) {
-  //       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-  //         (e) => e.classList.add(value)
-  //       )
-  //     }
-  //   },
-
-  //   remove: (value) => {
-  //     for (let i = 1; i < headPartArr.length; i++) {
-  //       document.querySelectorAll(`.${headPartArr[i]} label`).forEach(
-  //         (e) => e.classList.remove(value)
-  //       )
-  //     }
-  //   },
-  // },
 
   listen = {
     thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', handle.thtrSelect.click),
@@ -523,6 +485,7 @@ const
                 tvChannel = tvSrcArrCached[i]['channel']
 
                 tvInfoFront += `\n${_temp}. `
+                // tvInfoFront += tvTitle ? tvTitle + ' ' + tvSrcArrCached[i]['id'] : tvSrcArrCached[i]['id']
                 tvInfoFront += tvTitle ? tvTitle : tvSrcArrCached[i]['id']
 
                 tvInfoBack = _temp + '.'
