@@ -220,7 +220,7 @@ option[value='hh'] {
   }
 
   .ctrm label[name="On"].tg::after {
-    content: '開開';
+    content: '加入';
   }
 
   .ctrm label[name="On"].jp::after {
@@ -243,7 +243,7 @@ option[value='hh'] {
   }
 
   .ctrm label[name="Off"].tg::after {
-    content: '關掉';
+    content: '離開';
   }
 
   .ctrm label[name="Off"].jp::after {
