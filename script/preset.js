@@ -150,7 +150,7 @@ const
   selectLangObj = {
     'en': 'English',
     'zh': '繁體中文',
-    // '??': '台語', // to add
+    'tg': '台語', // iTaigi 愛台語 https://itaigi.tw
     'jp': '日本語',
     'hh': 'hunter' // ハンター語
   },

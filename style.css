@@ -195,6 +195,10 @@ option[value='hh'] {
   content: '聊天室';
 }
 
+.ctrm label:first-of-type.tg::before {
+  content: '開講間';
+}
+
 .ctrm label:first-of-type.jp::before {
   /* content: 'チャットルーム'; */
   content: '雑談室';
@@ -213,6 +217,10 @@ option[value='hh'] {
 
   .ctrm label[name="On"].zh::after {
     content: '開啟';
+  }
+
+  .ctrm label[name="On"].tg::after {
+    content: '開開';
   }
 
   .ctrm label[name="On"].jp::after {
@@ -234,6 +242,10 @@ option[value='hh'] {
     content: '關閉';
   }
 
+  .ctrm label[name="Off"].tg::after {
+    content: '關掉';
+  }
+
   .ctrm label[name="Off"].jp::after {
     content: 'オフ';
   }
@@ -253,6 +265,10 @@ option[value='hh'] {
   content: '選單';
 }
 
+.menu label:first-of-type.tg::before {
+  content: '選單';
+}
+
 .menu label:first-of-type.jp::before {
   content: 'メニュー';
 }
@@ -269,6 +285,10 @@ option[value='hh'] {
   }
 
   .menu label[name="World"].zh::after {
+    content: '世界';
+  }
+
+  .menu label[name="World"].tg::after {
     content: '世界';
   }
 
@@ -292,6 +312,10 @@ option[value='hh'] {
     content: '臺灣';
   }
 
+  .menu label[name="Taiwan"].tg::after {
+    content: '臺灣';
+  }
+
   .menu label[name="Taiwan"].jp::after {
     /* content: 'タイワン'; */
     content: '台湾';
@@ -312,6 +336,10 @@ option[value='hh'] {
   content: '網格';
 }
 
+.grid label:first-of-type.tg::before {
+  content: '格仔';
+}
+
 .grid label:first-of-type.jp::before {
   content: 'グリッド';
 }
@@ -328,6 +356,10 @@ option[value='hh'] {
   }
 
   .grid label[name="all"].zh::after {
+    content: '全部';
+  }
+
+  .grid label[name="all"].tg::after {
     content: '全部';
   }
 
@@ -351,6 +383,10 @@ option[value='hh'] {
   content: '語言';
 }
 
+.lang label:first-of-type.tg::before {
+  content: '語言';
+}
+
 .lang label:first-of-type.jp::before {
   content: 'ランゲージ';
 }
@@ -367,6 +403,10 @@ option[value='hh'] {
 }
 
 .thtr label:first-of-type.zh::before {
+  content: '劇院';
+}
+
+.thtr label:first-of-type.tg::before {
   content: '劇院';
 }
 
