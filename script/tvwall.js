@@ -214,17 +214,15 @@ const
           handle.ctRoom.off()
         }
 
-        windowNowOrientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
+        windowOrientation.After = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
         // console.log({windowOrientation})
-        // console.log({windowNowOrientation})
-        // console.log(windowOrientation !== windowNowOrientation)
+        // console.log(windowOrientation.Before !== windowOrientation.After)
 
-        if (windowOrientation !== windowNowOrientation) {
-          windowOrientation = windowNowOrientation
+        if (windowOrientation.Before !== windowOrientation.After) {
+          windowOrientation.Before = windowOrientation.After
           handle.thtrSelect.resetAndListen()
           setTvAll()
           // console.log({windowOrientation})
-          // console.log({windowNowOrientation})
           }
         else {
           getWidthAndHeight()

@@ -4,8 +4,10 @@
 
 let
 
-  windowOrientation,
-  windowNowOrientation,
+  windowOrientation = {
+    Before: undefined,
+    After: undefined
+  },
 
   widthDiff,
   heightDiff,
@@ -22,6 +24,7 @@ let
   docCellThtr,
 
   newUrl,
+
   radioCtrm = '',
   radioMenu = '',
   radioGrid = '',
@@ -187,7 +190,7 @@ const
       /* Modifying Screen Orientation in Safari using JavaScript
       https://copyprogramming.com/howto/javascript-screen-orientation-on-safari */
 
-      windowOrientation = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
+      windowOrientation.Before = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
       // console.log({windowOrientation})
 
       /* set tvwall parts */
