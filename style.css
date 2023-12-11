@@ -216,7 +216,7 @@ option[value='hh'] {
   }
 
   .ctrm label[name="On"].zh::after {
-    content: '開啟';
+    content: '加入';
   }
 
   .ctrm label[name="On"].tg::after {
@@ -239,7 +239,7 @@ option[value='hh'] {
   }
 
   .ctrm label[name="Off"].zh::after {
-    content: '關閉';
+    content: '離開';
   }
 
   .ctrm label[name="Off"].tg::after {

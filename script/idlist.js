@@ -83,6 +83,7 @@ let
             { id: 'Ygr1OOh8hvI', title: '愛情 - 莫文蔚' },
             { id: '4QmDKohzQdc', title: '夢田農夫 - 熊天平' },
             { id: 'UehlbisT5Gs', title: '如果不是因為你 - 林志炫' },
+            { id: 'mzSX6fnznek', title: '閃亮的日子 - 劉文正' },
             { id: 'EqBAV4i7d20', title: '傳奇 - 李健' },
             { id: 'NA4otP-v6iI', title: '無與倫比的美麗 - 蘇打綠' },
             { id: 'U1_ILHivgGE', title: '流星下的願 - 張學友 & 許慧欣' },
