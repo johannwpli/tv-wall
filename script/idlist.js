@@ -6,7 +6,7 @@ let
         World: [
             { id: 'gCNeDWCI0vo', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
-            { id: 'OOtxXPaQvoM', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
+            { id: 'gN0PZCe-kwQ', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'pqabxBKzZ6M', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
@@ -16,7 +16,7 @@ let
             { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
-            { id: '9Auq9mYxFEE', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
+            { id: 'w9uJg68CV4g', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: '5VF4aor94gw', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'gadjsB5BkK4', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
@@ -25,12 +25,12 @@ let
             { id: 'oIgbl7t0S_w', title: 'CTI 中天', channel: 'https://www.youtube.com/c/ctitv' },
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
-            { id: 'S5WOGu2HSes', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
-            { id: '6gXbFIaRJt0', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
+            { id: '2dfAzcDf8Zg', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
             { id: 'WHEPzbFA3hw', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' },
-            // { id: 'LbS-xQ67fos', title: 'EBC 東森', channel: 'https://www.youtube.com/c/57%E6%9D%B1%E6%A3%AE%E8%B2%A1%E7%B6%93%E6%96%B0%E8%81%9E' }, // alternative of the above
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
             { id: '6IquAgfvYmc', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
+            { id: 'w87VGpgd90U', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
+            { id: '25SE1bbTv9k', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/@globlemoney' },
             { id: 'CKjSm5ZeehE', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
