@@ -350,16 +350,21 @@ const
   
       }
       else {
-        radioGridDefault =
-          (window.innerWidth >= radioGridObj.xlscreen.width)
-            ? radioGridObj.xlscreen.default // xlscreen
-            : (window.innerWidth >= radioGridObj.desktop.width)
-                ? radioGridObj.desktop.default // desktop
-                : (window.innerWidth >= radioGridObj.laptop.width)
-                    ? radioGridObj.laptop.default // laptop
-                    : (window.innerWidth >= radioGridObj.tablet.width)
-                      ? radioGridObj.tablet.default // tablet
-                      : radioGridObj.mobile.default // mobile
+        if (urlIdParam) {
+          radioGridDefault = 'all'
+        }
+        else {
+          radioGridDefault =
+            (window.innerWidth >= radioGridObj.xlscreen.width)
+              ? radioGridObj.xlscreen.default // xlscreen
+              : (window.innerWidth >= radioGridObj.desktop.width)
+                  ? radioGridObj.desktop.default // desktop
+                  : (window.innerWidth >= radioGridObj.laptop.width)
+                      ? radioGridObj.laptop.default // laptop
+                      : (window.innerWidth >= radioGridObj.tablet.width)
+                        ? radioGridObj.tablet.default // tablet
+                        : radioGridObj.mobile.default // mobile
+        }
       }
   
       // console.log({radioGridDefault})
