@@ -334,9 +334,9 @@ const
     // console.log({widthDiff})
     // console.log({heightDiff})
 
-    tvNowWidth = getCssPx(tv, 'width')
+    // tvNowWidth = getCssPx(tv, 'width')
     tvNowHeight = getCssPx(tv, 'height')
-    iframeNowWidth = getCssPx(iframe, 'width')
+    // iframeNowWidth = getCssPx(iframe, 'width')
     iframeNowHeight = getCssPx(iframe, 'height')
 
     // console.log({tvNowWidth})
@@ -348,7 +348,7 @@ const
     iframeGapHeight = tvNowHeight - iframeNowHeight
 
     // console.log({iframeGapWidth})
-    // console.log({iframeGapHeight}) // dynamic as per device
+    // console.log({iframeGapHeight}) // to fix on Safari, dynamic as per device
 
     tvwallPercent = getComputedStyle(tvWall).getPropertyValue('width').replace('px', '') / window.innerWidth
     // console.log(window.innerWidth)
@@ -615,7 +615,7 @@ const
 
       if (status) {
         if (!intervalTVSize.Grid.Flag) {
-          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix iframe native bug returning from fullscreen
+          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix native iframe size bug returning from fullscreen
           intervalTVSize.Grid.Flag = true
         }
         if (intervalTVSize.Thtr.Flag) {
@@ -629,7 +629,7 @@ const
           intervalTVSize.Grid.Flag = false
         }
         if (!intervalTVSize.Thtr.Flag) {
-          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix iframe native bug returning from fullscreen
+          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix native iframe size bug returning from fullscreen
           intervalTVSize.Thtr.Flag = true
         }
       }

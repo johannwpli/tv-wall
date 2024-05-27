@@ -8,7 +8,7 @@ let
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
             { id: '-mvUkiILTqI', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
-            { id: 'uBqzAmEYRUU', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
+            { id: 'tZT2MCYu6Zw', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'tkDUSYHoKxE', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
@@ -16,7 +16,7 @@ let
             // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
-            { id: 'w9uJg68CV4g', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
+            { id: 'oJUvTVdTMyY', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: 'Smy2zVGK9x0', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
             { id: '5VF4aor94gw', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'gadjsB5BkK4', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
