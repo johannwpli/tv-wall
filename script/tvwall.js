@@ -31,9 +31,9 @@ let
   headHeight,
   iframeBorderWidth,
 
-  tvNowWidth,
+  // tvNowWidth,
   tvNowHeight,
-  iframeNowWidth = 300, // default
+  // iframeNowWidth = 300, // default
   iframeNowHeight = 150, // default
   iframeGapHeight,
 
@@ -275,29 +275,6 @@ const
     return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
   },
 
-  // /* Wait for a DOM element to Exist,
-  // https://bobbyhadz.com/blog/javascript-wait-for-element-to-exist */
-
-  // waitForElementToExist = (selector) => {
-  //   return new Promise(resolve => {
-  //     if (document.querySelector(selector)) {
-  //       return resolve(document.querySelector(selector))
-  //     }
-  
-  //     const observer = new MutationObserver(() => {
-  //       if (document.querySelector(selector)) {
-  //         resolve(document.querySelector(selector))
-  //         observer.disconnect()
-  //       }
-  //     })
-  
-  //     observer.observe(document.body, {
-  //       subtree: true,
-  //       childList: true,
-  //     })
-  //   })
-  // },
-
   getWidthAndHeight = () => { /* get width and height of tv and screen */
     // console.log({body})
     // console.log({head})
@@ -310,7 +287,6 @@ const
       iframe = document.querySelectorAll('iframe')[`${_temp}`]
     }
     else {
-      // tv = await waitForElementToExist('.tv')
       tv = document.querySelector('.tv')
       iframe = document.querySelector('iframe')
     }
@@ -348,7 +324,7 @@ const
     iframeGapHeight = tvNowHeight - iframeNowHeight
 
     // console.log({iframeGapWidth})
-    // console.log({iframeGapHeight}) // to fix on Safari, dynamic as per device
+    // console.log({iframeGapHeight}) // dynamic as per device
 
     tvwallPercent = getComputedStyle(tvWall).getPropertyValue('width').replace('px', '') / window.innerWidth
     // console.log(window.innerWidth)
@@ -365,7 +341,7 @@ const
     // console.log({tvRowNumber})
 
     tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // causes wrong width
-    tvHeight = docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight
+    tvHeight = Math.floor(docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight) // to solve Safari bug
 
     // console.log({tvWidth})
     // console.log({tvHeight})
