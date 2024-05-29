@@ -263,11 +263,6 @@ const
     },
 
     windowResize: () => window.addEventListener('resize', handle.window.resize),
-
-    // orientationChange: () => {
-    //   if (screen && screen.orientation) // on Windows
-    //     screen.orientation.addEventListener('change', handle.orientation.change)
-    // }
   },
 
   getCssPx = (e,p) => { /* get css property pixel value */
@@ -341,7 +336,7 @@ const
     // console.log({tvRowNumber})
 
     tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // causes wrong width
-    tvHeight = Math.floor(docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight) // to solve Safari bug
+    tvHeight = Math.floor(docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight) // to fix floating pointer number bug in Safari
 
     // console.log({tvWidth})
     // console.log({tvHeight})
@@ -591,7 +586,7 @@ const
 
       if (status) {
         if (!intervalTVSize.Grid.Flag) {
-          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix native iframe size bug returning from fullscreen
+          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix iframe size bug exiting fullscreen in Chrome
           intervalTVSize.Grid.Flag = true
         }
         if (intervalTVSize.Thtr.Flag) {
@@ -605,7 +600,7 @@ const
           intervalTVSize.Grid.Flag = false
         }
         if (!intervalTVSize.Thtr.Flag) {
-          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix native iframe size bug returning from fullscreen
+          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix iframe size bug exiting fullscreen in Chrome
           intervalTVSize.Thtr.Flag = true
         }
       }
