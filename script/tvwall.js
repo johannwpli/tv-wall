@@ -248,9 +248,7 @@ const
 
     langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', handle.langSelect.change),
 
-    keyPress: () => {
-      /* capture keyboard input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
-  
+    keyPress: () => { /* capture keyboard input, https://codepen.io/DBoy_Fresh/pen/RgjYKG */
       document.onkeydown = (e) => {
         let keyPress = e.key
         // console.log({keyPress})
@@ -336,7 +334,7 @@ const
     // console.log({tvRowNumber})
 
     tvWidth = docWidth / tvColNumber - iframeBorderWidth // - iframeGapWidth // causes wrong width
-    tvHeight = Math.floor(docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight) // to fix floating pointer number bug in Safari
+    tvHeight = Math.floor(docHeight / tvRowNumber - iframeBorderWidth - iframeGapHeight) /* to fix floating pointer number bug on Safari */
 
     // console.log({tvWidth})
     // console.log({tvHeight})
@@ -348,9 +346,7 @@ const
     // console.log({screenHeight})
   },
 
-  shuffle = (arr) => {
-    /* shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/ */
-
+  shuffle = (arr) => { /* shuffle array with Fisher-Yates algo, https://shubo.io/javascript-random-shuffle/ */
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]]
@@ -521,8 +517,7 @@ const
             let _temp = numberToAlphanumeric(i + 1)
             e.setAttribute('id', `tv${_temp}`)
   
-            if (e.getAttribute('width') * 1 !== tvWidth
-                || e.getAttribute('height') * 1 !== tvHeight)
+            if (e.getAttribute('width') * 1 !== tvWidth || e.getAttribute('height') * 1 !== tvHeight)
               setTv.setTvSize.Grid(e)
           }
         )
@@ -545,13 +540,11 @@ const
   
           if (e) {
             if (i !== alphanumericToNumber(thtrSelect.value)) {
-              if (e.getAttribute('width') * 1 !== 0
-                  || e.getAttribute('height') * 1 !== 0)
+              if (e.getAttribute('width') * 1 !== 0 || e.getAttribute('height') * 1 !== 0)
                 setTv.setTvSize.Hidden(e)
             }
             else {
-              if (e.getAttribute('width') * 1 !== screenWidth
-                  || e.getAttribute('height') * 1 !== screenHeight) {
+              if (e.getAttribute('width') * 1 !== screenWidth || e.getAttribute('height') * 1 !== screenHeight) {
                 setTv.setTvSize.Shown(e)
               }
             }
@@ -560,7 +553,7 @@ const
       }
     },
 
-    setTvSize: {
+    setTvSize: { /* to fix wrong iframe size bug after exiting fullscreen on Chrome */
       Grid: (e) => {
         // console.log('trigger grid tv resizing')
         e.setAttribute('width', tvWidth)
@@ -586,7 +579,7 @@ const
 
       if (status) {
         if (!intervalTVSize.Grid.Flag) {
-          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay) // to fix iframe size bug exiting fullscreen in Chrome
+          intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay)
           intervalTVSize.Grid.Flag = true
         }
         if (intervalTVSize.Thtr.Flag) {
@@ -600,7 +593,7 @@ const
           intervalTVSize.Grid.Flag = false
         }
         if (!intervalTVSize.Thtr.Flag) {
-          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay) // to fix iframe size bug exiting fullscreen in Chrome
+          intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay)
           intervalTVSize.Thtr.Flag = true
         }
       }
@@ -615,7 +608,6 @@ const
     listen.langSelect()
     listen.keyPress()
     listen.windowResize()
-    // listen.orientationChange()
   },
 
   setTvAll = () => {
