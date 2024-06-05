@@ -516,8 +516,12 @@ const
           (e,i) => {
             let _temp = numberToAlphanumeric(i + 1)
             e.setAttribute('id', `tv${_temp}`)
+
+            // console.log(e.getAttribute('width') * 1)
+            // console.log(getCssPx(e, 'width'))
   
-            if (e.getAttribute('width') * 1 !== tvWidth || e.getAttribute('height') * 1 !== tvHeight)
+            // if (e.getAttribute('width') * 1 !== tvWidth || e.getAttribute('height') * 1 !== tvHeight)
+            if (getCssPx(e, 'width') !== tvWidth || getCssPx(e, 'height') !== tvHeight)
               setTv.setTvSize.Grid(e)
           }
         )
@@ -540,13 +544,14 @@ const
   
           if (e) {
             if (i !== alphanumericToNumber(thtrSelect.value)) {
-              if (e.getAttribute('width') * 1 !== 0 || e.getAttribute('height') * 1 !== 0)
+              // if (e.getAttribute('width') * 1 !== 0 || e.getAttribute('height') * 1 !== 0)
+              if (getCssPx(e, 'width') !== 0 || getCssPx(e, 'height') !== 0)
                 setTv.setTvSize.Hidden(e)
             }
             else {
-              if (e.getAttribute('width') * 1 !== screenWidth || e.getAttribute('height') * 1 !== screenHeight) {
+              // if (e.getAttribute('width') * 1 !== screenWidth || e.getAttribute('height') * 1 !== screenHeight)
+              if (getCssPx(e, 'width') !== screenWidth || getCssPx(e, 'height') !== screenHeight)
                 setTv.setTvSize.Shown(e)
-              }
             }
           }
         }
