@@ -4,7 +4,7 @@ const
             app: () => {
                 const { userAgent } = navigator;
 
-                switch (true) {
+                switch (true) { // sort by market share
                     case /Android/.test(userAgent):
                         return 'Android'; // 43.86%
                     case userAgent.includes('Win'):
@@ -39,10 +39,10 @@ const
         browser: {
             lang: navigator.language || navigator.userLanguage,
 
-            app: () => { // detect the browser name based on market share
+            app: () => {
                 const { userAgent } = navigator
 
-                switch (true) {
+                switch (true) { // sort by market share
                     case userAgent.includes('Chrome') && !userAgent.includes('Edg'):
                         return 'Chrome' // 65.12%
                     case userAgent.includes('Safari') && !userAgent.includes('Chrome'):
@@ -80,8 +80,8 @@ const
         }
     }
 
-console.log(`browser lang: ${client.browser.lang}`)
-console.log(`browser app: ${client.browser.app()}`)
-console.log(`browser SVG: ${client.browser.svg[client.browser.app()]}`)
-console.log(`os app: ${client.os.app()}`)
-console.log(`os SVG: ${client.os.svg[client.os.app()]}`)
+// console.log(`browser lang: ${client.browser.lang}`)
+// console.log(`browser app: ${client.browser.app()}`)
+// console.log(`browser svg: ${client.browser.svg[client.browser.app()]}`)
+// console.log(`os app: ${client.os.app()}`)
+// console.log(`os svg: ${client.os.svg[client.os.app()]}`)
