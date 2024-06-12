@@ -31,8 +31,6 @@ let
   selectLang = '',
   selectThtr = '',
 
-  browserLang = navigator.language || navigator.userLanguage,
-
   ctrmOn,
   ctrmOff,
 
@@ -108,7 +106,7 @@ const
   headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
-  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label>`,
+  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label> ${browserSvg[browserName()]}`,
 
   classHide = 'class="hide"',
 
