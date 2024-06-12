@@ -35,16 +35,16 @@ let
   ctrmOff,
 
   radioMenuDefault =
-    (browserLang === 'zh-TW')
+    (client.browser.lang === 'zh-TW')
       ? 'Taiwan'
       : 'World',
 
   radioGridDefault,
 
   selectLangDefault =
-    (browserLang === 'zh-TW' || browserLang === 'zh-HK')
+    (client.browser.lang === 'zh-TW' || client.browser.lang === 'zh-HK')
       ? 'zh'
-      : (browserLang === 'ja')
+      : (client.browser.lang === 'ja')
         ? 'jp'
         : 'en',
 
@@ -106,7 +106,7 @@ const
   headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
-  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label> ${browserSvg[browserName()]}`,
+  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label> ${client.os.svg[client.os.app()]} ${client.browser.svg[client.browser.app()]}`,
 
   classHide = 'class="hide"',
 
