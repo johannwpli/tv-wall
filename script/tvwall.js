@@ -214,11 +214,13 @@ const
           handle.ctRoom.off()
         }
 
-        windowOrientation.After = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
+        windowOrientation.After = client.window.orientation()
         // console.log({windowOrientation})
         // console.log(windowOrientation.Before !== windowOrientation.After)
 
         if (windowOrientation.Before !== windowOrientation.After) {
+          docCellTitleWinOri.innerHTML = client.window.svg[client.window.orientation()]
+
           windowOrientation.Before = windowOrientation.After
           handle.thtrSelect.resetAndListen()
           setTvAll()

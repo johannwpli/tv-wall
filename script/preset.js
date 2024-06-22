@@ -17,6 +17,7 @@ let
   screenHeight,
 
   docCellTitle,
+  docCellTitleWinOri,
   docCellCtrm,
   docCellMenu,
   docCellGrid,
@@ -106,7 +107,7 @@ const
   headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
-  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label> ${client.os.svg[client.os.app()]} ${client.browser.svg[client.browser.app()]}`,
+  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${githubUrl}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.cc</a></label> ${client.os.svg[client.os.app()]} ${client.browser.svg[client.browser.app()]} <span id='windowOrien'></span>`,
 
   classHide = 'class="hide"',
 
@@ -188,7 +189,7 @@ const
       /* Modifying Screen Orientation in Safari using JavaScript
       https://copyprogramming.com/howto/javascript-screen-orientation-on-safari */
 
-      windowOrientation.Before = (window.innerWidth > window.innerHeight) ? 'landscape' : 'portrait'
+      windowOrientation.Before = client.window.orientation()
       // console.log({windowOrientation})
 
       /* set tvwall parts */
@@ -216,6 +217,9 @@ const
   
       docCellTitle = document.querySelector('.cell.title')
       docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
+
+      docCellTitleWinOri = document.querySelector('#windowOrien')
+      docCellTitleWinOri.innerHTML = client.window.svg[client.window.orientation()]
   
       /* set title gradient */
   
