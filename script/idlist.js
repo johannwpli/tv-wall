@@ -10,7 +10,7 @@ let
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'tZT2MCYu6Zw', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
-            { id: 'tkDUSYHoKxE', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
+            { id: 'Ap-UM1O9RBU', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
@@ -80,6 +80,7 @@ let
             { id: 's2CE5n5W9D4', title: '偶然 - 銀霞' },
             { id: 'UuWI37iWVio', title: 'RAIN - 范曉萱' },
             { id: '2B7U5WkhOiE', title: '雪人 - 范曉萱' },
+            { id: 'UOaPBQM1lf0', title: '承認 - 辛曉琪' },
             { id: 'rAXmU300DRc', title: '心動 - 林曉培' },
             { id: 'Ygr1OOh8hvI', title: '愛情 - 莫文蔚' },
             { id: '4QmDKohzQdc', title: '夢田農夫 - 熊天平' },
@@ -106,18 +107,5 @@ let
             { id: '2bCDBwyEhkc' },
             { id: '50sSQrHMeWM' },
             { id: 'zs98k8eCrGU' },
-        ],
-
-        Kiki: [
-            { id: '0T7GUHADUy8' },
-            { id: 'lHUsygnbonE' },
-            { id: 'w9HoEXxpFP4' },
-            { id: 'tPJFgjiwz9U' },
-            { id: 'wt8V98l51FA' },
-            { id: 'SK5TsRLLmhc' },
-            { id: 'TJ1VQS2wMds' },
-            { id: 'GMIhhxjHc10' },
-            { id: 'xJsYTsrTnD4' },
-            { id: 'U4kg15WP-7w' },
         ],
     }
