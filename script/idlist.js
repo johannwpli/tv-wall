@@ -93,6 +93,13 @@ let
             { id: '22b1WnBg5LA', title: '堅強的理由 - 莫文蔚 & 伍佰' },
         ],
 
+        English: [
+            { id: 'hT_nvWreIhg', title: 'OneRepublic - Counting Stars' },
+            { id: 'RVmG_d3HKBA', title: 'MIKA - Relax, Take It Easy' },
+            { id: 'jofNR_WkoCE', title: 'Ylvis - The Fox (What Does The Fox Say?)' },
+            { id: 'Sz-6k8Wdm8U', title: 'Anthony Neely - Sorry That I Loved You' },
+        ],
+
         Hsin: [
             { id: '9oNS8FLHGWE' },
             { id: 'Cx8QCN5fGOg' },
