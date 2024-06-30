@@ -354,7 +354,7 @@ const
   
       }
       else {
-        if (urlIdParam) {
+        if (urlIdParam || urlMenuParam) {
           radioGridDefault = 'all'
         }
         else {
