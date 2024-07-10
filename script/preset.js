@@ -89,7 +89,7 @@ const
   siteAuthor = 'Johann Li',
   siteUrl    = 'https://johannwpli.github.io/tv-wall/',
   siteTitle  = document.title,
-  siteDomain = 'TVWall.cc',
+  siteDomain = 'WeWatch.cc',
   siteSld    = siteDomain.split('.')[0],
   siteTld    = siteDomain.split('.')[1],
   siteSign   = '⚡ ',
@@ -119,7 +119,7 @@ const
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 'all'], // 24, 25, ...
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 'all'], // 24, 25, 30, to fix over 9 + 26
 
   radioGridObj = {
     mobile: {

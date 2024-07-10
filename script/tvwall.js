@@ -7,7 +7,7 @@ let
   tvwallPercent = 1, // fail-safe
 
   ctRoom,
-  ctRoomHtml = '<div id="ctRoom"><chat-room room="TVWall.cc" height="100%"></div>',
+  ctRoomHtml = `<div id="ctRoom"><chat-room room="${siteDomain}" height="100%"></div>`,
 
   intervalTVSize = {
     Grid: {

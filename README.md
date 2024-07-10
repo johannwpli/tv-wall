@@ -2,16 +2,15 @@ Contents
 ---
 1	[TLDR](#tldr)  
 2	[Author](#author)  
-3	[Structurizr Diagram](#structurizr-diagram)  
-4	[Origin](#origin)  
-5	[Instructions](#instructions)  
-6	[Breakpoints](#breakpoints)  
-7	[References](#references)  
+3	[Origin](#origin)  
+4	[Instructions](#instructions)  
+5	[Breakpoints](#breakpoints)  
+6	[References](#references)  
 
 
 TLDR
 ---
-TVWall.cc http://tvwall.cc<sup>[1]</sup> - discovering your favorite YouTube videos with ease
+WeWatch.cc http://wewatch.cc<sup>[1]</sup> - enjoy watching your favorite YouTube videos effortlessly
 
 
 Author
@@ -25,41 +24,24 @@ Johann Li
 `WEBSITE` https://johann.li/
 
 
-Structurizr Diagram
----
-Structurizr builds upon "diagrams as code", allowing you to create multiple software architecture diagrams from a single model<sup>[2]</sup>.  
-  
-System Context  
-![Structurizr System Context Image](image/structurizr-SystemContext-001.png "Structurizr System Context")  
-  
-System Context Key  
-![Structurizr System Context Key Image](image/structurizr-SystemContext-001-key.png "Structurizr System Context Key")  
-  
-Container  
-![Structurizr Container Image](image/structurizr-Container-001.png "Structurizr Container")  
-  
-Container Key  
-![Structurizr Container Key Image](image/structurizr-Container-001-key.png "Structurizr Container Key")  
-
-
 Origin
 ---
-The TV Wall project was inspired by the [反送中直播台 No China Extradition Live](https://ncehk2019.github.io/) project<sup>[3]</sup>, which live-streamed Hong Kong in 2019. Wars never really end, and they are always happening somewhere or the other. In 2014, people in Taiwan fought against their government, while in 2020, it was the people of Thailand and Belarus. In 2021, the struggle for democracy continued in Myanmar and Iran, and in 2022, it was China's turn. Additionally, battles between countries such as Russia and Ukraine have continued for a long time. However, citizens of the earth who value democracy will always stand together and fight for freedom.
+As the successor to the TV wall project, we will add more functions in the future while ensuring normal operation.
 
 
 Instructions
 ---
-`COMPATIBILITY` TV Wall supports multiple browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
+`COMPATIBILITY` Supports multiple browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
 
-`HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://tvwall.cc/?m=IU, to show IU videos.
+`HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://wewatch.cc/?m=IU, to show IU videos.
 
-`CUSTOM IDS` Use 'i' as the id param to customize your video list, e.g., http://tvwall.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with YouTube video IDs separated by a comma.
+`CUSTOM IDS` Use 'i' as the id param to customize your video list, e.g., http://wewatch.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with YouTube video IDs separated by a comma.
 
-`VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://tvwall.cc/?g=all, to play all the videos.
+`VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://wewatch.cc/?g=all, to play all the videos.
 
-`DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://tvwall.cc/?l=jp, to set Japanese as the display language.
+`DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://wewatch.cc/?l=jp, to set Japanese as the display language.
 
-`THEATER MODE` Use the drop-down menu to watch the video in theater mode., e.g., select 1 to watch the top left video<sup>[4]</sup>.
+`THEATER MODE` Use the drop-down menu to watch the video in theater mode., e.g., select 1 to watch the top left video<sup>[2]</sup>.
 
 `HOTKEY` Press the keyboard to trigger the hotkey to the theater mode., e.g., press 0 to activate the '0' of theater mode.
 
@@ -67,7 +49,7 @@ Instructions
 Breakpoints
 ---  
 <pre>
- Pixel       | Device                   | Class    |  NoVA<sup>[5]</sup> | Default
+ Pixel       | Device                   | Class    |  NoVA<sup>[3]</sup> | Default
 -------------+--------------------------+----------+---------+---------
   min -  576 | Mobile devices           | mobile   | 1, 2, 3 |       3
 -------------+--------------------------+----------+---------+---------
@@ -84,7 +66,5 @@ Breakpoints
 References
 ---
 1. Redirects to https://johannwpli.github.io/tv-wall/.  
-2. Read more at https://structurizr.org/ and https://c4model.com/.  
-3. Hosted from https://github.com/ncehk2019/ncehk2019.github.io.  
-4. The alphanumeric of the top left video is 1, then 2, and so on, from left to right, top to down.  
-5. Number of Videos Available, derived from https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints.
+2. The alphanumeric of the top left video is 1, then 2, and so on, from left to right, top to down.  
+3. Number of Videos Available, derived from https://getbootstrap.com/docs/5.0/layout/breakpoints/#available-breakpoints.
