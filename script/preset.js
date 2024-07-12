@@ -354,21 +354,21 @@ const
   
       }
       else {
-        if (urlIdParam || urlMenuParam) {
-          radioGridDefault = 'all'
-        }
-        else {
-          radioGridDefault =
-            (window.innerWidth >= radioGridObj.xlscreen.width)
-              ? radioGridObj.xlscreen.default // xlscreen
-              : (window.innerWidth >= radioGridObj.desktop.width)
-                  ? radioGridObj.desktop.default // desktop
-                  : (window.innerWidth >= radioGridObj.laptop.width)
-                      ? radioGridObj.laptop.default // laptop
-                      : (window.innerWidth >= radioGridObj.tablet.width)
-                        ? radioGridObj.tablet.default // tablet
-                        : radioGridObj.mobile.default // mobile
-        }
+        radioGridDefault =
+          (window.innerWidth >= radioGridObj.xlscreen.width)
+            ? radioGridObj.xlscreen.default // xlscreen
+            : (window.innerWidth >= radioGridObj.desktop.width)
+                ? radioGridObj.desktop.default // desktop
+                : (window.innerWidth >= radioGridObj.laptop.width)
+                    ? radioGridObj.laptop.default // laptop
+                    : (window.innerWidth >= radioGridObj.tablet.width)
+                      ? radioGridObj.tablet.default // tablet
+                      : radioGridObj.mobile.default // mobile
+
+        // console.log(tvSrcArr)
+        // console.log(radioGridDefault)
+
+        if ((urlIdParam || urlMenuParam) && tvSrcArr.length < radioGridDefault) radioGridDefault = 'all'
       }
   
       // console.log({radioGridDefault})
