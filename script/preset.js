@@ -262,9 +262,11 @@ const
       // console.log({urlIdParam})
       // console.log({radioMenuShow})
   
-      for (const i in tvSrcObj) {
-        if (radioMenuShow.includes(i))
-          radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
+      if (!urlIdParam && !urlMenuParam) {
+        for (const i in tvSrcObj) {
+          if (radioMenuShow.includes(i))
+            radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
+        }
       }
   
       if (urlIdParam) {

@@ -241,8 +241,13 @@ const
       for (const i of ctrmRadio)
         i.addEventListener('change', handle.ctrmRadio.change)
   
-      for (const j of menuRadio)
-        j.addEventListener('click', handle.menuRadio.click)
+      if (menuRadio.length > 1) {
+        for (const j of menuRadio)
+          j.addEventListener('click', handle.menuRadio.click)
+      }
+      else {
+        menuRadio.addEventListener('click', handle.menuRadio.click)
+      }
   
       for (const k of gridRadio)
         k.addEventListener('click', handle.gridRadio.click)
