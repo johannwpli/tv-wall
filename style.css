@@ -83,7 +83,7 @@ form>.table {
 }
 
 .grad {
-  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+  background: var(--dark-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation-name: grad;
@@ -92,22 +92,23 @@ form>.table {
 
 @keyframes hover {
   0% {
-    background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+    background: var(--dark-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
 .grad:hover {
-  background: var(--dark-color);
+  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
   -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   animation-name: hover;
   animation-duration: 3s;
 }
 
 .table {
   display: table;
-  width: calc(100% - var(--border-width)*2);
+  width: calc(100% - var(--border-width) * 2);
 }
 
 .row {
@@ -200,7 +201,6 @@ option[value='hh'] {
 }
 
 .ctrm label:first-of-type.jp::before {
-  /* content: 'チャットルーム'; */
   content: '雑談室';
 }
 
@@ -293,7 +293,6 @@ option[value='hh'] {
   }
 
   .menu label[name="World"].jp::after {
-    /* content: 'ワールド'; */
     content: '世界';
   }
 
@@ -317,7 +316,6 @@ option[value='hh'] {
   }
 
   .menu label[name="Taiwan"].jp::after {
-    /* content: 'タイワン'; */
     content: '台湾';
   }
 
@@ -364,7 +362,6 @@ option[value='hh'] {
   }
 
   .grid label[name="all"].jp::after {
-    /* content: 'すべて'; */
     content: '全部';
   }
 
