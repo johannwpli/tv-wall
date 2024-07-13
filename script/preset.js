@@ -99,10 +99,11 @@ const
   infoSvg = '<svg xmlns="http://www.w3.org/2000/svg" height="0.75em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>',
 
   urlSearchParams = new URLSearchParams(location.search),
-  urlMenuParam = urlSearchParams.get('m'),
-  urlGridParam = urlSearchParams.get('g'),
-  urlLangParam = urlSearchParams.get('l'),
-  urlIdParam = urlSearchParams.get('i'),
+  urlMenuParam    = urlSearchParams.get('m'),
+  urlGridParam    = urlSearchParams.get('g'),
+  urlLangParam    = urlSearchParams.get('l'),
+  urlIdParam      = urlSearchParams.get('i'),
+  urlNameParam    = urlSearchParams.get('n'),
 
   oldUrl = location.pathname,
   newState = { additionalInformation: 'Updated the URL with JS' },
@@ -271,7 +272,12 @@ const
   
       if (urlIdParam) {
         radioMenuDefault = radioMenuMy
-        radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
+
+        console.log(urlNameParam)
+
+        radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />`
+        radioMenu += urlNameParam ? urlNameParam : radioMenuDefault
+        radioMenu += `</label>`
   
         tvSrcArr = urlIdParam.split(',')
         // console.log({tvSrcArr})

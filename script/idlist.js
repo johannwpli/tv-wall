@@ -120,7 +120,7 @@ let
             { id: 'Sz-6k8Wdm8U', title: 'Anthony Neely - Sorry That I Loved You' },
         ],
 
-        Hsin: [
+        欣學堂: [
             { id: '9oNS8FLHGWE' },
             { id: 'Cx8QCN5fGOg' },
             { id: 'fHo4cmOembI' },

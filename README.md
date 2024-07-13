@@ -37,6 +37,8 @@ Instructions
 
 `CUSTOM IDS` Use 'i' as the id param to customize your video list, e.g., http://wewatch.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with YouTube video IDs separated by a comma.
 
+`CUSTOM NAME` Use 'n' as the name param to set your name of the video list, e.g., http://wewatch.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8&n=LetsParty, to have 'LetsParty' as your name.
+
 `VIDEO NUMBERS` Use 'g' as the grid param to play a specific number of or all videos, e.g., http://wewatch.cc/?g=all, to play all the videos.
 
 `DISPLAY LANGUAGE` Use 'l' as the language param to set the display language, e.g., http://wewatch.cc/?l=jp, to set Japanese as the display language.
