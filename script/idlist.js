@@ -150,4 +150,15 @@ let
             { id: '50sSQrHMeWM' },
             { id: 'zs98k8eCrGU' },
         ],
+
+        '８倍拉姆': [
+            { id: 'pEVhv4eB8Q8' },
+            { id: 'stb-BpPpJ7U' },
+            { id: '3OhStDNna-k' },
+            { id: 'fvYT-qeZGY8' },
+            { id: 'gpXy3_NdVEc' },
+            { id: 'DBCIuVopaGA' },
+            { id: 'XvOAtMYTmPs' },
+            { id: 'BkD2Z9gz_f8' },
+        ],
     }
