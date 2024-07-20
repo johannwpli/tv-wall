@@ -75,6 +75,9 @@ let
   tvInfoBack,
   tvTitle,
   tvChannel,
+  tvAttrName,
+  tvAttrAlt,
+  tvAttrTitle,
 
   tvSrcArr,
   tvSrcArrCached,

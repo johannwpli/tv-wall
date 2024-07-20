@@ -465,10 +465,20 @@ const
                 tvInfoBack += ' ' + tvSrc
                 if (tvChannel) tvInfoBack += ' on ' + tvChannel
 
+                tvAttrName = _temp
+
+                tvAttrAlt = tvTitle
+                  ? tvSrcKey + ' > ' + tvTitle
+                  : tvSrcKey + ' > ' + tvSrcArrCached[i]['id']
+
+                tvAttrTitle = tvTitle
+                  ? tvAttrName + '. ' + tvTitle
+                  : tvAttrName + '. ' + tvSrcArrCached[i]['id']
+
                 // e.setAttribute('id', _temp)
-                e.setAttribute('name', _temp)
-                e.setAttribute('alt', tvSrcKey + ' > ' + tvTitle)
-                e.setAttribute('title', _temp + '. ' + tvTitle)
+                e.setAttribute('name', tvAttrName)
+                e.setAttribute('alt', tvAttrAlt)
+                e.setAttribute('title', tvAttrTitle)
               }
               else {
                 tvSrc = tvSrcPrefix + tvSrcArrCached[i]
@@ -487,11 +497,11 @@ const
 
               tvHtml =
                 `<div
-                  id='${_temp}'
+                  id='${tvAttrName}'
                   class='tvNumber'
                   title='click to toggle theater mode'
-                  onclick="handle.thtrSelect.toggle('${_temp}')"
-                  >${_temp}</div>
+                  onclick="handle.thtrSelect.toggle('${tvAttrName}')"
+                  >${tvAttrName}</div>
                 <iframe
                   frameborder='${tvBorder}'
                   allow='${tvAllow}' ${tvAllowfullscreen}
