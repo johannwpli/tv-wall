@@ -75,35 +75,34 @@ form>.table {
   padding: 0 4.5px;
 }
 
-@keyframes grad {
-  0% {
-    background: var(--dark-color);
-    -webkit-background-clip: text;
-  }
-}
-
 .grad {
   background: var(--dark-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation-name: grad;
-  animation-duration: 3s;
+  animation: cycle 30s infinite;
 }
 
-@keyframes hover {
-  0% {
-    background: var(--dark-color);
+@-webkit-keyframes cycle {
+  100% {
+    background: linear-gradient(90deg, var(--title-color), var(--dark-color));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
 .grad:hover {
-  background: linear-gradient(90deg, var(--title-color), var(--dark-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation-name: hover;
-  animation-duration: 3s;
+    background: var(--dark-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hover 3s;
+  }
+  
+@-webkit-keyframes hover {
+  100% {
+    background: linear-gradient(90deg, var(--title-color), var(--dark-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
 
 .table {

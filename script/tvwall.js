@@ -487,6 +487,8 @@ const
 
                 tvInfoBack = _temp + '.'
                 tvInfoBack += ' ' + tvSrc
+
+                tvAttrName = _temp
               }
 
               console.log(tvInfoBack)

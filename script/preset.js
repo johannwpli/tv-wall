@@ -276,7 +276,7 @@ const
       if (urlIdParam) {
         radioMenuDefault = radioMenuMy
 
-        console.log(urlNameParam)
+        // console.log(urlNameParam)
 
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />`
         radioMenu += urlNameParam ? urlNameParam : radioMenuDefault
