@@ -25,6 +25,10 @@ body {
   background: var(--dark-color);
 }
 
+select {
+  border: 0;
+}
+
 #tvWall {
   width: 100vw;
   height: 100vh;

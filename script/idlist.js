@@ -84,7 +84,8 @@ let
         Taiwanese: [
             { id: '9gnqI0ygqWw', title: '青石願 - 黃鳳儀' },
             { id: 'KEBoeE0PdJM', title: '青石願 - 黃鳳儀' },
-            { id: 'av-oi_OMM0g', title: '甘願的路 - 張涵雅' },
+            // { id: 'av-oi_OMM0g', title: '甘願的路 - 張涵雅' }, // officially
+            { id: 'jJ7DxPaXD24', title: '甘願的路 - 張涵雅' },
             { id: 'ttFL9UvmuFc', title: '相思聲聲 - 黃妃' },
             { id: 'O4vpXDfW9G8', title: '相思聲聲 - 黃妃' },
             { id: '36sZ1ubzZAk', title: '虞美人 - 黃妃' },
@@ -128,7 +129,7 @@ let
             { id: '3ql6lSe1E-M', title: 'Acha Septriasa & Irwansyah - My Heart' },
         ],
 
-            English: [
+        English: [
             { id: 'hT_nvWreIhg', title: 'OneRepublic - Counting Stars' },
             { id: 'RVmG_d3HKBA', title: 'MIKA - Relax, Take It Easy' },
             { id: 'jofNR_WkoCE', title: 'Ylvis - The Fox (What Does The Fox Say?)' },
