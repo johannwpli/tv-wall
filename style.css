@@ -443,7 +443,6 @@ option[value='hh'] {
     text-align: right;
   }
 
-  .lang,
   .thtr,
   .laptop {
     display: none;
@@ -451,7 +450,6 @@ option[value='hh'] {
 }
 
 @media (max-width: 991px) {
-  .lang select,
   .desktop {
     display: none;
   }
@@ -459,6 +457,7 @@ option[value='hh'] {
 
 @media (max-width: 1199px) {
   .cell:not(.title) label:first-of-type,
+  .lang select,
   .ctrm,
   .xlscreen {
     display: none;

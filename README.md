@@ -26,7 +26,7 @@ Johann Li
 
 Origin
 ---
-As the successor to the TV wall project, we will add more functions in the future while ensuring normal operation.
+As the successor to the TV wall project, we will add more functions continuously in the future while ensuring normal operation.
 
 
 Instructions
