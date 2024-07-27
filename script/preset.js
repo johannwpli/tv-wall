@@ -17,6 +17,8 @@ let
   screenHeight,
 
   docCellTitle,
+  docCellTitleClntOS,
+  docCellTitleClntBr,
   docCellTitleWinOri,
   docCellCtrm,
   docCellMenu,
@@ -115,7 +117,14 @@ const
   headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
-  cellTitle = `<label><a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a></label> ${client.os.svg[client.os.app()]} ${client.browser.svg[client.browser.app()]} <span id='windowOrien'></span>`,
+  cellTitle =
+    `<label>
+      <a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>
+      <a href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
+    </label>
+    <span id='clntOS'></span>
+    <span id='clntBr'></span>
+    <span id='winOri'></span>`,
 
   radioCtrmShow = ['On', 'Off'],
   radioCtrmDefault = 'Off',
@@ -160,7 +169,7 @@ const
     'zh': '繁體中文',
     'tg': '台語', // iTaigi 愛台語 https://itaigi.tw
     'jp': '日本語',
-    'hh': 'hunter' // ハンター語
+    'hh': 'hunter' // ハンター文字 https://hunterxhunter.fandom.com/wiki/Hunter_%C3%97_Hunter_Alphabet
   },
 
   tvBorder = 0,
@@ -224,7 +233,13 @@ const
       docCellTitle = document.querySelector('.cell.title')
       docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
 
-      docCellTitleWinOri = document.querySelector('#windowOrien')
+      docCellTitleClntOS = document.querySelector('#clntOS')
+      docCellTitleClntOS.innerHTML = client.os.svg[client.os.app()]
+  
+      docCellTitleClntBr = document.querySelector('#clntBr')
+      docCellTitleClntBr.innerHTML = client.browser.svg[client.browser.app()]
+  
+      docCellTitleWinOri = document.querySelector('#winOri')
       docCellTitleWinOri.innerHTML = client.window.svg[client.window.orientation()]
   
       /* set title gradient */

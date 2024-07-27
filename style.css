@@ -373,7 +373,30 @@ option[value='hh'] {
     font-family: hunterxhunter;
   }
 
-/* Lang */
+  /* more */
+
+  .grid label[name="more"].en::after {
+    content: 'more';
+  }
+
+  .grid label[name="more"].zh::after {
+    content: '更多';
+  }
+
+  .grid label[name="more"].tg::after {
+    content: '較濟';
+  }
+
+  .grid label[name="more"].jp::after {
+    content: 'もっと';
+  }
+
+  .grid label[name="more"].hh::after {
+    content: 'more';
+    font-family: hunterxhunter;
+  }
+
+  /* Lang */
 
 .lang label:first-of-type.en::before {
   content: 'language';
