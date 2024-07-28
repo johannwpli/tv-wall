@@ -121,11 +121,13 @@ const
         moreInfo = document.querySelector('#moreInfo')
         moreInfo.classList.add('show')
 
-        // document.querySelectorAll('.tablet').forEach((e) => e.classList.add('show'))
-        // document.querySelectorAll('.laptop').forEach((e) => e.classList.add('show'))
-        // document.querySelectorAll('.desktop').forEach((e) => e.classList.add('show'))
-        // document.querySelectorAll('.xlscreen').forEach((e) => e.classList.add('show'))
-        document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach((e) => e.classList.add('show'))
+        // document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach(
+        //   (e) => e.classList.add('show')
+        // )
+
+        document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
+          (e) => e.classList.add('show')
+        )
       },
 
       off: () => {
@@ -136,11 +138,13 @@ const
 
         moreInfo.classList.remove('show')
 
-        // document.querySelectorAll('.tablet').forEach((e) => e.classList.remove('show'))
-        // document.querySelectorAll('.laptop').forEach((e) => e.classList.remove('show'))
-        // document.querySelectorAll('.desktop').forEach((e) => e.classList.remove('show'))
-        // document.querySelectorAll('.xlscreen').forEach((e) => e.classList.remove('show'))
-        document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach((e) => e.classList.remove('show'))
+        // document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach(
+        //   (e) => e.classList.remove('show')
+        // )
+
+        document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
+          (e) => e.classList.remove('show')
+        )
       }
     },
 

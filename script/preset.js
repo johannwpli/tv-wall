@@ -17,11 +17,11 @@ let
   screenHeight,
 
   docCellTitle,
-  docCellTitleClntOS,
-  docCellTitleClntBr,
-  docCellTitleWinOri,
   docCellCtrm,
   docCellMenu,
+  docCellMenuClntOS,
+  docCellMenuClntBr,
+  docCellMenuWinOri,
   docCellGrid,
   docCellMore,
   docCellLang,
@@ -44,6 +44,8 @@ let
       ? 'Taiwan'
       : 'World',
 
+  radioGridKey,
+  radioGridKeyNext,
   radioGridDefault,
 
   moreOn,
@@ -127,11 +129,6 @@ const
   cellTitle =
     `<label>
       <a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
-    </label>
-    <label id='moreInfo' class='laptop'>
-      <span id='clntOS'></span>
-      <span id='clntBr'></span>
-      <span id='winOri'></span>
     </label>`,
 
   radioCtrmShow = ['On', 'Off'],
@@ -244,15 +241,6 @@ const
       docCellTitle = document.querySelector('.cell.title')
       docCellTitle.insertAdjacentHTML('beforeEnd', cellTitle)
 
-      docCellTitleClntOS = document.querySelector('#clntOS')
-      docCellTitleClntOS.innerHTML = client.os.svg[client.os.app()]
-  
-      docCellTitleClntBr = document.querySelector('#clntBr')
-      docCellTitleClntBr.innerHTML = client.browser.svg[client.browser.app()]
-  
-      docCellTitleWinOri = document.querySelector('#winOri')
-      docCellTitleWinOri.innerHTML = client.window.svg[client.window.orientation()]
-  
       /* set title gradient */
   
       docCellTitle.classList.add('grad')
@@ -333,8 +321,18 @@ const
   
       document.querySelector(`input[value='${radioMenuDefault}']`).setAttribute('checked', 'checked')
   
-      docCellMenu.insertAdjacentHTML('beforeEnd', `<a id='tvInfo' onclick='alert(tvInfoFront)'>${infoSvg}</a>`)
+      docCellMenu.insertAdjacentHTML('beforeEnd', `<label id='tvInfo' onclick='alert(tvInfoFront)'>${infoSvg}</label>`)
+      docCellMenu.insertAdjacentHTML('beforeEnd', "<label id='moreInfo' class='laptop'><span id='clntOS'></span><span id='clntBr'></span><span id='winOri'></span></label>")
 
+      docCellMenuClntOS = document.querySelector('#clntOS')
+      docCellMenuClntOS.innerHTML = client.os.svg[client.os.app()]
+  
+      docCellMenuClntBr = document.querySelector('#clntBr')
+      docCellMenuClntBr.innerHTML = client.browser.svg[client.browser.app()]
+  
+      docCellMenuWinOri = document.querySelector('#winOri')
+      docCellMenuWinOri.innerHTML = client.window.svg[client.window.orientation()]
+  
       menuRadio = document.tvWall.menu
     },
 
@@ -354,23 +352,6 @@ const
                         ? 'tablet'
                         : 'mobile'
   
-        // radioGrid +=
-        //   (i !== 'all' && i !== 'more')
-        //     ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
-        //     : `<label class="laptop" name="${i}"><input type="radio" name="grid" value="${i}" /></label>` // all
-        //
-        // radioGrid +=
-        //   (i === 'more')
-        //     ? `<label class="${j}"><input type="radio" name="more" value="${i}" />${i}</label>` // more
-        //     : ``
-
-        // radioGrid +=
-        //   (i !== 'all' && i !== 'more')
-        //     ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
-        //     : (i !== 'more')
-        //       ? `<label class="laptop" name="${i}"><input type="radio" name="grid" value="${i}" /></label>` // all
-        //       : `<label class="${j}" name="${i}"><input type="radio" name="more" value="${i}" /></label>` // more
-
         radioGrid +=
           (i !== 'all')
             ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
@@ -408,19 +389,36 @@ const
   
       }
       else {
-        radioGridDefault =
-          (window.innerWidth >= radioGridObj.xlscreen.width)
-            ? radioGridObj.xlscreen.default // xlscreen
-            : (window.innerWidth >= radioGridObj.desktop.width)
-                ? radioGridObj.desktop.default // desktop
-                : (window.innerWidth >= radioGridObj.laptop.width)
-                    ? radioGridObj.laptop.default // laptop
-                    : (window.innerWidth >= radioGridObj.tablet.width)
-                      ? radioGridObj.tablet.default // tablet
-                      : radioGridObj.mobile.default // mobile
+        // radioGridDefault =
+        //   (window.innerWidth >= radioGridObj.xlscreen.width)
+        //     ? radioGridObj.xlscreen.default // xlscreen
+        //     : (window.innerWidth >= radioGridObj.desktop.width)
+        //         ? radioGridObj.desktop.default // desktop
+        //         : (window.innerWidth >= radioGridObj.laptop.width)
+        //             ? radioGridObj.laptop.default // laptop
+        //             : (window.innerWidth >= radioGridObj.tablet.width)
+        //               ? radioGridObj.tablet.default // tablet
+        //               : radioGridObj.mobile.default // mobile
 
+        radioGridKey =
+          (window.innerWidth >= radioGridObj.xlscreen.width)
+            ? 'xlscreen'
+            : (window.innerWidth >= radioGridObj.desktop.width)
+                ? 'desktop'
+                : (window.innerWidth >= radioGridObj.laptop.width)
+                    ? 'laptop'
+                    : (window.innerWidth >= radioGridObj.tablet.width)
+                      ? 'tablet'
+                      : 'mobile'
+
+        radioGridKeyNext = Object.keys(radioGridObj)[Object.keys(radioGridObj).indexOf(radioGridKey) + 1]      
+
+        radioGridDefault = radioGridObj[radioGridKey].default
+
+        // console.log({radioGridKey})
+        // console.log({radioGridKeyNext})
+        // console.log({radioGridDefault})
         // console.log(tvSrcArr)
-        // console.log(radioGridDefault)
 
         if ((urlIdParam || urlMenuParam) && tvSrcArr.length < radioGridDefault) radioGridDefault = 'all'
       }
