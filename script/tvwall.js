@@ -6,8 +6,10 @@ let
 
   tvwallPercent = 1, // fail-safe
 
-  ctRoom,
-  ctRoomHtml = `<div id="ctRoom"><chat-room room="${siteDomain}" height="100%"></div>`,
+  chatRoom,
+  chatRoomHtml = `<div id="chatRoom"><chat-room room="${siteDomain}" height="100%"></div>`,
+
+  moreInfo,
 
   intervalTVSize = {
     Grid: {
@@ -42,26 +44,26 @@ let
 const
 
   handle = {
-    ctRoom: {
+    chatRoom: {
       on: () => {
-        // console.log(ctRoom)
+        // console.log(chatRoom)
 
         ctrmOn.classList.add('hide')
         ctrmOff.classList.remove('hide')
       
-        tvWall.insertAdjacentHTML('afterEnd', ctRoomHtml)
-        tvWall.classList.add('ctRoomed')
+        tvWall.insertAdjacentHTML('afterEnd', chatRoomHtml)
+        tvWall.classList.add('chatRoomed')
 
-        ctRoom = document.querySelector('#ctRoom')
+        chatRoom = document.querySelector('#chatRoom')
       },
 
       off: () => {
         ctrmOn.classList.remove('hide')
         ctrmOff.classList.add('hide')
   
-        if (ctRoom) ctRoom.remove()
+        if (chatRoom) chatRoom.remove()
   
-        tvWall.classList.remove('ctRoomed')
+        tvWall.classList.remove('chatRoomed')
       }
     },
 
@@ -73,8 +75,8 @@ const
         // console.log(this.value)
     
         this.value === 'On'
-          ? handle.ctRoom.on()
-          : handle.ctRoom.off()
+          ? handle.chatRoom.on()
+          : handle.chatRoom.off()
           
         handle.window.resize()
       }
@@ -107,6 +109,56 @@ const
       }
     },
 
+    moreInfo: { // TODO
+      on: () => {
+        // console.log(moreInfo)
+
+        moreOn.classList.add('hide')
+        moreOff.classList.remove('hide')
+      
+        // console.log('more; moreInfo on')
+
+        moreInfo = document.querySelector('#moreInfo')
+        moreInfo.classList.add('show')
+
+        // document.querySelectorAll('.tablet').forEach((e) => e.classList.add('show'))
+        // document.querySelectorAll('.laptop').forEach((e) => e.classList.add('show'))
+        // document.querySelectorAll('.desktop').forEach((e) => e.classList.add('show'))
+        // document.querySelectorAll('.xlscreen').forEach((e) => e.classList.add('show'))
+        document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach((e) => e.classList.add('show'))
+      },
+
+      off: () => {
+        moreOn.classList.remove('hide')
+        moreOff.classList.add('hide')
+  
+        // console.log('less; moreInfo off')
+
+        moreInfo.classList.remove('show')
+
+        // document.querySelectorAll('.tablet').forEach((e) => e.classList.remove('show'))
+        // document.querySelectorAll('.laptop').forEach((e) => e.classList.remove('show'))
+        // document.querySelectorAll('.desktop').forEach((e) => e.classList.remove('show'))
+        // document.querySelectorAll('.xlscreen').forEach((e) => e.classList.remove('show'))
+        document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach((e) => e.classList.remove('show'))
+      }
+    },
+
+    moreRadio: {
+      change: function() { /* set more value by more radio */
+    
+        // if (moreChecked) console.log(moreChecked.value)
+        if (this !== moreChecked) moreChecked = this
+        // console.log(this.value)
+    
+        this.value === 'more'
+          ? handle.moreInfo.on()
+          : handle.moreInfo.off()
+          
+        // handle.window.resize()
+      }
+    },
+  
     langClasslist: {
       add: (value) => {
         for (let i = 1; i < headPartArr.length; i++) {
@@ -211,7 +263,7 @@ const
           // console.log("ctrm goes 'Off'")
           // console.log({ctrmRadio})
           ctrmRadio[1].checked = true // goes 'Off'
-          handle.ctRoom.off()
+          handle.chatRoom.off()
         }
 
         windowOrientation.After = client.window.orientation()
@@ -237,7 +289,7 @@ const
   listen = {
     thtrSelect: () => document.querySelector('.cell.thtr select').addEventListener('change', handle.thtrSelect.click),
 
-    ctrmMenuGridRadio: () => {
+    ctrmMenuGridMoreRadio: () => {
       for (const i of ctrmRadio)
         i.addEventListener('change', handle.ctrmRadio.change)
   
@@ -251,6 +303,9 @@ const
   
       for (const k of gridRadio)
         k.addEventListener('click', handle.gridRadio.click)
+
+      for (const l of moreRadio)
+        l.addEventListener('change', handle.moreRadio.change)
     },
 
     langSelect: () => document.querySelector('.cell.lang select').addEventListener('change', handle.langSelect.change),
@@ -628,7 +683,7 @@ const
   },
 
   listenAll = () => {
-    listen.ctrmMenuGridRadio()
+    listen.ctrmMenuGridMoreRadio()
     listen.langSelect()
     listen.keyPress()
     listen.windowResize()

@@ -23,6 +23,7 @@ let
   docCellCtrm,
   docCellMenu,
   docCellGrid,
+  docCellMore,
   docCellLang,
   docCellThtr,
 
@@ -31,6 +32,7 @@ let
   radioCtrm = '',
   radioMenu = '',
   radioGrid = '',
+  radioMore = '',
   selectLang = '',
   selectThtr = '',
 
@@ -43,6 +45,9 @@ let
       : 'World',
 
   radioGridDefault,
+
+  moreOn,
+  moreOff,
 
   selectLangDefault =
     (client.browser.lang === 'zh-TW' || client.browser.lang === 'zh-HK')
@@ -58,11 +63,13 @@ let
   ctrmChecked,
   menuChecked,
   gridChecked,
+  moreChecked,
   thtrSelect,
   langSelect,
 
   ctrmRadio,
   gridRadio,
+  moreRadio,
   menuRadio,
 
   tvAllNumber,
@@ -114,23 +121,27 @@ const
   newState = { additionalInformation: 'Updated the URL with JS' },
 
   wallPartArr = ['head', 'body'],
-  headPartArr = ['title', 'ctrm', 'menu', 'grid', 'lang', 'thtr'],
+  headPartArr = ['title', 'ctrm', 'menu', 'grid', 'more', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
   cellTitle =
     `<label>
-      <a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a>
-      <a href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
+      <a href="${siteUrl}" title="${siteTitle}" alt="${siteName}">${siteName}</a><a href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
     </label>
-    <span id='clntOS'></span>
-    <span id='clntBr'></span>
-    <span id='winOri'></span>`,
+    <label id='moreInfo' class='laptop'>
+      <span id='clntOS'></span>
+      <span id='clntBr'></span>
+      <span id='winOri'></span>
+    </label>`,
 
   radioCtrmShow = ['On', 'Off'],
   radioCtrmDefault = 'Off',
 
   radioMenuShow = ['World', 'Taiwan'],
   radioMenuMy = 'My',
+
+  radioMoreShow = ['more', 'less'],
+  radioMoreDefault = 'less',
 
   radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 'all'], // 24, 25, 30, to fix over 9 + 26
 
@@ -343,11 +354,28 @@ const
                         ? 'tablet'
                         : 'mobile'
   
+        // radioGrid +=
+        //   (i !== 'all' && i !== 'more')
+        //     ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
+        //     : `<label class="laptop" name="${i}"><input type="radio" name="grid" value="${i}" /></label>` // all
+        //
+        // radioGrid +=
+        //   (i === 'more')
+        //     ? `<label class="${j}"><input type="radio" name="more" value="${i}" />${i}</label>` // more
+        //     : ``
+
+        // radioGrid +=
+        //   (i !== 'all' && i !== 'more')
+        //     ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
+        //     : (i !== 'more')
+        //       ? `<label class="laptop" name="${i}"><input type="radio" name="grid" value="${i}" /></label>` // all
+        //       : `<label class="${j}" name="${i}"><input type="radio" name="more" value="${i}" /></label>` // more
+
         radioGrid +=
           (i !== 'all')
-            ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>`
-            : `<label class="${j}" name="${i}"><input type="radio" name="grid" value="${i}" /></label>`
-      }
+            ? `<label class="${j}"><input type="radio" name="grid" value="${i}" />${i}</label>` // number
+            : `<label class="laptop" name="${i}"><input type="radio" name="grid" value="${i}" /></label>` // all
+        }
   
       // console.log({urlGridParam})
       // console.log({radioGridArr})
@@ -405,6 +433,29 @@ const
       document.querySelector(`input[value='${radioGridDefault}']`).setAttribute('checked', 'checked')
   
       gridRadio = document.tvWall.grid
+    },
+
+    more: () => {
+      docCellMore = document.querySelector('.cell.more')
+      docCellMore.insertAdjacentHTML('afterBegin', `<label class="${selectLangDefault}"></label>`)
+  
+      // console.log({radioMoreShow})
+  
+      for (const i of radioMoreShow)
+        radioMore += `<label id="${i}" name="${i}"><input type="radio" name="more" value="${i}" /></label>`
+  
+      // console.log({radioMore})
+  
+      docCellMore.insertAdjacentHTML('beforeEnd', radioMore)
+  
+      moreOn = document.getElementById('more')
+      moreOff = document.getElementById('less')
+  
+      moreOff.classList.add('hide')
+  
+      // document.querySelector(`input[value='${radioMoreDefault}']`).setAttribute('checked', 'checked')
+  
+      moreRadio = document.tvWall.more
     },
 
     lang: () => {
@@ -538,6 +589,7 @@ const
     set.ctrm()
     set.menu()
     set.grid() // must set after set.menu()
+    set.more()
     set.lang()
     set.thtr()
     set.url()

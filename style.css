@@ -34,11 +34,11 @@ select {
   height: 100vh;
 }
 
-#tvWall.ctRoomed {
+#tvWall.chatRoomed {
   width: calc(100vw - 300px);
 }
 
-#ctRoom {
+#chatRoom {
   width: 300px;
 }
 
@@ -116,6 +116,10 @@ form>.table {
 
 .row {
   display: table-row;
+}
+
+.show {
+  display: unset !important;
 }
 
 .hide {
@@ -373,26 +377,51 @@ option[value='hh'] {
     font-family: hunterxhunter;
   }
 
+/* More */
+
   /* more */
 
-  .grid label[name="more"].en::after {
+  .more label[name="more"].en::after {
     content: 'more';
   }
 
-  .grid label[name="more"].zh::after {
-    content: '更多';
+  .more label[name="more"].zh::after {
+    content: '較多';
   }
 
-  .grid label[name="more"].tg::after {
+  .more label[name="more"].tg::after {
     content: '較濟';
   }
 
-  .grid label[name="more"].jp::after {
-    content: 'もっと';
+  .more label[name="more"].jp::after {
+    content: 'モア';
   }
 
-  .grid label[name="more"].hh::after {
+  .more label[name="more"].hh::after {
     content: 'more';
+    font-family: hunterxhunter;
+  }
+
+  /* less */
+
+  .more label[name="less"].en::after {
+    content: 'less';
+  }
+
+  .more label[name="less"].zh::after {
+    content: '較少';
+  }
+
+  .more label[name="less"].tg::after {
+    content: '較少';
+  }
+
+  .more label[name="less"].jp::after {
+    content: 'レス';
+  }
+
+  .more label[name="less"].hh::after {
+    content: 'less';
     font-family: hunterxhunter;
   }
 
@@ -483,6 +512,12 @@ option[value='hh'] {
   .lang select,
   .ctrm,
   .xlscreen {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .cell.more {
     display: none;
   }
 }
