@@ -109,42 +109,34 @@ const
       }
     },
 
-    moreInfo: { // TODO
+    moreInfo: {
       on: () => {
         // console.log(moreInfo)
 
         moreOn.classList.add('hide')
         moreOff.classList.remove('hide')
       
-        // console.log('more; moreInfo on')
-
         moreInfo = document.querySelector('#moreInfo')
-        moreInfo.classList.add('show')
+        moreInfo.classList.add('hide')
 
-        // document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach(
-        //   (e) => e.classList.add('show')
-        // )
-
-        document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
-          (e) => e.classList.add('show')
-        )
+        if (radioGridKeyNext) {
+          document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
+            (e) => e.classList.add('show')
+          )
+        }
       },
 
       off: () => {
         moreOn.classList.remove('hide')
         moreOff.classList.add('hide')
   
-        // console.log('less; moreInfo off')
+        moreInfo.classList.remove('hide')
 
-        moreInfo.classList.remove('show')
-
-        // document.querySelectorAll('.cell.grid label:not(:first-of-type)').forEach(
-        //   (e) => e.classList.remove('show')
-        // )
-
-        document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
-          (e) => e.classList.remove('show')
-        )
+        if (radioGridKeyNext) {
+          document.querySelectorAll(`.cell.grid .${radioGridKeyNext}`).forEach(
+            (e) => e.classList.remove('show')
+          )
+        }
       }
     },
 
