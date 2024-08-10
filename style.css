@@ -66,13 +66,15 @@ form>.table {
   background: var(--bright-color);
 }
 
+@media (prefers-color-scheme: dark) {
+  #head {
+    filter: invert(100%);
+  }
+}
+
 #body {
   color: var(--bright-color);
   background: var(--dark-color);
-}
-
-.night {
-  filter: invert(100%);
 }
 
 #tvInfo {
@@ -159,6 +161,12 @@ option[value='hh'] {
   font-size: .8em;
   width: .5em;
   color: var(--dark-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  .tvNumber {
+    filter: invert(100%);
+  }
 }
 
 .tv:hover .tvNumber {
@@ -474,13 +482,24 @@ option[value='hh'] {
 .ctrm label:not(:first-of-type),
 .menu label:not(:first-of-type),
 .grid label:not(:first-of-type) {
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
+  border-radius: 9px;
+}
+
+.lang select,
+.thtr select {
+  /* border: 1px solid transparent; */
   border-radius: 9px;
 }
 
 .ctrm label:not(:first-of-type):hover,
 .menu label:not(:first-of-type):hover,
 .grid label:not(:first-of-type):hover {
+  background: var(--inter-color);
+}
+
+.lang select:hover,
+.thtr select:hover {
   background: var(--inter-color);
 }
 

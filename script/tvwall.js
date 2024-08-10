@@ -565,8 +565,8 @@ const
 
               // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`)) // doesn't work
 
-              if (hour < 6 || hour >= 18)
-                document.querySelector(`div[id='${_temp}']`).classList.add('night')
+              // if (hour < 6 || hour >= 18)
+              //   document.querySelector(`div[id='${_temp}']`).classList.add('night')
             }
           }
         )

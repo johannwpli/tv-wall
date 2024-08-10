@@ -231,8 +231,8 @@ const
   
       // console.log({hour})
   
-      if (hour < 6 || hour >= 18)
-        document.querySelector('#head').classList.add('night')
+      // if (hour < 6 || hour >= 18)
+      //   document.querySelector('#head').classList.add('night')
   
       /* set head parts */
   
@@ -321,11 +321,12 @@ const
   
           tvSrcKey = radioMenuDefault
           tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+          // console.log({tvSrcKey})
           // console.log({tvSrcArr})
   
-          if (!radioMenuShow.includes(urlMenuParam)) {
+          // if (!radioMenuShow.includes(urlMenuParam)) {
             radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
-          }
+          // }
         }
       }
   
