@@ -1,5 +1,5 @@
 :root {
-  --border-width: 8px;
+  --border-width: .5em;
   --title-color: #ff8a00;
   --bright-color: #fff;
   --inter-color: #e2e2e2;
@@ -48,9 +48,8 @@ a {
 }
 
 input[type=radio] {
-  margin: 1.5px;
-  width: 10px;
-  height: 10px;
+  margin: 0 .125em;
+  width: .5em;
 }
 
 input[type=radio]:checked {
@@ -66,22 +65,16 @@ form>.table {
   background: var(--bright-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  #head {
-    filter: invert(100%);
-  }
-}
-
 #body {
   color: var(--bright-color);
   background: var(--dark-color);
 }
 
 #tvInfo {
-  padding-left: 4.5px;
+  padding-left: .25em;
 }
 
-.grad {
+.grad label {
   background: var(--dark-color);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -96,7 +89,7 @@ form>.table {
   }
 }
 
-.grad:hover {
+.grad label:hover {
     background: var(--dark-color);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -163,12 +156,6 @@ option[value='hh'] {
   color: var(--dark-color);
 }
 
-@media (prefers-color-scheme: dark) {
-  .tvNumber {
-    filter: invert(100%);
-  }
-}
-
 .tv:hover .tvNumber {
   display: block;
 }
@@ -195,7 +182,7 @@ option[value='hh'] {
 .thtr label:first-of-type {
   margin: 0 4.5px;
   box-shadow: 0 0 0 1px var(--darkalpha-color);
-  border-radius: 7px;
+  border-radius: .5em;
   padding: 0 4.5px;
   background: var(--inter-color);
   font-size: .8em;
@@ -481,23 +468,15 @@ option[value='hh'] {
 
 .ctrm label:not(:first-of-type),
 .menu label:not(:first-of-type),
-.grid label:not(:first-of-type) {
-  /* border: 1px solid transparent; */
-  border-radius: 9px;
-}
-
+.grid label:not(:first-of-type),
 .lang select,
 .thtr select {
-  /* border: 1px solid transparent; */
-  border-radius: 9px;
+  border-radius: .5em;
 }
 
 .ctrm label:not(:first-of-type):hover,
 .menu label:not(:first-of-type):hover,
-.grid label:not(:first-of-type):hover {
-  background: var(--inter-color);
-}
-
+.grid label:not(:first-of-type):hover,
 .lang select:hover,
 .thtr select:hover {
   background: var(--inter-color);
@@ -538,5 +517,12 @@ option[value='hh'] {
 @media (min-width: 1200px) {
   .cell.more {
     display: none;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  #head,
+  .tvNumber {
+    filter: invert(100%);
   }
 }

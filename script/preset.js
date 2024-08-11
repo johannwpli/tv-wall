@@ -227,13 +227,6 @@ const
       for (const i of wallPartArr)
         document.querySelector('#tvWall form').insertAdjacentHTML('beforeEnd', `<div id="${i}" class="table"></div>`)
   
-      /* set head night mode */
-  
-      // console.log({hour})
-  
-      // if (hour < 6 || hour >= 18)
-      //   document.querySelector('#head').classList.add('night')
-  
       /* set head parts */
   
       document.querySelector('#head').insertAdjacentHTML('beforeEnd', '<div class="row"></div>')
