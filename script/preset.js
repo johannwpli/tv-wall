@@ -287,16 +287,34 @@ const
       // console.log({urlIdParam})
       // console.log({radioMenuShow})
   
-      if (!urlIdParam && !urlMenuParam) {
-        for (const i in tvSrcObj) {
-          if (radioMenuShow.includes(i))
+      if (!urlIdParam) {
+        if (!urlMenuParam) {
+          for (let i of radioMenuShow) {
             radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
+          }
         }
-      }
-  
-      if (urlIdParam) {
+        else { // urlMenuParam
+          if (urlMenuParam in tvSrcObj) {
+            radioMenuDefault = urlMenuParam
+      
+            tvSrcKey = radioMenuDefault
+            tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+            // console.log({tvSrcKey})
+            // console.log({tvSrcArr})
+    
+            if (!radioMenuShow.includes(urlMenuParam)) { // not World and not Taiwan
+              radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
+            }
+            else { // World or Taiwan
+              for (let i of radioMenuShow) {
+                radioMenu += `<label name="${i}" class="${selectLangDefault}"><input type="radio" name="menu" value="${i}" /></label>`
+              }
+            }
+          }
+        }
+      }  
+      else { // urlIdParam
         radioMenuDefault = radioMenuMy
-
         // console.log(urlNameParam)
 
         radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />`
@@ -308,21 +326,7 @@ const
         // console.log({tvSrcObj})
         // console.log({radioMenuShow})
       }
-      else {
-        if (urlMenuParam && urlMenuParam in tvSrcObj) {
-          radioMenuDefault = urlMenuParam
-  
-          tvSrcKey = radioMenuDefault
-          tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-          // console.log({tvSrcKey})
-          // console.log({tvSrcArr})
-  
-          // if (!radioMenuShow.includes(urlMenuParam)) {
-            radioMenu += `<label><input type="radio" name="menu" value="${radioMenuDefault}" />${radioMenuDefault}</label>`
-          // }
-        }
-      }
-  
+
       // console.log({radioMenu})
   
       docCellMenu.insertAdjacentHTML('beforeEnd', radioMenu)
@@ -366,10 +370,10 @@ const
             if (urlIdParam) {
               tvSrcArr = urlIdParam.split(',')
             }
-            else {
-              tvSrcKey = radioMenuDefault
-              tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
-            }
+            // else {
+            //   tvSrcKey = radioMenuDefault
+            //   tvSrcArr = Object.keys(tvSrcObj[tvSrcKey])
+            // }
           }
           // console.log({tvSrcArr})
   

@@ -39,7 +39,8 @@ let
   iframeNowHeight = 150, // default
   iframeGapHeight,
 
-  tvNumberFlag = 0 // default
+  tvNumberFlag = 0, // default
+  fullscreenFlag = 0 // default
 
 const
 
@@ -220,7 +221,7 @@ const
           // console.log({tvRowNumber}) // e.g. 4
           // console.log({tvColNumber}) // e.g. 3
       
-          let rowNumber  = Math.floor((alphanumericToNumber(thtrSelect.value) - 1) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
+          let rowNumber  = Math.floor((tvNumberFlag - 1) / tvColNumber) + 1 // 7,8,9 => 6,7,8 => 2,2.x,2.y => 2 => 3
           // console.log({rowNumber})
       
           for (let i = 1; i <= tvRowNumber; i++) {
@@ -277,6 +278,30 @@ const
         else {
           getWidthAndHeight()
           handle.thtrSelect.click()  
+        }
+      },
+
+      fullscreen: () => { /* to fix tv fullscreen bug */
+        let _temp =
+          (gridChecked.value === 'all')
+            ? tvSrcArrCached.length
+            : gridChecked.value * 1
+
+        // console.log(_temp) // number
+
+        for (let i = 1; i <= _temp; i++) {
+          let e = document.getElementById(`tv${numberToAlphanumeric(i)}`)
+
+          // console.log(e)
+          // console.log(thtrSelect.value)
+
+          console.log('tv: ', getCssPx(e, 'width'), getCssPx(e, 'height'))
+          console.log('sc', screenWidth, screenHeight)
+
+          if (getCssPx(e, 'width') === screenWidth || getCssPx(e, 'width') === screenHeight)
+            fullscreenFlag = 1
+          
+          // console.log({fullscreenFlag}) // do something
         }
       }
     },
@@ -584,10 +609,8 @@ const
             let _temp = numberToAlphanumeric(i + 1)
             e.setAttribute('id', `tv${_temp}`)
 
-            // console.log(e.getAttribute('width') * 1)
             // console.log(getCssPx(e, 'width'))
   
-            // if (e.getAttribute('width') * 1 !== tvWidth || e.getAttribute('height') * 1 !== tvHeight)
             if (getCssPx(e, 'width') !== tvWidth || getCssPx(e, 'height') !== tvHeight)
               setTv.setTvSize.Grid(e)
           }
@@ -602,6 +625,7 @@ const
           (gridChecked.value === 'all')
             ? tvSrcArrCached.length
             : gridChecked.value * 1
+
         // console.log(_temp) // number
   
         for (let i = 1; i <= _temp; i++) {
@@ -611,12 +635,10 @@ const
   
           if (e) {
             if (i !== alphanumericToNumber(thtrSelect.value)) {
-              // if (e.getAttribute('width') * 1 !== 0 || e.getAttribute('height') * 1 !== 0)
               if (getCssPx(e, 'width') !== 0 || getCssPx(e, 'height') !== 0)
                 setTv.setTvSize.Hidden(e)
             }
             else {
-              // if (e.getAttribute('width') * 1 !== screenWidth || e.getAttribute('height') * 1 !== screenHeight)
               if (getCssPx(e, 'width') !== screenWidth || getCssPx(e, 'height') !== screenHeight)
                 setTv.setTvSize.Shown(e)
             }
@@ -654,6 +676,7 @@ const
           intervalTVSize.Grid.Mode = setInterval(setTv.checkTvSize.Grid, intervalTVSize.CheckDelay)
           intervalTVSize.Grid.Flag = true
         }
+
         if (intervalTVSize.Thtr.Flag) {
           clearInterval(intervalTVSize.Thtr.Mode)
           intervalTVSize.Thtr.Flag = false
@@ -664,6 +687,7 @@ const
           clearInterval(intervalTVSize.Grid.Mode)
           intervalTVSize.Grid.Flag = false
         }
+
         if (!intervalTVSize.Thtr.Flag) {
           intervalTVSize.Thtr.Mode = setInterval(setTv.checkTvSize.Thtr, intervalTVSize.CheckDelay)
           intervalTVSize.Thtr.Flag = true

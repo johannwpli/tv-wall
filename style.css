@@ -5,6 +5,7 @@
   --inter-color: #e2e2e2;
   --dark-color: #000;
   --darkalpha-color: rgba(0, 0, 0, 50%);
+  --chatroom-width: 300px;
 }
 
 @font-face {
@@ -35,11 +36,11 @@ select {
 }
 
 #tvWall.chatRoomed {
-  width: calc(100vw - 300px);
+  width: calc(100vw - var(--chatroom-width));
 }
 
 #chatRoom {
-  width: 300px;
+  width: var(--chatroom-width);
 }
 
 a {
@@ -146,10 +147,10 @@ option[value='hh'] {
   display: none;
   position: absolute;
   cursor: pointer;
-  margin: 2px;
+  margin: .125em;
   box-shadow: 0 0 0 1px var(--darkalpha-color);
   border-radius: .6em;
-  padding: 0 4.5px;
+  padding: 0 .25em;
   background: var(--bright-color);
   font-size: .8em;
   width: .5em;
@@ -180,10 +181,10 @@ option[value='hh'] {
 .grid label:first-of-type,
 .lang label:first-of-type,
 .thtr label:first-of-type {
-  margin: 0 4.5px;
+  margin: 0 .25em;
   box-shadow: 0 0 0 1px var(--darkalpha-color);
   border-radius: .5em;
-  padding: 0 4.5px;
+  padding: 0 .25em;
   background: var(--inter-color);
   font-size: .8em;
 }
