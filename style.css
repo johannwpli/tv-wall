@@ -483,6 +483,12 @@ option[value='hh'] {
   background: var(--inter-color);
 }
 
+@media (max-width: 389px) {
+  .cell.more {
+    display: none;
+  }
+}
+
 @media (max-width: 575px) {
   .tablet {
     display: none;

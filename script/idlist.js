@@ -49,6 +49,7 @@ let
             { id: 's2CE5n5W9D4', title: '偶然 - 銀霞' },
             { id: '5txyAI0kD9s', title: '偶然 - 陳秋霞' },
             { id: '-PEEXs_uQ48', title: '問 - 陳淑樺' },
+            { id: 'p4YkHQrPt2I', title: '哭砂 - 黃鶯鶯' },
             { id: 'V96YjSCNJCU', title: '走在雨中 - 齊豫' },
             { id: 'MP7j12iPb_k', title: '一串心 - 沈雁' },
             { id: 'UOaPBQM1lf0', title: '承認 - 辛曉琪' },
@@ -57,7 +58,6 @@ let
             { id: 'Gu_-6aEzxuA', title: '一生所愛 - 舒淇' },
 
             { id: 'efYrCQN0Ib0', title: '庭院深深 - 費玉清' },
-            { id: 'hTuA2Ez6fyc', title: '哭砂 - 費玉清' },
             { id: 'AjitR7RZEQU', title: '一翦梅 - 費玉清' },
             { id: 'EqBAV4i7d20', title: '傳奇 - 李健' },
             { id: 'mxLAlGWQ4pM', title: '假如愛有天意 - 李健' },

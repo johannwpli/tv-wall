@@ -348,7 +348,7 @@ const
 
   getCssPx = (e,p) => { /* get css property pixel value */
     // console.log({e})
-    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 // convert to number
+    return getComputedStyle(e).getPropertyValue(p).replace('px', '') * 1 || 0 // convert to number
   },
 
   getWidthAndHeight = () => { /* get width and height of tv and screen */
@@ -370,9 +370,9 @@ const
     // console.log({tv})
     // console.log({iframe})
 
-    bodyBorderWidth = getCssPx(body, 'border-width') * 2
-    headBorderWidth = getCssPx(head, 'border-width') * 2
-    headHeight = getCssPx(head, 'height')
+    bodyBorderWidth   = getCssPx(body, 'border-width') * 2
+    headBorderWidth   = getCssPx(head, 'border-width') * 2
+    headHeight        = getCssPx(head, 'height')
     iframeBorderWidth = getCssPx(iframe, 'border-width') * 2
 
     // console.log({bodyBorderWidth})
