@@ -145,7 +145,7 @@ const
   radioMoreShow = ['more', 'less'],
   radioMoreDefault = 'less',
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 'all'], // 24, 25, 30, to fix over 9 + 26
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 24, 25, 'all'], // 30, to fix over 9 + 26
 
   radioGridObj = {
     mobile: {
@@ -170,10 +170,16 @@ const
       default: 12
     },
 
-    xlscreen: {
-      width: 1200,
+    hd: {
+      width: 1280,
       show: 16, // i.e. 16, 20
       default: 15
+    },
+
+    fhd: {
+      width: 1920,
+      show: 24, // i.e. 24, 25
+      default: 16
     },
   },
 
@@ -344,15 +350,17 @@ const
   
       for (const i of radioGridArr) {
         const j =
-          (i >= radioGridObj.xlscreen.show)
-            ? 'xlscreen'
-            : (i >= radioGridObj.desktop.show)
-                ? 'desktop'
-                : (i >= radioGridObj.laptop.show)
-                    ? 'laptop'
-                    : (i >= radioGridObj.tablet.show)
-                        ? 'tablet'
-                        : 'mobile'
+          (i >= radioGridObj.fhd.show)
+          ? 'fhd'
+          : (i >= radioGridObj.hd.show)
+              ? 'hd'
+              : (i >= radioGridObj.desktop.show)
+                  ? 'desktop'
+                  : (i >= radioGridObj.laptop.show)
+                      ? 'laptop'
+                      : (i >= radioGridObj.tablet.show)
+                          ? 'tablet'
+                          : 'mobile'
   
         radioGrid +=
           (i !== 'all')
@@ -392,15 +400,17 @@ const
       }
       else {
         radioGridKey =
-          (window.innerWidth >= radioGridObj.xlscreen.width)
-            ? 'xlscreen'
-            : (window.innerWidth >= radioGridObj.desktop.width)
-                ? 'desktop'
-                : (window.innerWidth >= radioGridObj.laptop.width)
-                    ? 'laptop'
-                    : (window.innerWidth >= radioGridObj.tablet.width)
-                      ? 'tablet'
-                      : 'mobile'
+          (window.innerWidth >= radioGridObj.fhd.width)
+          ? 'fhd'
+          : (window.innerWidth >= radioGridObj.hd.width)
+              ? 'hd'
+              : (window.innerWidth >= radioGridObj.desktop.width)
+                  ? 'desktop'
+                  : (window.innerWidth >= radioGridObj.laptop.width)
+                      ? 'laptop'
+                      : (window.innerWidth >= radioGridObj.tablet.width)
+                        ? 'tablet'
+                        : 'mobile'
 
         radioGridKeyNext = Object.keys(radioGridObj)[Object.keys(radioGridObj).indexOf(radioGridKey) + 1]
 

@@ -153,7 +153,8 @@ option[value='hh'] {
   padding: 0 .25em;
   background: var(--bright-color);
   font-size: .8em;
-  width: .5em;
+  width: .8em;
+  text-align: center;
   color: var(--dark-color);
 }
 
@@ -512,16 +513,23 @@ option[value='hh'] {
   }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1279px) {
   .cell:not(.title) label:first-of-type,
   .lang select,
   .ctrm,
-  .xlscreen {
+  .hd {
     display: none;
   }
 }
 
-@media (min-width: 1200px) {
+@media (max-width: 1919px) {
+  .fhd {
+    display: none;
+  }
+}
+
+
+@media (min-width: 1920px) {
   .cell.more {
     display: none;
   }

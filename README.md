@@ -53,15 +53,17 @@ Breakpoints
 <pre>
  Pixel       | Device                   | Class    |  NoVA<sup>[3]</sup> | Default
 -------------+--------------------------+----------+---------+---------
-  min -  576 | Mobile devices           | mobile   | 1, 2, 3 |       3
+  min -  575 | Mobile devices           | mobile   | 1, 2, 3 |       3
 -------------+--------------------------+----------+---------+---------
-  577 -  768 | iPads, tablets           | tablet   |    4, 6 |       6
+  576 -  767 | iPads, tablets           | tablet   |    4, 6 |       6
 -------------+--------------------------+----------+---------+---------
-  769 -  992 | Small screens, laptops   | laptop   |    8, 9 |       9
+  768 -  991 | Small screens, laptops   | laptop   |    8, 9 |       9
 -------------+--------------------------+----------+---------+---------
-  993 - 1200 | Large screens, desktops  | desktop  |  12, 15 |      12
+  992 - 1279 | Large screens, desktops  | desktop  |  12, 15 |      12
 -------------+--------------------------+----------+---------+---------
- 1201 -  max | Extra large screens, TVs | xlscreen |  16, 20 |      15
+ 1280 - 1919 | Extra large screens, TVs | hd       |  16, 20 |      15
+-------------+--------------------------+----------+---------+---------
+ 1920 -  max |                          | fhd      |  24, 25 |      16
 </pre>
 
 
