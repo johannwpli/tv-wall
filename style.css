@@ -50,11 +50,7 @@ a {
 
 input[type=radio] {
   margin: 0 .125em;
-  width: .5em;
-}
-
-input[type=radio]:checked {
-  background: var(--inter-color);
+  width: .6em;
 }
 
 form>.table {
@@ -280,6 +276,16 @@ option[value='hh'] {
 .menu label:first-of-type.hh::before {
   content: 'menu';
   font-family: hunterxhunter;
+}
+
+.menu label::after {
+  /* can't set :checked::after
+  margin: 0 .25em;
+  box-shadow: 0 0 0 1px var(--darkalpha-color);
+  border-radius: .5em;
+  padding: 0 .25em;
+  background: var(--inter-color);
+  font-size: .8em; */
 }
 
   /* World */
