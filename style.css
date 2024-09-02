@@ -534,8 +534,25 @@ option[value='hh'] {
   }
 }
 
+@media (max-width: 2047px) {
+  .twok {
+    display: none;
+  }
+}
 
-@media (min-width: 1920px) {
+@media (max-width: 3839px) {
+  .fourk {
+    display: none;
+  }
+}
+
+@media (max-width: 7679px) {
+  .eightk {
+    display: none;
+  }
+}
+
+@media (min-width: 7680px) {
   .cell.more {
     display: none;
   }

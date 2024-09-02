@@ -56,6 +56,7 @@ let
             { id: 'rAXmU300DRc', title: '心動 - 林曉培' },
             { id: 'Ygr1OOh8hvI', title: '愛情 - 莫文蔚' },
             { id: 'Gu_-6aEzxuA', title: '一生所愛 - 舒淇' },
+            { id: 'bBsaUbUXf6Q', title: '想你會想我嗎 - 李之勤' },
 
             { id: 'efYrCQN0Ib0', title: '庭院深深 - 費玉清' },
             { id: 'AjitR7RZEQU', title: '一翦梅 - 費玉清' },
@@ -75,6 +76,7 @@ let
             { id: 'mzSX6fnznek', title: '閃亮的日子 - 劉文正' },
             { id: 'NA4otP-v6iI', title: '無與倫比的美麗 - 蘇打綠' },
 
+            { id: '-AJH6bDAamc', title: '冬季到台北來看雨 - 周蕙 & 楊永聰' },
             { id: 'U1_ILHivgGE', title: '流星下的願 - 張學友 & 許慧欣' },
             { id: 'n-k-_jzcp7c', title: '美麗的神話 - 孫楠 & 韓紅' },
             { id: '22b1WnBg5LA', title: '堅強的理由 - 莫文蔚 & 伍佰' },
