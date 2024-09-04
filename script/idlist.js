@@ -51,7 +51,7 @@ let
             { id: '-PEEXs_uQ48', title: '問 - 陳淑樺' },
             { id: 'p4YkHQrPt2I', title: '哭砂 - 黃鶯鶯' },
             { id: 'V96YjSCNJCU', title: '走在雨中 - 齊豫' },
-            { id: 'MP7j12iPb_k', title: '一串心 - 沈雁' },
+            // { id: 'MP7j12iPb_k', title: '一串心 - 沈雁' },
             { id: 'UOaPBQM1lf0', title: '承認 - 辛曉琪' },
             { id: 'rAXmU300DRc', title: '心動 - 林曉培' },
             { id: 'Ygr1OOh8hvI', title: '愛情 - 莫文蔚' },
@@ -86,7 +86,7 @@ let
         Taiwanese: [
             { id: '9gnqI0ygqWw', title: '青石願 - 黃鳳儀' },
             { id: 'KEBoeE0PdJM', title: '青石願 - 黃鳳儀' },
-            // { id: 'av-oi_OMM0g', title: '甘願的路 - 張涵雅' }, // officially
+            // { id: 'av-oi_OMM0g', title: '甘願的路 - 張涵雅' }, // official
             { id: 'jJ7DxPaXD24', title: '甘願的路 - 張涵雅' },
             { id: 'ttFL9UvmuFc', title: '相思聲聲 - 黃妃' },
             { id: 'O4vpXDfW9G8', title: '相思聲聲 - 黃妃' },

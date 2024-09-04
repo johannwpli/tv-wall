@@ -546,13 +546,7 @@ option[value='hh'] {
   }
 }
 
-@media (max-width: 7679px) {
-  .eightk {
-    display: none;
-  }
-}
-
-@media (min-width: 7680px) {
+@media (min-width: 3840px) {
   .cell.more {
     display: none;
   }

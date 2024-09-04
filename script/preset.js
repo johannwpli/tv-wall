@@ -145,7 +145,7 @@ const
   radioMoreShow = ['more', 'less'],
   radioMoreDefault = 'less',
 
-  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 24, 25, 30, 35, 36, 'all'], // to fix over 9 + 26
+  radioGridArr = [1, 2, 3, 4, 6, 8, 9, 12, 15, 16, 20, 24, 25, 30, 35, 'all'], // max 9 + 26
 
   radioGridObj = {
     mobile: {
@@ -192,12 +192,6 @@ const
       width: 3840,
       show: 35, // i.e. 35
       default: 24
-    },
-
-    eightk: { // 8k
-      width: 7680,
-      show: 36, // i.e. 36
-      default: 25
     },
   },
 
@@ -368,23 +362,21 @@ const
   
       for (const i of radioGridArr) {
         const j =
-          (i >= radioGridObj.eightk.show)
-          ? 'eightk'
-          : (i >= radioGridObj.fourk.show)
-            ? 'fourk'
-            : (i >= radioGridObj.twok.show)
-              ? 'twok'
-              : (i >= radioGridObj.fhd.show)
-                ? 'fhd'
-                : (i >= radioGridObj.hd.show)
-                    ? 'hd'
-                    : (i >= radioGridObj.desktop.show)
-                        ? 'desktop'
-                        : (i >= radioGridObj.laptop.show)
-                            ? 'laptop'
-                            : (i >= radioGridObj.tablet.show)
-                                ? 'tablet'
-                                : 'mobile'
+          (i >= radioGridObj.fourk.show)
+          ? 'fourk'
+          : (i >= radioGridObj.twok.show)
+            ? 'twok'
+            : (i >= radioGridObj.fhd.show)
+              ? 'fhd'
+              : (i >= radioGridObj.hd.show)
+                  ? 'hd'
+                  : (i >= radioGridObj.desktop.show)
+                      ? 'desktop'
+                      : (i >= radioGridObj.laptop.show)
+                          ? 'laptop'
+                          : (i >= radioGridObj.tablet.show)
+                              ? 'tablet'
+                              : 'mobile'
   
         radioGrid +=
           (i !== 'all')
@@ -424,23 +416,21 @@ const
       }
       else {
         radioGridKey =
-          (window.innerWidth >= radioGridObj.eightk.width)
-          ? 'eightk'
-          : (window.innerWidth >= radioGridObj.fourk.width)
-            ? 'fourk'
-            : (window.innerWidth >= radioGridObj.twok.width)
-              ? 'twok'
-              : (window.innerWidth >= radioGridObj.fhd.width)
-                ? 'fhd'
-                : (window.innerWidth >= radioGridObj.hd.width)
-                    ? 'hd'
-                    : (window.innerWidth >= radioGridObj.desktop.width)
-                        ? 'desktop'
-                        : (window.innerWidth >= radioGridObj.laptop.width)
-                            ? 'laptop'
-                            : (window.innerWidth >= radioGridObj.tablet.width)
-                              ? 'tablet'
-                              : 'mobile'
+          (window.innerWidth >= radioGridObj.fourk.width)
+          ? 'fourk'
+          : (window.innerWidth >= radioGridObj.twok.width)
+            ? 'twok'
+            : (window.innerWidth >= radioGridObj.fhd.width)
+              ? 'fhd'
+              : (window.innerWidth >= radioGridObj.hd.width)
+                  ? 'hd'
+                  : (window.innerWidth >= radioGridObj.desktop.width)
+                      ? 'desktop'
+                      : (window.innerWidth >= radioGridObj.laptop.width)
+                          ? 'laptop'
+                          : (window.innerWidth >= radioGridObj.tablet.width)
+                            ? 'tablet'
+                            : 'mobile'
 
         radioGridKeyNext = Object.keys(radioGridObj)[Object.keys(radioGridObj).indexOf(radioGridKey) + 1]
 
