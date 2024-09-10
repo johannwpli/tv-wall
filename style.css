@@ -57,7 +57,6 @@ input[type=radio] {
 #head {
   color: var(--dark-color);
   background: var(--bright-color);
-  border: var(--border-width) solid transparent;
 }
 
 #body {
@@ -101,6 +100,7 @@ input[type=radio] {
 
 .table {
   display: table;
+  border: var(--border-width) solid transparent;
   width: calc(100% - var(--border-width) * 2);
 }
 
