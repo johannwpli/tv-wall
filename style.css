@@ -1,4 +1,5 @@
 :root {
+  --font-size: 15px;
   --border-width: .5em;
   --title-color: #ff8a00;
   --bright-color: #fff;
@@ -53,10 +54,6 @@ input[type=radio] {
   width: .6em;
 }
 
-form>.table {
-  border: var(--border-width) solid transparent;
-}
-
 #head {
   color: var(--dark-color);
   background: var(--bright-color);
@@ -103,6 +100,7 @@ form>.table {
 
 .table {
   display: table;
+  border: var(--border-width) solid transparent;
   width: calc(100% - var(--border-width) * 2);
 }
 
@@ -133,6 +131,14 @@ form>.table {
   text-align: left;
   width: 0;
   white-space: nowrap;
+}
+
+.grid {
+  text-align: right;
+}
+
+.more {
+  text-align: left;
 }
 
 option[value='hh'] {
@@ -503,10 +509,6 @@ option[value='hh'] {
 }
 
 @media (max-width: 767px) {
-  .grid {
-    text-align: right;
-  }
-
   .thtr,
   .laptop {
     display: none;
