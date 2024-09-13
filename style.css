@@ -1,5 +1,5 @@
 :root {
-  --font-size: 15px;
+  --font-size: 1em;
   --border-width: .5em;
   --title-color: #ff8a00;
   --bright-color: #fff;
@@ -284,15 +284,16 @@ option[value='hh'] {
   font-family: hunterxhunter;
 }
 
+/* deprecated cause can't set :checked::after
 .menu label::after {
-  /* can't set :checked::after
   margin: 0 .25em;
   box-shadow: 0 0 0 1px var(--darkalpha-color);
   border-radius: .5em;
   padding: 0 .25em;
   background: var(--inter-color);
-  font-size: .8em; */
+  font-size: .8em;
 }
+*/
 
   /* World */
 
