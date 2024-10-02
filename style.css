@@ -59,6 +59,13 @@ input[type=radio] {
   background: var(--bright-color);
 }
 
+#head.min {
+  position: absolute;
+  bottom: 0;
+  width: auto;
+  border-radius: 1.25em;
+}
+
 #body {
   color: var(--bright-color);
   background: var(--dark-color);

@@ -381,7 +381,7 @@ const
     // console.log({iframeBorderWidth})
 
     widthDiff = bodyBorderWidth
-    heightDiff = bodyBorderWidth + headBorderWidth + headHeight
+    heightDiff = head.classList.contains('min') ? bodyBorderWidth : bodyBorderWidth + headBorderWidth + headHeight
 
     // console.log({widthDiff})
     // console.log({heightDiff})
