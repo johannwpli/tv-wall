@@ -45,6 +45,10 @@ let
 const
 
   handle = {
+    head: {
+      toggle: () => head.classList.toggle('min')
+    },
+
     chatRoom: {
       on: () => {
         // console.log(chatRoom)

@@ -128,7 +128,7 @@ const
   hour = (new Date).getHours(),
   cellTitle =
     `<label>
-      <a onclick="document.querySelector('#head').classList.toggle('min')" title="${siteSign}" alt="${siteSign}">${siteSign}</a><a
+      <a onclick='handle.head.toggle()' title="${siteSign}" alt="${siteSign}">${siteSign}</a><a
         href="${siteUrl}" title="${siteTitle}" alt="${siteSld}">${siteSld}</a><a
         href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
     </label>

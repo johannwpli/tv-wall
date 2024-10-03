@@ -61,9 +61,15 @@ input[type=radio] {
 
 #head.min {
   position: absolute;
-  bottom: 0;
+  bottom: .25em;
+  left: .25em;
   width: auto;
   border-radius: 1.25em;
+}
+
+#head.min #moreInfo,
+#head.min .lang {
+  display: none;
 }
 
 #body {
