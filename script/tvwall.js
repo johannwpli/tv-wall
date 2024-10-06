@@ -621,7 +621,7 @@ const
                 `<div
                   id='${tvAttrName}'
                   class='tvNumber'
-                  title='click to toggle theater mode'
+                  title='${title.tvNumber}'
                   onclick="handle.thtrSelect.toggle('${tvAttrName}')"
                   >${tvAttrName}</div>
                 <iframe
@@ -632,7 +632,8 @@ const
 
               e.insertAdjacentHTML('beforeEnd', tvHtml)
 
-              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`)) // doesn't work
+              // doesn't work
+              // document.querySelector(`div[name='${_temp}']`).addEventListener('click', handle.thtrSelect.toggle(`${_temp}`))
             }
           }
         )

@@ -69,6 +69,7 @@ input[type=radio] {
 }
 
 #head.min #moreInfo,
+#head.min .ctrm,
 #head.min .lang {
   display: none;
 }

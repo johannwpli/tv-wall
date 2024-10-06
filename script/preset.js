@@ -126,9 +126,15 @@ const
   headPartArr = ['title', 'ctrm', 'menu', 'grid', 'more', 'lang', 'thtr'],
 
   hour = (new Date).getHours(),
+
+  title = {
+    cellHead: 'click to toggle minimal mode',
+    tvNumber: 'click to toggle theater mode'
+  },
+
   cellTitle =
     `<label>
-      <a onclick='handle.head.toggle()' title="${siteSign}" alt="${siteSign}">${siteSign}</a><a
+      <a onclick='handle.head.toggle()' title="${title.cellHead}" alt="${siteSign}">${siteSign}</a><a
         href="${siteUrl}" title="${siteTitle}" alt="${siteSld}">${siteSld}</a><a
         href="${siteGithub}" title="copyright &copy; ${siteAuthor}" alt="&copy; ${siteAuthor}">.${siteTld}</a>
     </label>
