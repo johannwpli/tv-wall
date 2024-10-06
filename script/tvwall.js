@@ -46,7 +46,45 @@ const
 
   handle = {
     head: {
-      toggle: () => head.classList.toggle('min')
+      toggle: () => {
+        head.classList.toggle('min')
+        // handle.head.draggable()
+      },
+
+      draggable: () => {
+        const draggableElement = document.querySelector('.min')
+        
+        let offsetX = 0, offsetY = 0, mouseX = 0, mouseY = 0
+        
+        const dragStart = (e) => {
+          e.preventDefault()
+
+          mouseX = e.clientX
+          mouseY = e.clientY
+
+          document.addEventListener('mousemove', dragElement)
+          document.addEventListener('mouseup', stopDrag)
+        }
+        
+        const dragElement = (e) => {
+          offsetX = mouseX - e.clientX
+          offsetY = mouseY - e.clientY
+
+          mouseX = e.clientX
+          mouseY = e.clientY
+          
+          draggableElement.style.top = `${draggableElement.offsetTop - offsetY}px`
+          draggableElement.style.left = `${draggableElement.offsetLeft - offsetX}px`
+        }
+        
+        const stopDrag = () => {
+          document.removeEventListener('mousemove', dragElement)
+          document.removeEventListener('mouseup', stopDrag)
+        }
+        
+        draggableElement.addEventListener('mousedown', dragStart)
+      }
+
     },
 
     chatRoom: {
@@ -385,7 +423,9 @@ const
     // console.log({iframeBorderWidth})
 
     widthDiff = bodyBorderWidth
-    heightDiff = head.classList.contains('min') ? bodyBorderWidth : bodyBorderWidth + headBorderWidth + headHeight
+    heightDiff = bodyBorderWidth + headBorderWidth + headHeight
+    // maximize screen, to fix
+    // heightDiff = head.classList.contains('min') ? bodyBorderWidth : bodyBorderWidth + headBorderWidth + headHeight
 
     // console.log({widthDiff})
     // console.log({heightDiff})

@@ -65,6 +65,7 @@ input[type=radio] {
   left: .25em;
   width: auto;
   border-radius: 1.25em;
+  /* cursor: move; */
 }
 
 #head.min #moreInfo,
