@@ -126,6 +126,7 @@ let
             { id: 'rbfHY8mkhT8', title: '神聖かまってちゃん - 夕暮れの鳥' },
             { id: 'sUW4dDWiz-A', title: '神聖かまってちゃん - 夕暮れの鳥' },
             { id: 'ZRtdQ81jPUQ', title: 'YOASOBI - アイドル' },
+            { id: 'SccHbM10-9w', title: 'YOASOBI - アイドル (NHK红白歌会)' },
             { id: '32b1bIz-hJE', title: 'L\'Arc～en～Ciel - Pieces' },
             { id: 'pAse1VuvcOE', title: '一生所愛 - 盧冠廷' },
             { id: '3ql6lSe1E-M', title: 'Acha Septriasa & Irwansyah - My Heart' },
