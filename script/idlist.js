@@ -23,7 +23,7 @@ let
         ],
 
         Taiwan: [
-            { id: 'oIgbl7t0S_w', title: 'CTI 中天', channel: 'https://www.youtube.com/c/ctitv' },
+            { id: 'vr3XyVCR4T0', title: 'CTI 中天', channel: 'https://www.youtube.com/c/ctitv' },
             { id: 'wM0g8EoUZ_E', title: 'CTS 華視', channel: 'https://www.youtube.com/c/CtsTw' },
             { id: 'TCnaIE_SAtM', title: 'CTV 中視', channel: 'https://www.youtube.com/c/twctvnews' },
             { id: 'V1p33hqPrUk', title: 'EBC 東森', channel: 'https://www.youtube.com/newsebc' },
@@ -125,8 +125,8 @@ let
             { id: 'Rq8_WqE67SE', title: '神聖かまってちゃん - 裏切り者のレクイエム' },
             { id: 'rbfHY8mkhT8', title: '神聖かまってちゃん - 夕暮れの鳥' },
             { id: 'sUW4dDWiz-A', title: '神聖かまってちゃん - 夕暮れの鳥' },
+            { id: '4ZQwkLYKotw', title: 'Kalafina - to the beginning' },
             { id: 'ZRtdQ81jPUQ', title: 'YOASOBI - アイドル' },
-            { id: 'SccHbM10-9w', title: 'YOASOBI - アイドル (NHK红白歌会)' },
             { id: '32b1bIz-hJE', title: 'L\'Arc～en～Ciel - Pieces' },
             { id: 'pAse1VuvcOE', title: '一生所愛 - 盧冠廷' },
             { id: '3ql6lSe1E-M', title: 'Acha Septriasa & Irwansyah - My Heart' },
