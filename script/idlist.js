@@ -8,10 +8,10 @@ let
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
             { id: '-mvUkiILTqI', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
-            { id: 'tZT2MCYu6Zw', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
+            { id: 'LuKwFajn37U', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
             { id: 'Ap-UM1O9RBU', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
-            { id: '8WX6YL9JnLw', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
+            { id: 'QliL4CGc7iY', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
             // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
