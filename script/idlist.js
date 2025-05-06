@@ -6,7 +6,7 @@ let
         World: [
             { id: 'gCNeDWCI0vo', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
-            { id: '-mvUkiILTqI', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
+            { id: 'cSLvzYYbQ28', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'LuKwFajn37U', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
@@ -31,7 +31,7 @@ let
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
             { id: '6IquAgfvYmc', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
             { id: 'w87VGpgd90U', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
-            { id: 'WTRQiVWK1jY', title: 'Global News 寰宇', channel: 'https://www.youtube.com/@globlemoney' },
+            { id: 'ZjUbipAlUlc', title: 'Global News 寰宇', channel: 'https://www.youtube.com/@globalmoneytv' },
             { id: 'pF507BLtbqU', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             // { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
