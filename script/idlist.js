@@ -6,7 +6,7 @@ let
         World: [
             { id: 'gCNeDWCI0vo', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
-            { id: 'cSLvzYYbQ28', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
+            { id: 'iipR5yUp36o', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
             { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'LuKwFajn37U', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
@@ -18,7 +18,7 @@ let
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: 'YDvsBbKfLPA', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: 'gvV_mJsKLWQ', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
-            { id: '5VF4aor94gw', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
+            { id: 'mC3VCDcrLdc', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'gadjsB5BkK4', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
