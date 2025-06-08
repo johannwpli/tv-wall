@@ -17,8 +17,8 @@ let
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: 'YDvsBbKfLPA', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
-            { id: 'gvV_mJsKLWQ', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
-            { id: 'bYOuIOU5-Q4', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
+            { id: 'XH5SyDW29ys', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
+            { id: 'df6HnzD3BUs', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'gadjsB5BkK4', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
