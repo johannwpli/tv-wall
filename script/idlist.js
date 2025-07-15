@@ -69,6 +69,7 @@ let
             { id: 'UehlbisT5Gs', title: '如果不是因為你 - 林志炫' },
             { id: 'DLQvYu1jwm0', title: '鱷魚的眼淚 - 林志炫' },
             { id: '4QmDKohzQdc', title: '夢田農夫 - 熊天平' },
+            { id: 'oajW2YO8AFk', title: '張學友 - 如果這都不算愛' },
             { id: 'N6GEbV1YZFA', title: '瘐澄慶 - 自在' },
             { id: 'T6iW90bI-RM', title: '蝴蝶來過這世界 - 梁漢文' },
             { id: '0ivNMQauscc', title: '放生 - 范逸臣' },
