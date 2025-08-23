@@ -13,12 +13,12 @@ let
             { id: 'Ap-UM1O9RBU', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
             { id: 'QliL4CGc7iY', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
-            // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' },
+            // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' }, // alternative of WION
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: 'YDvsBbKfLPA', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: 'XH5SyDW29ys', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
-            { id: 'a_z_QYXr_Vw', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
+            { id: 'KK3bo6v7x8U', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'rSUjuIM71a8', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
