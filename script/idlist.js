@@ -31,7 +31,7 @@ let
             { id: 'ylYJSBUgaMA', title: 'FTV 民視', channel: 'https://www.youtube.com/c/FTVLIVE' },
             { id: '6IquAgfvYmc', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
             { id: 'w87VGpgd90U', title: 'Global News 寰宇', channel: 'https://www.youtube.com/c/%E5%AF%B0%E5%AE%87%E6%96%B0%E8%81%9E%E9%A0%BB%E9%81%93' },
-            { id: '7G62ua4RruQ', title: 'Global News 寰宇', channel: 'https://www.youtube.com/@globalmoneytv' },
+            { id: 'eWj66MbDx1U', title: 'Global News 寰宇', channel: 'https://www.youtube.com/@globalmoneytv' },
             { id: 'pF507BLtbqU', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             // { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
