@@ -18,7 +18,7 @@ let
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
             { id: 'YDvsBbKfLPA', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
             { id: 'Vrs-AeKZIEg', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
-            { id: 'ABfFhWzWs0s', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
+            { id: '1VUhRQpz_9o', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'rSUjuIM71a8', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
@@ -143,6 +143,9 @@ let
         ],
 
         欣學堂: [
+            { id: 'cWIFiGGcgxI' },
+            { id: 'JiYF1ls2uNE' },
+            { id: 'h_GkEYmzlVA' },
             { id: '9oNS8FLHGWE' },
             { id: 'Cx8QCN5fGOg' },
             { id: 'fHo4cmOembI' },
