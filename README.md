@@ -33,7 +33,7 @@ Instructions
 ---
 `COMPATIBILITY` Supports multiple browsers and devices, including mobiles, tablets, laptops, desktops, and TVs.
 
-`HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://wewatch.cc/?m=IU, to show IU videos.
+`HIDDEN MENUS` Use 'm' as the menu param to show hidden menus, e.g., http://wewatch.cc/?m=Exotic, to show playlist Exotic.
 
 `CUSTOM IDS` Use 'i' as the id param to customize your video list, e.g., http://wewatch.cc/?i=kJQP7kiw5Fk,JGwWNGJdvx8, to build your video list with YouTube video IDs separated by a comma.
 
