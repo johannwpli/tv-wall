@@ -34,11 +34,11 @@ let
             { id: 'yAUQQ0DhPxI', title: 'Global News 寰宇', channel: 'https://www.youtube.com/@globalmoneytv' },
             { id: 'pF507BLtbqU', title: 'iNEWS 三立', channel: 'https://www.youtube.com/c/setmoney159' },
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
-            // { id: 'WIhgU_mc05A', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
+            // { id: 'Bhp_V7H5QoY', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
             { id: 'C6gYqSHLRw4', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
             { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' },
             { id: '6KlRR_DGhmI', title: 'PTS 公視', channel: 'https://www.youtube.com/@ptstaigitai' },
-            // { id: 'xL0ch83RAK8', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
+            // { id: 'sNtCBxP-8LY', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
             { id: 'm_dhMSvUCIc', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' },
         ],
 
@@ -57,6 +57,8 @@ let
             { id: 'Ygr1OOh8hvI', title: '愛情 - 莫文蔚' },
             { id: 'Gu_-6aEzxuA', title: '一生所愛 - 舒淇' },
             { id: 'bBsaUbUXf6Q', title: '想你會想我嗎 - 李之勤' },
+            { id: '-AekGvi0kLA', title: '如願 - 王菲' },
+            { id: 'qdWouQa-I8g', title: '在故事的最終 - 張碧晨' },
 
             { id: 'efYrCQN0Ib0', title: '庭院深深 - 費玉清' },
             { id: 'AjitR7RZEQU', title: '一翦梅 - 費玉清' },
@@ -104,19 +106,19 @@ let
             { id: 'dOjt0L5KI8U', title: '愛你的代價 - 方瑞娥 & 高向鵬' },
         ],
 
-        IU: [
-            { id: 'aERrdOMxXmQ', title: 'Last Fantasy' },
-            { id: 'XdPX3f58UwE', title: 'My old story' },
-            { id: 'QMLHUVL4boE', title: 'You and I' },
-            { id: 'cwsZWrYDY9A', title: 'Twenty-three 二十三' },
-            { id: 'cJcF5V1_Kck', title: 'FRIDAY Feat. 張利貞 Of History' },
-            { id: '_BR8-Qp4j5M', title: 'Through the Night 夜信' },
-            { id: 'yUKP0Rht2o4', title: 'Good Day 好日子' },
-            { id: 'v3-zV6wrbDU', title: 'Palette feat. G-DRAGON' },
-            { id: 'emJoiIMqB58', title: '只有我不知道的事' },
-            { id: 'lPffVN5lR6U', title: 'Every End of The Day 一天的盡頭' },
-            { id: 'NPXVXh4HIQE', title: 'Ending Scene 這樣的Ending' },
-        ],
+        // IU: [
+        //     { id: 'aERrdOMxXmQ', title: 'Last Fantasy' },
+        //     { id: 'XdPX3f58UwE', title: 'My old story' },
+        //     { id: 'QMLHUVL4boE', title: 'You and I' },
+        //     { id: 'cwsZWrYDY9A', title: 'Twenty-three 二十三' },
+        //     { id: 'cJcF5V1_Kck', title: 'FRIDAY Feat. 張利貞 Of History' },
+        //     { id: '_BR8-Qp4j5M', title: 'Through the Night 夜信' },
+        //     { id: 'yUKP0Rht2o4', title: 'Good Day 好日子' },
+        //     { id: 'v3-zV6wrbDU', title: 'Palette feat. G-DRAGON' },
+        //     { id: 'emJoiIMqB58', title: '只有我不知道的事' },
+        //     { id: 'lPffVN5lR6U', title: 'Every End of The Day 一天的盡頭' },
+        //     { id: 'NPXVXh4HIQE', title: 'Ending Scene 這樣的Ending' },
+        // ],
 
         Exotic: [
             { id: 'NJR8Inf77Ac', title: 'IU - YOU&I (Performance ver.)' },
