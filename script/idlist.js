@@ -7,18 +7,18 @@ let
             { id: 'gCNeDWCI0vo', title: 'Al Jazeera, Qatar', channel: 'https://www.youtube.com/c/aljazeeraenglish' },
             { id: 'vOTiJkg1voo', title: 'ABC News, Australia', channel: 'https://www.youtube.com/c/NewsOnABC' },
             { id: 'iipR5yUp36o', title: 'ABC News, United States', channel: 'https://www.youtube.com/@ABCNews' },
-            { id: 'XWq5kBlakcQ', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
+            { id: '-PWMxjBgr0k', title: 'CNA, Singapore', channel: 'https://www.youtube.com/user/channelnewsasia' },
             { id: 'LuKwFajn37U', title: 'DW, Germany', channel: 'https://www.youtube.com/c/dwnews' },
             { id: 'pykpO5kQJ98', title: 'euronews, Portugal', channel: 'https://www.youtube.com/EuronewsUSA' },
-            { id: 'Ap-UM1O9RBU', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
-            { id: 'QliL4CGc7iY', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
+            { id: 'HvZt-nh9sGg', title: 'FRANCE 24, France', channel: 'https://www.youtube.com/c/FRANCE24English' },
+            { id: 'EDbWwVR7i9Q', title: 'GB News, United Kingdom', channel: 'https://www.youtube.com/c/GBNewsOnline' },
             // { id: 'lyeyoqwXm5o', title: 'India Today, India', channel: 'https://www.youtube.com/c/indiatoday' }, // alternative of NDTV
-            // { id: 'RQrLqUxw0U0', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' }, // alternative of WION
+            { id: 'CQSJGYd6myg', title: 'NDTV, India', channel: 'https://www.youtube.com/c/NDTV' }, // alternative of WION
             // { id: 'f0lYkdA-Gtw', title: 'NHK, Japan', channel: 'https://www.youtube.com/c/NHKWORLDJAPAN' }, // uniframeable
             // { id: 'V0I5eglJMRI', title: 'RT, Russia', channel: '' }, // blocked by YouTube, https://twitter.com/googleeurope/status/1498572529409179648
-            { id: 'YDvsBbKfLPA', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
-            { id: 'Vrs-AeKZIEg', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' },
-            { id: '0T3jv70ypu4', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
+            { id: 'umLWFz4izTM', title: 'Sky News, United Kingdom', channel: 'https://www.youtube.com/c/SkyNews' },
+            // { id: 'Vrs-AeKZIEg', title: 'TaiwanPlus, Taiwan', channel: 'https://www.youtube.com/@TaiwanPlusLive' }, // closed?
+            { id: 'qBe59l6p_EU', title: 'TRT, Turkey', channel: 'https://www.youtube.com/c/trtworld' },
             { id: 'rSUjuIM71a8', title: 'WION, India', channel: 'https://www.youtube.com/c/WION' },
         ],
 
@@ -36,7 +36,7 @@ let
             { id: '5n0y6b0Q25o', title: 'mnews 鏡視', channel: 'https://www.youtube.com/channel/UC4LjkybVKXCDlneVXlKAbmw' },
             // { id: 'Bhp_V7H5QoY', title: 'NTDAPTV 亞太', channel: 'https://www.youtube.com/@NTDAPTV' },
             { id: 'C6gYqSHLRw4', title: 'PTS 公視', channel: 'https://www.youtube.com/c/ptslivestream' },
-            { id: 'quwqlazU-c8', title: 'PTS 公視', channel: 'https://www.youtube.com/c/PNNPTS' },
+            { id: 'hg4nYb3jE9A', title: 'PTS 公視', channel: 'https://www.youtube.com/@PNNPTS/' },
             { id: '6KlRR_DGhmI', title: 'PTS 公視', channel: 'https://www.youtube.com/@ptstaigitai' },
             // { id: 'sNtCBxP-8LY', title: 'TTV 台視', channel: 'https://www.youtube.com/@TTV_NEWS' }, // uniframeable
             { id: 'm_dhMSvUCIc', title: 'TVBS', channel: 'https://www.youtube.com/@TVBSNEWS01' },
